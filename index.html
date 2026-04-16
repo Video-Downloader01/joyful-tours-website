@@ -44,6 +44,9 @@
     <div class="container">
       <h2>Popular Destinations</h2>
       <div class="grid">
+        <a href="javascript:void(0)" onclick="showSection('itinerarySection');document.getElementById('itinerary-kashmir').scrollIntoView({behavior:'smooth'})" class="card dest" style="text-decoration:none;color:white;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop') center/cover;min-height:160px;display:flex;align-items:end">Kashmir</a>
+        <a href="javascript:void(0)" onclick="showSection('itinerarySection')" class="card dest" style="text-decoration:none;color:white;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop') center/cover;min-height:160px;display:flex;align-items:end">Darjeeling</a>
+        <a href="javascript:void(0)" onclick="showSection('itinerarySection')" class="card dest" style="text-decoration:none;color:white;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop') center/cover;min-height:160px;display:flex;align-items:end">Kurukshetra</a>
         <a href="#itinerary-kashmir" class="card dest" style="text-decoration:none;color:inherit;background:url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop') center/cover">Kashmir</a>
         <a href="#itinerary-darjeeling" class="card dest" style="text-decoration:none;color:inherit">Darjeeling</a>
         <a href="#itinerary-kurukshetra" class="card dest" style="text-decoration:none;color:inherit">Kurukshetra</a>
@@ -150,8 +153,8 @@
 <div class="container">
   <h2>Premium Combo Expeditions 2026</h2>
   <div class="grid">
-    <div class="card"><h3>Rishikesh + Mussoorie Camp</h3><p>3N/4D leadership and adventure school camp with rafting, Ganga Aarti, Mussoorie stay and George Everest trek.</p><p class="price">₹9,999 / student</p></div>
-    <div class="card"><h3>Corbett + Nainital</h3><p>Wildlife safari, lake boating, ropeway and eco cave learning experience.</p><p class="price">₹11,999 / student</p></div>
+    <div class="card" style="color:white;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop') center/cover"><h3>Rishikesh + Mussoorie Camp</h3><a class="btn btn-light" href="javascript:void(0)" onclick="showSection('itinerarySection')">View</a><p>3N/4D leadership and adventure school camp with rafting, Ganga Aarti, Mussoorie stay and George Everest trek.</p><p class="price">₹9,999 / student</p></div>
+    <div class="card" style="color:white;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop') center/cover"><h3>Corbett + Nainital</h3><a class="btn btn-light" href="javascript:void(0)" onclick="showSection('itinerarySection')">View</a><p>Wildlife safari, lake boating, ropeway and eco cave learning experience.</p><p class="price">₹11,999 / student</p></div>
     <div class="card"><h3>Jaipur + Ranthambore</h3><p>Royal heritage plus tiger safari educational expedition.</p><p class="price">₹12,999 / student</p></div>
     <div class="card"><h3>Amritsar + Dalhousie</h3><p>Golden Temple, Wagah, Khajjiar and Dalhousie combo pride trip.</p><p class="price">₹10,999 / student</p></div>
     <div class="card"><h3>Grand Spiti + Ladakh + Kashmir</h3><p>15-day trans-Himalayan mega expedition with Pangong, Nubra and Srinagar descent.</p><p class="price">₹44,999 / person</p></div>
@@ -183,7 +186,7 @@
           <input placeholder="Preferred Destination" />
           <input placeholder="Days (1D / 3D / 5D)" />
           <input id="selectorBudget" placeholder="Budget Per Person / Total Group Budget" /><small>Example: ₹2100 per student or ₹50,000 total group</small>
-          <a class="btn btn-primary" href="#booking">Get Recommended Plan</a>
+          <a class="btn btn-primary" href="javascript:void(0)" onclick="recommendPlan()">Get Recommended Plan</a><div id="recommendationBox" class="card" style="margin-top:12px;display:none"></div>
         </div>
         <div class="card">
           <h3>Recommended Bestseller</h3>
@@ -254,7 +257,7 @@
     </div>
   </section>  <div class="footer">© 2026 Joyful Tours And Adventures • Your trusted India travel partner</div><a class="wa" href="https://wa.me/919729561534" target="_blank">WhatsApp Us</a>
 
-  <section class="section" style="background:#eef2ff">
+  <section class="section content-section" id="itinerarySection" style="background:#eef2ff">
     <div class="container">
       <h2>Professional Destination Itineraries + PDF Downloads</h2>
       <div id="itinerary-kashmir" class="card"><h3>Kashmir 4N/5D</h3><p>Day 1 Srinagar arrival, Dal Lake shikara. Day 2 Gulmarg gondola. Day 3 Sonmarg. Day 4 Pahalgam. Day 5 departure.</p><a class="btn btn-primary" href="docs/kashmir-family-tour.pdf" download>Download PDF</a></div>
@@ -278,6 +281,7 @@ Sent from website form');window.open('https://wa.me/919729561534?text='+text,'_b
 function sendBooking(){const text=encodeURIComponent('Booking Details:
 '+document.getElementById('bookingDetails').value+'
 Sent from website booking form');window.open('https://wa.me/919729561534?text='+text,'_blank');}
+function recommendPlan(){const type=(document.querySelector('#selector input')?.value||'').toLowerCase();const budget=(document.getElementById('selectorBudget')?.value||'').toLowerCase();const box=document.getElementById('recommendationBox');let rec='Recommended: Kashmir 4N/5D Premium Escape';if(type.includes('school')) rec='Recommended: Rishikesh + Mussoorie Leadership Camp'; if(budget.includes('2100')) rec='Recommended: Kurukshetra 1 Day Educational Trip'; box.style.display='block'; box.innerHTML='<h3>'+rec+'</h3><p>Best matched to your trip type and budget. Open Booking tab to confirm instantly on WhatsApp.</p><a class="btn btn-primary" href="javascript:void(0)" onclick="showSection(\'booking\')">Continue Booking</a>';}
 </script>
 </body>
 </html>
