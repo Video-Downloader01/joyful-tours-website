@@ -7,8 +7,6 @@
   <title>Joyful Tours And Adventures | Premium Educational Trips</title>
   <meta name="description" content="Premium school, college and family trips across India. Best educational tour organizers in Haryana. Spiti, Ladakh, Manali, and more.">
   <meta name="keywords" content="School Trips, Educational Tours, Joyful Tours, Sirsa travel agency, Spiti Expedition, School camp">
-  <meta property="og:title" content="Joyful Tours And Adventures">
-  <meta property="og:description" content="Creating Memories, Building Leaders with premium educational trips.">
   
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
@@ -36,10 +34,12 @@
     .btn.primary { background: var(--gold); color: white; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
     .btn.primary:hover { background: var(--gold-hover); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6); }
 
-    /* Cinematic Video Hero Section */
+    /* Animated Hero Background (Fixed & Pro Level) */
     .hero { min-height: 90vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
-    .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.6; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover; animation: cinematicZoom 25s infinite alternate linear; }
+    @keyframes cinematicZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
     .hero-content { position: relative; z-index: 1; width: 100%; }
+
     .hero h1 { font-size: 52px; margin: 0 0 12px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.4); line-height: 1.2; }
     .hero h2 { color: white; font-size: 24px; margin-bottom: 24px;}
 
@@ -75,12 +75,12 @@
     .floating-wa:hover { transform: scale(1.1); }
     .floating-wa img { width: 35px; height: 35px; }
 
-    /* Live Notification CSS */
+    /* Live Notification */
     .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 12px 16px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 1000; transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); font-size: 13px; color: var(--navy); display: flex; align-items: center; gap: 10px; font-weight: 600; max-width: 280px; }
     .live-notif.show { left: 24px; }
     .notif-icon { background: #e0f2fe; color: #0284c7; padding: 6px; border-radius: 50%; font-size: 16px; }
 
-    /* Gallery Auto-Scroll (Marquee) */
+    /* Gallery Auto-Scroll */
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 20px 0; position: relative; background: #fff7ed; }
     .marquee-track { display: inline-block; animation: scrollMarquee 25s linear infinite; }
     .marquee-track img { height: 300px; width: auto; border-radius: 12px; margin-right: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: inline-block; object-fit: cover; }
@@ -128,10 +128,7 @@
   </div>
 
   <section id="home" class="hero">
-    <video autoplay loop muted playsinline class="video-bg">
-      <source src="https://cdn.pixabay.com/video/2019/11/24/29538-376510461_large.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="hero-bg"></div>
     
     <div class="container hero-content">
       <h1>Joyful Tours And Adventures</h1>
@@ -266,6 +263,7 @@
         <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
         <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
         <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
+        
         <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
         <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
         <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
@@ -360,7 +358,7 @@
         </div>
         
         <div style="border-radius: 12px; overflow: hidden; max-width: 300px; width:100%; border: 2px solid rgba(255,255,255,0.1);">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111246.33596859344!2d74.96024953923366!3d29.53177699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114d59f2a08f5d%3A0xc62da24a877de2e3!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://maps.google.com/maps?q=Sirsa,Haryana&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       
@@ -413,7 +411,7 @@
     }
     startTimer();
 
-    // Itinerary Database with all genuine PDF links
+    // Itinerary Database
     const itineraryData = {
       'Amarnath': {
         title: 'Amarnath Holy Yatra',
