@@ -145,6 +145,73 @@
       outline: none;
       border-color: var(--gold);
     }
+        /* Premium Modal/Popup Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 32px;
+      border-radius: 24px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: var(--light-bg);
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--navy);
+      display: flex; justify-content: center; align-items: center;
+      transition: all 0.2s;
+    }
+    
+    .close-btn:hover { background: #e2e8f0; }
+
+    .modal-body p {
+      line-height: 1.8;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+    }
+
+    .modal-actions {
+      display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;
+    }
+
   </style>
 </head>
 
@@ -167,40 +234,47 @@
       </p>
       <a class="btn primary" href="#packages">View Packages</a>
     </div>
-  </section>  <section id="packages" class="section">
+  </section>    <section id="packages" class="section">
     <div class="container">
-      <h2>Popular Destinations</h2>
+      <h2>Exclusive Destinations</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop')">Kashmir <a class="btn primary" href="#itinerary">View Itinerary</a></div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop')">Darjeeling <a class="btn primary" href="#itinerary">View Itinerary</a></div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1200&auto=format&fit=crop')">Jaipur <a class="btn primary" href="#itinerary">View Itinerary</a></div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop')">Goa <a class="btn primary" href="#itinerary">View Itinerary</a></div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop')">
+          Kashmir
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Kashmir')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop')">
+          Darjeeling
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Darjeeling')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1581793746485-04698e79a4e8?q=80&w=1200&auto=format&fit=crop')">
+          Ladakh
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Ladakh')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1626509647209-41712a2a0750?q=80&w=1200&auto=format&fit=crop')">
+          Spiti Valley
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Spiti')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?q=80&w=1200&auto=format&fit=crop')">
+          Kurukshetra (School)
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Kurukshetra')">View Itinerary</button>
+        </div>
       </div>
     </div>
-  </section>  <section id="expeditions" class="section" style="background:#eef2ff">
-    <div class="container">
-      <h2>Premium Combo Expeditions</h2>
-      <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop')">Rishikesh + Mussoorie</div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop')">Corbett + Nainital</div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop')">Jaipur + Ranthambore</div>
+  </section>
+
+  <div id="itineraryModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      <h2 id="modalTitle" style="margin-top:0;">Title</h2>
+      <div id="modalBody" class="modal-body" style="margin-top:16px;">
+        </div>
+      <div class="modal-actions">
+        <a id="pdfBtn" class="btn primary" href="#">📄 Download PDF</a>
+        <a id="slidesBtn" class="btn" style="border: 2px solid var(--navy);" href="#">🖼️ View Slides</a>
       </div>
     </div>
-  </section>  <section id="itinerary" class="section">
-    <div class="container">
-      <h2>Professional Itineraries + PDF</h2>
-      <div class="card">
-        <h3>Kashmir 4N/5D</h3>
-        <p>Day 1 Srinagar • Day 2 Gulmarg • Day 3 Sonmarg • Day 4 Pahalgam • Day 5 Departure</p>
-        <a class="btn primary" href="#">Download PDF</a>
-      </div>
-      <div class="card" style="margin-top:16px">
-        <h3>Kurukshetra 1 Day School Trip</h3>
-        <p>Brahma Sarovar • Jyotisar • Panorama • Historical learning • Adventure stop</p>
-        <a class="btn primary" href="#">Download PDF</a>
-      </div>
-    </div>
-  </section>  <section id="gallery" class="section" style="background:#fff7ed">
+  </div>
+  <section id="gallery" class="section" style="background:#fff7ed">
     <div class="container">
       <h2>Gallery + Instagram</h2>
       <div class="grid">
