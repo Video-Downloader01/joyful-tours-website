@@ -350,6 +350,55 @@ function recommendPlan(){
   box.style.display='block';
   box.innerHTML='<h3>'+rec+'</h3><p>Best matched to your trip type and budget.</p><a class="btn btn-primary" href="javascript:void(0)" onclick="showSection(\'booking\')">Continue Booking</a>';
 }
+// Itinerary Data Database
+const itineraryData = {
+  'Kashmir': {
+    title: 'Kashmir 4N/5D Premium Escape',
+    text: '<b>Day 1:</b> Arrival in Srinagar, Shikara Ride on Dal Lake<br><b>Day 2:</b> Day trip to Gulmarg (Gondola Ride)<br><b>Day 3:</b> Excursion to Sonmarg (Meadow of Gold)<br><b>Day 4:</b> Visit Pahalgam (Betaab Valley)<br><b>Day 5:</b> Srinagar Local Sightseeing & Departure',
+    pdf: '#kashmir-pdf', slides: '#kashmir-slides'
+  },
+  'Darjeeling': {
+    title: 'Darjeeling & Himalayas',
+    text: '<b>Day 1:</b> Arrival at NJP/Bagdogra, Transfer to Darjeeling<br><b>Day 2:</b> Tiger Hill Sunrise, Batasia Loop, Tea Gardens<br><b>Day 3:</b> Mirik Lake Excursion<br><b>Day 4:</b> Local Shopping & Departure',
+    pdf: '#darjeeling-pdf', slides: '#darjeeling-slides'
+  },
+  'Ladakh': {
+    title: 'Ladakh Adventure Expedition',
+    text: '<b>Day 1:</b> Arrival in Leh, Rest & Acclimatization<br><b>Day 2:</b> Leh Local Sightseeing (Shanti Stupa, Magnetic Hill)<br><b>Day 3:</b> Leh to Nubra Valley via Khardung La Pass<br><b>Day 4:</b> Nubra to Pangong Lake (Camping)<br><b>Day 5:</b> Pangong to Leh & Departure',
+    pdf: '#ladakh-pdf', slides: '#ladakh-slides'
+  },
+  'Spiti': {
+    title: 'Spiti Valley Circuit',
+    text: '<b>Day 1:</b> Shimla/Manali to Kaza<br><b>Day 2:</b> Kaza Local (Key Monastery, Kibber)<br><b>Day 3:</b> Kaza to Chandratal Lake<br><b>Day 4:</b> Chandratal Camping & Stargazing<br><b>Day 5:</b> Return Journey',
+    pdf: '#spiti-pdf', slides: '#spiti-slides'
+  },
+  'Kurukshetra': {
+    title: 'Kurukshetra 1-Day Educational Trip',
+    text: '<b>07:00 AM:</b> Departure from School<br><b>10:00 AM:</b> Arrival at Brahma Sarovar & Jyotisar<br><b>12:30 PM:</b> Visit Kurukshetra Panorama & Science Centre<br><b>02:00 PM:</b> Lunch & Adventure Activities<br><b>05:00 PM:</b> Departure back to School',
+    pdf: '#kurukshetra-pdf', slides: '#kurukshetra-slides'
+  }
+};
+
+function openModal(place) {
+  const data = itineraryData[place];
+  if(!data) return;
+  
+  document.getElementById('modalTitle').innerText = data.title;
+  document.getElementById('modalBody').innerHTML = data.text;
+  document.getElementById('pdfBtn').href = data.pdf;
+  document.getElementById('slidesBtn').href = data.slides;
+  
+  document.getElementById('itineraryModal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('itineraryModal').classList.remove('active');
+}
+
+// Close modal if clicked outside the white box
+document.getElementById('itineraryModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
 
 document.addEventListener('DOMContentLoaded', function(){
   hideAllSections();
