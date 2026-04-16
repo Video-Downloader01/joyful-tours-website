@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>Joyful Tours And Adventures | Premium Educational Trips</title>
+  <meta name="description" content="Premium school, college and family trips across India. Best educational tour organizers in Haryana. Spiti, Ladakh, Manali, and more.">
+  <meta name="keywords" content="School Trips, Educational Tours, Joyful Tours, Sirsa travel agency, Spiti Expedition, School camp">
+  <meta property="og:title" content="Joyful Tours And Adventures">
+  <meta property="og:description" content="Creating Memories, Building Leaders with premium educational trips.">
   
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
@@ -18,8 +23,7 @@
     }
 
     html { scroll-behavior: smooth; }
-    
-    body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--light-bg); color: var(--text); }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--light-bg); color: var(--text); overflow-x: hidden; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
     /* Announcement Bar */
@@ -32,7 +36,10 @@
     .btn.primary { background: var(--gold); color: white; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
     .btn.primary:hover { background: var(--gold-hover); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6); }
 
-    .hero { min-height: 90vh; display: flex; align-items: center; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover fixed; color: white; text-align: center; position: relative; }
+    /* Cinematic Video Hero Section */
+    .hero { min-height: 90vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
+    .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.6; }
+    .hero-content { position: relative; z-index: 1; width: 100%; }
     .hero h1 { font-size: 52px; margin: 0 0 12px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.4); line-height: 1.2; }
     .hero h2 { color: white; font-size: 24px; margin-bottom: 24px;}
 
@@ -54,6 +61,7 @@
     
     input, textarea, select { width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
+    /* Modals */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; }
     .modal-content { background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
@@ -61,12 +69,23 @@
 
     .day-plan { background: #f8fafc; border-left: 4px solid var(--gold); padding: 12px 16px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
     .day-plan strong { color: var(--navy); display: block; margin-bottom: 4px; }
-    .poster-grid img { width: 100%; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #e2e8f0; min-height: 200px; }
 
     /* Floating WhatsApp */
     .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); transition: transform 0.3s; }
     .floating-wa:hover { transform: scale(1.1); }
     .floating-wa img { width: 35px; height: 35px; }
+
+    /* Live Notification CSS */
+    .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 12px 16px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 1000; transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); font-size: 13px; color: var(--navy); display: flex; align-items: center; gap: 10px; font-weight: 600; max-width: 280px; }
+    .live-notif.show { left: 24px; }
+    .notif-icon { background: #e0f2fe; color: #0284c7; padding: 6px; border-radius: 50%; font-size: 16px; }
+
+    /* Gallery Auto-Scroll (Marquee) */
+    .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 20px 0; position: relative; background: #fff7ed; }
+    .marquee-track { display: inline-block; animation: scrollMarquee 25s linear infinite; }
+    .marquee-track img { height: 300px; width: auto; border-radius: 12px; margin-right: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: inline-block; object-fit: cover; }
+    .gallery-marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* Trust Banner */
     .trust-banner { background: white; padding: 24px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
@@ -82,16 +101,14 @@
     summary::after { content: '+'; font-size: 24px; color: var(--gold); transition: 0.3s; }
     details[open] summary::after { content: '-'; }
     details p { margin-top: 12px; margin-bottom: 0; color: #475569; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 12px; }
-
-    /* Insta Grid */
-    .insta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
-    .insta-item { aspect-ratio: 1; background-size: cover; background-position: center; border-radius: 12px; position: relative; overflow: hidden; cursor: pointer; transition: 0.3s; }
-    .insta-item:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-    .insta-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; color: white; font-weight: bold; font-size: 20px; }
-    .insta-item:hover .insta-overlay { opacity: 1; }
   </style>
 </head>
 <body>
+
+  <div id="liveNotif" class="live-notif">
+    <div class="notif-icon">🔔</div>
+    <div id="notifMsg">A school from Delhi just inquired for Spiti!</div>
+  </div>
 
   <div class="top-bar">
     <marquee scrollamount="5">🔥 Bookings Open for Spiti & Ladakh Mega Expedition 2026 | Upto 15% Special Discount for School & College Groups! 🎒 | 🛡️ Udyam Certified Safety Standards</marquee>
@@ -105,13 +122,18 @@
     <a class="btn" href="#home">Home</a>
     <a class="btn" href="#schools">For Schools</a>
     <a class="btn" href="#packages">Destinations</a>
-    <a class="btn" href="#expeditions">Mega Trips</a>
-    <a class="btn" href="#resources">Parents Hub</a>
+    <a class="btn" href="#gallery-section">Gallery</a>
+    <a class="btn" href="#reviews">Reviews</a>
     <a class="btn primary" href="#booking">Booking</a>
   </div>
 
   <section id="home" class="hero">
-    <div class="container">
+    <video autoplay loop muted playsinline class="video-bg">
+      <source src="https://cdn.pixabay.com/video/2019/11/24/29538-376510461_large.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <div class="container hero-content">
       <h1>Joyful Tours And Adventures</h1>
       <h2>India's Most Trusted Educational Trip Experts</h2>
       <p style="max-width:700px; margin:auto; font-size:18px; line-height:1.6; color:#e2e8f0;">
@@ -230,6 +252,30 @@
     </div>
   </section>
 
+  <section id="gallery-section" class="section" style="background:#fff7ed; padding-bottom: 20px;">
+    <div class="container" style="padding-bottom: 10px;">
+      <h2>Official Trip Posters & Gallery</h2>
+      <p style="color: #64748b;">Glimpses of our premium organized trips. <a href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" style="color:var(--gold); font-weight:bold; text-decoration:none;">▶️ Watch Jaisalmer Reel</a></p>
+    </div>
+    
+    <div class="gallery-marquee">
+      <div class="marquee-track">
+        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
+        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
+        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
+        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
+        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
+        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
+        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
+        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
+        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
+        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
+        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
+        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
+      </div>
+    </div>
+  </section>
+
   <section id="resources" class="section" style="background: white;">
     <div class="container">
       <h2 style="text-align: center;">Parents' Resource Center</h2>
@@ -245,16 +291,11 @@
           <p style="font-size: 14px; color: #64748b;">Weather-specific guide on what to carry for Hill Station/Desert trips.</p>
           <a class="btn primary" href="#" target="_blank" style="display: inline-block; margin-top: 12px;">Download PDF</a>
         </div>
-        <div class="card" style="text-align: center; background: #f8fafc;">
-          <h3 style="margin-top: 0;">🏥 Medical Declaration</h3>
-          <p style="font-size: 14px; color: #64748b;">Health update form to help our medical team assist better.</p>
-          <a class="btn primary" href="#" target="_blank" style="display: inline-block; margin-top: 12px;">Download PDF</a>
-        </div>
       </div>
     </div>
   </section>
 
-  <section id="faq" class="section">
+  <section class="section" style="background: #eef2ff;">
     <div class="container">
       <h2 style="text-align: center;">Frequently Asked Questions</h2>
       <div style="max-width: 800px; margin: auto;">
@@ -270,39 +311,14 @@
           <summary>How do parents get updates during the trip?</summary>
           <p>We create a private WhatsApp broadcast group for parents and school management. Our team shares live locations and trip photos every 3-4 hours so parents are always updated.</p>
         </details>
-        <details>
-          <summary>Are the adventure activities safe?</summary>
-          <p>Safety is our #1 priority. All activities (like rafting or trekking) are conducted by certified experts using premium gear. We also have pulse oximeters and first-aid available 24/7.</p>
-        </details>
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="section" style="background:#fff7ed">
-    <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <h2 style="margin: 0;">Follow Our Journey</h2>
-        <a class="btn primary" href="https://instagram.com/joyful_tours_adventures" target="_blank">Follow @joyful_tours_adventures</a>
-      </div>
-      
-      <div class="insta-grid">
-        <a href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4');">
-          <div class="insta-overlay">▶️ Play Reel</div>
-        </a>
-        <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada');" onclick="openPosterModal()">
-          <div class="insta-overlay">📸 View Posters</div>
-        </div>
-        <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1477587458883-47145ed94245');" onclick="openPosterModal()">
-          <div class="insta-overlay">🖼️ View Gallery</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews" class="section" style="background:#e0f2fe">
+  <section id="reviews" class="section" style="background:white">
     <div class="container">
       <h2 style="text-align: center;">Customer Reviews</h2>
-      <div class="card" id="reviewBox" style="max-width: 600px; margin: auto; border: none;">
+      <div class="card" id="reviewBox" style="max-width: 600px; margin: auto; border: none; background:var(--light-bg)">
         <input id="revName" placeholder="Your Name / School Name" />
         <select id="revRating">
           <option value="5">⭐⭐⭐⭐⭐ - Excellent (Highly Recommended!)</option>
@@ -331,16 +347,24 @@
     </div>
   </section>
 
-  <footer id="contact" class="section" style="background: var(--navy); color: white; text-align: center;">
+  <footer id="contact" class="section" style="background: var(--navy); color: white; text-align: center; padding-bottom: 30px;">
     <div class="container">
-      <h2 style="color: var(--gold);">Joyful Tours And Adventures</h2>
-      <p>Managed by: <strong>Pawan & Raman</strong></p>
-      <div style="margin: 24px 0;">
-        <a class="btn primary" href="https://wa.me/919729561534" style="margin-bottom:8px; display:inline-block;">Pawan: 97295-61534</a>
-        <a class="btn primary" href="https://wa.me/918295411207" style="margin-bottom:8px; display:inline-block;">Raman: 82954-11207</a>
-        <a class="btn" href="mailto:joyfultours0408@gmail.com" style="background:white; color:var(--navy); display:inline-block;">Email Us</a>
+      <h2 style="color: var(--gold); margin-bottom: 24px;">Joyful Tours And Adventures</h2>
+      
+      <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; text-align:left;">
+        <div>
+          <p style="color:#cbd5e1; margin-bottom:8px;"><strong>Managed by:</strong></p>
+          <a class="btn primary" href="https://wa.me/919729561534" style="margin-bottom:8px; display:block;">Pawan: 97295-61534</a>
+          <a class="btn primary" href="https://wa.me/918295411207" style="margin-bottom:8px; display:block;">Raman: 82954-11207</a>
+          <a class="btn" href="mailto:joyfultours0408@gmail.com" style="background:white; color:var(--navy); display:block;">Email Us</a>
+        </div>
+        
+        <div style="border-radius: 12px; overflow: hidden; max-width: 300px; width:100%; border: 2px solid rgba(255,255,255,0.1);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111246.33596859344!2d74.96024953923366!3d29.53177699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114d59f2a08f5d%3A0xc62da24a877de2e3!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
-      <p>© 2026 Joyful Tours And Adventures. Sirsa, Haryana. Udyam Certified.</p>
+      
+      <p style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; color:#94a3b8; font-size:14px;">© 2026 Joyful Tours And Adventures. Registered Office: Sirsa, Haryana. Udyam Certified.</p>
     </div>
   </footer>
 
@@ -355,31 +379,30 @@
     </div>
   </div>
 
-  <div id="posterModal" class="modal-overlay">
-    <div class="modal-content" style="max-width: 800px;">
-      <button class="close-btn" onclick="closePosterModal()">×</button>
-      <h2>Official Tour Posters</h2>
-      <div class="poster-grid">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh Mussoorie Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Jim Corbett Nainital Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore Poster">
-      </div>
-    </div>
-  </div>
-
   <script>
+    // Live Notifications Logic
+    const notifications = [
+      "🎉 A school from Delhi just inquired for Manali!",
+      "🔥 5 seats left for Spiti & Ladakh Expedition",
+      "✨ New booking confirmed for Amritsar Tour",
+      "🎒 Kurukshetra 1-Day trip booked by a Sirsa School!"
+    ];
+    let notifIndex = 0;
+    setInterval(() => {
+      const notifEl = document.getElementById('liveNotif');
+      document.getElementById('notifMsg').innerText = notifications[notifIndex];
+      notifEl.classList.add('show');
+      
+      setTimeout(() => { notifEl.classList.remove('show'); }, 4000);
+      notifIndex = (notifIndex + 1) % notifications.length;
+    }, 15000);
+
     // Live Countdown Timer Engine
     function startTimer() {
-      // Set future date for mega expedition (Example: June 1, 2026)
       const countDownDate = new Date("June 1, 2026 00:00:00").getTime();
-      
       setInterval(function() {
         const now = new Date().getTime();
         const distance = countDownDate - now;
-        
         if (distance > 0) {
           document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
           document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
@@ -390,7 +413,7 @@
     }
     startTimer();
 
-    // Itinerary Database
+    // Itinerary Database with all genuine PDF links
     const itineraryData = {
       'Amarnath': {
         title: 'Amarnath Holy Yatra',
@@ -459,7 +482,6 @@
       }
     };
 
-    // Modal Control Functions
     function openModal(place) {
       const data = itineraryData[place];
       if(!data) return;
@@ -470,16 +492,12 @@
     }
 
     function closeModal() { document.getElementById('itineraryModal').style.display = 'none'; }
-    function openPosterModal() { document.getElementById('posterModal').style.display = 'flex'; }
-    function closePosterModal() { document.getElementById('posterModal').style.display = 'none'; }
 
-    // Special WhatsApp Button for Schools
     function requestPresentation() {
       const msg = "Hello Pawan/Raman! I represent a school/institution. We are interested in requesting a presentation for an educational trip. Please connect with us.";
       window.open(`https://wa.me/919729561534?text=${encodeURIComponent(msg)}`);
     }
 
-    // Booking & Reviews
     function submitReview() {
       const name = document.getElementById('revName').value.trim() || 'Guest User';
       const rating = parseInt(document.getElementById('revRating').value);
