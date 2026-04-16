@@ -2,63 +2,58 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Joyful Tours And Adventures</title>
+<title>Joyful Tours And Adventures - V6 Restored</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f8fafc}
-.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop') center/cover;color:#fff;display:flex;flex-direction:column}
-.nav{position:sticky;top:0;display:flex;gap:8px;overflow:auto;padding:12px;background:rgba(255,255,255,.95)}
-.btn{padding:10px 14px;border-radius:999px;border:none;background:#fff;cursor:pointer;white-space:nowrap}
+body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#0f172a;scroll-behavior:smooth}
+.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop') center/cover;color:#fff;display:flex;flex-direction:column;justify-content:center}
+.nav{position:sticky;top:0;z-index:50;display:flex;gap:8px;overflow:auto;padding:12px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px)}
+.btn{padding:10px 14px;border-radius:999px;border:none;background:#fff;cursor:pointer;white-space:nowrap;text-decoration:none;color:#111827;font-weight:600}
 .btn.primary{background:#16a34a;color:#fff}
-.container{padding:20px}
-.panel{display:none;min-height:100vh;padding:20px}
-.card{border-radius:18px;padding:18px;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.08);margin-bottom:16px}
-.grid{display:grid;grid-template-columns:1fr;gap:14px}
-.dest{min-height:160px;color:#fff;display:flex;align-items:flex-end;font-size:22px;font-weight:bold;background-size:cover;background-position:center}
+.container{padding:20px;max-width:1200px;margin:auto}
+.section{padding:56px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border-radius:22px;padding:18px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.dest{min-height:220px;color:#fff;display:flex;flex-direction:column;justify-content:end;font-size:24px;font-weight:bold;background-size:cover;background-position:center}
+input,textarea{width:100%;padding:12px;border-radius:14px;border:1px solid #cbd5e1;margin-bottom:10px}
 </style>
 </head>
 <body>
-<section id="home" class="hero">
-  <div class="nav">
-    <button class="btn" onclick="openPanel('packages')">Packages</button>
-    <button class="btn" onclick="openPanel('expeditions')">Mega Trips</button>
-    <button class="btn" onclick="openPanel('booking')">Booking</button>
-    <button class="btn" onclick="openPanel('gallery')">Gallery</button>
-    <button class="btn primary" onclick="openPanel('contact')">Contact</button>
-  </div>
+<div class="nav">
+  <a class="btn" href="#home">Home</a>
+  <a class="btn" href="#packages">Popular Destinations</a>
+  <a class="btn" href="#expeditions">Premium Combo Expeditions</a>
+  <a class="btn" href="#itinerary">Professional Itineraries</a>
+  <a class="btn" href="#gallery">Gallery</a>
+  <a class="btn" href="#booking">Complete Booking</a>
+  <a class="btn primary" href="#contact">Contact</a>
+</div>
+<section class="hero" id="home">
   <div class="container">
-    <h1>Joyful Tours And Adventures</h1>
+    <h1 style="font-size:48px;margin-bottom:10px">Joyful Tours And Adventures</h1>
     <h2>Your Path To Joyful Journey</h2>
-    <p>School, college and family trips across India.</p>
+    <p>School, college and family trips across India with premium combo tours, PDFs, WhatsApp booking and custom quotes.</p>
+    <a class="btn primary" href="#packages">View Packages</a>
   </div>
-</section><section id="packages" class="panel">
-  <h2>Popular Destinations</h2>
-  <div class="grid">
-    <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop')">Kashmir <button class="btn primary" onclick="openPanel('itinerary')">View Itinerary</button></div>
-    <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop')">Darjeeling <button class="btn primary" onclick="openPanel('itinerary')">View Itinerary</button></div>
-    <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1200&auto=format&fit=crop')">Jaipur <button class="btn primary" onclick="openPanel('itinerary')">View Itinerary</button></div>
-    <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop')">Goa <button class="btn primary" onclick="openPanel('itinerary')">View Itinerary</button></div>
-  </div>
-</section><section id="expeditions" class="panel">
-  <h2>Premium Combo Expeditions</h2>
-  <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop')">Rishikesh + Mussoorie <button class="btn" onclick="openPanel('itinerary')">View</button></div>
-  <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop')">Corbett + Nainital <button class="btn" onclick="openPanel('itinerary')">View</button></div>
-  <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop')">Jaipur + Ranthambore <button class="btn" onclick="openPanel('itinerary')">View</button></div>
-</section><section id="booking" class="panel">
-  <h2>Complete Booking</h2>
-  <div class="card">
-    <input id="name" placeholder="Full Name" style="width:100%;padding:12px;margin-bottom:10px"/>
-    <input id="phone" placeholder="Phone" style="width:100%;padding:12px;margin-bottom:10px"/>
-    <input id="destination" placeholder="Destination" style="width:100%;padding:12px;margin-bottom:10px"/>
-    <textarea id="bookingText" style="width:100%;min-height:120px" placeholder="Enter trip details"></textarea>
-    <button class="btn primary" onclick="sendBooking()">Send to WhatsApp</button>
-  </div>
-</section><section id="gallery" class="panel"><h2>Trip Gallery + Instagram</h2><div class="grid"><div class="card">📸 School Trip Reel</div><div class="card">🏔️ Kashmir Family Memories</div><div class="card">🚌 Bus Departure Moments</div></div></section>
-<section id="contact" class="panel"><h2>Contact + Quick Quote</h2><div class="card">WhatsApp: 97295-61534<br/>Instagram: joyful_tours_adventures<br/><button class="btn primary" onclick="openPanel('booking')">Get Custom Quote</button></div></section>
-<section id="itinerary" class="panel"><h2>Professional Itinerary</h2><div class="card"><h3>Kashmir 4N/5D</h3><p>Day 1 Srinagar • Day 2 Gulmarg • Day 3 Sonmarg • Day 4 Pahalgam • Day 5 Departure</p><button class="btn primary">Download PDF</button></div></section><script>
-function openPanel(id){document.querySelectorAll('.panel').forEach(p=>p.style.display='none');var el=document.getElementById(id);if(el){el.style.display='block';window.scrollTo({top:el.offsetTop-10,behavior:'smooth'});}}
-function sendBooking(){var v='Name: '+document.getElementById('name').value+'
-Phone: '+document.getElementById('phone').value+'
-Destination: '+document.getElementById('destination').value+'
-Details: '+document.getElementById('bookingText').value;window.open('https://wa.me/919729561534?text='+encodeURIComponent(v),'_blank');}
-</script></body>
+</section>
+<section id="packages" class="section"><div class="container"><h2>Popular Destinations</h2><div class="grid">
+<div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop')">Kashmir<a class="btn primary" href="#itinerary">View Itinerary</a></div>
+<div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop')">Darjeeling<a class="btn primary" href="#itinerary">View Itinerary</a></div>
+<div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1200&auto=format&fit=crop')">Jaipur<a class="btn primary" href="#itinerary">View Itinerary</a></div>
+<div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop')">Goa<a class="btn primary" href="#itinerary">View Itinerary</a></div>
+</div></div></section>
+<section id="expeditions" class="section" style="background:#eef2ff"><div class="container"><h2>Premium Combo Expeditions</h2><div class="grid">
+<div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop')">Rishikesh + Mussoorie<a class="btn" href="#itinerary">View</a></div>
+<div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop')">Corbett + Nainital<a class="btn" href="#itinerary">View</a></div>
+<div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop')">Jaipur + Ranthambore<a class="btn" href="#itinerary">View</a></div>
+</div></div></section>
+<section id="itinerary" class="section"><div class="container"><h2>Professional Itineraries + PDF</h2>
+<div class="card"><h3>Kashmir 4N/5D</h3><p>Day 1 Srinagar • Day 2 Gulmarg • Day 3 Sonmarg • Day 4 Pahalgam • Day 5 Departure</p><a class="btn primary" href="#">Download PDF</a></div>
+<div class="card"><h3>Kurukshetra 1 Day School Trip</h3><p>Brahma Sarovar • Jyotisar • Panorama • Historical learning • Adventure stop</p><a class="btn primary" href="#">Download PDF</a></div>
+</div></section>
+<section id="gallery" class="section" style="background:#fff7ed"><div class="container"><h2>Gallery + Instagram</h2><div class="grid"><div class="card">📸 School Trip Reel</div><div class="card">🏔️ Family Tour Memories</div><div class="card">🚌 Departure Posters + PDFs</div></div></div></section>
+<section id="booking" class="section"><div class="container"><h2>Complete Booking</h2><div class="card"><input id="name" placeholder="Full Name"/><input id="phone" placeholder="Phone Number"/><input id="destination" placeholder="Destination"/><textarea id="bookingText" rows="5" placeholder="Trip details"></textarea><button class="btn primary" onclick="sendBooking()">Send to WhatsApp</button></div></div></section>
+<section id="contact" class="section" style="background:#ecfeff"><div class="container"><h2>Contact + Custom Quote</h2><div class="card">WhatsApp: 97295-61534<br/>Instagram: joyful_tours_adventures<br/><a class="btn primary" href="#booking">Get Custom Quote</a></div></div></section>
+<script>
+function sendBooking(){var v='Name: '+document.getElementById('name').value+'\nPhone: '+document.getElementById('phone').value+'\nDestination: '+document.getElementById('destination').value+'\nDetails: '+document.getElementById('bookingText').value;window.open('https://wa.me/919729561534?text='+encodeURIComponent(v),'_blank');}
+</script>
+</body>
 </html>
