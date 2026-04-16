@@ -1,56 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joyful Tours And Adventures</title>
   <style>
-    body{font-family:Arial;margin:0;background:#f8fafc;color:#1e293b}
-    .hero{background:#166534;color:white;padding:80px 20px;text-align:center}
-    .hero h1{font-size:42px;margin:0 0 10px}
-    .hero p{font-size:20px}
-    .btn{display:inline-block;margin-top:20px;padding:14px 24px;background:white;color:#166534;text-decoration:none;border-radius:12px;font-weight:bold}
-    .section{padding:50px 20px;max-width:1100px;margin:auto}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-    .card{background:white;border:1px solid #ddd;padding:20px;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,.05)}
-    .footer{background:#0f172a;color:white;padding:30px;text-align:center}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+    .hero{min-height:90vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop') center/cover;color:#fff;display:flex;align-items:center}
+    .container{max-width:1200px;margin:auto;padding:20px}
+    h1{font-size:56px;margin:0} h2{font-size:36px;margin-bottom:10px}
+    .sub{font-size:20px;max-width:700px}
+    .btn{display:inline-block;padding:14px 24px;border-radius:14px;text-decoration:none;font-weight:bold;margin:8px 8px 0 0}
+    .btn-primary{background:#16a34a;color:#fff}.btn-light{background:#fff;color:#166534}
+    .section{padding:70px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+    .card{background:#fff;border-radius:24px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .dest{font-weight:bold;text-align:center}
+    .price{color:#16a34a;font-weight:bold;font-size:20px}
+    .footer{background:#0f172a;color:#fff;padding:40px 20px;text-align:center}
+    .wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:16px 18px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+    input,textarea{width:100%;padding:14px;border:1px solid #cbd5e1;border-radius:14px;margin-top:10px}
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>Joyful Tours And Adventures</h1>
-    <p>Your Path To Joyful Journey</p>
-    <a class="btn" href="#packages">View Packages</a>
-  </div>
-
-  <div class="section" id="packages">
-    <h2>Our Top Destinations</h2>
-    <div class="grid">
-      <div class="card">Kashmir</div>
-      <div class="card">Darjeeling</div>
-      <div class="card">Kurukshetra</div>
-      <div class="card">Jaipur</div>
-      <div class="card">Himachal</div>
-      <div class="card">Goa</div>
-      <div class="card">Kerala</div>
-      <div class="card">Rajasthan</div>
-      <div class="card">Punjab</div>
-      <div class="card">Delhi</div>
+  <section class="hero">
+    <div class="container">
+      <p>JOYFUL TOURS AND ADVENTURES</p>
+      <h1>Your Path To Joyful Journey</h1>
+      <p class="sub">Professional school, college and family tours across India with complete itineraries, transport, stays, and memorable experiences.</p>
+      <a href="#packages" class="btn btn-primary">View Packages</a>
+      <a href="#contact" class="btn btn-light">Get Custom Quote</a>
     </div>
-  </div>
-
-  <div class="section">
-    <h2>School / College / Family Trips</h2>
-    <div class="grid">
-      <div class="card">1 Day School Educational Trips</div>
-      <div class="card">College Group Adventure Tours</div>
-      <div class="card">Family Holiday Packages</div>
-      <div class="card">Custom Tour Plans</div>
+  </section>  <section class="section">
+    <div class="container">
+      <h2>Popular Destinations</h2>
+      <div class="grid">
+        <div class="card dest">Kashmir</div><div class="card dest">Darjeeling</div><div class="card dest">Kurukshetra</div>
+        <div class="card dest">Jaipur</div><div class="card dest">Himachal</div><div class="card dest">Goa</div>
+        <div class="card dest">Kerala</div><div class="card dest">Rajasthan</div><div class="card dest">Delhi</div>
+      </div>
     </div>
-  </div>
+  </section>  <section class="section" id="packages" style="background:#f1f5f9">
+    <div class="container">
+      <h2>School / College / Family Packages</h2>
+      <div class="grid">
+        <div class="card"><h3>Kurukshetra 1 Day School Trip</h3><p>Historical sightseeing + fun activities + safe bus travel.</p><p class="price">₹2,100 / person</p></div>
+        <div class="card"><h3>Kashmir Family Tour</h3><p>4N/5D Srinagar, Gulmarg, Sonmarg itinerary with hotel & cab.</p><p class="price">Custom Price</p></div>
+        <div class="card"><h3>Jaipur Heritage Tour</h3><p>2N/3D forts, museums, culture and food trail.</p><p class="price">Custom Quote</p></div>
+      </div>
+    </div>
+  </section>  <section class="section">
+    <div class="container">
+      <h2>Detailed Itineraries</h2>
+      <div class="grid">
+        <div class="card"><h3>Day-wise Plans</h3><p>Every destination includes morning departure, sightseeing timeline, meals, hotel stay and return schedule.</p></div>
+        <div class="card"><h3>Student Safety</h3><p>Teacher coordination, verified transport, emergency support and parent-friendly updates.</p></div>
+        <div class="card"><h3>Family Comfort</h3><p>Hotel categories, meals, child-friendly stays and senior citizen support options.</p></div>
+      </div>
+    </div>
+  </section>  <section class="section" id="contact" style="background:#ecfdf5">
+    <div class="container">
+      <h2>Contact & Custom Quote</h2>
+      <p>Email: joyfultours0408@gmail.com | Instagram: joyful_tours_adventures</p>
+      <p>Phone: 97295-61534 | 82954-11207</p>
+      <div class="grid">
+        <div>
+          <input placeholder="Your Name" />
+          <input placeholder="Phone Number" />
+          <input placeholder="Destination" />
+          <textarea rows="5" placeholder="Tell us trip details"></textarea>
+        </div>
+        <div class="card">
+          <h3>Why Choose Us</h3>
+          <p>✔ Trusted school trips</p>
+          <p>✔ Family friendly hotels</p>
+          <p>✔ Custom itinerary planning</p>
+          <p>✔ Pan India destinations</p>
+          <p>✔ Fast WhatsApp support</p>
+        </div>
+      </div>
+    </div>
+  </section>  <div class="footer">© 2026 Joyful Tours And Adventures • Your trusted India travel partner</div><a class="wa" href="https://wa.me/919729561534" target="_blank">WhatsApp Us</a>
 
-  <div class="footer">
-    Contact: joyfultours0408@gmail.com | 97295-61534 | 82954-11207
-  </div>
 </body>
 </html>
