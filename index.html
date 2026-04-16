@@ -30,7 +30,7 @@
 
     .nav {
       position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto;
-      padding: 16px 24px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
+      padding: 16px 24px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8);
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
@@ -79,7 +79,7 @@
       border-radius: 20px; overflow: hidden; position: relative; padding: 24px;
     }
 
-    input, textarea {
+    input, textarea, select {
       width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1;
       margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif;
     }
@@ -114,6 +114,7 @@
     <a class="btn" href="#packages">Destinations</a>
     <a class="btn" href="#expeditions">Mega Trips</a>
     <a class="btn" href="#gallery">Gallery</a>
+    <a class="btn" href="#reviews">Reviews</a>
     <a class="btn primary" href="#booking">Booking</a>
   </div>
 
@@ -132,35 +133,35 @@
     <div class="container">
       <h2>Short Trips & City Escapes</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=80')">
           Amarnath
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Amarnath')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1615836245337-f8b9b113f240?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80')">
           Udaipur
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Udaipur')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc?auto=format&fit=crop&w=800&q=80')">
           Manali
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Manali')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1525256427389-9a7dc92ec247?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1525256427389-9a7dc92ec247?auto=format&fit=crop&w=800&q=80')">
           Shimla
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Shimla')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598440049079-c73ab9357d60?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598440049079-c73ab9357d60?auto=format&fit=crop&w=800&q=80')">
           Amritsar & Wagah
           <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarWagah')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1585607344893-43a479234dd5?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1585607344893-43a479234dd5?auto=format&fit=crop&w=800&q=80')">
           Chandigarh
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Chandigarh')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?auto=format&fit=crop&w=800&q=80')">
           Kurukshetra
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Kurukshetra')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80')">
           Delhi
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Delhi')">View Itinerary</button>
         </div>
@@ -172,23 +173,23 @@
     <div class="container">
       <h2>Mega Expeditions & Combos</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1581793745862-99f50a0f05d5?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1626509647209-41712a2a0750?auto=format&fit=crop&w=800&q=80')">
           Spiti + Ladakh Mega
           <button class="btn primary" style="margin-top:16px" onclick="openModal('SpitiLadakhMega')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1627850882142-23847e3a9cfa?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80')">
           Amritsar + Dalhousie
           <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarDalhousie')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80')">
           Rishikesh + Mussoorie
           <button class="btn primary" style="margin-top:16px" onclick="openModal('RishikeshMussoorie')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80')">
           Jim Corbett + Nainital
           <button class="btn primary" style="margin-top:16px" onclick="openModal('CorbettNainital')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=80')">
           Jaipur + Ranthambore
           <button class="btn primary" style="margin-top:16px" onclick="openModal('JaipurRanthambore')">View Itinerary</button>
         </div>
@@ -232,6 +233,29 @@
     </div>
   </section>
 
+  <section id="reviews" class="section" style="background:#e0f2fe">
+    <div class="container">
+      <h2 style="text-align: center;">Customer Reviews</h2>
+      <p style="text-align: center; margin-bottom: 32px; color: #64748b;">Share your joyful experience with us!</p>
+      
+      <div class="card" id="reviewBox" style="max-width: 600px; margin: auto; border: none;">
+        <input id="revName" placeholder="Your Name / School Name" />
+        <select id="revRating">
+          <option value="5">⭐⭐⭐⭐⭐ - Excellent (Highly Recommended!)</option>
+          <option value="4">⭐⭐⭐⭐ - Very Good</option>
+          <option value="3">⭐⭐⭐ - Good</option>
+          <option value="2">⭐⭐ - Average</option>
+          <option value="1">⭐ - Poor</option>
+        </select>
+        <textarea id="revText" rows="4" placeholder="Write about your trip experience..."></textarea>
+        <button class="btn primary" style="width:100%; padding: 16px; font-size: 16px;" onclick="submitReview()">Submit Review</button>
+      </div>
+
+      <div id="thankYouMsg" style="display:none; text-align:center; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.05); max-width: 600px; margin: auto;">
+        </div>
+    </div>
+  </section>
+
   <section id="booking" class="section">
     <div class="container">
       <h2 style="text-align: center;">Book Your Journey</h2>
@@ -259,12 +283,11 @@
   </footer>
 
   <script>
-    // Tumhare saare asli PDF links safe aur secure hain
     const itineraryData = {
       'Amarnath': {
         title: 'Amarnath Holy Yatra',
         text: '<div class="day-plan"><strong>Divine Journey</strong> Spiritual trekking and darshan experience with full safety and logistics support.</div>',
-        pdf: '#' // Add Amarnath PDF link here later
+        pdf: '#' 
       },
       'Udaipur': {
         title: 'Udaipur Royal Escape',
@@ -340,6 +363,27 @@
     function closeModal() { document.getElementById('itineraryModal').style.display = 'none'; }
     function openPosterModal() { document.getElementById('posterModal').style.display = 'flex'; }
     function closePosterModal() { document.getElementById('posterModal').style.display = 'none'; }
+
+    // Dynamic Review System
+    function submitReview() {
+      const name = document.getElementById('revName').value.trim() || 'Guest User';
+      const rating = parseInt(document.getElementById('revRating').value);
+      const reviewBox = document.getElementById('reviewBox');
+      const thankYouMsg = document.getElementById('thankYouMsg');
+
+      let replyHTML = '';
+      if(rating >= 4) {
+        replyHTML = `<h3 style="color: var(--gold); margin-top: 0; font-family: 'Playfair Display', serif;">Thank You, ${name}! 🎉</h3>
+                     <p style="color: var(--navy); font-size: 16px; line-height: 1.6;">We are absolutely thrilled to know you had a ${rating}-star experience. Your support means the world to our team!</p>`;
+      } else {
+        replyHTML = `<h3 style="color: var(--navy); margin-top: 0; font-family: 'Playfair Display', serif;">Thank You for your Feedback, ${name}.</h3>
+                     <p style="color: var(--navy); font-size: 16px; line-height: 1.6;">We appreciate your honest ${rating}-star rating. We constantly strive to improve and will ensure a better experience for you next time.</p>`;
+      }
+
+      reviewBox.style.display = 'none';
+      thankYouMsg.innerHTML = replyHTML;
+      thankYouMsg.style.display = 'block';
+    }
 
     function sendBooking() {
       const name = document.getElementById('name').value;
