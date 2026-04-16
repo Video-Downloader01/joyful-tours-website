@@ -50,19 +50,16 @@
     .modal-content { background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
     .close-btn { position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; }
 
-    /* Animated Timeline CSS */
     .timeline { border-left: 3px solid var(--gold); padding-left: 20px; margin-left: 10px; position: relative; }
     .timeline-item { position: relative; margin-bottom: 24px; }
     .timeline-item::before { content: ''; position: absolute; left: -28px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: white; border: 3px solid var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,0.2); }
     .timeline-item strong { color: var(--navy); display: block; font-size: 16px; margin-bottom: 4px; }
     .timeline-item p { margin: 0; color: #475569; font-size: 14px; line-height: 1.6; }
 
-    /* Smart Filter Bar */
     .filter-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
     .filter-btn { background: #e2e8f0; color: var(--navy); border: none; padding: 10px 20px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: 0.3s; }
     .filter-btn.active { background: var(--navy); color: var(--gold); }
 
-    /* Floating WA & Menu */
     .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); cursor: pointer; transition: 0.3s; }
     .wa-menu { display: none; position: fixed; bottom: 100px; right: 24px; background: white; border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1000; min-width: 220px; border: 1px solid #e2e8f0; }
     .wa-menu.active { display: block; animation: slideUp 0.3s ease; }
@@ -71,11 +68,6 @@
     .wa-item:hover { color: var(--gold); background: #f8fafc; }
     .wa-item:last-child { border-bottom: none; }
 
-    /* Meet Captains */
-    .captain-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 4px solid var(--gold); padding: 4px; }
-    .badge { background: #eef2ff; color: #4f46e5; font-size: 12px; padding: 4px 10px; border-radius: 999px; font-weight: bold; display: inline-block; margin-top: 8px; }
-
-    /* Trust Banner & How it works */
     .trust-banner { background: white; padding: 24px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
     .trust-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; }
     .step-box { text-align: center; padding: 20px; position: relative; }
@@ -89,7 +81,6 @@
     .marquee-track img { height: 300px; border-radius: 12px; margin-right: 20px; object-fit: cover; }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* Exit Intent & Lead Capture */
     .popup-content { text-align: center; }
     .discount-tag { background: #fee2e2; color: #0369a1; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 18px; margin: 16px 0; display: inline-block; }
     
@@ -235,55 +226,49 @@
     </div>
   </section>
 
-  <section class="section" style="background: #eef2ff;">
-    <div class="container">
-      <h2 style="text-align: center;">Meet Your Trip Captains</h2>
-      <p style="text-align: center; color: #64748b; margin-bottom: 40px;">The expert leaders who ensure absolute safety and boundless joy.</p>
-      <div class="grid" style="max-width: 800px; margin: auto;">
-        <div class="card captain-card" style="text-align: center;">
-          <img src="https://images.unsplash.com/photo-1556448825-f761d4a0fc7a?w=400&q=80" alt="Pawan" class="captain-img">
-          <h3 style="margin: 0;">Pawan</h3>
-          <p style="color:#475569; font-size:14px; margin-top:4px;">Operations Head</p>
-          <span class="badge">🏔️ Mountain Survival Expert</span>
-          <span class="badge">🎒 100+ Trips Managed</span>
-        </div>
-        <div class="card captain-card" style="text-align: center;">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Raman" class="captain-img">
-          <h3 style="margin: 0;">Raman</h3>
-          <p style="color:#475569; font-size:14px; margin-top:4px;">Client Relations & Logistics</p>
-          <span class="badge">⚕️ Certified in First-Aid</span>
-          <span class="badge">🛡️ Student Safety Specialist</span>
-        </div>
+  <section id="gallery" class="section" style="background:#fff7ed; padding-bottom: 20px;">
+    <div class="container" style="padding-bottom: 10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <h2 style="margin: 0;">Official Trip Posters & Gallery</h2>
+        <p style="color: #64748b; margin:0;">Glimpses of our premium organized trips.</p>
+      </div>
+      <a class="btn primary" href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" style="text-decoration:none;">▶️ Watch Jaisalmer Reel</a>
+    </div>
+    
+    <div class="gallery-marquee">
+      <div class="marquee-track">
+        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
+        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
+        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
+        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
+        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
+        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
+        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
+        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
+        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
+        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
+        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
+        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="section" style="background:#fff7ed; padding-bottom: 20px;">
-    <div class="container" style="padding-bottom: 10px;">
-      <h2>Gallery & Client Experiences</h2>
-      <div class="grid" style="margin-bottom: 40px;">
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div style="background:var(--navy); color:var(--gold); padding:12px; font-weight:bold; text-align:center;">▶️ Client Testimonial Video</div>
-          <iframe width="100%" height="250" src="https://www.youtube.com/embed/zpOULjyy-n8?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-          <h3 style="margin-top:0;">Join the Joyful Family</h3>
-          <p style="color:#475569;">See more of our premium trips and reels directly on Instagram.</p>
-          <a class="btn primary" href="https://instagram.com/joyful_tours_adventures" target="_blank">Follow @joyful_tours_adventures</a>
-        </div>
+  <section id="reviews" class="section" style="background:white">
+    <div class="container">
+      <h2 style="text-align: center;">Customer Reviews</h2>
+      <div class="card" id="reviewBox" style="max-width: 600px; margin: auto; border: none; background:var(--light-bg)">
+        <input id="revName" placeholder="Your Name / School Name" />
+        <select id="revRating">
+          <option value="5">⭐⭐⭐⭐⭐ - Excellent (Highly Recommended!)</option>
+          <option value="4">⭐⭐⭐⭐ - Very Good</option>
+          <option value="3">⭐⭐⭐ - Good</option>
+          <option value="2">⭐⭐ - Average</option>
+          <option value="1">⭐ - Poor</option>
+        </select>
+        <textarea id="revText" rows="4" placeholder="Write about your trip experience..."></textarea>
+        <button class="btn primary" style="width:100%; padding: 16px; font-size: 16px;" onclick="submitReview()">Submit Review</button>
       </div>
-    </div>
-    <div class="gallery-marquee">
-      <div class="marquee-track">
-        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
-        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti">
-        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar">
-        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
-        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett">
-        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur">
-        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
-        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti">
-      </div>
+      <div id="thankYouMsg" style="display:none; text-align:center; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.05); max-width: 600px; margin: auto;"></div>
     </div>
   </section>
 
@@ -300,7 +285,7 @@
     </div>
   </section>
 
-  <footer class="section" style="background: var(--navy); color: white; text-align: center; padding-bottom: 30px;">
+  <footer id="contact" class="section" style="background: var(--navy); color: white; text-align: center; padding-bottom: 30px;">
     <div class="container">
       <h2 style="color: var(--gold); margin-bottom: 24px;">Joyful Tours And Adventures</h2>
       <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; text-align:left;">
@@ -308,10 +293,12 @@
           <p style="color:#cbd5e1; margin-bottom:8px;"><strong>Managed by:</strong></p>
           <a class="btn primary" href="https://wa.me/919729561534" style="margin-bottom:8px; display:block;">Pawan: 97295-61534</a>
           <a class="btn primary" href="https://wa.me/918295411207" style="margin-bottom:8px; display:block;">Raman: 82954-11207</a>
-          <a class="btn" href="mailto:joyfultours0408@gmail.com" style="background:white; color:var(--navy); display:block;">Email Us</a>
+          <a class="btn" href="mailto:joyfultours0408@gmail.com" style="background:white; color:var(--navy); display:block; margin-bottom:8px;">Email Us</a>
+          <a class="btn" href="https://instagram.com/joyful_tours_adventures" target="_blank" style="background:transparent; border: 1px solid var(--gold); color:var(--gold); display:block;">Instagram: @joyful_tours_adventures</a>
         </div>
+        
         <div style="border-radius: 12px; overflow: hidden; max-width: 300px; width:100%; border: 2px solid rgba(255,255,255,0.1);">
-          <iframe src="https://maps.google.com/maps?q=Sirsa,Haryana&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111267.33215286466!2d74.96541575820313!3d29.52445830000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114cb184d0b135%3A0xc3b8c4c7009ba6b2!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1689260272212!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <p style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; color:#94a3b8; font-size:14px;">© 2026 Joyful Tours And Adventures. Registered Office: Sirsa, Haryana. Udyam Certified.</p>
@@ -341,18 +328,17 @@
   </div>
 
   <div id="exitModal" class="modal-overlay" style="z-index: 2000;">
-    <div class="modal-content popup-content" style="max-width:450px;">
+    <div class="modal-content popup-content" style="max-width:450px; text-align:center;">
       <button class="close-btn" onclick="document.getElementById('exitModal').classList.remove('active')">×</button>
       <h2 style="font-size:32px; margin:0;">Wait! ✋</h2>
       <p style="color:#475569; margin-top:8px;">Planning an educational trip? Don't leave without your special gift.</p>
-      <div class="discount-tag">🎁 5% EXTRA DISCOUNT</div>
+      <div class="discount-tag" style="background: #fee2e2; color: #0369a1; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 18px; margin: 16px 0; display: inline-block;">🎁 5% EXTRA DISCOUNT</div>
       <p style="font-size:14px; color:#64748b;">On all Mega Expeditions if you book an inquiry today.</p>
       <button class="btn primary" style="width:100%; padding:14px;" onclick="window.open('https://wa.me/919729561534?text=I%20want%20to%20claim%20my%205%25%20Discount%20offer!')">Claim My Discount on WhatsApp</button>
     </div>
   </div>
 
   <script>
-    // 1. Live Countdown
     function startTimer() {
       const countDownDate = new Date("June 1, 2026 00:00:00").getTime();
       setInterval(function() {
@@ -368,7 +354,6 @@
     }
     startTimer();
 
-    // 2. Smart Filter
     function filterDest(cat, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -381,17 +366,15 @@
       });
     }
 
-    // 3. Multi-Option WA
     function toggleWA() {
       document.getElementById('waMenu').classList.toggle('active');
     }
 
-    // 4. Live Notifications
     const notifications = [
       "🎉 A school from Delhi just inquired for Manali!",
-      "🔥 5 seats left for Spiti & Ladakh Expedition",
-      "✨ New booking confirmed for Amritsar Tour",
-      "🎒 Kurukshetra 1-Day trip booked by a Sirsa School!"
+      "🔥 5 seats left for Spiti Expedition",
+      "✨ New booking confirmed for Amritsar",
+      "🎒 Kurukshetra trip booked by a Sirsa School!"
     ];
     let notifIndex = 0;
     setInterval(() => {
@@ -402,12 +385,10 @@
       notifIndex = (notifIndex + 1) % notifications.length;
     }, 18000);
 
-    // 5. Live Budget Calculator
     function calculateBudget() {
       const baseCost = parseInt(document.getElementById('calcDest').value);
       const studs = parseInt(document.getElementById('calcStud').value) || 0;
       const teachs = parseInt(document.getElementById('calcTeach').value) || 0;
-      // Teachers go free/discounted logic usually, but here we do base calculation
       const total = baseCost * (studs + teachs);
       document.getElementById('calcAmount').innerText = "₹" + total.toLocaleString('en-IN');
       document.getElementById('calcResult').style.display = 'block';
@@ -418,7 +399,6 @@
       window.open(`https://wa.me/919729561534?text=Hi!%20I%20used%20your%20calculator.%20My%20estimated%20budget%20is%20${amount}%20for%20${studs}%20students.%20Send%20exact%20quote.`);
     }
 
-    // 6. Database with Animated Timeline format
     const itineraryData = {
       'Amarnath': { title: 'Amarnath Holy Yatra', text: '<div class="timeline-item"><strong>Divine Journey</strong><p>Spiritual trekking and darshan experience with full safety and logistics support.</p></div>', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view?usp=drivesdk' },
       'Udaipur': { title: 'Udaipur Royal Escape', text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>City Palace & Sunset Boat Ride at Lake Pichola.</p></div><div class="timeline-item"><strong>Day 2: Vistas & Valleys</strong><p>Sajjangarh (Monsoon Palace) & Saheliyon Ki Bari.</p></div>', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view?usp=drivesdk' },
@@ -446,10 +426,7 @@
     }
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
     
-    // 7. Smart Lead Capture for PDF
-    function triggerLeadCapture() {
-      document.getElementById('leadModal').classList.add('active');
-    }
+    function triggerLeadCapture() { document.getElementById('leadModal').classList.add('active'); }
     function downloadPDF() {
       const name = document.getElementById('leadName').value;
       if(!name) { alert("Please enter Name to download PDF"); return; }
@@ -465,9 +442,7 @@
       window.open(`https://wa.me/919729561534?text=${encodeURIComponent(msg)}`);
     }
 
-    // 8. Exit Intent / Scroll Trigger
     setTimeout(() => {
-      // Automatically show discount popup after 45 seconds of staying on the site
       if(!document.getElementById('itineraryModal').classList.contains('active')) {
         document.getElementById('exitModal').classList.add('active');
       }
