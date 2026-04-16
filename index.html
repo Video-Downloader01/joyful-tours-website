@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joyful Tours And Adventures | Premium Escapes</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://drive.google.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   
   <style>
     :root {
@@ -47,7 +49,7 @@
 
     .hero {
       min-height: 100vh; display: flex; align-items: center;
-      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
+      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&fm=webp&auto=format') center/cover fixed;
       color: white; text-align: center;
     }
 
@@ -74,6 +76,7 @@
       min-height: 300px; color: white; display: flex; flex-direction: column;
       justify-content: flex-end; align-items: flex-start; font-size: 26px; font-weight: 700;
       font-family: 'Playfair Display', serif; background-size: cover; background-position: center;
+      background-color: #1e293b; /* Placeholder color before image loads */
       border-radius: 20px; overflow: hidden; position: relative; padding: 24px;
     }
 
@@ -102,7 +105,7 @@
     .day-plan { background: #f8fafc; border-left: 4px solid var(--gold); padding: 12px 16px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
     .day-plan strong { color: var(--navy); display: block; margin-bottom: 4px; }
     
-    .poster-grid img { width: 100%; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .poster-grid img { width: 100%; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #e2e8f0; min-height: 200px; }
   </style>
 </head>
 <body>
@@ -128,37 +131,37 @@
 
   <section id="packages" class="section">
     <div class="container">
-      <h2>Exclusive Destinations</h2>
+      <h2>Short Trips & City Escapes</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://drive.google.com/uc?export=view&id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w600')">
           Amarnath
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Amarnath')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1615836245337-f8b9b113f240?q=80&w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1615836245337-f8b9b113f240?q=70&w=600&fm=webp')">
           Udaipur
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Udaipur')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc?q=80&w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc?q=70&w=600&fm=webp')">
           Manali
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Manali')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1525256427389-9a7dc92ec247?q=80&w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1525256427389-9a7dc92ec247?q=70&w=600&fm=webp')">
           Shimla
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Shimla')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598440049079-c73ab9357d60?q=80&w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598440049079-c73ab9357d60?q=70&w=600&fm=webp')">
           Amritsar & Wagah
           <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarWagah')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1585607344893-43a479234dd5?q=80&w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1585607344893-43a479234dd5?q=70&w=600&fm=webp')">
           Chandigarh
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Chandigarh')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?q=80&w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?q=70&w=600&fm=webp')">
           Kurukshetra
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Kurukshetra')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1587474260584-136574528ed5?q=70&w=600&fm=webp')">
           Delhi
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Delhi')">View Itinerary</button>
         </div>
@@ -170,23 +173,23 @@
     <div class="container">
       <h2>Mega Expeditions & Combos</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/uc?export=view&id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w600')">
           Spiti + Ladakh Mega
           <button class="btn primary" style="margin-top:16px" onclick="openModal('SpitiLadakhMega')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/uc?export=view&id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w600')">
           Amritsar + Dalhousie
           <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarDalhousie')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/uc?export=view&id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w600')">
           Rishikesh + Mussoorie
           <button class="btn primary" style="margin-top:16px" onclick="openModal('RishikeshMussoorie')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/uc?export=view&id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w600')">
           Jim Corbett + Nainital
           <button class="btn primary" style="margin-top:16px" onclick="openModal('CorbettNainital')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/uc?export=view&id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w600')">
           Jaipur + Ranthambore
           <button class="btn primary" style="margin-top:16px" onclick="openModal('JaipurRanthambore')">View Itinerary</button>
         </div>
@@ -210,12 +213,12 @@
       <button class="close-btn" onclick="closePosterModal()">×</button>
       <h2>Official Tour Posters</h2>
       <div class="poster-grid">
-        <img src="https://drive.google.com/uc?export=view&id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo" alt="Amarnath Poster">
-        <img src="https://drive.google.com/uc?export=view&id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH" alt="Spiti Ladakh Poster">
-        <img src="https://drive.google.com/uc?export=view&id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH" alt="Amritsar Dalhousie Poster">
-        <img src="https://drive.google.com/uc?export=view&id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr" alt="Rishikesh Mussoorie Poster">
-        <img src="https://drive.google.com/uc?export=view&id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM" alt="Jim Corbett Nainital Poster">
-        <img src="https://drive.google.com/uc?export=view&id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-" alt="Jaipur Ranthambore Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh Mussoorie Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Jim Corbett Nainital Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore Poster">
       </div>
     </div>
   </div>
@@ -257,6 +260,7 @@
   </footer>
 
   <script>
+    // PDF links remain unchanged so they open properly in Drive/Download
     const itineraryData = {
       'Amarnath': {
         title: 'Amarnath Holy Yatra',
