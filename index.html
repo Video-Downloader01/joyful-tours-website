@@ -72,7 +72,7 @@
 
     .dest {
       min-height: 300px; color: white; display: flex; flex-direction: column;
-      justify-content: flex-end; align-items: flex-start; font-size: 28px; font-weight: 700;
+      justify-content: flex-end; align-items: flex-start; font-size: 26px; font-weight: 700;
       font-family: 'Playfair Display', serif; background-size: cover; background-position: center;
       border-radius: 20px; overflow: hidden; position: relative; padding: 24px;
     }
@@ -106,12 +106,11 @@
     }
     .close-btn:hover { background: #e2e8f0; }
 
-    .modal-body { color: #334155; font-size: 15px; }
+    .modal-body { color: #334155; font-size: 14px; }
     .day-plan { background: #f8fafc; border-left: 4px solid var(--gold); padding: 12px 16px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
-    .day-plan strong { color: var(--navy); display: block; margin-bottom: 4px; font-size: 16px; }
+    .day-plan strong { color: var(--navy); display: block; margin-bottom: 4px; font-size: 15px; }
     .modal-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
     
-    /* Poster Grid */
     .poster-grid img { width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 16px; }
   </style>
 </head>
@@ -128,9 +127,9 @@
   <section id="home" class="hero">
     <div class="container">
       <h1>Joyful Tours And Adventures</h1>
-      <h2 style="margin:0 0 12px">Your Path To Joyful Journey</h2>
+      <h2 style="margin:0 0 12px">Educational Trip Experts</h2>
       <p style="max-width:700px; margin:auto; font-size:20px; line-height:1.6">
-        Premium school, college and family trips across India with combo expeditions, downloadable brochures, and custom quote support.
+        Premium school, college and family trips across India. Creating Memories, Building Leaders with Joyful Tours.
       </p>
       <a class="btn primary" href="#packages" style="margin-top: 20px; display: inline-block;">Explore Now</a>
     </div>
@@ -138,26 +137,30 @@
 
   <section id="packages" class="section">
     <div class="container">
-      <h2>Exclusive Destinations</h2>
+      <h2>Short Trips & City Escapes</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop')">
-          Kashmir
-          <button class="btn primary" style="margin-top:16px" onclick="openModal('Kashmir')">View Itinerary</button>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1615836245337-f8b9b113f240?q=80&w=800&auto=format&fit=crop')">
+          Udaipur (3D/2N)
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Udaipur')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop')">
-          Darjeeling
-          <button class="btn primary" style="margin-top:16px" onclick="openModal('Darjeeling')">View Itinerary</button>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc?q=80&w=800&auto=format&fit=crop')">
+          Manali Adventure
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Manali')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1581793746485-04698e79a4e8?q=80&w=1200&auto=format&fit=crop')">
-          Ladakh
-          <button class="btn primary" style="margin-top:16px" onclick="openModal('Ladakh')">View Itinerary</button>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1525256427389-9a7dc92ec247?q=80&w=800&auto=format&fit=crop')">
+          Shimla Hill Station
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Shimla')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1626509647209-41712a2a0750?q=80&w=1200&auto=format&fit=crop')">
-          Spiti Valley
-          <button class="btn primary" style="margin-top:16px" onclick="openModal('Spiti')">View Itinerary</button>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598440049079-c73ab9357d60?q=80&w=800&auto=format&fit=crop')">
+          Amritsar & Wagah
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarWagah')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?q=80&w=1200&auto=format&fit=crop')">
-          Kurukshetra
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1585607344893-43a479234dd5?q=80&w=800&auto=format&fit=crop')">
+          Chandigarh Trip
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Chandigarh')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?q=80&w=800&auto=format&fit=crop')">
+          Kurukshetra (1-Day)
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Kurukshetra')">View Itinerary</button>
         </div>
       </div>
@@ -166,19 +169,44 @@
 
   <section id="expeditions" class="section" style="background:#eef2ff">
     <div class="container">
-      <h2>Premium Combo Expeditions</h2>
+      <h2>Mega Expeditions & Combos</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1581793745862-99f50a0f05d5?q=80&w=800&auto=format&fit=crop')">
+          Spiti Meets Ladakh (15D/14N)
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('SpitiLadakhMega')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1627850882142-23847e3a9cfa?q=80&w=800&auto=format&fit=crop')">
+          Amritsar + Dalhousie
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarDalhousie')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop')">
           Rishikesh + Mussoorie
           <button class="btn primary" style="margin-top:16px" onclick="openModal('RishikeshMussoorie')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop')">
-          Corbett + Nainital
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop')">
+          Jim Corbett + Nainital
           <button class="btn primary" style="margin-top:16px" onclick="openModal('CorbettNainital')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=800&auto=format&fit=crop')">
           Jaipur + Ranthambore
           <button class="btn primary" style="margin-top:16px" onclick="openModal('JaipurRanthambore')">View Itinerary</button>
+        </div>
+        
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=800&auto=format&fit=crop')">
+          Kashmir Premium
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Kashmir')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop')">
+          Darjeeling 
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Darjeeling')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1581793746485-04698e79a4e8?q=80&w=800&auto=format&fit=crop')">
+          Ladakh Expedition
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Ladakh')">View Itinerary</button>
+        </div>
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1626509647209-41712a2a0750?q=80&w=800&auto=format&fit=crop')">
+          Spiti Valley Circuit
+          <button class="btn primary" style="margin-top:16px" onclick="openModal('Spiti')">View Itinerary</button>
         </div>
       </div>
     </div>
@@ -200,10 +228,8 @@
       <button class="close-btn" onclick="closePosterModal()">×</button>
       <h2 style="margin-top:0;">Departure Posters & Slides</h2>
       <p style="color: #64748b; margin-bottom: 20px;">Glimpses of our premium organized trips.</p>
-      
       <div class="poster-grid">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=600&auto=format&fit=crop" alt="Poster 1">
-        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600&auto=format&fit=crop" alt="Poster 2">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=600&auto=format&fit=crop" alt="Poster">
       </div>
       <div class="modal-actions">
         <a class="btn primary" href="#" target="_blank">📄 Download All Posters (PDF)</a>
@@ -247,24 +273,79 @@
       <h2 style="color: var(--gold); margin-bottom: 16px;">Joyful Tours And Adventures</h2>
       <p style="font-size: 18px; margin-bottom: 8px; color: #f8fafc;">Managed by: <strong style="color: var(--gold);">Pawan & Raman</strong></p>
       <p style="margin-bottom: 32px; color: #cbd5e1; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Your trusted partners for premium educational school trips, college expeditions, and family adventures across India.
+        Your trusted partners for premium educational school trips, college expeditions, and family adventures across India. Udyam Certified.
       </p>
       
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; margin-top: 30px;">
         <a class="btn primary" href="https://wa.me/919729561534" target="_blank">Pawan: 97295-61534</a>
-        <a class="btn primary" href="https://wa.me/918295411207" target="_blank">Raman: +91-82954-11207</a> <a class="btn" href="mailto:joyfultoursandadventures@gmail.com" style="background: white; color: var(--navy);">Email Us</a>
+        <a class="btn primary" href="https://wa.me/918295411207" target="_blank">Raman: 82954-11207</a> 
+        <a class="btn" href="mailto:joyfultours0408@gmail.com" style="background: white; color: var(--navy);">Email Us</a>
         <a class="btn" href="https://instagram.com/joyful_tours_adventures" target="_blank" style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">Instagram: @joyful_tours_adventures</a>
       </div>
       
       <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
-        <p style="font-size: 14px; color: #64748b; margin: 0;">© 2026 Joyful Tours And Adventures. All Rights Reserved.</p>
+        <p style="font-size: 14px; color: #64748b; margin: 0;">© 2026 Joyful Tours And Adventures. Registered Office: Sirsa, Haryana. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // YAHAN PAR HAR DESTINATION KE AAGE PDF WALE '#' KI JAGAH APNE GOOGLE DRIVE KA LINK PASTE KARNA HAI
     const itineraryData = {
+      // MEGA EXPEDITIONS & COMBOS
+      'SpitiLadakhMega': {
+        title: 'Spiti Meets Ladakh (15 Days/14 Nights)',
+        text: '<div class="day-plan"><strong>Days 1-5: Spiti Valley Wonders</strong> Journey through Nako, Chitkul, Tabo & Key Monastery. Camping near the crescent-shaped Moon Lake (Chandratal) at 14,000 ft.</div><div class="day-plan"><strong>Days 6-10: The Ladakh Ascent</strong> Entering the Land of High Passes via Sarchu & Keylong. Acclimatization in Leh.</div><div class="day-plan"><strong>Days 11-15: Conquering Wonders & Descent</strong> Cross Khardung La, Nubra Valley, and Pangong Tso. Salute to heroes at Kargil War Memorial and safe descent via Zojila Pass.</div><div class="day-plan"><strong>Highlights:</strong> Medical oxygen in vehicles, 4K Drone cinematic video, Joyful Expeditions Jackets, Inner Line Permits included.</div>',
+        pdf: '#'
+      },
+      'AmritsarDalhousie': {
+        title: 'Amritsar & Dalhousie (3 Nights / 4 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Heritage & Pride</strong> Safe departure from Sirsa. Visit the divine Golden Temple and witness the Wagah Border Beating Retreat Ceremony. 4-Star stay.</div><div class="day-plan"><strong>Day 2: History & Ascent</strong> Visit historic Jallianwala Bagh. Ascend to the cool climes of Himachal Pradesh. Check-in to Dalhousie hotel with Gala Dinner.</div><div class="day-plan"><strong>Day 3: Mini Switzerland</strong> Excursion to Khajjiar meadows. Safe supervised time followed by a DJ night & bonfire party.</div><div class="day-plan"><strong>Day 4: Departure</strong> Return journey.</div>',
+        pdf: '#'
+      },
+      'RishikeshMussoorie': {
+        title: 'Rishikesh & Mussoorie (3 Nights / 4 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Jungle Welcome</strong> Departure from Sirsa. Arrival at Shivpuri (Rishikesh). Luxury Tents, team-building games, and Riverside Bonfire.</div><div class="day-plan"><strong>Day 2: Thrill & Culture</strong> Certified River Rafting with premium gear. Evening visit to Parmarth Niketan for Ganga Aarti. DJ Party at campsite.</div><div class="day-plan"><strong>Day 3: Queen of Hills</strong> Drive to Mussoorie. 4-Star Hotel check-in. Visit Kempty Falls and Mall Road. Special Gala Dinner.</div><div class="day-plan"><strong>Day 4: Summit & Home</strong> Morning George Everest Trek for Himalayan views. Certificate distribution and departure for Sirsa.</div>',
+        pdf: '#'
+      },
+      'CorbettNainital': {
+        title: 'Jim Corbett & Nainital (3 Nights / 4 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Corbett Welcome</strong> Departure from Sirsa. Luxury wildlife resort check-in. Evening interactive session on Jungle Survival & Wildlife Conservation.</div><div class="day-plan"><strong>Day 2: Jungle Safari</strong> Early morning Open Jeep Safari to spot the Royal Bengal Tiger. Scenic drive towards Nainital.</div><div class="day-plan"><strong>Day 3: Naini Exploration</strong> Educational visit to Eco Cave Gardens. Safe Lake Boating with life jackets. Ropeway ride to Snow View Point. Gala Night at 4-Star Hotel.</div><div class="day-plan"><strong>Day 4: Departure</strong> Safe journey back to Sirsa.</div>',
+        pdf: '#'
+      },
+      'JaipurRanthambore': {
+        title: 'Jaipur & Ranthambore (3 Nights / 4 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Cultural Grandeur</strong> Arrival in Jaipur. Evening visit to Chokhi Dhani for magic, folk dance, and a legendary Rajasthani feast.</div><div class="day-plan"><strong>Day 2: Architecture & Science</strong> Guided tour of Amer Fort, architectural visit to Hawa Mahal, and educational tour of Jantar Mantar.</div><div class="day-plan"><strong>Day 3: Journey to Wild</strong> Scenic drive to Ranthambore. Wildlife resort check-in with pool. Guided trek to Ranthambore Fort. Jungle Night Bonfire.</div><div class="day-plan"><strong>Day 4: The Royal Encounter</strong> Early morning Canter Safari to track tigers and leopards. Return journey to Sirsa.</div>',
+        pdf: '#'
+      },
+      
+      // SHORT TRIPS & CITY ESCAPES
+      'Udaipur': {
+        title: 'Udaipur Royal Escape (2 Nights / 3 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Royal Heritage</strong> Arrival in City of Lakes. Explore the majestic City Palace. Evening sunset boat ride on Lake Pichola and folk dance at Bagore Ki Haveli.</div><div class="day-plan"><strong>Day 2: Vistas & Valleys</strong> Drive to Sajjangarh (Monsoon Palace). Visit Fateh Sagar Lake and Saheliyon Ki Bari.</div><div class="day-plan"><strong>Day 3: Faith & Flavors</strong> Scenic ropeway ride to Karni Mata Temple. Explore local bazaars for handicrafts. Evening departure.</div>',
+        pdf: '#'
+      },
+      'Manali': {
+        title: 'Manali Adventure (2 Nights / 3 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Arrival</strong> Hotel check-in. Visit Hadimba Devi Temple & Van Vihar.</div><div class="day-plan"><strong>Day 2: Solang Valley</strong> Adventure day at Solang Valley (Paragliding/Zipline/Snow Scooter). Evening Bonfire & DJ Night at Hotel.</div><div class="day-plan"><strong>Day 3: Departure</strong> Visit Kullu Valley, Shawl Factory, and Naggar Castle. Departure.</div>',
+        pdf: '#'
+      },
+      'Shimla': {
+        title: 'Shimla Hill Station (2 Nights / 3 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Arrival</strong> Hotel check-in. Visit The Ridge, Mall Road, and Christ Church.</div><div class="day-plan"><strong>Day 2: Kufri Adventure</strong> Visit Kufri & Himalayan Nature Park. Horse riding & Snow activities. Evening Bonfire & DJ Night.</div><div class="day-plan"><strong>Day 3: Departure</strong> Visit Jakhoo Temple. Shopping and departure back to school.</div>',
+        pdf: '#'
+      },
+      'AmritsarWagah': {
+        title: 'Amritsar & Wagah (1 Night / 2 Days)',
+        text: '<div class="day-plan"><strong>Day 1: Spiritual Journey</strong> Golden Temple Darshan. Visit historical Jallianwala Bagh. Lunch at restaurant / Langar & Durgiana Temple.</div><div class="day-plan"><strong>Day 2: Patriotic Vibes</strong> Breakfast. Wagah Border Retreat Ceremony. Free time for shopping in Amritsar market. Departure back to school.</div>',
+        pdf: '#'
+      },
+      'Chandigarh': {
+        title: 'Chandigarh Trip (1 Night / 2 Days)',
+        text: '<div class="day-plan"><strong>Day 1: City Beautiful</strong> Arrival in Chandigarh. Visit famous Rock Garden, Sukhna Lake (Boating), and Rose Garden.</div><div class="day-plan"><strong>Day 2: Exploration</strong> Visit Elante Mall / Sector 17 Market. Fun activities and shopping time. Lunch and departure.</div>',
+        pdf: '#'
+      },
+      
+      // EXISTING STANDALONES
       'Kashmir': {
         title: 'Kashmir 4N/5D Premium Escape',
         text: '<div class="day-plan"><strong>Day 1: Arrival & Dal Lake</strong> Arrival in Srinagar, VIP Check-in & Shikara Ride.</div><div class="day-plan"><strong>Day 2: Gulmarg Excursion</strong> Day trip to Gulmarg with scenic Gondola Ride.</div><div class="day-plan"><strong>Day 3: Sonmarg Valleys</strong> Excursion to Sonmarg (The Meadow of Gold).</div><div class="day-plan"><strong>Day 4: Pahalgam Vibes</strong> Visit Pahalgam, Betaab Valley & Aru Valley.</div><div class="day-plan"><strong>Day 5: Departure</strong> Srinagar Local Sightseeing & safe drop at Airport.</div>',
@@ -289,21 +370,6 @@
         title: 'Kurukshetra 1-Day Educational Trip',
         text: '<div class="day-plan"><strong>07:00 AM: Departure</strong> Safe departure from School.</div><div class="day-plan"><strong>10:00 AM: Historical Sites</strong> Arrival at Brahma Sarovar & Jyotisar.</div><div class="day-plan"><strong>12:30 PM: Science & Culture</strong> Kurukshetra Panorama & Science Centre.</div><div class="day-plan"><strong>02:00 PM: Fun & Food</strong> Lunch & Adventure Activities.</div><div class="day-plan"><strong>05:00 PM: Return</strong> Departure back to School.</div>',
         pdf: '#'
-      },
-      'RishikeshMussoorie': {
-        title: 'Rishikesh + Mussoorie Combo',
-        text: '<div class="day-plan"><strong>Day 1: Rishikesh Vibes</strong> Arrival, Ganga Aarti & Camping.</div><div class="day-plan"><strong>Day 2: Adventure</strong> River Rafting & departure to Mussoorie.</div><div class="day-plan"><strong>Day 3: Queen of Hills</strong> Kempty Fall, Mall Road & Gun Hill.</div><div class="day-plan"><strong>Day 4: Departure</strong> Safe drop off.</div>',
-        pdf: '#'
-      },
-      'CorbettNainital': {
-        title: 'Corbett + Nainital Wildlife & Lakes',
-        text: '<div class="day-plan"><strong>Day 1: Jungle Safari</strong> Arrival at Jim Corbett, Evening Safari.</div><div class="day-plan"><strong>Day 2: Nainital Drive</strong> Morning Nature Walk, Drive to Nainital.</div><div class="day-plan"><strong>Day 3: Lake Tour</strong> Naini Lake, Naina Devi Temple, Cave Garden.</div><div class="day-plan"><strong>Day 4: Departure</strong> Local market visit & departure.</div>',
-        pdf: '#'
-      },
-      'JaipurRanthambore': {
-        title: 'Jaipur + Ranthambore Royal Trail',
-        text: '<div class="day-plan"><strong>Day 1: Pink City</strong> Arrival in Jaipur, Hawa Mahal & City Palace.</div><div class="day-plan"><strong>Day 2: Forts</strong> Amer Fort, Nahargarh & drive to Ranthambore.</div><div class="day-plan"><strong>Day 3: Tiger Safari</strong> Early Morning Jungle Safari in Ranthambore.</div><div class="day-plan"><strong>Day 4: Departure</strong> Breakfast & safe departure.</div>',
-        pdf: '#'
       }
     };
 
@@ -317,7 +383,6 @@
     }
 
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
-    
     function openPosterModal() { document.getElementById('posterModal').classList.add('active'); }
     function closePosterModal() { document.getElementById('posterModal').classList.remove('active'); }
 
