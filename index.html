@@ -48,7 +48,7 @@
 
     .hero {
       min-height: 90vh; display: flex; align-items: center;
-      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover fixed;
+      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover fixed;
       color: white; text-align: center;
     }
 
@@ -106,7 +106,7 @@
     
     .poster-grid img { width: 100%; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #e2e8f0; min-height: 200px; }
 
-    /* FLOATING WHATSAPP BUTTON CSS */
+    /* FLOATING WHATSAPP BUTTON */
     .floating-wa {
       position: fixed; bottom: 24px; right: 24px; background-color: #25d366;
       border-radius: 50%; width: 65px; height: 65px; display: flex;
@@ -116,16 +116,20 @@
     .floating-wa:hover { transform: scale(1.1); }
     .floating-wa img { width: 35px; height: 35px; }
 
-    /* TRUST BANNER CSS */
-    .trust-banner {
-      background: white; padding: 24px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    }
-    .trust-grid {
-      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center;
-    }
+    /* TRUST BANNER */
+    .trust-banner { background: white; padding: 24px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    .trust-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; }
     .trust-item { min-width: 150px; }
     .trust-item span { font-size: 32px; display: block; margin-bottom: 8px; }
     .trust-item p { margin: 0; font-weight: 600; color: var(--navy); font-size: 15px; }
+
+    /* FAQ SECTION */
+    details { background: white; padding: 16px 24px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; }
+    summary { font-weight: 600; font-size: 16px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 24px; color: var(--gold); transition: 0.3s; }
+    details[open] summary::after { content: '-'; }
+    details p { margin-top: 12px; margin-bottom: 0; color: #475569; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 12px; }
   </style>
 </head>
 <body>
@@ -138,6 +142,7 @@
     <a class="btn" href="#home">Home</a>
     <a class="btn" href="#packages">Destinations</a>
     <a class="btn" href="#expeditions">Mega Trips</a>
+    <a class="btn" href="#faq">FAQs</a>
     <a class="btn" href="#gallery">Gallery</a>
     <a class="btn" href="#reviews">Reviews</a>
     <a class="btn primary" href="#booking">Booking</a>
@@ -167,35 +172,35 @@
     <div class="container">
       <h2>Short Trips & City Escapes</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598091383021-15ddea10925d')">
           Amarnath
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Amarnath')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1615836245337-f8b9b113f240?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1615836245337-f8b9b113f240')">
           Udaipur
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Udaipur')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc')">
           Manali
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Manali')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1525256427389-9a7dc92ec247?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1525256427389-9a7dc92ec247')">
           Shimla
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Shimla')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598440049079-c73ab9357d60?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1598440049079-c73ab9357d60')">
           Amritsar & Wagah
           <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarWagah')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1585607344893-43a479234dd5?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1585607344893-43a479234dd5')">
           Chandigarh
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Chandigarh')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1600018111244-64b4c7fc4fbc')">
           Kurukshetra
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Kurukshetra')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.2),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1587474260584-136574528ed5')">
           Delhi
           <button class="btn primary" style="margin-top:16px" onclick="openModal('Delhi')">View Itinerary</button>
         </div>
@@ -207,26 +212,52 @@
     <div class="container">
       <h2>Mega Expeditions & Combos</h2>
       <div class="grid">
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1626509647209-41712a2a0750?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1626509647209-41712a2a0750')">
           Spiti + Ladakh Mega
           <button class="btn primary" style="margin-top:16px" onclick="openModal('SpitiLadakhMega')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1548013146-72479768bada?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1548013146-72479768bada')">
           Amritsar + Dalhousie
           <button class="btn primary" style="margin-top:16px" onclick="openModal('AmritsarDalhousie')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4')">
           Rishikesh + Mussoorie
           <button class="btn primary" style="margin-top:16px" onclick="openModal('RishikeshMussoorie')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429')">
           Jim Corbett + Nainital
           <button class="btn primary" style="margin-top:16px" onclick="openModal('CorbettNainital')">View Itinerary</button>
         </div>
-        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800')">
+        <div class="card dest" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(15,23,42,.8)),url('https://images.unsplash.com/photo-1477587458883-47145ed94245')">
           Jaipur + Ranthambore
           <button class="btn primary" style="margin-top:16px" onclick="openModal('JaipurRanthambore')">View Itinerary</button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <h2 style="text-align: center;">Frequently Asked Questions</h2>
+      <p style="text-align: center; margin-bottom: 32px; color: #64748b;">Everything you need to know about our school trips.</p>
+      
+      <div style="max-width: 800px; margin: auto;">
+        <details>
+          <summary>Is there dedicated staff for female students?</summary>
+          <p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator from Joyful Tours always accompanies groups with girl students to ensure their comfort and safety 24/7.</p>
+        </details>
+        <details>
+          <summary>What kind of food is provided during the trips?</summary>
+          <p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens. Our focus is on healthy, home-style food that keeps students energetic during the journey.</p>
+        </details>
+        <details>
+          <summary>How do parents get updates during the trip?</summary>
+          <p>We create a private WhatsApp broadcast group for parents and school management. Our team shares live locations and trip photos every 3-4 hours so parents are always updated.</p>
+        </details>
+        <details>
+          <summary>Are the adventure activities safe?</summary>
+          <p>Safety is our #1 priority. All activities (like rafting, trekking, or paragliding) are conducted by certified experts using premium gear. We also have pulse oximeters and first-aid available 24/7.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -398,7 +429,6 @@
     function openPosterModal() { document.getElementById('posterModal').style.display = 'flex'; }
     function closePosterModal() { document.getElementById('posterModal').style.display = 'none'; }
 
-    // Dynamic Review System
     function submitReview() {
       const name = document.getElementById('revName').value.trim() || 'Guest User';
       const rating = parseInt(document.getElementById('revRating').value);
