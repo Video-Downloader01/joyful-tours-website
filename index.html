@@ -35,7 +35,7 @@
   <section class="hero">
     <div class="container">
       <p>JOYFUL TOURS AND ADVENTURES</p>
-      <h1>Your Path To Joyful Journey</h1>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><div style="width:56px;height:56px;border-radius:16px;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:24px">JT</div><h1 style="margin:0">Joyful Tours And Adventures</h1></div><h2 style="font-size:32px;margin-top:10px">Your Path To Joyful Journey</h2>
       <p class="sub">Professional school, college and family tours across India with complete itineraries, transport, stays, and memorable experiences.</p>
       <a href="#packages" class="btn btn-primary">View Packages</a>
       <a href="#contact" class="btn btn-light">Get Custom Quote</a>
@@ -44,7 +44,18 @@
     <div class="container">
       <h2>Popular Destinations</h2>
       <div class="grid">
-        <div class="card dest">Kashmir</div><div class="card dest">Darjeeling</div><div class="card dest">Kurukshetra</div>
+        <a href="#itinerary-kashmir" class="card dest" style="text-decoration:none;color:inherit;background:url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?q=80&w=1200&auto=format&fit=crop') center/cover">Kashmir</a>
+        <a href="#itinerary-darjeeling" class="card dest" style="text-decoration:none;color:inherit">Darjeeling</a>
+        <a href="#itinerary-kurukshetra" class="card dest" style="text-decoration:none;color:inherit">Kurukshetra</a>
+        <a href="#itinerary-jaipur" class="card dest" style="text-decoration:none;color:inherit">Jaipur</a>
+        <a href="#itinerary-himachal" class="card dest" style="text-decoration:none;color:inherit">Himachal</a>
+        <a href="#itinerary-goa" class="card dest" style="text-decoration:none;color:inherit">Goa</a>
+        <a href="#itinerary-kerala" class="card dest" style="text-decoration:none;color:inherit">Kerala</a>
+        <a href="#itinerary-rajasthan" class="card dest" style="text-decoration:none;color:inherit">Rajasthan</a>
+        <a href="#itinerary-delhi" class="card dest" style="text-decoration:none;color:inherit">Delhi</a>
+        <a href="#itinerary-punjab" class="card dest" style="text-decoration:none;color:inherit">Punjab</a>
+        <a href="#itinerary-uttarakhand" class="card dest" style="text-decoration:none;color:inherit">Uttarakhand</a>
+        <a href="#expeditions" class="card dest" style="text-decoration:none;color:inherit">View Combo Packages</a><div class="card dest">Darjeeling</div><div class="card dest">Kurukshetra</div>
         <div class="card dest">Jaipur</div><div class="card dest">Himachal</div><div class="card dest">Goa</div>
         <div class="card dest">Kerala</div><div class="card dest">Rajasthan</div><div class="card dest">Delhi</div>
       </div>
@@ -77,7 +88,7 @@
           <input placeholder="Your Name" />
           <input placeholder="Phone Number" />
           <input placeholder="Destination" />
-          <textarea rows="5" placeholder="Tell us trip details"></textarea>
+          <textarea id="quoteDetails" rows="5" placeholder="Tell us trip details"></textarea><a class="btn btn-primary" href="javascript:void(0)" onclick="sendQuote()">Send Quote on WhatsApp</a>
         </div>
         <div class="card">
           <h3>Why Choose Us</h3>
@@ -171,7 +182,7 @@
           <input placeholder="Trip Type (School / Family)" />
           <input placeholder="Preferred Destination" />
           <input placeholder="Days (1D / 3D / 5D)" />
-          <input placeholder="Budget Range" />
+          <input id="selectorBudget" placeholder="Budget Per Person / Total Group Budget" /><small>Example: ₹2100 per student or ₹50,000 total group</small>
           <a class="btn btn-primary" href="#booking">Get Recommended Plan</a>
         </div>
         <div class="card">
@@ -220,7 +231,7 @@
           <input placeholder="Travel Date" />
           <input placeholder="Number of Persons" />
           <input placeholder="Budget" />
-          <textarea rows="5" placeholder="Custom requirements"></textarea>
+          <textarea id="bookingDetails" rows="5" placeholder="Custom requirements"></textarea><a class="btn btn-primary" href="javascript:void(0)" onclick="sendBooking()">Send Booking Details</a>
         </div>
         <div class="card">
           <h3>Advance Booking Payment</h3>
@@ -243,5 +254,24 @@
     </div>
   </section>  <div class="footer">© 2026 Joyful Tours And Adventures • Your trusted India travel partner</div><a class="wa" href="https://wa.me/919729561534" target="_blank">WhatsApp Us</a>
 
+  <section class="section" style="background:#eef2ff">
+    <div class="container">
+      <h2>Professional Destination Itineraries + PDF Downloads</h2>
+      <div id="itinerary-kashmir" class="card"><h3>Kashmir 4N/5D</h3><p>Day 1 Srinagar arrival, Dal Lake shikara. Day 2 Gulmarg gondola. Day 3 Sonmarg. Day 4 Pahalgam. Day 5 departure.</p><a class="btn btn-primary" href="docs/kashmir-family-tour.pdf" download>Download PDF</a></div>
+      <div id="itinerary-jaipur" class="card"><h3>Jaipur 2N/3D</h3><p>Amber Fort, City Palace, Hawa Mahal, cultural dinner and shopping itinerary.</p><a class="btn btn-primary" href="docs/jaipur-heritage-tour.pdf" download>Download PDF</a></div>
+      <div id="itinerary-kurukshetra" class="card"><h3>Kurukshetra 1 Day</h3><p>Brahma Sarovar, Panorama, Jyotisar and educational history route.</p><a class="btn btn-primary" href="docs/kurukshetra-school-trip.pdf" download>Download PDF</a></div>
+      <div class="grid" style="margin-top:20px">
+        <a class="btn btn-light" href="docs/rishikesh-mussoorie.pdf" download>Rishikesh + Mussoorie PDF</a>
+        <a class="btn btn-light" href="docs/corbett-nainital.pdf" download>Corbett + Nainital PDF</a>
+        <a class="btn btn-light" href="docs/jaipur-ranthambore.pdf" download>Jaipur + Ranthambore PDF</a>
+        <a class="btn btn-light" href="docs/amritsar-dalhousie.pdf" download>Amritsar + Dalhousie PDF</a>
+        <a class="btn btn-light" href="docs/spiti-ladakh-kashmir.pdf" download>Spiti + Ladakh + Kashmir PDF</a>
+      </div>
+    </div>
+  </section>
+<script>
+function sendQuote(){const text=encodeURIComponent('Custom Quote Request:%0A'+document.getElementById('quoteDetails').value);window.open('https://wa.me/919729561534?text='+text,'_blank');}
+function sendBooking(){const text=encodeURIComponent('Booking Details:%0A'+document.getElementById('bookingDetails').value);window.open('https://wa.me/919729561534?text='+text,'_blank');}
+</script>
 </body>
 </html>
