@@ -23,13 +23,13 @@
 <body>
   <div style="position:sticky;top:0;z-index:999;background:#ffffffee;backdrop-filter:blur(8px);border-bottom:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(0,0,0,.06);">
     <div class="container" style="display:flex;gap:10px;overflow:auto;padding:12px 20px;white-space:nowrap;">
-      <a class="btn btn-light" href="#packages">Packages</a>
-      <a class="btn btn-light" href="#booking">Booking</a>
-      <a class="btn btn-light" href="#contact">Contact</a>
-      <a class="btn btn-light" href="#expeditions">Mega Trips</a>
-      <a class="btn btn-light" href="#gallery">Gallery</a>
-      <a class="btn btn-primary" href="#social">Instagram</a>
-      <a class="btn btn-primary" href="#selector">Trip Selector</a>
+      <a class="btn btn-light" href="javascript:void(0)" onclick="showSection('packages')">Packages</a>
+      <a class="btn btn-light" href="javascript:void(0)" onclick="showSection('booking')">Booking</a>
+      <a class="btn btn-light" href="javascript:void(0)" onclick="showSection('contact')">Contact</a>
+      <a class="btn btn-light" href="javascript:void(0)" onclick="showSection('expeditions')">Mega Trips</a>
+      <a class="btn btn-light" href="javascript:void(0)" onclick="showSection('gallery')">Gallery</a>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="showSection('social')">📸 Instagram</a>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="showSection('selector')">🧠 Trip Selector</a>
     </div>
   </div>
   <section class="hero">
@@ -60,7 +60,7 @@
         <div class="card dest">Kerala</div><div class="card dest">Rajasthan</div><div class="card dest">Delhi</div>
       </div>
     </div>
-  </section>  <section class="section" id="packages" style="background:#f1f5f9">
+  </section>  <section class="section content-section" id="packages" style="background:#f1f5f9">
     <div class="container">
       <h2>School / College / Family Packages</h2>
       <div class="grid">
@@ -78,7 +78,7 @@
         <div class="card"><h3>Family Comfort</h3><p>Hotel categories, meals, child-friendly stays and senior citizen support options.</p></div>
       </div>
     </div>
-  </section>  <section class="section" id="contact" style="background:#ecfdf5">
+  </section>  <section class="section content-section" id="contact" style="background:#ecfdf5">
     <div class="container">
       <h2>Contact & Custom Quote</h2>
       <p>Email: joyfultours0408@gmail.com | Instagram: joyful_tours_adventures</p>
@@ -146,7 +146,7 @@
         <div class="card"><h3>Luxury</h3><p>Top-tier hotels, private cab and VIP support.</p></div>
       </div>
     </div>
-  </section><section class="section" id="expeditions" style="background:#eef2ff">
+  </section><section class="section content-section" id="expeditions" style="background:#eef2ff">
 <div class="container">
   <h2>Premium Combo Expeditions 2026</h2>
   <div class="grid">
@@ -158,7 +158,7 @@
   </div>
 </div>
 
-  </section>  <section class="section" id="social" style="background:#ecfeff">
+  </section>  <section class="section content-section" id="social" style="background:#ecfeff">
     <div class="container">
       <h2>Follow Our Journey on Instagram</h2>
       <div class="grid">
@@ -174,7 +174,7 @@
         </div>
       </div>
     </div>
-  </section>  <section class="section" id="selector">
+  </section>  <section class="section content-section" id="selector">
     <div class="container">
       <h2>Smart Trip Selector</h2>
       <div class="grid">
@@ -202,7 +202,7 @@
         <div class="card"><h3>24x7</h3><p>Trip Support Team</p></div>
       </div>
     </div>
-  </section>  <section class="section" id="gallery" style="background:#fff7ed">
+  </section>  <section class="section content-section" id="gallery" style="background:#fff7ed">
     <div class="container">
       <h2>Customer Trip Photo Gallery</h2>
       <div class="grid">
@@ -220,7 +220,7 @@
         <div class="card"><h3>Bus Departure Fun Clip</h3><p>Add student departure video link here.</p></div>
       </div>
     </div>
-  </section>  <section class="section" id="booking" style="background:#ecfeff">
+  </section>  <section class="section content-section" id="booking" style="background:#ecfeff">
     <div class="container">
       <h2>Complete Booking Form</h2>
       <div class="grid">
@@ -270,8 +270,14 @@
     </div>
   </section>
 <script>
-function sendQuote(){const text=encodeURIComponent('Custom Quote Request:%0A'+document.getElementById('quoteDetails').value);window.open('https://wa.me/919729561534?text='+text,'_blank');}
-function sendBooking(){const text=encodeURIComponent('Booking Details:%0A'+document.getElementById('bookingDetails').value);window.open('https://wa.me/919729561534?text='+text,'_blank');}
+function showSection(id){document.querySelectorAll('.content-section').forEach(s=>s.style.display='none');const el=document.getElementById(id);if(el){el.style.display='block';el.scrollIntoView({behavior:'smooth'});}}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.content-section').forEach(s=>s.style.display='none');});
+function sendQuote(){const text=encodeURIComponent('Custom Quote Request:
+'+document.getElementById('quoteDetails').value+'
+Sent from website form');window.open('https://wa.me/919729561534?text='+text,'_blank');}
+function sendBooking(){const text=encodeURIComponent('Booking Details:
+'+document.getElementById('bookingDetails').value+'
+Sent from website booking form');window.open('https://wa.me/919729561534?text='+text,'_blank');}
 </script>
 </body>
 </html>
