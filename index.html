@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joyful Tours And Adventures | Premium Escapes</title>
+  <title>Joyful Tours And Adventures | Premium Educational Trips</title>
   
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
@@ -19,120 +19,83 @@
 
     html { scroll-behavior: smooth; }
     
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: var(--light-bg);
-      color: var(--text);
-    }
-
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--light-bg); color: var(--text); }
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
-    .nav {
-      position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto;
-      padding: 16px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    }
+    /* Announcement Bar */
+    .top-bar { background: var(--navy); color: var(--gold); padding: 8px 16px; font-size: 14px; font-weight: 600; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); }
 
-    .btn {
-      padding: 12px 20px; border-radius: 999px; text-decoration: none; background: white;
-      color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap;
-      transition: all 0.3s ease; border: 1px solid transparent; cursor: pointer;
-    }
+    .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto; padding: 16px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
 
+    .btn { padding: 12px 20px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap; transition: all 0.3s ease; border: 1px solid transparent; cursor: pointer; text-align: center; }
     .btn:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
-
     .btn.primary { background: var(--gold); color: white; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
     .btn.primary:hover { background: var(--gold-hover); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6); }
 
-    .hero {
-      min-height: 90vh; display: flex; align-items: center;
-      background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover fixed;
-      color: white; text-align: center;
-    }
+    .hero { min-height: 90vh; display: flex; align-items: center; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover fixed; color: white; text-align: center; position: relative; }
+    .hero h1 { font-size: 52px; margin: 0 0 12px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.4); line-height: 1.2; }
+    .hero h2 { color: white; font-size: 24px; margin-bottom: 24px;}
 
-    .hero h1 {
-      font-size: 56px; margin: 0 0 12px;
-      background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.4);
-    }
+    /* Countdown Timer */
+    .timer-box { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.5); backdrop-filter: blur(10px); padding: 16px 32px; border-radius: 16px; display: inline-block; margin-top: 32px; }
+    .timer-text { font-size: 14px; color: var(--gold); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px; }
+    .time-grid { display: flex; gap: 20px; justify-content: center; }
+    .time-unit span { font-size: 32px; font-weight: bold; font-family: 'Playfair Display', serif; display: block; }
+    .time-unit p { margin: 0; font-size: 12px; opacity: 0.8; }
 
-    .hero h2 { color: white; }
     .container { max-width: 1200px; margin: auto; padding: 24px; width: 100%; box-sizing: border-box; }
     .section { padding: 80px 0; }
-    
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 
-    .card {
-      border-radius: 20px; padding: 24px; background: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.02);
-    }
+    .card { border-radius: 20px; padding: 24px; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.02); }
     .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
 
-    .dest {
-      min-height: 300px; color: white; display: flex; flex-direction: column;
-      justify-content: flex-end; align-items: flex-start; font-size: 26px; font-weight: 700;
-      font-family: 'Playfair Display', serif; background-size: cover; background-position: center;
-      background-color: #1e293b;
-      border-radius: 20px; overflow: hidden; position: relative; padding: 24px;
-    }
+    .dest { min-height: 300px; color: white; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; font-size: 26px; font-weight: 700; font-family: 'Playfair Display', serif; background-size: cover; background-position: center; background-color: #1e293b; border-radius: 20px; overflow: hidden; position: relative; padding: 24px; }
+    
+    input, textarea, select { width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
-    input, textarea, select {
-      width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1;
-      margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif;
-    }
-
-    .modal-overlay {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px);
-      z-index: 1000; justify-content: center; align-items: center; padding: 20px;
-    }
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; }
-
-    .modal-content {
-      background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%;
-      max-height: 80vh; overflow-y: auto; position: relative;
-    }
-
-    .close-btn {
-      position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none;
-      width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer;
-    }
+    .modal-content { background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
+    .close-btn { position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; }
 
     .day-plan { background: #f8fafc; border-left: 4px solid var(--gold); padding: 12px 16px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
     .day-plan strong { color: var(--navy); display: block; margin-bottom: 4px; }
-    
     .poster-grid img { width: 100%; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #e2e8f0; min-height: 200px; }
 
-    /* FLOATING WHATSAPP BUTTON */
-    .floating-wa {
-      position: fixed; bottom: 24px; right: 24px; background-color: #25d366;
-      border-radius: 50%; width: 65px; height: 65px; display: flex;
-      justify-content: center; align-items: center; z-index: 1000;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); transition: transform 0.3s;
-    }
+    /* Floating WhatsApp */
+    .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); transition: transform 0.3s; }
     .floating-wa:hover { transform: scale(1.1); }
     .floating-wa img { width: 35px; height: 35px; }
 
-    /* TRUST BANNER */
+    /* Trust Banner */
     .trust-banner { background: white; padding: 24px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
     .trust-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; }
     .trust-item { min-width: 150px; }
     .trust-item span { font-size: 32px; display: block; margin-bottom: 8px; }
     .trust-item p { margin: 0; font-weight: 600; color: var(--navy); font-size: 15px; }
 
-    /* FAQ SECTION */
+    /* FAQ */
     details { background: white; padding: 16px 24px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; }
     summary { font-weight: 600; font-size: 16px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: '+'; font-size: 24px; color: var(--gold); transition: 0.3s; }
     details[open] summary::after { content: '-'; }
     details p { margin-top: 12px; margin-bottom: 0; color: #475569; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+
+    /* Insta Grid */
+    .insta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+    .insta-item { aspect-ratio: 1; background-size: cover; background-position: center; border-radius: 12px; position: relative; overflow: hidden; cursor: pointer; transition: 0.3s; }
+    .insta-item:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    .insta-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; color: white; font-weight: bold; font-size: 20px; }
+    .insta-item:hover .insta-overlay { opacity: 1; }
   </style>
 </head>
 <body>
+
+  <div class="top-bar">
+    <marquee scrollamount="5">🔥 Bookings Open for Spiti & Ladakh Mega Expedition 2026 | Upto 15% Special Discount for School & College Groups! 🎒 | 🛡️ Udyam Certified Safety Standards</marquee>
+  </div>
 
   <a href="https://wa.me/919729561534?text=Hello%20Joyful%20Tours!%20I%20am%20interested%20in%20a%20trip." target="_blank" class="floating-wa">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
@@ -140,22 +103,32 @@
 
   <div class="nav">
     <a class="btn" href="#home">Home</a>
+    <a class="btn" href="#schools">For Schools</a>
     <a class="btn" href="#packages">Destinations</a>
     <a class="btn" href="#expeditions">Mega Trips</a>
-    <a class="btn" href="#faq">FAQs</a>
-    <a class="btn" href="#gallery">Gallery</a>
-    <a class="btn" href="#reviews">Reviews</a>
+    <a class="btn" href="#resources">Parents Hub</a>
     <a class="btn primary" href="#booking">Booking</a>
   </div>
 
   <section id="home" class="hero">
     <div class="container">
       <h1>Joyful Tours And Adventures</h1>
-      <h2>Educational Trip Experts</h2>
-      <p style="max-width:700px; margin:auto; font-size:20px; line-height:1.6">
-        Premium school, college and family trips across India. Creating Memories, Building Leaders with Joyful Tours.
+      <h2>India's Most Trusted Educational Trip Experts</h2>
+      <p style="max-width:700px; margin:auto; font-size:18px; line-height:1.6; color:#e2e8f0;">
+        Premium school, college and family trips across India. Creating Memories, Building Leaders.
       </p>
-      <a class="btn primary" href="#packages" style="margin-top: 20px; display: inline-block;">Explore Now</a>
+      
+      <div class="timer-box">
+        <div class="timer-text">Spiti Meets Ladakh Registration Closes In</div>
+        <div class="time-grid">
+          <div class="time-unit"><span id="days">00</span><p>Days</p></div>
+          <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
+          <div class="time-unit"><span id="mins">00</span><p>Mins</p></div>
+          <div class="time-unit"><span id="secs">00</span><p>Secs</p></div>
+        </div>
+      </div>
+      <br>
+      <a class="btn primary" href="#packages" style="margin-top: 32px; display: inline-block;">Explore All Trips</a>
     </div>
   </section>
 
@@ -168,7 +141,28 @@
     </div>
   </div>
 
-  <section id="packages" class="section">
+  <section id="schools" class="section" style="background: white;">
+    <div class="container">
+      <div class="grid" style="align-items: center;">
+        <div>
+          <h2 style="font-size: 36px; margin-top:0;">Partner With Us For Your Next School Trip</h2>
+          <p style="font-size: 16px; line-height: 1.8; color: #475569;">At Joyful Tours, we don't just organize trips; we design educational experiences. We handle 100% of the logistics so your teaching staff can focus entirely on the students.</p>
+          <ul style="line-height: 2; color: var(--navy); font-weight: 600; margin-bottom: 24px;">
+            <li>✓ Strict 1:10 Coordinator to Student Ratio</li>
+            <li>✓ Dedicated Female Staff for Girl Students</li>
+            <li>✓ Doctor-on-call & 24/7 Medical Support</li>
+            <li>✓ Private WhatsApp Broadcast for Parents</li>
+          </ul>
+          <button class="btn primary" onclick="requestPresentation()" style="padding: 16px 24px; font-size: 16px;">Request a School Presentation</button>
+        </div>
+        <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800" style="width: 100%; display: block;" alt="School Trip">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages" class="section" style="background: var(--light-bg);">
     <div class="container">
       <h2>Short Trips & City Escapes</h2>
       <div class="grid">
@@ -236,11 +230,33 @@
     </div>
   </section>
 
+  <section id="resources" class="section" style="background: white;">
+    <div class="container">
+      <h2 style="text-align: center;">Parents' Resource Center</h2>
+      <p style="text-align: center; margin-bottom: 32px; color: #64748b;">Important documents and guidelines for a secure trip.</p>
+      <div class="grid">
+        <div class="card" style="text-align: center; background: #f8fafc;">
+          <h3 style="margin-top: 0;">📝 Consent Form (NOC)</h3>
+          <p style="font-size: 14px; color: #64748b;">Mandatory permission document required by school administration.</p>
+          <a class="btn primary" href="#" target="_blank" style="display: inline-block; margin-top: 12px;">Download PDF</a>
+        </div>
+        <div class="card" style="text-align: center; background: #f8fafc;">
+          <h3 style="margin-top: 0;">🎒 Packing List</h3>
+          <p style="font-size: 14px; color: #64748b;">Weather-specific guide on what to carry for Hill Station/Desert trips.</p>
+          <a class="btn primary" href="#" target="_blank" style="display: inline-block; margin-top: 12px;">Download PDF</a>
+        </div>
+        <div class="card" style="text-align: center; background: #f8fafc;">
+          <h3 style="margin-top: 0;">🏥 Medical Declaration</h3>
+          <p style="font-size: 14px; color: #64748b;">Health update form to help our medical team assist better.</p>
+          <a class="btn primary" href="#" target="_blank" style="display: inline-block; margin-top: 12px;">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="faq" class="section">
     <div class="container">
       <h2 style="text-align: center;">Frequently Asked Questions</h2>
-      <p style="text-align: center; margin-bottom: 32px; color: #64748b;">Everything you need to know about our school trips.</p>
-      
       <div style="max-width: 800px; margin: auto;">
         <details>
           <summary>Is there dedicated staff for female students?</summary>
@@ -256,44 +272,29 @@
         </details>
         <details>
           <summary>Are the adventure activities safe?</summary>
-          <p>Safety is our #1 priority. All activities (like rafting, trekking, or paragliding) are conducted by certified experts using premium gear. We also have pulse oximeters and first-aid available 24/7.</p>
+          <p>Safety is our #1 priority. All activities (like rafting or trekking) are conducted by certified experts using premium gear. We also have pulse oximeters and first-aid available 24/7.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <div id="itineraryModal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">×</button>
-      <h2 id="modalTitle" style="margin-top:0;">Itinerary Details</h2>
-      <div id="modalBody" class="modal-body" style="margin-top:16px;"></div>
-      <div class="modal-actions" style="margin-top:24px;">
-        <a id="pdfBtn" class="btn primary" href="#" target="_blank">📄 Download Official PDF</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="posterModal" class="modal-overlay">
-    <div class="modal-content" style="max-width: 800px;">
-      <button class="close-btn" onclick="closePosterModal()">×</button>
-      <h2>Official Tour Posters</h2>
-      <div class="poster-grid">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh Mussoorie Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Jim Corbett Nainital Poster">
-        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore Poster">
-      </div>
-    </div>
-  </div>
-
   <section id="gallery" class="section" style="background:#fff7ed">
     <div class="container">
-      <h2>Gallery & Memories</h2>
-      <div class="grid">
-        <a href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" class="card" style="text-decoration:none; color:inherit; text-align:center;">📸 Jaisalmer Trip Reel</a>
-        <div class="card" style="text-align:center; cursor:pointer;" onclick="openPosterModal()">🚌 View All Departure Posters</div>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <h2 style="margin: 0;">Follow Our Journey</h2>
+        <a class="btn primary" href="https://instagram.com/joyful_tours_adventures" target="_blank">Follow @joyful_tours_adventures</a>
+      </div>
+      
+      <div class="insta-grid">
+        <a href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4');">
+          <div class="insta-overlay">▶️ Play Reel</div>
+        </a>
+        <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada');" onclick="openPosterModal()">
+          <div class="insta-overlay">📸 View Posters</div>
+        </div>
+        <div class="insta-item" style="background-image: url('https://images.unsplash.com/photo-1477587458883-47145ed94245');" onclick="openPosterModal()">
+          <div class="insta-overlay">🖼️ View Gallery</div>
+        </div>
       </div>
     </div>
   </section>
@@ -301,8 +302,6 @@
   <section id="reviews" class="section" style="background:#e0f2fe">
     <div class="container">
       <h2 style="text-align: center;">Customer Reviews</h2>
-      <p style="text-align: center; margin-bottom: 32px; color: #64748b;">Share your joyful experience with us!</p>
-      
       <div class="card" id="reviewBox" style="max-width: 600px; margin: auto; border: none;">
         <input id="revName" placeholder="Your Name / School Name" />
         <select id="revRating">
@@ -315,9 +314,7 @@
         <textarea id="revText" rows="4" placeholder="Write about your trip experience..."></textarea>
         <button class="btn primary" style="width:100%; padding: 16px; font-size: 16px;" onclick="submitReview()">Submit Review</button>
       </div>
-
-      <div id="thankYouMsg" style="display:none; text-align:center; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.05); max-width: 600px; margin: auto;">
-      </div>
+      <div id="thankYouMsg" style="display:none; text-align:center; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.05); max-width: 600px; margin: auto;"></div>
     </div>
   </section>
 
@@ -347,7 +344,53 @@
     </div>
   </footer>
 
+  <div id="itineraryModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      <h2 id="modalTitle" style="margin-top:0;">Itinerary Details</h2>
+      <div id="modalBody" class="modal-body" style="margin-top:16px;"></div>
+      <div class="modal-actions" style="margin-top:24px;">
+        <a id="pdfBtn" class="btn primary" href="#" target="_blank">📄 Download Official PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="posterModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 800px;">
+      <button class="close-btn" onclick="closePosterModal()">×</button>
+      <h2>Official Tour Posters</h2>
+      <div class="poster-grid">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh Mussoorie Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Jim Corbett Nainital Poster">
+        <img loading="lazy" src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore Poster">
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Live Countdown Timer Engine
+    function startTimer() {
+      // Set future date for mega expedition (Example: June 1, 2026)
+      const countDownDate = new Date("June 1, 2026 00:00:00").getTime();
+      
+      setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        
+        if (distance > 0) {
+          document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+          document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+          document.getElementById("mins").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+          document.getElementById("secs").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }
+      }, 1000);
+    }
+    startTimer();
+
+    // Itinerary Database
     const itineraryData = {
       'Amarnath': {
         title: 'Amarnath Holy Yatra',
@@ -416,6 +459,7 @@
       }
     };
 
+    // Modal Control Functions
     function openModal(place) {
       const data = itineraryData[place];
       if(!data) return;
@@ -429,6 +473,13 @@
     function openPosterModal() { document.getElementById('posterModal').style.display = 'flex'; }
     function closePosterModal() { document.getElementById('posterModal').style.display = 'none'; }
 
+    // Special WhatsApp Button for Schools
+    function requestPresentation() {
+      const msg = "Hello Pawan/Raman! I represent a school/institution. We are interested in requesting a presentation for an educational trip. Please connect with us.";
+      window.open(`https://wa.me/919729561534?text=${encodeURIComponent(msg)}`);
+    }
+
+    // Booking & Reviews
     function submitReview() {
       const name = document.getElementById('revName').value.trim() || 'Guest User';
       const rating = parseInt(document.getElementById('revRating').value);
