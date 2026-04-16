@@ -273,15 +273,30 @@
     </div>
   </section>
 <script>
-function showSection(id){document.querySelectorAll('.content-section').forEach(s=>s.style.display='none');const el=document.getElementById(id);if(el){el.style.display='block';el.scrollIntoView({behavior:'smooth'});}}
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.content-section').forEach(s=>s.style.display='none');});
-function sendQuote(){const text=encodeURIComponent('Custom Quote Request:
-'+document.getElementById('quoteDetails').value+'
-Sent from website form');window.open('https://wa.me/919729561534?text='+text,'_blank');}
-function sendBooking(){const text=encodeURIComponent('Booking Details:
-'+document.getElementById('bookingDetails').value+'
-Sent from website booking form');window.open('https://wa.me/919729561534?text='+text,'_blank');}
-function recommendPlan(){const type=(document.querySelector('#selector input')?.value||'').toLowerCase();const budget=(document.getElementById('selectorBudget')?.value||'').toLowerCase();const box=document.getElementById('recommendationBox');let rec='Recommended: Kashmir 4N/5D Premium Escape';if(type.includes('school')) rec='Recommended: Rishikesh + Mussoorie Leadership Camp'; if(budget.includes('2100')) rec='Recommended: Kurukshetra 1 Day Educational Trip'; box.style.display='block'; box.innerHTML='<h3>'+rec+'</h3><p>Best matched to your trip type and budget. Open Booking tab to confirm instantly on WhatsApp.</p><a class="btn btn-primary" href="javascript:void(0)" onclick="showSection(\'booking\')">Continue Booking</a>';}
+function hideAllSections(){document.querySelectorAll('.content-section').forEach(s=>{s.style.display='none';});}
+function showSection(id){hideAllSections(); const el=document.getElementById(id); if(el){el.style.display='block'; setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),50);} }
+document.addEventListener('DOMContentLoaded', function(){ hideAllSections(); window.scrollTo(0,0); });
+function sendQuote(){const v=(document.getElementById('quoteDetails')||{}).value||''; const text=encodeURIComponent('Custom Quote Request:
+'+v+'
+Sent from website form'); window.open('https://wa.me/919729561534?text='+text,'_blank');}
+function sendBooking(){const v=(document.getElementById('bookingDetails')||{}).value||''; const text=encodeURIComponent('Booking Details:
+'+v+'
+Sent from website booking form'); window.open('https://wa.me/919729561534?text='+text,'_blank');}
+function recommendPlan(){
+ const type=((document.querySelector('#selector input')||{}).value||'').toLowerCase();
+ const budget=((document.getElementById('selectorBudget')||{}).value||'').toLowerCase();
+ const box=document.getElementById('recommendationBox'); if(!box) return;
+ let rec='Recommended: Kashmir 4N/5D Premium Escape';
+ if(type.includes('school')) rec='Recommended: Rishikesh + Mussoorie Leadership Camp';
+ if(budget.includes('2100')) rec='Recommended: Kurukshetra 1 Day Educational Trip';
+ box.style.display='block';
+ box.innerHTML='<h3>'+rec+'</h3><p>Best matched to your trip type and budget.</p><a class="btn btn-primary" href="javascript:void(0)" onclick="showSection(\'booking\')">Continue Booking</a>';
+}
 </script>
+<style>
+.content-section{display:none}
+.dest{min-height:160px;display:flex;align-items:end;color:#fff;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop') center/cover !important}
+#expeditions .card{color:#fff;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop') center/cover}
+</style>
 </body>
 </html>
