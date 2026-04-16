@@ -283,27 +283,42 @@
         <div class="card">🚌 Departure Posters + PDFs</div>
       </div>
     </div>
-  </section>  <section id="booking" class="section">
+  </section>    <section id="booking" class="section" style="background: white;">
     <div class="container">
-      <h2>Complete Booking</h2>
-      <div class="card">
-        <input id="name" placeholder="Full Name" />
-        <input id="phone" placeholder="Phone Number" />
-        <input id="destination" placeholder="Destination" />
-        <textarea id="bookingText" rows="5" placeholder="Trip details"></textarea>
-        <button class="btn primary" onclick="sendBooking()">Send to WhatsApp</button>
+      <h2 style="text-align: center;">Book Your Joyful Journey</h2>
+      <p style="text-align: center; margin-bottom: 32px; color: #64748b;">Fill the details below to get a custom quote instantly on WhatsApp.</p>
+      
+      <div class="card" style="max-width: 600px; margin: auto; background: var(--light-bg); border: none;">
+        <input id="name" type="text" placeholder="Full Name (e.g. School Name or Your Name)" />
+        <input id="phone" type="tel" placeholder="Phone Number" />
+        <input id="destination" type="text" placeholder="Destination (e.g. Spiti, Kashmir, Kurukshetra)" />
+        <textarea id="bookingText" rows="4" placeholder="Any special requirements or total number of students/people?"></textarea>
+        <button class="btn primary" style="width: 100%; font-size: 16px; padding: 16px; display: flex; justify-content: center; align-items: center; gap: 8px;" onclick="sendBooking()">
+          Send Inquiry via WhatsApp
+        </button>
       </div>
     </div>
-  </section>  <section id="contact" class="section" style="background:#ecfeff">
+  </section>
+
+  <footer id="contact" class="section" style="background: var(--navy); color: white; padding: 60px 0 30px; text-align: center;">
     <div class="container">
-      <h2>Contact + Custom Quote</h2>
-      <div class="card">
-        WhatsApp: 97295-61534<br />
-        Instagram: joyful_tours_adventures<br /><br />
-        <a class="btn primary" href="#booking">Get Custom Quote</a>
+      <h2 style="color: var(--gold); margin-bottom: 16px;">Joyful Tours And Adventures</h2>
+      <p style="font-size: 18px; margin-bottom: 8px; color: #f8fafc;">Managed by: <strong style="color: var(--gold);">Pawan & Raman</strong></p>
+      <p style="margin-bottom: 32px; color: #cbd5e1; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Your trusted partners for premium educational school trips, college expeditions, and family adventures across India.
+      </p>
+      
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; margin-top: 30px;">
+        <a class="btn primary" href="https://wa.me/919729561534" target="_blank">WhatsApp: 97295-61534</a>
+        <a class="btn" href="https://instagram.com/joyful_tours_adventures" target="_blank" style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">Instagram: @joyful_tours_adventures</a>
+      </div>
+      
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+        <p style="font-size: 14px; color: #64748b; margin: 0;">© 2026 Joyful Tours And Adventures. All Rights Reserved.</p>
       </div>
     </div>
-  </section>  <script>
+  </footer>
+  <script>
 function hideAllSections(){
   document.querySelectorAll('.content-section').forEach(s=>{
     s.style.display='none';
@@ -321,21 +336,24 @@ function showSection(id){
   }
 }
 
-function sendQuote(){
-  const v=(document.getElementById('quoteDetails')||{}).value||'';
-  const text=encodeURIComponent('Custom Quote Request:
-'+v+'
-Sent from website form');
-  window.open('https://wa.me/919729561534?text='+text,'_blank');
+function sendBooking() {
+  const name = document.getElementById('name').value.trim() || 'N/A';
+  const phone = document.getElementById('phone').value.trim() || 'N/A';
+  const dest = document.getElementById('destination').value.trim() || 'N/A';
+  const details = document.getElementById('bookingText').value.trim() || 'None';
+  
+  if(name === 'N/A' || phone === 'N/A') {
+    alert("Please enter at least your Name and Phone Number!");
+    return;
+  }
+
+  // Formatting message professionally for Pawan & Raman
+  const message = `Hello Pawan/Raman! I want to inquire about a trip.\n\n*Name/School:* ${name}\n*Phone:* ${phone}\n*Destination:* ${dest}\n*Details:* ${details}\n\nSent via Joyful Tours Official Website.`;
+  
+  const whatsappUrl = `https://wa.me/919729561534?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
 }
 
-function sendBooking(){
-  const v=(document.getElementById('bookingDetails')||{}).value||'';
-  const text=encodeURIComponent('Booking Details:
-'+v+'
-Sent from website booking form');
-  window.open('https://wa.me/919729561534?text='+text,'_blank');
-}
 
 function recommendPlan(){
   const type=((document.querySelector('#selector input')||{}).value||'').toLowerCase();
