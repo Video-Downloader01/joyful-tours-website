@@ -157,12 +157,56 @@
       </div>
     </div>
   </section>  <script>
-    function sendBooking(){
-      var v = 'Name: ' + document.getElementById('name').value + '\n' +
-              'Phone: ' + document.getElementById('phone').value + '\n' +
-              'Destination: ' + document.getElementById('destination').value + '\n' +
-              'Details: ' + document.getElementById('bookingText').value;
-      window.open('https://wa.me/919729561534?text=' + encodeURIComponent(v), '_blank');
-    }
-  </script></body>
+function hideAllSections(){
+  document.querySelectorAll('.content-section').forEach(s=>{
+    s.style.display='none';
+  });
+}
+
+function showSection(id){
+  hideAllSections();
+  const el=document.getElementById(id);
+  if(el){
+    el.style.display='block';
+    setTimeout(()=>{
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    },50);
+  }
+}
+
+function sendQuote(){
+  const v=(document.getElementById('quoteDetails')||{}).value||'';
+  const text=encodeURIComponent('Custom Quote Request:
+'+v+'
+Sent from website form');
+  window.open('https://wa.me/919729561534?text='+text,'_blank');
+}
+
+function sendBooking(){
+  const v=(document.getElementById('bookingDetails')||{}).value||'';
+  const text=encodeURIComponent('Booking Details:
+'+v+'
+Sent from website booking form');
+  window.open('https://wa.me/919729561534?text='+text,'_blank');
+}
+
+function recommendPlan(){
+  const type=((document.querySelector('#selector input')||{}).value||'').toLowerCase();
+  const budget=((document.getElementById('selectorBudget')||{}).value||'').toLowerCase();
+  const box=document.getElementById('recommendationBox');
+  if(!box) return;
+
+  let rec='Recommended: Kashmir 4N/5D Premium Escape';
+  if(type.includes('school')) rec='Recommended: Rishikesh + Mussoorie Leadership Camp';
+  if(budget.includes('2100')) rec='Recommended: Kurukshetra 1 Day Educational Trip';
+
+  box.style.display='block';
+  box.innerHTML='<h3>'+rec+'</h3><p>Best matched to your trip type and budget.</p><a class="btn btn-primary" href="javascript:void(0)" onclick="showSection(\'booking\')">Continue Booking</a>';
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  hideAllSections();
+  window.scrollTo(0,0);
+});
+</script></body>
 </html>
