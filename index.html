@@ -25,203 +25,94 @@
       color: var(--text);
     }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: var(--navy);
-    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
-    /* Glassmorphism Navigation */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding: 16px 24px;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto;
+      padding: 16px 24px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8);
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
     .btn {
-      padding: 12px 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      background: white;
-      color: var(--navy);
-      font-weight: 600;
-      font-size: 14px;
-      white-space: nowrap;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
+      padding: 12px 20px; border-radius: 999px; text-decoration: none; background: white;
+      color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap;
+      transition: all 0.3s ease; border: 1px solid transparent; cursor: pointer;
     }
 
-    .btn:hover {
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transform: translateY(-2px);
-    }
+    .btn:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
 
-    .btn.primary { 
-      background: var(--gold); 
-      color: white; 
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    }
-
-    .btn.primary:hover {
-      background: var(--gold-hover);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-    }
+    .btn.primary { background: var(--gold); color: white; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+    .btn.primary:hover { background: var(--gold-hover); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6); }
 
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+      min-height: 100vh; display: flex; align-items: center;
       background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
-      color: white;
-      text-align: center;
+      color: white; text-align: center;
     }
 
     .hero h1 {
-      font-size: 56px;
-      margin: 0 0 12px;
+      font-size: 56px; margin: 0 0 12px;
       background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.4);
-      animation: shine 3s infinite linear;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.4); animation: shine 3s infinite linear;
     }
 
     .hero h2 { color: white; }
-
     .container { max-width: 1200px; margin: auto; padding: 24px; width: 100%; box-sizing: border-box; }
     .section { padding: 80px 0; }
     
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 
-    /* 3D Cards */
     .card {
-      border-radius: 20px;
-      padding: 24px;
-      background: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      transition: all 0.4s ease;
-      border: 1px solid rgba(0,0,0,0.02);
+      border-radius: 20px; padding: 24px; background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.02);
     }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
 
     .dest {
-      min-height: 300px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      font-size: 28px;
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
-      background-size: cover;
-      background-position: center;
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      padding: 24px;
+      min-height: 300px; color: white; display: flex; flex-direction: column;
+      justify-content: flex-end; align-items: flex-start; font-size: 28px; font-weight: 700;
+      font-family: 'Playfair Display', serif; background-size: cover; background-position: center;
+      border-radius: 20px; overflow: hidden; position: relative; padding: 24px;
     }
 
-    /* Forms */
     input, textarea {
-      width: 100%;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid #cbd5e1;
-      margin-bottom: 16px;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-      transition: border-color 0.3s;
+      width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1;
+      margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: border-color 0.3s;
     }
-
     input:focus, textarea:focus { outline: none; border-color: var(--gold); }
 
-    /* Modal Styles */
+    /* Modals */
     .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      z-index: 1000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;
+      opacity: 0; transition: opacity 0.3s ease;
     }
-
     .modal-overlay.active { display: flex; opacity: 1; }
 
     .modal-content {
-      background: white;
-      padding: 32px;
-      border-radius: 24px;
-      max-width: 600px;
-      width: 100%;
-      max-height: 80vh;
-      overflow-y: auto;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%;
+      max-height: 80vh; overflow-y: auto; position: relative; transform: translateY(20px);
+      transition: transform 0.3s ease; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
-
     .modal-overlay.active .modal-content { transform: translateY(0); }
 
     .close-btn {
-      position: absolute;
-      top: 24px; right: 24px;
-      background: var(--light-bg);
-      border: none;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      color: var(--navy);
-      display: flex; justify-content: center; align-items: center;
-      transition: all 0.2s;
+      position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none;
+      width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; color: var(--navy);
+      display: flex; justify-content: center; align-items: center; transition: all 0.2s;
     }
-    
     .close-btn:hover { background: #e2e8f0; }
 
     .modal-body { color: #334155; font-size: 15px; }
-    
-    .day-plan {
-      background: #f8fafc;
-      border-left: 4px solid var(--gold);
-      padding: 12px 16px;
-      margin-bottom: 12px;
-      border-radius: 0 8px 8px 0;
-    }
-    
-    .day-plan strong {
-      color: var(--navy);
-      display: block;
-      margin-bottom: 4px;
-      font-size: 16px;
-    }
-
+    .day-plan { background: #f8fafc; border-left: 4px solid var(--gold); padding: 12px 16px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
+    .day-plan strong { color: var(--navy); display: block; margin-bottom: 4px; font-size: 16px; }
     .modal-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    
+    /* Poster Grid */
+    .poster-grid img { width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 16px; }
   </style>
 </head>
 <body>
@@ -241,7 +132,7 @@
       <p style="max-width:700px; margin:auto; font-size:20px; line-height:1.6">
         Premium school, college and family trips across India with combo expeditions, downloadable brochures, and custom quote support.
       </p>
-      <a class="btn primary" href="#packages" style="margin-top: 20px; display: inline-block;">View Packages</a>
+      <a class="btn primary" href="#packages" style="margin-top: 20px; display: inline-block;">Explore Now</a>
     </div>
   </section>
 
@@ -297,21 +188,39 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">×</button>
       <h2 id="modalTitle" style="margin-top:0;">Title</h2>
-      <div id="modalBody" class="modal-body" style="margin-top:16px;">
-        </div>
+      <div id="modalBody" class="modal-body" style="margin-top:16px;"></div>
       <div class="modal-actions">
         <a id="pdfBtn" class="btn primary" href="#" target="_blank" download="">📄 Download PDF</a>
       </div>
     </div>
   </div>
 
+  <div id="posterModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 800px;">
+      <button class="close-btn" onclick="closePosterModal()">×</button>
+      <h2 style="margin-top:0;">Departure Posters & Slides</h2>
+      <p style="color: #64748b; margin-bottom: 20px;">Glimpses of our premium organized trips.</p>
+      
+      <div class="poster-grid">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=600&auto=format&fit=crop" alt="Poster 1">
+        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600&auto=format&fit=crop" alt="Poster 2">
+      </div>
+      <div class="modal-actions">
+        <a class="btn primary" href="#" target="_blank">📄 Download All Posters (PDF)</a>
+      </div>
+    </div>
+  </div>
+
   <section id="gallery" class="section" style="background:#fff7ed">
     <div class="container">
-      <h2>Gallery + Instagram</h2>
+      <h2>Gallery + Memories</h2>
       <div class="grid">
-        <div class="card">📸 School Trip Reel</div>
-        <div class="card">🏔️ Family Tour Memories</div>
-        <div class="card">🚌 Departure Posters + PDFs</div>
+        <a href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" class="card" style="text-decoration:none; color:inherit; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:bold; cursor:pointer;">
+          📸 Jaisalmer Trip Reel
+        </a>
+        <div class="card" style="display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:bold; cursor:pointer;" onclick="openPosterModal()">
+          🚌 View Departure Posters
+        </div>
       </div>
     </div>
   </section>
@@ -342,7 +251,8 @@
       </p>
       
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; margin-top: 30px;">
-        <a class="btn primary" href="https://wa.me/919729561534" target="_blank">WhatsApp: 97295-61534</a>
+        <a class="btn primary" href="https://wa.me/919729561534" target="_blank">Pawan: 97295-61534</a>
+        <a class="btn primary" href="https://wa.me/910000000000" target="_blank">Raman: +91-XXXXXXXXXX</a> <a class="btn" href="mailto:joyfultoursandadventures@gmail.com" style="background: white; color: var(--navy);">Email Us</a>
         <a class="btn" href="https://instagram.com/joyful_tours_adventures" target="_blank" style="background: transparent; border: 1px solid var(--gold); color: var(--gold);">Instagram: @joyful_tours_adventures</a>
       </div>
       
@@ -353,6 +263,7 @@
   </footer>
 
   <script>
+    // YAHAN PAR HAR DESTINATION KE AAGE PDF WALE '#' KI JAGAH APNE GOOGLE DRIVE KA LINK PASTE KARNA HAI
     const itineraryData = {
       'Kashmir': {
         title: 'Kashmir 4N/5D Premium Escape',
@@ -399,23 +310,19 @@
     function openModal(place) {
       const data = itineraryData[place];
       if(!data) return;
-      
       document.getElementById('modalTitle').innerText = data.title;
       document.getElementById('modalBody').innerHTML = data.text;
-      
-      const pdfBtn = document.getElementById('pdfBtn');
-      pdfBtn.href = data.pdf;
-      
+      document.getElementById('pdfBtn').href = data.pdf;
       document.getElementById('itineraryModal').classList.add('active');
     }
 
-    function closeModal() {
-      document.getElementById('itineraryModal').classList.remove('active');
-    }
+    function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
+    
+    function openPosterModal() { document.getElementById('posterModal').classList.add('active'); }
+    function closePosterModal() { document.getElementById('posterModal').classList.remove('active'); }
 
-    document.getElementById('itineraryModal').addEventListener('click', function(e) {
-      if (e.target === this) closeModal();
-    });
+    document.getElementById('itineraryModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    document.getElementById('posterModal').addEventListener('click', function(e) { if (e.target === this) closePosterModal(); });
 
     function sendBooking() {
       const name = document.getElementById('name').value.trim() || 'N/A';
