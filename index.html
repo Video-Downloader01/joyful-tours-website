@@ -19,30 +19,18 @@
     .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto; padding: 15px 30px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.05); align-items: center; justify-content: space-between; }
     .brand-logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--navy); text-decoration: none; min-width: fit-content;}
     .brand-logo img { height: 55px; width: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 15px rgba(212,175,55,0.3); }
-    .nav-links { display: flex; gap: 15px; align-items: center; }
+    .nav-links { display: flex; gap: 10px; align-items: center; }
 
-    .btn { padding: 12px 22px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 13px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #e2e8f0; cursor: pointer; text-align: center; display: inline-block; }
+    .btn { padding: 10px 18px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 13px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #e2e8f0; cursor: pointer; text-align: center; display: inline-block; white-space: nowrap;}
     .btn:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.1); transform: translateY(-3px); border-color: var(--gold); }
     .btn.primary { background: linear-gradient(135deg, #d4af37, #b5952f); color: white; border: none; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
     .lang-btn { background: var(--navy); color: var(--gold); border: 1px solid var(--gold); }
+    .btn.login-btn { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
 
-    /* AUTO IMAGE SLIDER HERO */
+    /* STATIC HERO SECTION RESTORED */
     .hero { height: 90vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
-    .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-    .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: fadeSlider 15s infinite; }
-    
-    /* 3 Beautiful Placeholder Images for Slider */
-    .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1626509647209-41712a2a0750'); animation-delay: 0s; }
-    .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc'); animation-delay: 5s; }
-    .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada'); animation-delay: 10s; }
-    
-    @keyframes fadeSlider { 
-      0%, 100% { opacity: 0; transform: scale(1); } 
-      10%, 33% { opacity: 1; transform: scale(1.05); } 
-      43% { opacity: 0; transform: scale(1.1); } 
-    }
-    
-    .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.9)); z-index: 1; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600") center/cover; animation: cinematicZoom 25s infinite alternate linear; }
+    @keyframes cinematicZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
     .hero-content { position: relative; z-index: 2; width: 100%; padding: 0 20px; }
     .gradient-text { font-size: 64px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: -1px; margin-bottom:10px; line-height: 1.2;}
 
@@ -66,17 +54,17 @@
     .dest:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.3); border-color: var(--gold); }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* CATEGORIES LUXURY WITH EMBEDDED CARD */
+    /* CATEGORIES LUXURY */
     .cat-section { background: #f8fafc; padding: 90px 0; border-top: 2px solid var(--gold); }
-    .cat-card { text-align: center; padding: 30px 24px; border-radius: 25px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition:0.4s; position: relative; overflow: hidden;}
+    .cat-card { text-align: center; padding: 40px 24px; border-radius: 25px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition:0.4s; position: relative; overflow: hidden;}
     .cat-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(212,175,55,0.15); border-color: var(--gold); }
     .cat-card h3 { font-size: 24px; margin: 15px 0; color: var(--navy); }
     .cat-icon { font-size: 50px; margin-bottom: 10px; display: block; text-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     .cat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, #d4af37, #fef08a); }
 
     /* EMBEDDED DARJEELING CARD IN CATEGORY */
-    .embedded-dest { border-radius: 15px; overflow: hidden; background: linear-gradient(rgba(0,0,0,0.2), rgba(15,23,42,0.9)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800') center/cover; padding: 20px; text-align: left; margin: 20px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 180px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: 0.3s; }
-    .embedded-dest:hover { transform: scale(1.02); }
+    .embedded-dest { border-radius: 15px; overflow: hidden; background: linear-gradient(rgba(0,0,0,0.2), rgba(15,23,42,0.9)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800') center/cover; padding: 20px; text-align: left; margin: 20px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 180px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: 0.3s; border:1px solid rgba(255,255,255,0.2);}
+    .embedded-dest:hover { transform: scale(1.02); border-color:var(--gold); }
 
     /* PIHU CHATBOT */
     .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 3000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
@@ -159,7 +147,7 @@
 
   <audio id="bgAudio" loop></audio>
 
-  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Sirsa just inquired!</div></div>
+  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Delhi just inquired!</div></div>
 
   <div class="top-bar">
     <marquee scrollamount="5">🎒 Bookings Open for Summer Expeditions 2026 | Upto 20% Group Discount | 🛡️ Udyam Certified Branded Safety Standards</marquee>
@@ -190,25 +178,27 @@
     </a>
     <div class="nav-links">
       <button class="btn lang-btn" onclick="toggleLanguage()" id="langBtn">हिन्दी</button>
-      <a class="btn" href="#categories">Styles</a>
-      <a class="btn" href="#destinations">Trips</a>
-      <a class="btn primary" href="#booking">Book Now</a>
+      <a class="btn" href="#categories" id="navCat">Categories</a>
+      <a class="btn" href="#destinations" id="navDest">Destinations</a>
+      <a class="btn" href="#how-it-works" id="navHow">How It Works</a>
+      <a class="btn" href="#budget" id="navCalc">Calculator</a>
+      <a class="btn" href="#resources" id="navRes">Resources</a>
+      <a class="btn" href="#faq" id="navFaq">FAQs</a>
+      <a class="btn" href="#gallery" id="navGal">Gallery</a>
+      <a class="btn" href="#reviews" id="navRev">Reviews</a>
+      <a class="btn primary" href="#booking" id="navBook">Book Now</a>
+      <a class="btn login-btn" href="#" onclick="openLoginModal()">Login 🔒</a>
     </div>
   </div>
 
   <section id="home" class="hero">
-    <div class="hero-slider">
-      <div class="slide"></div>
-      <div class="slide"></div>
-      <div class="slide"></div>
-    </div>
-    <div class="video-overlay"></div>
+    <div class="hero-bg"></div>
     <div class="container hero-content">
       <h1 id="heroH1" class="gradient-text">Joyful Tours And Adventures</h1>
       <h2 id="heroH2" style="color:white; font-size:24px; font-weight:400; margin-top:10px;">Redefining Premium Educational & Family Expeditions</h2>
       <div class="timer-box">
         <div id="timerTitle" style="font-size:12px; color:var(--gold); font-weight:bold; letter-spacing:1px; margin-bottom:10px;">SUMMER REGISTRATION CLOSES IN</div>
-        <div class="time-grid" style="display:flex; gap:20px; justify-content:center;">
+        <div class="time-grid">
           <div class="time-unit"><span id="days">00</span><p>Days</p></div>
           <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
           <div class="time-unit"><span id="mins">00</span><p>Mins</p></div>
@@ -237,13 +227,11 @@
           <span class="cat-icon">🏫</span>
           <h3>Educational Excellence</h3>
           <p style="color:#64748b; font-size:14px; margin-bottom:20px;">Specialized school trips with safety focus.</p>
-          
           <div class="embedded-dest">
             <span class="badge" style="width:fit-content; margin-bottom:8px;">💎 Elite Featured</span>
             <h4 style="color:white; margin:0 0 10px 0; font-size:20px; font-family:'Playfair Display',serif;">Darjeeling Expedition</h4>
             <button class="btn primary" style="font-size:12px; padding:8px 16px; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
-          
           <button class="btn" style="width:100%; border:1px solid var(--gold); background:transparent; color:var(--navy);" onclick="openModal('CategorySchool', 'School/College')">View Full Catalog</button>
         </div>
 
@@ -251,13 +239,11 @@
           <span class="cat-icon">🔥</span>
           <h3>Squad Adventures</h3>
           <p style="color:#64748b; font-size:14px; margin-bottom:20px;">High-energy itineraries for friends group.</p>
-          
           <div class="embedded-dest">
             <span class="badge" style="width:fit-content; margin-bottom:8px;">💎 Elite Featured</span>
             <h4 style="color:white; margin:0 0 10px 0; font-size:20px; font-family:'Playfair Display',serif;">Darjeeling Trek</h4>
             <button class="btn primary" style="font-size:12px; padding:8px 16px; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
-
           <button class="btn" style="width:100%; border:1px solid var(--gold); background:transparent; color:var(--navy);" onclick="openModal('CategoryFriends', 'Friends Group')">View Full Catalog</button>
         </div>
 
@@ -265,17 +251,14 @@
           <span class="cat-icon">👨‍👩‍👦</span>
           <h3>Royal Kinship</h3>
           <p style="color:#64748b; font-size:14px; margin-bottom:20px;">Luxurious family escapes with premium comfort.</p>
-          
           <div class="embedded-dest">
             <span class="badge" style="width:fit-content; margin-bottom:8px;">💎 Elite Featured</span>
             <h4 style="color:white; margin:0 0 10px 0; font-size:20px; font-family:'Playfair Display',serif;">Darjeeling Luxury</h4>
             <button class="btn primary" style="font-size:12px; padding:8px 16px; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
-
           <button class="btn" style="width:100%; border:1px solid var(--gold); background:transparent; color:var(--navy);" onclick="openModal('CategoryFamily', 'Family Trip')">View Full Catalog</button>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -321,7 +304,7 @@
       </div>
       <div class="grid" id="destGrid">
         
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Darjeeling.png")'>
           <div class="badge">💎 ELITE: NEW</div>
           <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition 
           <button class="btn primary" style="margin-top:15px" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
@@ -517,10 +500,10 @@
           <a href="https://instagram.com/joyful_tours_adventures" target="_blank" style="color:var(--gold); text-decoration:none;">Instagram: @joyful_tours_adventures</a>
         </div>
         <div style="border-radius: 20px; overflow: hidden; width: 450px; height: 300px; border: 2px solid rgba(212,175,55,0.3);">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d111003.88241477759!2d75.00693596700762!3d29.533036496660166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114c00030581e7%3A0xcfd64a02d4a1fb53!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1713340800000!5m2!1sen!2sin0" width="100%" height="100%" style="border:0;" allowfullscreen=""></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110996.15545229668!2d75.021008!3d29.5332204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114cb1855a82fd%3A0xc3b5e43a99201582!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1713500000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
-      <p style="text-align:center; padding-top:50px; font-size:12px; opacity:0.5;">© 2026 Joyful Tours And Adventures. Registered in Sirsa. Udyam Certified.</p>
+      <p style="text-align:center; padding-top:50px; font-size:12px; opacity:0.5;">© 2026 Joyful Tours And Adventures. Registered in Sirsa, Haryana. Udyam Certified.</p>
     </div>
   </footer>
 
@@ -663,7 +646,7 @@
       document.getElementById('bgAudio').pause();
     }
 
-    // ALL 14 ITINERARIES FULLY RESTORED + NEW CATEGORIES WITH DETAILED TEXT
+    // ALL 14 ITINERARIES FULLY RESTORED + NEW CATEGORIES (WITH DETAILED TEXT)
     const itineraryData = {
       'CategorySchool': { 
         title: 'Educational Trip Excellence', 
