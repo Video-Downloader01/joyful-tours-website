@@ -73,10 +73,8 @@
 
     /* AUDIO & 360 */
     .view-360-btn { background: rgba(15, 23, 42, 0.8); color: white; font-size: 12px; padding: 6px 12px; border-radius: 4px; margin-bottom: 8px; border: 1px solid var(--gold); cursor: pointer; transition:0.3s; position:relative; z-index:5; }
-    .view-360-btn:hover { background: var(--gold); }
     #panoFrame { width: 100%; height: 400px; border-radius: 16px; background-position: center; background-size: 250% auto; animation: pan360 25s linear infinite alternate; position: relative; }
     @keyframes pan360 { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-    .pano-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; }
 
     /* FOOTER & OTHERS */
     .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 3000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); cursor: pointer; transition: 0.3s; }
@@ -84,21 +82,21 @@
     .wa-menu.active { display: block; animation: slideUp 0.3s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .wa-item { display: block; padding: 12px; text-decoration: none; color: var(--navy); font-weight: 600; border-bottom: 1px solid #f1f5f9; transition: 0.2s; }
-    .wa-item:hover { color: var(--gold); background: #f8fafc; }
     
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 20px 0; background: #fff7ed; }
     .marquee-track { display: inline-block; animation: scrollMarquee 30s linear infinite; }
-    .marquee-track img { height: 300px; border-radius: 12px; margin-right: 20px; object-fit: cover; cursor: pointer; transition:0.3s;}
-    .marquee-track img:hover { transform:scale(1.05); }
+    .marquee-track img { height: 300px; border-radius: 12px; margin-right: 20px; object-fit: cover; cursor: pointer; transition: transform 0.3s; }
+    .marquee-track img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
+    /* MODAL OVERLAYS */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 4000; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; }
     .modal-content { background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
     .close-btn { position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; z-index: 10; }
 
     .badge { font-size:12px; background:rgba(255,255,255,0.2); color:white; padding:4px 8px; border-radius:4px; margin-bottom:8px; display:inline-block; border:1px solid var(--gold); }
-    .route-map-pro { position: relative; height: 50px; border-bottom: 3px dashed #94a3b8; margin: 30px 0 40px; display: flex; align-items: flex-end; justify-content: space-between; }
+    .route-map-pro { position: relative; height: 50px; border-bottom: 3px dashed #94a3b8; margin: 30px 0 20px; display: flex; align-items: flex-end; justify-content: space-between; }
     .bus-pro { position: absolute; bottom: -5px; font-size: 32px; animation: driveBusPro 4s linear infinite; z-index:3; }
     @keyframes driveBusPro { 0% { left: 0; transform: translateY(0); } 50% { transform: translateY(-4px); } 100% { left: 88%; transform: translateY(0); } }
     .route-pin { background: var(--navy); color: var(--gold); padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; position: relative; bottom: -12px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
@@ -109,7 +107,7 @@
     .timeline-item strong { color: var(--navy); display: block; font-size: 16px; margin-bottom: 4px; }
     .timeline-item p { margin: 0; color: #475569; font-size: 14px; line-height: 1.6; }
     
-    .weather-badge { background: #e0f2fe; color: #0284c7; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 20px; border: 1px solid #bae6fd; }
+    .weather-badge { background: #e0f2fe; color: #0284c7; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 10px; border: 1px solid #bae6fd; }
 
     .filter-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
     .filter-btn { background: #e2e8f0; color: var(--navy); border: none; padding: 10px 20px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: 0.3s; }
@@ -127,9 +125,6 @@
     .dash-photos img { width: 100%; height: 70px; object-fit: cover; border-radius: 8px; border: 1px solid #cbd5e1; }
     .loader { border: 4px solid #f3f3f3; border-top: 4px solid var(--gold); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-    .pdf-progress { width: 100%; background: #e2e8f0; height: 8px; border-radius: 4px; margin: 16px 0; overflow: hidden; display: none; }
-    .pdf-fill { width: 0%; height: 100%; background: var(--gold); transition: width 0.5s; }
 
     details { background: white; padding: 16px 24px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; }
     summary { font-weight: 600; font-size: 16px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
@@ -160,7 +155,7 @@
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. How can I assist you in planning your Joyful Adventure? Ask me about Darjeeling, Schools, or Safety!</span></div>
     </div>
-    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask Pihu anything..." onkeypress="if(event.key === 'Enter') sendPihuMsg()"><button onclick="sendPihuMsg()">➤</button></div>
+    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask Pihu anything..." onkeypress="if(event.key === 'Enter') sendPihuMsg()"><button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 12px; border-radius:50%; margin-left:5px; cursor:pointer;">➤</button></div>
   </div>
 
   <div id="waMenu" class="wa-menu">
@@ -225,19 +220,19 @@
           <span class="cat-icon">🏫</span>
           <h3>Educational Excellence</h3>
           <p style="color:#64748b; font-size:14px; margin-bottom:24px;">Specialized school & college trips with safety focus and learning outcomes.</p>
-          <button class="btn primary" onclick="openModal('CategorySchool', 'School/College')">View Details & PDF</button>
+          <button class="btn primary" onclick="openModal('CategorySchool', 'School/College')">View Itinerary Details</button>
         </div>
         <div class="cat-card">
           <span class="cat-icon">🔥</span>
           <h3>Squad Adventures</h3>
           <p style="color:#64748b; font-size:14px; margin-bottom:24px;">High-energy itineraries for friends group, trekkers and solo explorers.</p>
-          <button class="btn primary" onclick="openModal('CategoryFriends', 'Friends Group')">View Details & PDF</button>
+          <button class="btn primary" onclick="openModal('CategoryFriends', 'Friends Group')">View Itinerary Details</button>
         </div>
         <div class="cat-card">
           <span class="cat-icon">👨‍👩‍👦</span>
           <h3>Royal Kinship</h3>
           <p style="color:#64748b; font-size:14px; margin-bottom:24px;">Luxurious family escapes with premium comfort, privacy and curated stays.</p>
-          <button class="btn primary" onclick="openModal('CategoryFamily', 'Family Trip')">View Details & PDF</button>
+          <button class="btn primary" onclick="openModal('CategoryFamily', 'Family Trip')">View Itinerary Details</button>
         </div>
       </div>
     </div>
@@ -285,10 +280,10 @@
       </div>
       <div class="grid" id="destGrid">
         
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Darjeeling.png")'>
           <div class="badge">⭐ Premium: New</div>
           <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 View 360°</button> Darjeeling Expedition 
-          <button class="btn primary" style="margin-top:12px" onclick="openModal('Darjeeling', 'West Bengal', '🌤️ 14°C')">View Itinerary</button>
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Darjeeling', 'Darjeeling & Bengal', '🌤️ 14°C')">View Itinerary</button>
         </div>
 
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'>
@@ -331,7 +326,6 @@
           <button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 View 360°</button> Amritsar + Dalhousie 
           <button class="btn primary" style="margin-top:12px" onclick="openModal('AmritsarDalhousie', 'Dalhousie', '🌤️ 14°C')">View Itinerary</button>
         </div>
-
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'>
           <div class="badge">⭐ Leadership Score: 8.5/10</div>
           <button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 View 360°</button> Amarnath Yatra
@@ -435,7 +429,6 @@
       <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)">
-      <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="openLightbox(this.src)">
     </div></div>
   </section>
 
@@ -495,19 +488,18 @@
       <h2 id="modalTitle">Itinerary Details</h2>
       <div id="modalWeather" class="weather-badge">🌤️ Live Weather</div>
       <div class="route-map-pro"><div class="bus-pro">🚍</div><div class="route-pin" style="left:0;">Sirsa</div><div class="route-pin" style="right:0; background:var(--gold); color:white;" id="destPin">Dest</div></div>
-      <div id="modalBody" class="timeline"></div>
-      <button class="btn primary" id="pdfBtnAction" onclick="triggerLeadCapture()" style="width:100%; margin-top:20px;">📄 Generate Branded Proposal</button>
+      
+      <div id="modalBody" class="timeline" style="margin-bottom: 30px;"></div>
+      
+      <div style="display:flex; gap:10px;">
+        <button class="btn primary" style="flex:1;" onclick="downloadCurrentPDF()">📄 Download PDF</button>
+        <button class="btn primary" style="flex:1; background:#25d366; border-color:#25d366;" onclick="bookCurrentTrip()">🟢 Book Trip</button>
+      </div>
     </div>
   </div>
 
-  <div id="leadModal" class="modal-overlay" style="z-index: 5000;">
-    <div class="modal-content" style="max-width: 400px; text-align:center;">
-      <button class="close-btn" onclick="this.parentElement.parentElement.classList.remove('active')">×</button>
-      <h3>Premium Brochure Engine</h3>
-      <input id="leadSchool" placeholder="School Name / Group Leader" style="border:2px solid var(--navy); margin-top:10px;" />
-      <div class="pdf-progress" id="pdfProgress"><div class="pdf-fill" id="pdfFill"></div></div>
-      <button class="btn primary" id="generateBtn" style="width:100%;" onclick="generateCoBrandedPDF()">Generate & Open Full Page</button>
-    </div>
+  <div id="lightboxModal" class="modal-overlay" style="z-index: 4000;" onclick="this.classList.remove('active')">
+    <div class="modal-content"><img id="lightboxImg" src=""></div>
   </div>
 
   <div id="360Modal" class="modal-overlay" style="z-index: 4500;">
@@ -516,10 +508,6 @@
       <h3 style="margin:10px;" id="panoTitle">Location 360°</h3>
       <div id="panoFrame"><div class="pano-hint">Atmospheric audio active... Experience the vibe.</div></div>
     </div>
-  </div>
-
-  <div id="lightboxModal" class="modal-overlay" style="z-index: 4000;" onclick="this.classList.remove('active')">
-    <div class="modal-content"><img id="lightboxImg" src=""></div>
   </div>
 
   <div id="loginModal" class="modal-overlay" style="z-index: 1005;">
@@ -612,7 +600,7 @@
     const panoImgs = { 
       'Amritsar': 'Amritsar&wagah.png', 'Manali': 'Manali.png', 'Shimla': 'Shimla.png', 'Udaipur': 'Udaipur.png', 
       'Spiti': 'Spiti&ladakh.png', 'Chandigarh': 'Chandigarh.png', 'Kurukshetra': 'Kurukshetra.png', 'Dalhousie': 'Dalhousie.png',
-      'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600',
+      'Darjeeling': 'Darjeeling.png',
       'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
       'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600',
       'Rishikesh': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
@@ -632,63 +620,121 @@
       document.getElementById('bgAudio').pause();
     }
 
-    // ALL 14 ITINERARIES FULLY RESTORED + NEW CATEGORIES
+    // ALL 14 ITINERARIES FULLY RESTORED + NEW CATEGORIES WITH DETAILED TEXT
     const itineraryData = {
-      'Darjeeling': { title: 'Darjeeling & North Bengal', pdf: 'https://drive.google.com/file/d/1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt/view', text: '<div class="timeline-item"><strong>Day 1: Arrival & Mall Road</strong><p>Entry into the Queen of Hills.</p></div><div class="timeline-item"><strong>Day 2: Tea Gardens & Toy Train</strong><p>Curated learning tour.</p></div>' },
-      'CategorySchool': { title: 'Educational Trip Excellence', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<div class="timeline-item"><strong>For Institutions</strong><p>Educational outcomes, safety protocols, and student bonding activities.</p></div>' },
-      'CategoryFriends': { title: 'Squad Adventure Package', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<div class="timeline-item"><strong>For Groups</strong><p>Trekking, bonfires, DJ nights, and high-energy exploration.</p></div>' },
-      'CategoryFamily': { title: 'Royal Family Getaway', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<div class="timeline-item"><strong>For Families</strong><p>Privacy, luxury stays, and slow-paced premium experiences.</p></div>' },
-      'AmritsarWagah': { title: 'Amritsar Pride', pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', text: '<div class="timeline-item"><strong>Day 1: Golden Temple</strong><p>Spiritual Darshan.</p></div><div class="timeline-item"><strong>Day 2: Wagah Border</strong><p>Patriotic retreat ceremony.</p></div>' },
-      'Manali': { title: 'Manali Adventure', pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Mall road & local sight seeing.</p></div><div class="timeline-item"><strong>Day 2: Snow World</strong><p>Solang Valley snow fun.</p></div>' },
-      'Shimla': { title: 'Shimla Hill Station', pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', text: '<div class="timeline-item"><strong>Day 1: Heritage</strong><p>The Ridge & historic Christ Church.</p></div>' },
-      'Chandigarh': { title: 'Chandigarh City Tour', pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', text: '<div class="timeline-item"><strong>Day 1: City Beautiful</strong><p>Rock Garden & Boating at Sukhna Lake.</p></div>' },
-      'Kurukshetra': { title: 'Kurukshetra Educational', pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', text: '<div class="timeline-item"><strong>Day 1: History</strong><p>Brahma Sarovar & Jyotisar.</p></div>' },
-      'Udaipur': { title: 'Udaipur Royal Escape', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>City Palace & Lake Pichola.</p></div>' },
-      'Amarnath': { title: 'Amarnath Yatra', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Spiritual start from Srinagar.</p></div>' },
-      'Delhi': { title: 'Delhi Heritage Tour', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Red Fort, India Gate & Parliament.</p></div>' },
-      'SpitiLadakhMega': { title: 'Spiti Meets Ladakh Mega', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley & Leh.</p></div>' },
-      'AmritsarDalhousie': { title: 'Amritsar + Dalhousie Combo', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with Dalhousie.</p></div>' },
-      'RishikeshMussoorie': { title: 'Rishikesh + Mussoorie', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh and Queen of Hills, Mussoorie.</p></div>' },
-      'CorbettNainital': { title: 'Jim Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett.</p></div>' },
-      'JaipurRanthambore': { title: 'Jaipur + Ranthambore Royal', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture combined with Tiger tracking.</p></div>' }
+      'CategorySchool': { 
+        title: 'Educational Trip Excellence', 
+        pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', 
+        text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie, Rishikesh, Corbett, Jaipur.</p></div><div class="timeline-item"><strong>Program Features</strong><p>Strict safety protocols, educational activities, doctor-on-call, and dedicated female staff for girls.</p></div>' 
+      },
+      'CategoryFriends': { 
+        title: 'Squad Adventure Package', 
+        pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', 
+        text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie, Rishikesh, Corbett, Jaipur.</p></div><div class="timeline-item"><strong>Vibe & Activities</strong><p>Trekking, adventure sports, bonfires, DJ nights, and high-energy exploration designed for friends and solo travelers.</p></div>' 
+      },
+      'CategoryFamily': { 
+        title: 'Royal Family Getaway', 
+        pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', 
+        text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie, Rishikesh, Corbett, Jaipur.</p></div><div class="timeline-item"><strong>Luxury Features</strong><p>Maximum privacy, 4-Star luxury stays, slow-paced itineraries, and premium comfort vehicles.</p></div>' 
+      },
+      'Darjeeling': { 
+        title: 'Darjeeling & North Bengal', 
+        pdf: 'https://drive.google.com/file/d/1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt/view', 
+        text: '<div class="timeline-item"><strong>Day 1: Arrival & Acclimatization</strong><p>Check-in and evening walk at the famous Darjeeling Mall Road.</p></div><div class="timeline-item"><strong>Day 2: Sunrise & Tea Estates</strong><p>Early morning Tiger Hill sunrise view, followed by a visit to the Happy Valley Tea Estate and Batasia Loop.</p></div><div class="timeline-item"><strong>Day 3: Heritage Toy Train</strong><p>A joyful ride on the UNESCO Himalayan Railway and visit to the Peace Pagoda.</p></div>' 
+      },
+      'AmritsarWagah': { 
+        title: 'Amritsar Pride', 
+        pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', 
+        text: '<div class="timeline-item"><strong>Day 1: Golden Temple</strong><p>Spiritual Darshan at Harmandir Sahib and visit to Jallianwala Bagh.</p></div><div class="timeline-item"><strong>Day 2: Wagah Border</strong><p>High energy patriotic retreat ceremony at the Indo-Pak border.</p></div>' 
+      },
+      'Manali': { 
+        title: 'Manali Adventure', 
+        pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', 
+        text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Check-in, Mall road shopping, and local sight seeing (Hadimba Temple).</p></div><div class="timeline-item"><strong>Day 2: Snow World</strong><p>Solang Valley adventure activities like Paragliding and Skiing.</p></div>' 
+      },
+      'Shimla': { 
+        title: 'Shimla Hill Station', 
+        pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', 
+        text: '<div class="timeline-item"><strong>Day 1: Heritage Walk</strong><p>Explore The Ridge, Mall Road, and historic Christ Church.</p></div><div class="timeline-item"><strong>Day 2: Kufri</strong><p>Adventure park and Himalayan nature walk.</p></div>' 
+      },
+      'Chandigarh': { 
+        title: 'Chandigarh City Tour', 
+        pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', 
+        text: '<div class="timeline-item"><strong>Day 1: City Beautiful</strong><p>Rock Garden exploration & sunset boating at Sukhna Lake.</p></div>' 
+      },
+      'Kurukshetra': { 
+        title: 'Kurukshetra Educational', 
+        pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', 
+        text: '<div class="timeline-item"><strong>Day 1: Epicenter of History</strong><p>Visit to Brahma Sarovar, Jyotisar, and the Science Panorama.</p></div>' 
+      },
+      'Udaipur': { 
+        title: 'Udaipur Royal Escape', 
+        pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', 
+        text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>Tour of City Palace & evening boat ride at Lake Pichola.</p></div>' 
+      },
+      'Amarnath': { 
+        title: 'Amarnath Yatra', 
+        pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', 
+        text: '<div class="timeline-item"><strong>Day 1: The Journey</strong><p>Spiritual trekking start from Srinagar with extreme safety protocols.</p></div>' 
+      },
+      'Delhi': { 
+        title: 'Delhi Heritage Tour', 
+        pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', 
+        text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Visit Red Fort, Qutub Minar, India Gate & Parliament House.</p></div>' 
+      },
+      'SpitiLadakhMega': { 
+        title: 'Spiti Meets Ladakh Mega', 
+        pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', 
+        text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley, Chandratal, Leh, Khardung La & Pangong Tso.</p></div>' 
+      },
+      'AmritsarDalhousie': { 
+        title: 'Amritsar + Dalhousie Combo', 
+        pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', 
+        text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with the colonial charm of Dalhousie and mini-Switzerland Khajjiar.</p></div>' 
+      },
+      'RishikeshMussoorie': { 
+        title: 'Rishikesh + Mussoorie', 
+        pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', 
+        text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Mussoorie.</p></div>' 
+      },
+      'CorbettNainital': { 
+        title: 'Jim Corbett + Nainital', 
+        pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', 
+        text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and a relaxing lake exploration in Nainital.</p></div>' 
+      },
+      'JaipurRanthambore': { 
+        title: 'Jaipur + Ranthambore Royal', 
+        pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', 
+        text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
     };
 
     let currentPDF = '';
+    let currentTripName = '';
+
     function openModal(id, dest, weatherInfo = '🌤️ Curated') {
       const data = itineraryData[id];
       currentPDF = data.pdf;
+      currentTripName = data.title; // For WhatsApp
+      
       document.getElementById('modalTitle').innerText = data.title;
-      document.getElementById('modalWeather').innerText = `Destination: ${dest} | ${weatherInfo}`;
+      document.getElementById('modalWeather').innerText = `Destination/Style: ${dest} | ${weatherInfo}`;
       document.getElementById('modalBody').innerHTML = data.text;
       document.getElementById('destPin').innerText = dest;
       document.getElementById('itineraryModal').classList.add('active');
     }
+
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
     
-    function triggerLeadCapture() { document.getElementById('leadModal').classList.add('active'); }
+    // NEW DIRECT ACTIONS
+    function downloadCurrentPDF() {
+      // Direct download/open of the PDF link
+      window.open(currentPDF, '_blank');
+    }
 
-    function generateCoBrandedPDF() {
-      const school = document.getElementById('leadSchool').value || "Premium Guest";
-      const fill = document.getElementById('pdfFill');
-      document.getElementById('pdfProgress').style.display = 'block';
-      setTimeout(() => fill.style.width = '100%', 1000);
-      setTimeout(() => {
-        document.getElementById('leadModal').classList.remove('active');
-        const newWin = window.open("", "_blank");
-        const pdfLink = currentPDF.replace('/view', '/preview');
-        newWin.document.write(`
-          <html><head><title>Branded Proposal - ${school}</title></head>
-          <body style="margin:0; overflow:hidden; background:#0f172a; font-family:sans-serif;">
-          <div style="background:linear-gradient(90deg,#d4af37,#fef08a,#d4af37); padding:15px; text-align:center; border-bottom:4px solid white;">
-            <h1 style="margin:0; font-size:22px; color:#0f172a;">EXCLUSIVE PROPOSAL PREPARED FOR: ${school.toUpperCase()}</h1>
-            <p style="margin:5px 0 0; font-weight:bold; font-size:12px;">By Joyful Tours And Adventures</p>
-          </div>
-          <iframe src="${pdfLink}" style="width:100%; height:calc(100vh - 85px); border:none;"></iframe>
-          </body></html>
-        `);
-        fill.style.width = '0';
-        document.getElementById('pdfProgress').style.display = 'none';
-      }, 1500);
+    function bookCurrentTrip() {
+      // Direct to Raman's WhatsApp (82954-11207) with pre-filled text
+      const msg = `Hello Raman! I am interested in booking the "${currentTripName}". Please share more details and pricing.`;
+      window.open(`https://wa.me/918295411207?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     // FILTERS & LIGHTBOX
