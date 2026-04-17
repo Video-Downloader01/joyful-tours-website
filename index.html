@@ -15,8 +15,14 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     
     .top-bar { background: var(--navy); color: var(--gold); padding: 8px 16px; font-size: 14px; font-weight: 600; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); }
-    .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto; padding: 16px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.05); align-items: center; }
-    .btn { padding: 12px 20px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap; transition: 0.3s ease; border: 1px solid transparent; cursor: pointer; text-align: center; display: inline-block; }
+
+    /* NAVBAR & LOGO */
+    .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto; padding: 12px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.05); align-items: center; justify-content: space-between; }
+    .nav-links { display: flex; gap: 12px; align-items: center; }
+    .brand-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .brand-logo img { height: 40px; border-radius: 8px; }
+
+    .btn { padding: 10px 18px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap; transition: 0.3s ease; border: 1px solid transparent; cursor: pointer; text-align: center; display: inline-block; }
     .btn:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
     .btn.primary { background: var(--gold); color: white; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
     .btn.primary:hover { background: var(--gold-hover); }
@@ -50,7 +56,7 @@
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; }
     .modal-content { background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
-    .close-btn { position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; }
+    .close-btn { position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; z-index: 10; }
 
     /* PRO ANIMATED ROAD MAP */
     .route-map-pro { position: relative; height: 50px; border-bottom: 3px dashed #94a3b8; margin: 30px 0 40px; display: flex; align-items: flex-end; justify-content: space-between; }
@@ -68,17 +74,20 @@
     .filter-btn { background: #e2e8f0; color: var(--navy); border: none; padding: 10px 20px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: 0.3s; }
     .filter-btn.active { background: var(--navy); color: var(--gold); }
 
-    /* PRO AI ANCHOR (PIHU) */
+    /* PRO AI CHATBOT (PIHU) */
     .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 1000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
     .ai-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); animation: floatPulse 3s ease-in-out infinite; background: white; }
     @keyframes floatPulse { 0%, 100% { transform: translateY(0); box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); } 50% { transform: translateY(-10px); box-shadow: 0 0 25px rgba(212, 175, 55, 1); } }
-    .ai-bubble { background: white; padding: 12px 16px; border-radius: 16px 16px 16px 0; box-shadow: 0 10px 25px rgba(0,0,0,0.15); font-size: 14px; font-weight: 600; color: var(--navy); max-width: 220px; display: none; border: 1px solid #e2e8f0; position: relative; }
-    .ai-bubble.show { display: block; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    
+    .pihu-chat-box { position: fixed; bottom: 100px; left: 24px; width: 300px; background: white; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); z-index: 1000; display: none; overflow: hidden; border: 1px solid #e2e8f0; flex-direction: column; animation: popIn 0.3s ease; }
+    .pihu-chat-box.active { display: flex; }
+    .chat-header { background: var(--navy); color: white; padding: 12px 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    .chat-body { height: 250px; overflow-y: auto; padding: 16px; background: #f8fafc; font-size: 14px; }
+    .chat-input-area { display: flex; padding: 10px; background: white; border-top: 1px solid #e2e8f0; }
+    .chat-input-area input { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 20px; margin-bottom: 0; font-size: 13px; }
+    .chat-input-area button { background: var(--gold); color: white; border: none; padding: 10px 16px; border-radius: 20px; margin-left: 8px; cursor: pointer; font-weight: bold; }
+
     @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
-    .typing-indicator { display: flex; gap: 4px; padding: 5px; }
-    .typing-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: typing 1.4s infinite ease-in-out; }
-    .typing-dot:nth-child(1) { animation-delay: 0s; } .typing-dot:nth-child(2) { animation-delay: 0.2s; } .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
     .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); cursor: pointer; transition: 0.3s; }
     .floating-wa:hover { transform: scale(1.1); }
@@ -95,11 +104,18 @@
     .step-box { text-align: center; padding: 20px; position: relative; }
     .step-icon { width: 60px; height: 60px; background: var(--navy); color: var(--gold); font-size: 24px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto 16px; font-weight: bold; }
 
-    /* Gallery Marquee */
+    /* Gallery Lightbox & Marquee */
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 20px 0; background: #fff7ed; }
     .marquee-track { display: inline-block; animation: scrollMarquee 25s linear infinite; }
-    .marquee-track img { height: 300px; border-radius: 12px; margin-right: 20px; object-fit: cover; }
+    .marquee-track img { height: 300px; border-radius: 12px; margin-right: 20px; object-fit: cover; cursor: pointer; transition: transform 0.3s; }
+    .marquee-track img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    .gallery-marquee:hover .marquee-track { animation-play-state: paused; }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* Lightbox Modal */
+    #lightboxModal .modal-content { background: transparent; box-shadow: none; max-width: 90%; text-align: center; }
+    #lightboxImg { max-width: 100%; max-height: 85vh; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+    #lightboxModal .close-btn { background: white; color: black; }
 
     /* PRO DASHBOARD */
     .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
@@ -109,7 +125,6 @@
     .loader { border: 4px solid #f3f3f3; border-top: 4px solid var(--gold); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    /* PDF Progress */
     .pdf-progress { width: 100%; background: #e2e8f0; height: 8px; border-radius: 4px; margin: 16px 0; overflow: hidden; display: none; }
     .pdf-fill { width: 0%; height: 100%; background: var(--gold); transition: width 0.5s; }
 
@@ -120,21 +135,35 @@
     details[open] summary::after { content: '-'; }
     details p { margin-top: 12px; margin-bottom: 0; color: #475569; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 12px; }
 
+    .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 12px 16px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 1000; transition: left 0.5s; font-size: 13px; color: var(--navy); display: flex; align-items: center; gap: 10px; font-weight: 600; max-width: 280px; }
+    .live-notif.show { left: 24px; }
   </style>
 </head>
 <body>
+
+  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Delhi just inquired!</div></div>
 
   <div class="top-bar">
     <marquee scrollamount="5">🔥 Bookings Open for Spiti & Ladakh Mega Expedition 2026 | Upto 15% Special Discount for Schools | 🛡️ Udyam Certified</marquee>
   </div>
 
-  <div class="ai-anchor" onclick="triggerPihu()">
+  <div class="ai-anchor" onclick="togglePihuChat()">
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
-    <div id="pihuBubble" class="ai-bubble">
-      <div id="pihuTyping" class="typing-indicator" style="display:none;">
-        <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+  </div>
+  
+  <div id="pihuChatBox" class="pihu-chat-box">
+    <div class="chat-header">
+      <span>🟢 Pihu - AI Guide</span>
+      <span style="cursor:pointer;" onclick="togglePihuChat()">✖</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div style="text-align:left; margin-bottom:8px;">
+        <span style="background:#eef2ff; color:var(--navy); padding:8px 12px; border-radius:12px; display:inline-block; font-size:14px; border:1px solid #c7d2fe;">Namaste! I am Pihu. How can I help you plan a Joyful Trip? Ask me about 'Safety', 'Spiti', or 'Price'.</span>
       </div>
-      <div id="pihuText" style="display:none;">Namaste! I am Pihu, your AI Guide. Welcome to Joyful Tours! How can I assist you today? 😊</div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key === 'Enter') sendPihuMsg()">
+      <button onclick="sendPihuMsg()">➤</button>
     </div>
   </div>
 
@@ -148,15 +177,19 @@
   </div>
 
   <div class="nav">
-    <a class="btn" href="#home">Home</a>
-    <a class="btn" href="#schools">For Schools</a>
-    <a class="btn" href="#destinations">Destinations</a>
-    <a class="btn" href="#how-it-works">How It Works</a>
-    <a class="btn" href="#budget">Calculator</a>
-    <a class="btn" href="#resources">Resources</a>
-    <a class="btn" href="#gallery">Gallery</a>
-    <a class="btn primary" href="#booking">Book Now</a>
-    <a class="btn login-btn" href="#" onclick="openLoginModal()" style="margin-left:auto;">Client Login 🔒</a>
+    <a href="#home" class="brand-logo">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=100" alt="Logo">
+      <span>Joyful Tours</span>
+    </a>
+    <div class="nav-links">
+      <a class="btn" href="#schools">For Schools</a>
+      <a class="btn" href="#destinations">Destinations</a>
+      <a class="btn" href="#how-it-works">How It Works</a>
+      <a class="btn" href="#budget">Calculator</a>
+      <a class="btn" href="#gallery">Gallery</a>
+      <a class="btn primary" href="#booking">Book Now</a>
+      <a class="btn login-btn" href="#" onclick="openLoginModal()">Client Login 🔒</a>
+    </div>
   </div>
 
   <section id="home" class="hero">
@@ -325,21 +358,25 @@
     <div class="container" style="padding-bottom: 10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div>
         <h2 style="margin: 0;">Official Trip Posters</h2>
-        <p style="color: #64748b; margin:0;">Glimpses of our premium organized trips.</p>
+        <p style="color: #64748b; margin:0;">Glimpses of our premium organized trips. Click to view!</p>
       </div>
     </div>
+    
     <div class="gallery-marquee">
       <div class="marquee-track">
-        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
-        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
-        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
-        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
-        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
-        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
-        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
-        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
-        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
-        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
+        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)" alt="Amarnath">
+        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)" alt="Spiti Ladakh">
+        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="openLightbox(this.src)" alt="Amritsar Dalhousie">
+        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" onclick="openLightbox(this.src)" alt="Rishikesh">
+        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)" alt="Corbett Nainital">
+        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)" alt="Jaipur Ranthambore">
+        
+        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)" alt="Amarnath">
+        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)" alt="Spiti Ladakh">
+        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="openLightbox(this.src)" alt="Amritsar Dalhousie">
+        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" onclick="openLightbox(this.src)" alt="Rishikesh">
+        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)" alt="Corbett Nainital">
+        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)" alt="Jaipur Ranthambore">
       </div>
     </div>
   </section>
@@ -363,7 +400,7 @@
     </div>
   </section>
 
-  <section id="booking" class="section" style="background:var(--light-bg)">
+  <section id="booking" class="section">
     <div class="container">
       <h2 style="text-align: center;">Book Your Journey</h2>
       <div class="card" style="max-width: 600px; margin: auto;">
@@ -385,10 +422,10 @@
           <a class="btn primary" href="https://wa.me/919729561534" style="margin-bottom:8px; display:block;">Pawan: 97295-61534</a>
           <a class="btn primary" href="https://wa.me/918295411207" style="margin-bottom:8px; display:block;">Raman: 82954-11207</a>
           <a class="btn" href="mailto:joyfultours0408@gmail.com" style="background:white; color:var(--navy); display:block; margin-bottom:8px;">Email Us</a>
-          <a class="btn" href="https://instagram.com/joyful_tours_adventures" target="_blank" style="background:transparent; border: 1px solid var(--gold); color:var(--gold); display:block;">Instagram: @joyful_tours_adventures</a>
         </div>
-        <div style="border-radius: 12px; overflow: hidden; max-width: 300px; width:100%; border: 2px solid rgba(255,255,255,0.1);">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d111003.88241477759!2d75.00693596700762!3d29.533036496660166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114c00030581e7%3A0xcfd64a02d4a1fb53!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1713340800000!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        <div style="border-radius: 12px; overflow: hidden; max-width: 350px; width:100%; border: 2px solid rgba(255,255,255,0.1);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111005.15840614488!2d74.96025178972175!3d29.536785135133663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114c000f607835%3A0xcb15f013dccf59fa!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1714000000000!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <p style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; color:#94a3b8; font-size:14px;">© 2026 Joyful Tours And Adventures. Registered Office: Sirsa, Haryana. Udyam Certified.</p>
@@ -448,13 +485,13 @@
       <button class="close-btn" onclick="document.getElementById('dashboardModal').classList.remove('active')">×</button>
       <div style="background:var(--navy); color:white; padding:16px; border-radius:12px; margin-bottom:16px; text-align:center;">
         <h2 style="margin:0; color:#4ade80;">🟢 LIVE TRIP ACTIVE</h2>
-        <p style="margin:4px 0 0; font-size:14px;">Group: Delhi Public School</p>
+        <p style="margin:4px 0 0; font-size:14px;">Group: Premium Educational Trip</p>
       </div>
       
       <div class="dash-grid">
         <div class="dash-widget">
           <p style="margin:0; font-size:12px; color:#64748b;">Current Location</p>
-          <h4 style="margin:4px 0;">📍 Manali Highway</h4>
+          <h4 style="margin:4px 0;">📍 Himalayan Highway</h4>
         </div>
         <div class="dash-widget">
           <p style="margin:0; font-size:12px; color:#64748b;">Weather</p>
@@ -462,7 +499,7 @@
         </div>
         <div class="dash-widget">
           <p style="margin:0; font-size:12px; color:#64748b;">Next Stop</p>
-          <h4 style="margin:4px 0;">Hotel Check-in</h4>
+          <h4 style="margin:4px 0;">Resort Check-in</h4>
         </div>
         <div class="dash-widget">
           <p style="margin:0; font-size:12px; color:#64748b;">ETA</p>
@@ -478,8 +515,14 @@
     </div>
   </div>
 
+  <div id="lightboxModal" class="modal-overlay" style="z-index: 3000;">
+    <div class="modal-content">
+      <button class="close-btn" onclick="document.getElementById('lightboxModal').classList.remove('active')">×</button>
+      <img id="lightboxImg" src="" alt="Enlarged Poster">
+    </div>
+  </div>
+
   <script>
-    // Timer
     function startTimer() {
       const countDownDate = new Date("June 1, 2026 00:00:00").getTime();
       setInterval(function() {
@@ -495,7 +538,6 @@
     }
     startTimer();
 
-    // Filter
     function filterDest(cat, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -510,25 +552,44 @@
 
     function toggleWA() { document.getElementById('waMenu').classList.toggle('active'); }
     
-    // PRO PIHU ANCHOR
-    function triggerPihu() { 
-      const bubble = document.getElementById('pihuBubble');
-      const typing = document.getElementById('pihuTyping');
-      const text = document.getElementById('pihuText');
+    // Lightbox Logic
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxModal').classList.add('active');
+    }
+
+    // PRO PIHU CHATBOT LOGIC
+    function togglePihuChat() { 
+      document.getElementById('pihuChatBox').classList.toggle('active');
+    }
+    function sendPihuMsg() {
+      const input = document.getElementById('chatInput');
+      const msg = input.value.trim();
+      if(!msg) return;
       
-      if(bubble.classList.contains('show')){
-        bubble.classList.remove('show');
-        return;
-      }
+      const chatBody = document.getElementById('chatBody');
+      // User message
+      chatBody.innerHTML += `<div style="text-align:right; margin-bottom:8px;"><span style="background:var(--navy); color:white; padding:8px 12px; border-radius:12px; display:inline-block; font-size:14px; max-width:80%;">${msg}</span></div>`;
+      input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
       
-      bubble.classList.add('show');
-      typing.style.display = 'flex';
-      text.style.display = 'none';
-      
+      // Typing Indicator
+      const typingId = 'typing' + Date.now();
+      chatBody.innerHTML += `<div id="${typingId}" style="text-align:left; margin-bottom:8px;"><span style="background:#e2e8f0; color:var(--navy); padding:8px 12px; border-radius:12px; display:inline-block; font-size:14px;">Typing...</span></div>`;
+      chatBody.scrollTop = chatBody.scrollHeight;
+
       setTimeout(() => {
-        typing.style.display = 'none';
-        text.style.display = 'block';
-      }, 1500); // 1.5 sec typing animation
+        document.getElementById(typingId).remove();
+        let reply = "For detailed information, please connect with Pawan or Raman on WhatsApp!";
+        const lower = msg.toLowerCase();
+        
+        if(lower.includes('price') || lower.includes('cost')) reply = "You can use our Live Budget Estimator above, or message us for exact corporate quotes!";
+        else if(lower.includes('spiti') || lower.includes('ladakh')) reply = "The Spiti & Ladakh Expedition is a 15-Day premium journey with medical oxygen and luxury stays. Click the Mega Expeditions tab!";
+        else if(lower.includes('safety') || lower.includes('safe')) reply = "Safety is our #1 pillar. We offer a 1:10 staff ratio, female coordinators, and 24/7 medical support.";
+        
+        chatBody.innerHTML += `<div style="text-align:left; margin-bottom:8px;"><span style="background:#eef2ff; color:var(--navy); padding:8px 12px; border-radius:12px; display:inline-block; font-size:14px; max-width:80%; border:1px solid #c7d2fe;">${reply}</span></div>`;
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 1000);
     }
 
     function calculateBudget() {
@@ -573,7 +634,7 @@
     }
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
     
-    // PRO CO-BRANDED PDF GENERATOR
+    // FULL PAGE CO-BRANDED PDF GENERATOR
     function triggerLeadCapture() { document.getElementById('leadModal').classList.add('active'); }
     
     function generateCoBrandedPDF() {
@@ -595,17 +656,17 @@
       setTimeout(() => {
         document.getElementById('leadModal').classList.remove('active');
         
-        // Creates a Custom Web Page containing the School Name and the PDF embedded!
+        // Creates a 100% Full Screen Custom Web Page!
         let newWindow = window.open("", "_blank");
         let safePdfLink = currentPDF.replace('/view?usp=drivesdk', '/preview');
         newWindow.document.write(`
           <html><head><title>Proposal for ${school}</title>
           <style>
-            body { margin:0; font-family: 'Arial', sans-serif; background:#0f172a; }
-            .header { text-align:center; padding: 20px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); color: #0f172a; border-bottom: 4px solid white;}
-            .header h1 { margin: 0; font-size: 24px; text-transform: uppercase;}
+            body, html { margin:0; padding:0; height:100%; overflow:hidden; font-family: 'Arial', sans-serif; background:#0f172a; }
+            .header { text-align:center; padding: 15px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); color: #0f172a; border-bottom: 4px solid white;}
+            .header h1 { margin: 0; font-size: 20px; text-transform: uppercase; font-weight:900;}
             .header p { margin: 5px 0 0; font-weight: bold; }
-            iframe { width: 100%; height: calc(100vh - 85px); border: none; }
+            iframe { width: 100%; height: calc(100vh - 75px); border: none; display:block; }
           </style></head>
           <body>
             <div class="header">
@@ -621,7 +682,6 @@
       }, 2000);
     }
 
-    // PRO LOGIN DASHBOARD
     function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
     function loginDashboard() {
       const code = document.getElementById('tripCode').value;
@@ -657,6 +717,22 @@
       const msg = `Inquiry from Website:\nName: ${name}\nPhone: ${phone}\nDestination: ${dest}`;
       window.open(`https://wa.me/919729561534?text=${encodeURIComponent(msg)}`);
     }
+
+    const liveNotifs = [
+      "🎉 A school from Delhi just inquired for Manali!",
+      "🔥 5 seats left for Spiti Expedition",
+      "✨ New booking confirmed for Amritsar",
+      "🎒 Kurukshetra trip booked by a Sirsa School!"
+    ];
+    let nIndex = 0;
+    setInterval(() => {
+      const notifEl = document.getElementById('liveNotif');
+      document.getElementById('notifMsg').innerText = liveNotifs[nIndex];
+      notifEl.classList.add('show');
+      setTimeout(() => { notifEl.classList.remove('show'); }, 4000);
+      nIndex = (nIndex + 1) % liveNotifs.length;
+    }, 18000);
+
   </script>
 </body>
 </html>
