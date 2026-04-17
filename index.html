@@ -13,12 +13,16 @@
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--light-bg); color: var(--text); overflow-x: hidden; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
-    .top-bar { background: var(--navy); color: var(--gold); padding: 8px 16px; font-size: 14px; font-weight: 600; text-align: center; }
-    .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto; padding: 16px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-    .btn { padding: 12px 20px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap; transition: 0.3s ease; border: 1px solid transparent; cursor: pointer; text-align: center; }
+    
+    .top-bar { background: var(--navy); color: var(--gold); padding: 8px 16px; font-size: 14px; font-weight: 600; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); }
+
+    .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto; padding: 16px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.05); align-items: center; }
+    
+    .btn { padding: 12px 20px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap; transition: 0.3s ease; border: 1px solid transparent; cursor: pointer; text-align: center; display: inline-block; }
     .btn:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
     .btn.primary { background: var(--gold); color: white; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
     .btn.primary:hover { background: var(--gold-hover); }
+    .btn.login-btn { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
 
     .hero { min-height: 90vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
     .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600") center/cover; animation: cinematicZoom 25s infinite alternate linear; }
@@ -28,10 +32,9 @@
     .hero h2 { font-size: 24px; margin-bottom: 24px; color: white;}
 
     .timer-box { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.5); backdrop-filter: blur(10px); padding: 16px 32px; border-radius: 16px; display: inline-block; margin-top: 32px; }
-    .timer-text { font-size: 14px; color: var(--gold); font-weight: 600; margin-bottom: 8px; letter-spacing: 2px; text-transform: uppercase; }
-    .time-grid { display: flex; gap: 20px; justify-content: center; }
-    .time-unit span { font-size: 32px; font-weight: bold; font-family: 'Playfair Display', serif; display: block; }
-    .time-unit p { margin: 0; font-size: 12px; opacity: 0.8; }
+    .time-grid { display: flex; gap: 20px; justify-content: center; margin-top: 8px;}
+    .time-unit span { font-size: 32px; font-weight: bold; font-family: 'Playfair Display', serif; display: block; color:white; }
+    .time-unit p { margin: 0; font-size: 12px; opacity: 0.8; color:var(--gold); text-transform:uppercase;}
 
     .container { max-width: 1200px; margin: auto; padding: 24px; width: 100%; box-sizing: border-box; }
     .section { padding: 80px 0; }
@@ -43,16 +46,24 @@
     .dest.show { display: flex; animation: fadeIn 0.5s; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    input, textarea, select { width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    input, textarea, select { width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; }
+    input:focus { outline: none; border-color: var(--gold); }
     
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; }
     .modal-content { background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
     .close-btn { position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; }
 
+    /* Animated 3D Route Map */
+    .route-map { width: 100%; height: 4px; background: #e2e8f0; margin: 40px 0 30px; position: relative; border-radius: 2px; }
+    .route-points { display: flex; justify-content: space-between; position: absolute; width: 100%; top: -6px; }
+    .route-point { width: 16px; height: 16px; background: var(--navy); border: 3px solid white; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .bus-icon { position: absolute; top: -25px; left: 0; font-size: 24px; animation: driveBus 4s infinite linear alternate; }
+    @keyframes driveBus { 0% { left: 0; } 100% { left: 95%; } }
+    
     .timeline { border-left: 3px solid var(--gold); padding-left: 20px; margin-left: 10px; position: relative; }
     .timeline-item { position: relative; margin-bottom: 24px; }
-    .timeline-item::before { content: ''; position: absolute; left: -28px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: white; border: 3px solid var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,0.2); }
+    .timeline-item::before { content: ''; position: absolute; left: -28px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: white; border: 3px solid var(--gold); }
     .timeline-item strong { color: var(--navy); display: block; font-size: 16px; margin-bottom: 4px; }
     .timeline-item p { margin: 0; color: #475569; font-size: 14px; line-height: 1.6; }
 
@@ -60,21 +71,34 @@
     .filter-btn { background: #e2e8f0; color: var(--navy); border: none; padding: 10px 20px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: 0.3s; }
     .filter-btn.active { background: var(--navy); color: var(--gold); }
 
+    /* AI Anchor (Pihu) */
+    .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 1000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
+    .ai-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 6px 20px rgba(0,0,0,0.2); animation: float 3s ease-in-out infinite; background: white; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .ai-bubble { background: white; padding: 12px 16px; border-radius: 16px 16px 16px 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); font-size: 14px; font-weight: 600; color: var(--navy); max-width: 200px; display: none; border: 1px solid #e2e8f0; }
+    .ai-bubble.show { display: block; animation: fadeIn 0.3s; }
+
+    /* Floating WA & Menu */
     .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); cursor: pointer; transition: 0.3s; }
+    .floating-wa:hover { transform: scale(1.1); }
     .wa-menu { display: none; position: fixed; bottom: 100px; right: 24px; background: white; border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1000; min-width: 220px; border: 1px solid #e2e8f0; }
     .wa-menu.active { display: block; animation: slideUp 0.3s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .wa-item { display: block; padding: 12px; text-decoration: none; color: var(--navy); font-weight: 600; border-bottom: 1px solid #f1f5f9; transition: 0.2s; }
     .wa-item:hover { color: var(--gold); background: #f8fafc; }
-    .wa-item:last-child { border-bottom: none; }
+
+    /* Smart Generation Progress Bar */
+    .pdf-progress { width: 100%; background: #e2e8f0; height: 8px; border-radius: 4px; margin: 16px 0; overflow: hidden; display: none; }
+    .pdf-fill { width: 0%; height: 100%; background: var(--gold); transition: width 0.5s; }
+
+    /* Secret Dashboard (Client Login) */
+    .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .dash-map { background: #e2e8f0; height: 150px; border-radius: 12px; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #64748b; }
+    .dash-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .dash-photos img { width: 100%; height: 70px; object-fit: cover; border-radius: 8px; }
 
     .trust-banner { background: white; padding: 24px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
     .trust-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; }
-    .step-box { text-align: center; padding: 20px; position: relative; }
-    .step-icon { width: 60px; height: 60px; background: var(--navy); color: var(--gold); font-size: 24px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto 16px; font-weight: bold; }
-
-    .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 12px 16px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 1000; transition: left 0.5s; font-size: 13px; color: var(--navy); display: flex; align-items: center; gap: 10px; font-weight: 600; max-width: 280px; }
-    .live-notif.show { left: 24px; }
     
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 20px 0; background: #fff7ed; }
     .marquee-track { display: inline-block; animation: scrollMarquee 25s linear infinite; }
@@ -82,16 +106,17 @@
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     .popup-content { text-align: center; }
-    .discount-tag { background: #fee2e2; color: #0369a1; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 18px; margin: 16px 0; display: inline-block; }
-    
   </style>
 </head>
 <body>
 
-  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Delhi just inquired!</div></div>
-
   <div class="top-bar">
     <marquee scrollamount="5">🔥 Bookings Open for Spiti & Ladakh Mega Expedition 2026 | Upto 15% Special Discount for Schools | 🛡️ Udyam Certified</marquee>
+  </div>
+
+  <div class="ai-anchor" onclick="togglePihu()">
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
+    <div id="pihuBubble" class="ai-bubble">Namaste! I am Pihu, your AI Guide. Need help planning a trip?</div>
   </div>
 
   <div id="waMenu" class="wa-menu">
@@ -106,10 +131,10 @@
   <div class="nav">
     <a class="btn" href="#home">Home</a>
     <a class="btn" href="#destinations">Destinations</a>
-    <a class="btn" href="#how-it-works">How It Works</a>
     <a class="btn" href="#budget">Calculator</a>
     <a class="btn" href="#gallery">Gallery</a>
     <a class="btn primary" href="#booking">Book Now</a>
+    <a class="btn login-btn" href="#" onclick="openLoginModal()" style="margin-left:auto;">Client Login 🔒</a>
   </div>
 
   <section id="home" class="hero">
@@ -118,7 +143,7 @@
       <h1>Joyful Tours And Adventures</h1>
       <h2>India's Most Trusted Educational Trip Experts</h2>
       <div class="timer-box">
-        <div class="timer-text">Spiti Mega Expedition Registration Closes In</div>
+        <div style="font-size:12px; color:white; margin-bottom:8px;">SPITI EXPEDITION REGISTRATION CLOSES IN</div>
         <div class="time-grid">
           <div class="time-unit"><span id="days">00</span><p>Days</p></div>
           <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
@@ -138,35 +163,6 @@
       <div><span style="font-size:32px;">👨‍🏫</span><p style="margin:0; font-weight:600; color:var(--navy);">Expert Guides</p></div>
     </div>
   </div>
-
-  <section id="how-it-works" class="section" style="background: white;">
-    <div class="container">
-      <h2 style="text-align: center;">How It Works: 4 Easy Steps</h2>
-      <p style="text-align: center; color: #64748b; margin-bottom: 40px;">From inquiry to execution, we handle 100% of the logistics.</p>
-      <div class="grid">
-        <div class="step-box">
-          <div class="step-icon">1</div>
-          <h3>Submit Inquiry</h3>
-          <p style="color:#475569; font-size:14px;">Tell us your destination, dates, and student count via WhatsApp or our form.</p>
-        </div>
-        <div class="step-box">
-          <div class="step-icon">2</div>
-          <h3>Custom Quote</h3>
-          <p style="color:#475569; font-size:14px;">We share a detailed proposal, PDF brochures, and a transparent pricing plan.</p>
-        </div>
-        <div class="step-box">
-          <div class="step-icon">3</div>
-          <h3>Logistics Planning</h3>
-          <p style="color:#475569; font-size:14px;">We secure premium AC coaches, 4-star hotels, and strictly verified staff.</p>
-        </div>
-        <div class="step-box">
-          <div class="step-icon">4</div>
-          <h3>Joyful Trip</h3>
-          <p style="color:#475569; font-size:14px;">Teachers relax while our expert Captains safely manage the entire expedition.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section id="destinations" class="section" style="background: var(--light-bg);">
     <div class="container">
@@ -192,47 +188,12 @@
     </div>
   </section>
 
-  <section id="budget" class="section" style="background: white;">
-    <div class="container">
-      <div class="card" style="max-width: 800px; margin: auto; background: var(--navy); color: white;">
-        <h2 style="color: var(--gold); text-align: center; margin-top: 0;">Live Trip Budget Estimator</h2>
-        <p style="text-align: center; color: #cbd5e1; margin-bottom: 24px;">Get an instant rough estimate for your school trip.</p>
-        <div style="display:flex; gap:16px; flex-wrap:wrap;">
-          <div style="flex:1; min-width:200px;">
-            <label style="font-weight:600; font-size:14px;">Destination</label>
-            <select id="calcDest" style="margin-top:8px;">
-              <option value="6500">Short Trip (Manali/Shimla)</option>
-              <option value="11000">Combo (Rishikesh+Mussoorie)</option>
-              <option value="13000">Heritage (Jaipur+Ranthambore)</option>
-              <option value="45000">Mega (Spiti/Ladakh)</option>
-            </select>
-          </div>
-          <div style="flex:1; min-width:120px;">
-            <label style="font-weight:600; font-size:14px;">Students Count</label>
-            <input type="number" id="calcStud" value="40" style="margin-top:8px;"/>
-          </div>
-          <div style="flex:1; min-width:120px;">
-            <label style="font-weight:600; font-size:14px;">Teachers Count</label>
-            <input type="number" id="calcTeach" value="4" style="margin-top:8px;"/>
-          </div>
-        </div>
-        <button class="btn primary" style="width:100%; font-size:18px; padding:16px; margin-top:16px;" onclick="calculateBudget()">Calculate Estimated Cost</button>
-        <div id="calcResult" style="display:none; text-align:center; margin-top:24px; padding:20px; background:rgba(255,255,255,0.1); border-radius:12px;">
-          <h3 style="color:white; margin:0;">Estimated Total: <span style="color:var(--gold);" id="calcAmount">₹0</span></h3>
-          <p style="font-size:14px; color:#cbd5e1;">(Includes Luxury Travel, 4-Star Stay, All Meals & Safaris)</p>
-          <button class="btn" style="margin-top:12px;" onclick="sendWAQuote()">Get Exact Quote on WhatsApp</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="gallery" class="section" style="background:#fff7ed; padding-bottom: 20px;">
     <div class="container" style="padding-bottom: 10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div>
-        <h2 style="margin: 0;">Official Trip Posters & Gallery</h2>
+        <h2 style="margin: 0;">Official Trip Posters</h2>
         <p style="color: #64748b; margin:0;">Glimpses of our premium organized trips.</p>
       </div>
-      <a class="btn primary" href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" style="text-decoration:none;">▶️ Watch Jaisalmer Reel</a>
     </div>
     
     <div class="gallery-marquee">
@@ -243,6 +204,7 @@
         <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" alt="Rishikesh">
         <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
         <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
+        
         <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" alt="Amarnath">
         <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" alt="Spiti Ladakh">
         <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" alt="Amritsar Dalhousie">
@@ -250,25 +212,6 @@
         <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" alt="Corbett Nainital">
         <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" alt="Jaipur Ranthambore">
       </div>
-    </div>
-  </section>
-
-  <section id="reviews" class="section" style="background:white">
-    <div class="container">
-      <h2 style="text-align: center;">Customer Reviews</h2>
-      <div class="card" id="reviewBox" style="max-width: 600px; margin: auto; border: none; background:var(--light-bg)">
-        <input id="revName" placeholder="Your Name / School Name" />
-        <select id="revRating">
-          <option value="5">⭐⭐⭐⭐⭐ - Excellent (Highly Recommended!)</option>
-          <option value="4">⭐⭐⭐⭐ - Very Good</option>
-          <option value="3">⭐⭐⭐ - Good</option>
-          <option value="2">⭐⭐ - Average</option>
-          <option value="1">⭐ - Poor</option>
-        </select>
-        <textarea id="revText" rows="4" placeholder="Write about your trip experience..."></textarea>
-        <button class="btn primary" style="width:100%; padding: 16px; font-size: 16px;" onclick="submitReview()">Submit Review</button>
-      </div>
-      <div id="thankYouMsg" style="display:none; text-align:center; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.05); max-width: 600px; margin: auto;"></div>
     </div>
   </section>
 
@@ -296,7 +239,6 @@
           <a class="btn" href="mailto:joyfultours0408@gmail.com" style="background:white; color:var(--navy); display:block; margin-bottom:8px;">Email Us</a>
           <a class="btn" href="https://instagram.com/joyful_tours_adventures" target="_blank" style="background:transparent; border: 1px solid var(--gold); color:var(--gold); display:block;">Instagram: @joyful_tours_adventures</a>
         </div>
-        
         <div style="border-radius: 12px; overflow: hidden; max-width: 300px; width:100%; border: 2px solid rgba(255,255,255,0.1);">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111267.33215286466!2d74.96541575820313!3d29.52445830000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114cb184d0b135%3A0xc3b8c4c7009ba6b2!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1689260272212!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -309,6 +251,16 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">×</button>
       <h2 id="modalTitle" style="margin-top:0;">Itinerary Details</h2>
+      
+      <div class="route-map">
+        <div class="bus-icon">🚌</div>
+        <div class="route-points">
+          <div class="route-point"></div>
+          <div class="route-point"></div>
+          <div class="route-point"></div>
+        </div>
+      </div>
+
       <div id="modalBody" class="timeline" style="margin-top:24px;"></div>
       <div class="modal-actions" style="margin-top:32px;">
         <button class="btn primary" onclick="triggerLeadCapture()" style="width:100%;">📄 Download Official PDF</button>
@@ -319,26 +271,49 @@
   <div id="leadModal" class="modal-overlay" style="z-index: 1001;">
     <div class="modal-content" style="max-width: 400px; text-align:center;">
       <button class="close-btn" onclick="document.getElementById('leadModal').classList.remove('active')">×</button>
-      <h3 style="margin-top:0;">Unlock Full Details</h3>
-      <p style="color:#64748b; font-size:14px;">Enter details to download the premium PDF brochure.</p>
-      <input id="leadName" placeholder="School Name / Your Name" style="padding:12px;" />
+      <h3 style="margin-top:0;">Unlock Premium Brochure</h3>
+      <p style="color:#64748b; font-size:14px;">Enter your institution's name for a personalized PDF.</p>
+      <input id="leadSchool" placeholder="E.g., DPS Delhi / Your Name" style="padding:12px;" />
       <input id="leadPhone" placeholder="Mobile Number" type="number" style="padding:12px;" />
-      <button class="btn primary" style="width:100%;" onclick="downloadPDF()">Get PDF Now</button>
+      
+      <div class="pdf-progress" id="pdfProgress">
+        <div class="pdf-fill" id="pdfFill"></div>
+      </div>
+      <p id="pdfStatus" style="font-size:13px; color:var(--gold); font-weight:bold; display:none;">Adding custom branding...</p>
+      
+      <button class="btn primary" id="generateBtn" style="width:100%;" onclick="generateCoBrandedPDF()">Generate & Download PDF</button>
     </div>
   </div>
 
-  <div id="exitModal" class="modal-overlay" style="z-index: 2000;">
-    <div class="modal-content popup-content" style="max-width:450px; text-align:center;">
-      <button class="close-btn" onclick="document.getElementById('exitModal').classList.remove('active')">×</button>
-      <h2 style="font-size:32px; margin:0;">Wait! ✋</h2>
-      <p style="color:#475569; margin-top:8px;">Planning an educational trip? Don't leave without your special gift.</p>
-      <div class="discount-tag" style="background: #fee2e2; color: #0369a1; padding: 8px 16px; border-radius: 999px; font-weight: bold; font-size: 18px; margin: 16px 0; display: inline-block;">🎁 5% EXTRA DISCOUNT</div>
-      <p style="font-size:14px; color:#64748b;">On all Mega Expeditions if you book an inquiry today.</p>
-      <button class="btn primary" style="width:100%; padding:14px;" onclick="window.open('https://wa.me/919729561534?text=I%20want%20to%20claim%20my%205%25%20Discount%20offer!')">Claim My Discount on WhatsApp</button>
+  <div id="loginModal" class="modal-overlay" style="z-index: 1005;">
+    <div class="modal-content" style="max-width: 350px; text-align:center;">
+      <button class="close-btn" onclick="document.getElementById('loginModal').classList.remove('active')">×</button>
+      <h3>School Trip Access</h3>
+      <p style="font-size:14px; color:#64748b;">Enter the Trip Access Code provided by Joyful Tours.</p>
+      <input id="tripCode" type="password" placeholder="Enter Access Code (Any code works)" style="text-align:center; letter-spacing:4px;" />
+      <button class="btn primary" style="width:100%;" onclick="loginDashboard()">Access Live Feed</button>
+    </div>
+  </div>
+
+  <div id="dashboardModal" class="modal-overlay" style="z-index: 1005;">
+    <div class="modal-content">
+      <button class="close-btn" onclick="document.getElementById('dashboardModal').classList.remove('active')">×</button>
+      <h2 style="margin-top:0; color:#16a34a;">🟢 Live Trip Active</h2>
+      <p style="margin:0; font-weight:600;">Status: Students are currently enjoying River Rafting.</p>
+      
+      <div class="dash-grid">
+        <div class="dash-map">📍 Live GPS Tracking Simulated</div>
+        <div class="dash-photos">
+          <img src="https://images.unsplash.com/photo-1525256427389-9a7dc92ec247" alt="Trip">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" alt="Trip">
+        </div>
+      </div>
+      <p style="font-size:12px; color:#64748b; margin-top:16px; text-align:center;">Next update expected in: 45 Minutes</p>
     </div>
   </div>
 
   <script>
+    // Timer
     function startTimer() {
       const countDownDate = new Date("June 1, 2026 00:00:00").getTime();
       setInterval(function() {
@@ -354,6 +329,7 @@
     }
     startTimer();
 
+    // Filter
     function filterDest(cat, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -366,39 +342,10 @@
       });
     }
 
-    function toggleWA() {
-      document.getElementById('waMenu').classList.toggle('active');
-    }
+    function toggleWA() { document.getElementById('waMenu').classList.toggle('active'); }
+    function togglePihu() { document.getElementById('pihuBubble').classList.toggle('show'); }
 
-    const notifications = [
-      "🎉 A school from Delhi just inquired for Manali!",
-      "🔥 5 seats left for Spiti Expedition",
-      "✨ New booking confirmed for Amritsar",
-      "🎒 Kurukshetra trip booked by a Sirsa School!"
-    ];
-    let notifIndex = 0;
-    setInterval(() => {
-      const notifEl = document.getElementById('liveNotif');
-      document.getElementById('notifMsg').innerText = notifications[notifIndex];
-      notifEl.classList.add('show');
-      setTimeout(() => { notifEl.classList.remove('show'); }, 4000);
-      notifIndex = (notifIndex + 1) % notifications.length;
-    }, 18000);
-
-    function calculateBudget() {
-      const baseCost = parseInt(document.getElementById('calcDest').value);
-      const studs = parseInt(document.getElementById('calcStud').value) || 0;
-      const teachs = parseInt(document.getElementById('calcTeach').value) || 0;
-      const total = baseCost * (studs + teachs);
-      document.getElementById('calcAmount').innerText = "₹" + total.toLocaleString('en-IN');
-      document.getElementById('calcResult').style.display = 'block';
-    }
-    function sendWAQuote() {
-      const amount = document.getElementById('calcAmount').innerText;
-      const studs = document.getElementById('calcStud').value;
-      window.open(`https://wa.me/919729561534?text=Hi!%20I%20used%20your%20calculator.%20My%20estimated%20budget%20is%20${amount}%20for%20${studs}%20students.%20Send%20exact%20quote.`);
-    }
-
+    // Itinerary & PDFs
     const itineraryData = {
       'Amarnath': { title: 'Amarnath Holy Yatra', text: '<div class="timeline-item"><strong>Divine Journey</strong><p>Spiritual trekking and darshan experience with full safety and logistics support.</p></div>', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view?usp=drivesdk' },
       'Udaipur': { title: 'Udaipur Royal Escape', text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>City Palace & Sunset Boat Ride at Lake Pichola.</p></div><div class="timeline-item"><strong>Day 2: Vistas & Valleys</strong><p>Sajjangarh (Monsoon Palace) & Saheliyon Ki Bari.</p></div>', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view?usp=drivesdk' },
@@ -426,12 +373,40 @@
     }
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
     
+    // Generator Logic
     function triggerLeadCapture() { document.getElementById('leadModal').classList.add('active'); }
-    function downloadPDF() {
-      const name = document.getElementById('leadName').value;
-      if(!name) { alert("Please enter Name to download PDF"); return; }
-      document.getElementById('leadModal').classList.remove('active');
-      window.open(currentPDF, '_blank');
+    
+    function generateCoBrandedPDF() {
+      const school = document.getElementById('leadSchool').value;
+      if(!school) { alert("Please enter School or Your Name."); return; }
+      
+      const btn = document.getElementById('generateBtn');
+      const bar = document.getElementById('pdfProgress');
+      const fill = document.getElementById('pdfFill');
+      const status = document.getElementById('pdfStatus');
+      
+      btn.style.display = 'none';
+      bar.style.display = 'block';
+      status.style.display = 'block';
+      status.innerText = `Adding custom branding for ${school}...`;
+      
+      setTimeout(() => { fill.style.width = '50%'; }, 500);
+      setTimeout(() => { fill.style.width = '100%'; status.innerText = "PDF Ready!"; }, 1500);
+      setTimeout(() => {
+        document.getElementById('leadModal').classList.remove('active');
+        window.open(currentPDF, '_blank');
+        // Reset
+        btn.style.display = 'block'; bar.style.display = 'none'; status.style.display = 'none'; fill.style.width = '0%';
+      }, 2000);
+    }
+
+    // Secret Login Logic
+    function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
+    function loginDashboard() {
+      const code = document.getElementById('tripCode').value;
+      if(!code) { alert("Enter code"); return; }
+      document.getElementById('loginModal').classList.remove('active');
+      document.getElementById('dashboardModal').classList.add('active');
     }
 
     function sendFinalBooking() {
@@ -441,12 +416,6 @@
       const msg = `Inquiry from Website:\nName: ${name}\nPhone: ${phone}\nDestination: ${dest}`;
       window.open(`https://wa.me/919729561534?text=${encodeURIComponent(msg)}`);
     }
-
-    setTimeout(() => {
-      if(!document.getElementById('itineraryModal').classList.contains('active')) {
-        document.getElementById('exitModal').classList.add('active');
-      }
-    }, 45000);
   </script>
 </body>
 </html>
