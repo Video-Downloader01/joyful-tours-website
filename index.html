@@ -19,96 +19,148 @@
     /* NAVBAR & LOGO */
     .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 12px; overflow-x: auto; padding: 12px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 4px 20px rgba(0,0,0,0.05); align-items: center; justify-content: space-between; }
     .nav-links { display: flex; gap: 12px; align-items: center; }
-    .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 200px; }
-    .brand-logo img { height: 50px; border-radius: 5px; object-fit: contain; }
-    .brand-logo span { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--navy); line-height: 1; }
+    .brand-logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); text-decoration: none; min-width: fit-content; }
+    .brand-logo img { height: 50px; width: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
 
-    /* LANGUAGE TOGGLE */
-    .lang-toggle { background: var(--navy); color: var(--gold); border: 1px solid var(--gold); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-right: 10px; }
-    .lang-toggle:hover { background: var(--gold); color: white; }
-
-    .btn { padding: 10px 18px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 13px; white-space: nowrap; transition: 0.3s ease; border: 1px solid transparent; cursor: pointer; text-align: center; }
+    .btn { padding: 10px 18px; border-radius: 999px; text-decoration: none; background: white; color: var(--navy); font-weight: 600; font-size: 14px; white-space: nowrap; transition: 0.3s ease; border: 1px solid transparent; cursor: pointer; text-align: center; display: inline-block; }
+    .btn:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
     .btn.primary { background: var(--gold); color: white; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+    .btn.primary:hover { background: var(--gold-hover); }
     .btn.login-btn { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
+    .lang-btn { background: var(--navy); color: var(--gold); border: 1px solid var(--gold); }
 
-    .hero { min-height: 85vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; }
+    .hero { min-height: 85vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
     .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600") center/cover; animation: cinematicZoom 25s infinite alternate linear; }
     @keyframes cinematicZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
-    .hero-content { position: relative; z-index: 1; width: 100%; padding: 20px; }
+    .hero-content { position: relative; z-index: 1; width: 100%; }
 
-    .timer-box { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.5); backdrop-filter: blur(10px); padding: 16px 32px; border-radius: 16px; display: inline-block; margin-top: 20px; }
-    .time-grid { display: flex; gap: 15px; justify-content: center; margin-top: 8px;}
-    .time-unit span { font-size: 28px; font-weight: bold; display: block; color:white; }
-    .time-unit p { margin: 0; font-size: 10px; color:var(--gold); text-transform:uppercase;}
+    .timer-box { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.5); backdrop-filter: blur(10px); padding: 16px 32px; border-radius: 16px; display: inline-block; margin-top: 32px; }
+    .time-grid { display: flex; gap: 20px; justify-content: center; margin-top: 8px;}
+    .time-unit span { font-size: 32px; font-weight: bold; font-family: 'Playfair Display', serif; display: block; color:white; }
+    .time-unit p { margin: 0; font-size: 12px; opacity: 0.8; color:var(--gold); text-transform:uppercase;}
 
-    .section { padding: 60px 0; }
+    .container { max-width: 1200px; margin: auto; padding: 24px; width: 100%; box-sizing: border-box; }
+    .section { padding: 80px 0; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .card { border-radius: 20px; padding: 24px; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s ease; border: 1px solid rgba(0,0,0,0.02); }
-    .dest { min-height: 300px; color: white; display: none; flex-direction: column; justify-content: flex-end; align-items: flex-start; font-size: 24px; font-weight: 700; background-size: cover; background-position: center; border-radius: 20px; overflow: hidden; padding: 24px; }
-    .dest.show { display: flex; animation: fadeIn 0.5s; }
 
-    /* VIRTUAL 360 SECTION */
-    .v360-container { background: var(--navy); border-radius: 24px; padding: 40px; color: white; text-align: center; margin-top: 40px; border: 2px solid var(--gold); }
-    .v360-preview { width: 100%; height: 350px; border-radius: 15px; background: url('https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=1200') center/cover; position: relative; display: flex; justify-content: center; align-items: center; cursor: pointer; overflow: hidden; }
-    .v360-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.3s; }
-    .v360-preview:hover .v360-overlay { background: rgba(0,0,0,0.1); }
-    .v360-badge { background: var(--gold); color: white; padding: 8px 20px; border-radius: 50px; font-weight: bold; animation: pulse 2s infinite; }
+    .card { border-radius: 20px; padding: 24px; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s ease; border: 1px solid rgba(0,0,0,0.02); }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+    .dest { min-height: 320px; color: white; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; font-size: 26px; font-weight: 700; font-family: 'Playfair Display', serif; background-size: cover; background-position: center; border-radius: 20px; overflow: hidden; padding: 24px; display: none; border: 1px solid rgba(255,255,255,0.1); }
+    .dest.show { display: flex; animation: fadeIn 0.5s; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    input, textarea, select { width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 16px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; }
+    input:focus { outline: none; border-color: var(--gold); }
+    
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+    .modal-overlay.active { display: flex; }
+    .modal-content { background: white; padding: 32px; border-radius: 24px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
+    .close-btn { position: absolute; top: 24px; right: 24px; background: var(--light-bg); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 20px; cursor: pointer; z-index: 10; }
 
     /* PIHU CHATBOT PRO */
-    .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 1001; cursor: pointer; }
-    .ai-avatar { width: 75px; height: 75px; border-radius: 50%; border: 4px solid var(--gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); background: white; transition: 0.3s; }
-    .pihu-chat-box { position: fixed; bottom: 110px; left: 24px; width: 320px; height: 450px; background: white; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.3); z-index: 1001; display: none; flex-direction: column; overflow: hidden; border: 1px solid #e2e8f0; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-    .chat-header { background: var(--navy); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; }
-    .chat-body { flex: 1; overflow-y: auto; padding: 15px; background: #f1f5f9; display: flex; flex-direction: column; gap: 10px; }
-    .chat-msg { padding: 10px 14px; border-radius: 15px; font-size: 13px; line-height: 1.5; max-width: 85%; }
-    .chat-msg.bot { background: white; color: var(--navy); align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    .chat-msg.user { background: var(--gold); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+    .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 1000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
+    .ai-avatar { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); animation: floatPulse 3s ease-in-out infinite; background: white; }
+    @keyframes floatPulse { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .pihu-chat-box { position: fixed; bottom: 110px; left: 24px; width: 320px; background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); z-index: 1000; display: none; overflow: hidden; border: 1px solid #e2e8f0; flex-direction: column; animation: popIn 0.3s ease; }
+    .pihu-chat-box.active { display: flex; }
+    .chat-header { background: var(--navy); color: var(--gold); padding: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); }
+    .chat-body { height: 300px; overflow-y: auto; padding: 16px; background: #f1f5f9; }
+    .chat-input-area { display: flex; padding: 12px; background: white; border-top: 1px solid #e2e8f0; }
+    .chat-input-area input { flex: 1; padding: 12px; border: 1px solid #cbd5e1; border-radius: 25px; margin-bottom: 0; outline: none; font-size:14px; }
+    .chat-input-area button { background: var(--gold); color: white; border: none; padding: 10px 18px; border-radius: 50%; margin-left: 8px; cursor: pointer; }
 
-    /* PRO ROAD MAP */
-    .route-map-pro { position: relative; height: 40px; border-bottom: 3px dashed #cbd5e1; margin: 30px 0; }
-    .bus-pro { position: absolute; bottom: -5px; font-size: 28px; animation: drive 4s infinite linear; }
-    @keyframes drive { 0% { left: 0; } 100% { left: 90%; } }
+    /* VIRTUAL 360 MODAL */
+    .view-360-btn { background: rgba(15, 23, 42, 0.8); color: white; font-size: 12px; padding: 6px 12px; border-radius: 4px; margin-bottom: 8px; border: 1px solid var(--gold); cursor: pointer; transition:0.3s; }
+    .view-360-btn:hover { background: var(--gold); }
+    #panoFrame { width: 100%; height: 400px; border-radius: 16px; background: #000 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200') center/cover; position: relative; overflow: hidden; cursor: grab; }
+    .pano-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; }
 
+    /* TIMELINE & ROADMAP */
+    .route-map-pro { position: relative; height: 50px; border-bottom: 3px dashed #94a3b8; margin: 30px 0 40px; display: flex; align-items: flex-end; justify-content: space-between; }
+    .route-pin { background: var(--navy); color: var(--gold); padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; position: relative; bottom: -12px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid white; }
+    .bus-pro { position: absolute; bottom: -5px; font-size: 32px; animation: driveBusPro 4s linear infinite; z-index:3; }
+    @keyframes driveBusPro { 0% { left: 0; transform: translateY(0); } 50% { transform: translateY(-4px); } 100% { left: 88%; transform: translateY(0); } }
+    .timeline { border-left: 3px solid var(--gold); padding-left: 20px; margin-left: 10px; position: relative; }
+    .timeline-item { position: relative; margin-bottom: 24px; }
+    .timeline-item::before { content: ''; position: absolute; left: -28px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: white; border: 3px solid var(--gold); }
+    .timeline-item strong { color: var(--navy); display: block; font-size: 16px; margin-bottom: 4px; }
+    .timeline-item p { margin: 0; color: #475569; font-size: 14px; line-height: 1.6; }
+
+    .filter-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .filter-btn { background: #e2e8f0; color: var(--navy); border: none; padding: 10px 20px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+    .filter-btn.active { background: var(--navy); color: var(--gold); }
+
+    /* WA MENU */
+    .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 1000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); cursor: pointer; transition: 0.3s; }
+    .wa-menu { display: none; position: fixed; bottom: 100px; right: 24px; background: white; border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1000; min-width: 220px; border: 1px solid #e2e8f0; }
+    .wa-menu.active { display: block; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .wa-item { display: block; padding: 12px; text-decoration: none; color: var(--navy); font-weight: 600; border-bottom: 1px solid #f1f5f9; transition: 0.2s; }
+    .wa-item:hover { color: var(--gold); background: #f8fafc; }
+
+    /* SECTIONS STYLES */
+    .trust-banner { background: white; padding: 24px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    .trust-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; }
+    .step-box { text-align: center; padding: 20px; position: relative; }
+    .step-icon { width: 60px; height: 60px; background: var(--navy); color: var(--gold); font-size: 24px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto 16px; font-weight: bold; }
+
+    /* GALLERY LIGHTBOX & MARQUEE */
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 20px 0; background: #fff7ed; }
-    .marquee-track { display: inline-block; animation: scrollMarquee 30s linear infinite; }
-    .marquee-track img { height: 280px; border-radius: 12px; margin-right: 20px; object-fit: cover; cursor: pointer; }
+    .marquee-track { display: inline-block; animation: scrollMarquee 25s linear infinite; }
+    .marquee-track img { height: 300px; border-radius: 12px; margin-right: 20px; object-fit: cover; cursor: pointer; transition: transform 0.3s; }
+    .marquee-track img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    #lightboxModal .modal-content { background: transparent; box-shadow: none; max-width: 90%; text-align: center; }
+    #lightboxImg { max-width: 100%; max-height: 85vh; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 
-    #lightboxModal .modal-content { background: transparent; box-shadow: none; max-width: 95%; }
-    #lightboxImg { width: 100%; max-height: 90vh; border-radius: 10px; }
+    /* PRO DASHBOARD */
+    .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .dash-widget { background: #f1f5f9; padding: 12px; border-radius: 12px; text-align: left; }
+    .dash-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .dash-photos img { width: 100%; height: 70px; object-fit: cover; border-radius: 8px; border: 1px solid #cbd5e1; }
+    .loader { border: 4px solid #f3f3f3; border-top: 4px solid var(--gold); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    .pdf-progress { width: 100%; background: #e2e8f0; height: 8px; border-radius: 4px; margin: 16px 0; overflow: hidden; display: none; }
+    .pdf-fill { width: 0%; height: 100%; background: var(--gold); transition: width 0.5s; }
+
+    details { background: white; padding: 16px 24px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; }
+    summary { font-weight: 600; font-size: 16px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 24px; color: var(--gold); transition: 0.3s; }
+    details[open] summary::after { content: '-'; }
+    details p { margin-top: 12px; margin-bottom: 0; color: #475569; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+
+    .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 12px 16px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 1000; transition: left 0.5s; font-size: 13px; color: var(--navy); display: flex; align-items: center; gap: 10px; font-weight: 600; max-width: 280px; }
+    .live-notif.show { left: 24px; }
+    .badge { font-size:12px; background:rgba(255,255,255,0.2); color:white; padding:4px 8px; border-radius:4px; margin-bottom:8px; display:inline-block; border:1px solid var(--gold); }
   </style>
 </head>
 <body>
 
+  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Delhi just inquired!</div></div>
+
   <div class="top-bar">
-    <marquee scrollamount="5" id="newsBar">🔥 Bookings Open for Spiti & Ladakh Mega Expedition 2026 | Upto 15% Special Discount for School Groups! | 🛡️ Udyam Certified</marquee>
+    <marquee id="announcement" scrollamount="5">🔥 Bookings Open for Spiti & Ladakh Mega Expedition 2026 | Upto 15% Special Discount for Schools | 🛡️ Udyam Certified Safety Standards</marquee>
   </div>
 
   <div class="ai-anchor" onclick="togglePihuChat()">
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
   </div>
-  
   <div id="pihuChatBox" class="pihu-chat-box">
-    <div class="chat-header">
-      <span>✨ Pihu - Smart AI Guide</span>
-      <span style="cursor:pointer;" onclick="togglePihuChat()">✖</span>
-    </div>
+    <div class="chat-header"><span>🟢 Pihu - AI Travel Guide</span><span onclick="togglePihuChat()" style="cursor:pointer;">✖</span></div>
     <div class="chat-body" id="chatBody">
-      <div class="chat-msg bot">Namaste! Main Pihu hoon. Joyful Tours mein aapka swagat hai. Aap mujhse trips, safety ya packages ke baare mein kuch bhi puch sakte hain!</div>
+      <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block;">Namaste! I am Pihu. How can I help you plan a Joyful Trip today? Ask me about Safety, Destinations, or Price.</span></div>
     </div>
-    <div style="display:flex; padding:10px; background:white; border-top:1px solid #eee;">
-      <input type="text" id="chatInput" placeholder="Ask me something..." style="flex:1; padding:10px; border:1px solid #ddd; border-radius:20px; margin:0;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
-      <button onclick="sendPihuMsg()" style="background:var(--gold); color:white; border:none; padding:10px 15px; border-radius:50%; margin-left:5px;">➤</button>
-    </div>
+    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask Pihu anything..." onkeypress="if(event.key === 'Enter') sendPihuMsg()"><button onclick="sendPihuMsg()">➤</button></div>
   </div>
 
-  <div class="floating-wa" onclick="toggleWA()">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:35px; height:35px;">
+  <div id="waMenu" class="wa-menu">
+    <a href="https://wa.me/919729561534?text=Hello%20Pawan!%20I%20am%20a%20Principal/Teacher%20looking%20for%20a%20trip." target="_blank" class="wa-item">👨‍🏫 Teacher/Principal</a>
+    <a href="https://wa.me/918295411207?text=Hello%20Raman!%20I%20am%20a%20Parent%20and%20have%20a%20query." target="_blank" class="wa-item">👨‍👩‍👦 Parent Query</a>
+    <a href="https://wa.me/919729561534?text=Hello!%20I%20need%20a%20Custom%20Trip%20package." target="_blank" class="wa-item">🎒 Custom/Student Trip</a>
   </div>
-  <div id="waMenu" class="wa-menu" style="display:none; position:fixed; bottom:100px; right:24px; background:white; padding:15px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:1001;">
-    <a href="https://wa.me/919729561534" class="wa-item" style="display:block; padding:10px; text-decoration:none; color:var(--navy); font-weight:bold;">👨‍🏫 Teacher/Principal</a>
-    <a href="https://wa.me/918295411207" class="wa-item" style="display:block; padding:10px; text-decoration:none; color:var(--navy); font-weight:bold;">👨‍👩‍👦 Parent/Family</a>
-  </div>
+  <div class="floating-wa" onclick="document.getElementById('waMenu').classList.toggle('active')"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="35"></div>
 
   <div class="nav">
     <a href="#home" class="brand-logo">
@@ -116,8 +168,15 @@
       <span id="brandName">Joyful Tours</span>
     </a>
     <div class="nav-links">
-      <button class="lang-toggle" onclick="toggleLanguage()">English / Hindi</button>
+      <button class="btn lang-btn" onclick="toggleLanguage()" id="langBtn">हिन्दी</button>
+      <a class="btn" href="#schools" id="navSchools">For Schools</a>
       <a class="btn" href="#destinations" id="navDest">Destinations</a>
+      <a class="btn" href="#how-it-works" id="navHow">How It Works</a>
+      <a class="btn" href="#budget" id="navCalc">Calculator</a>
+      <a class="btn" href="#resources" id="navRes">Resources</a>
+      <a class="btn" href="#faq" id="navFaq">FAQs</a>
+      <a class="btn" href="#gallery" id="navGal">Gallery</a>
+      <a class="btn" href="#reviews" id="navRev">Reviews</a>
       <a class="btn primary" href="#booking" id="navBook">Book Now</a>
       <a class="btn login-btn" href="#" onclick="openLoginModal()">Login 🔒</a>
     </div>
@@ -129,99 +188,251 @@
       <h1 id="heroH1">Joyful Tours And Adventures</h1>
       <h2 id="heroH2">India's Most Trusted Educational Trip Experts</h2>
       <div class="timer-box">
-        <div style="font-size:11px; color:white; margin-bottom:5px;">REGISTRATION CLOSES IN</div>
+        <div id="timerTitle" style="font-size:12px; color:white; margin-bottom:8px;">SPITI EXPEDITION REGISTRATION CLOSES IN</div>
         <div class="time-grid">
           <div class="time-unit"><span id="days">00</span><p>Days</p></div>
           <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
           <div class="time-unit"><span id="mins">00</span><p>Mins</p></div>
           <div class="time-unit"><span id="secs">00</span><p>Secs</p></div>
         </div>
-      </div>
+      </div><br>
+      <a class="btn primary" href="#destinations" style="margin-top: 32px; display: inline-block;">Explore Premium Trips</a>
     </div>
   </section>
 
   <div class="trust-banner">
     <div class="container trust-grid">
-      <div><span>🛡️</span><p>Verified Safety</p></div>
-      <div><span>🏨</span><p>Premium Stays</p></div>
-      <div><span>🚌</span><p>Luxury Coaches</p></div>
-      <div><span>👨‍🏫</span><p>Expert Guides</p></div>
+      <div><span style="font-size:32px;">🛡️</span><p id="t1" style="margin:0; font-weight:600; color:var(--navy);">Verified Safety</p></div>
+      <div><span style="font-size:32px;">🏨</span><p id="t2" style="margin:0; font-weight:600; color:var(--navy);">Premium Stays</p></div>
+      <div><span style="font-size:32px;">🚌</span><p id="t3" style="margin:0; font-weight:600; color:var(--navy);">Luxury Coaches</p></div>
+      <div><span style="font-size:32px;">👨‍🏫</span><p id="t4" style="margin:0; font-weight:600; color:var(--navy);">Expert Guides</p></div>
     </div>
   </div>
 
-  <section class="section" style="background: white;">
+  <section id="schools" class="section" style="background: white;">
     <div class="container">
-      <div class="v360-container">
-        <h2 style="color:var(--gold); margin-top:0;">Experience the Camp: 360° Virtual Tour</h2>
-        <p>Don't just see photos, step inside our luxury Swiss tents and campsites.</p>
-        <div class="v360-preview" onclick="window.open('https://www.google.com/maps/@30.1349,78.2934,3a,75y,90h,90t/data=!3m8!1e1!3m6!1sAF1QipN3X5yX_6Z7j1z3Q!2e10!3e11!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipN3X5yX_6Z7j1z3Q%3Dw203-h100-k-no-pi-0-ya20-ro-0-fo100!7i8704!8i4352', '_blank')">
-          <div class="v360-overlay">
-            <div class="v360-badge">START 360° TOUR</div>
-            <p style="margin-top:10px;">Click to explore our Rishikesh Campsite</p>
-          </div>
+      <div class="grid" style="align-items: center;">
+        <div>
+          <h2 id="schoolH2" style="font-size: 36px; margin-top:0;">Partner With Us For Your Next School Trip</h2>
+          <p id="schoolP" style="font-size: 16px; line-height: 1.8; color: #475569;">At Joyful Tours, we handle 100% of the logistics so your teaching staff can focus entirely on the students.</p>
+          <ul style="line-height: 2; color: var(--navy); font-weight: 600; margin-bottom: 24px;">
+            <li id="s1">✓ Strict 1:10 Coordinator to Student Ratio</li>
+            <li id="s2">✓ Dedicated Female Staff for Girls</li>
+            <li id="s3">✓ 24/7 Medical & Doctor-on-call Support</li>
+            <li id="s4">✓ Private WhatsApp Broadcast for Parents</li>
+          </ul>
+          <button class="btn primary" onclick="window.open('https://wa.me/919729561534?text=Requesting%20School%20Presentation')" style="padding: 16px 24px;">Request a School Presentation</button>
         </div>
+        <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800" style="width: 100%; display: block;" alt="School Trip"></div>
       </div>
     </div>
   </section>
 
-  <section id="destinations" class="section" style="background: var(--light-bg);">
+  <section id="how-it-works" class="section" style="background: var(--light-bg);">
     <div class="container">
-      <h2 style="text-align:center;">Our Premium Destinations</h2>
-      <div class="filter-bar" style="display:flex; gap:10px; justify-content:center; margin-bottom:30px;">
-        <button class="filter-btn active" onclick="filterDest('all', this)" style="padding:10px 20px; border-radius:20px; border:none; cursor:pointer;">All</button>
-        <button class="filter-btn" onclick="filterDest('short', this)" style="padding:10px 20px; border-radius:20px; border:none; cursor:pointer;">Short Escapes</button>
-        <button class="filter-btn" onclick="filterDest('mega', this)" style="padding:10px 20px; border-radius:20px; border:none; cursor:pointer;">Mega Trips</button>
+      <h2 style="text-align: center;">How It Works: 4 Easy Steps</h2>
+      <p style="text-align: center; color: #64748b; margin-bottom: 40px;">From inquiry to execution, we handle 100% of the logistics.</p>
+      <div class="grid">
+        <div class="step-box"><div class="step-icon">1</div><h3>Submit Inquiry</h3><p style="color:#475569; font-size:14px;">Tell us your destination, dates, and student count via WhatsApp or our form.</p></div>
+        <div class="step-box"><div class="step-icon">2</div><h3>Custom Quote</h3><p style="color:#475569; font-size:14px;">We share a detailed proposal, PDF brochures, and a transparent pricing plan.</p></div>
+        <div class="step-box"><div class="step-icon">3</div><h3>Logistics Planning</h3><p style="color:#475569; font-size:14px;">We secure premium AC coaches, 4-star hotels, and strictly verified staff.</p></div>
+        <div class="step-box"><div class="step-icon">4</div><h3>Joyful Trip</h3><p style="color:#475569; font-size:14px;">Teachers relax while our expert Captains safely manage the entire expedition.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="destinations" class="section" style="background: white;">
+    <div class="container">
+      <h2 id="destH2" style="text-align:center;">Our Premium Destinations</h2>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterDest('all', this)">All</button>
+        <button class="filter-btn" onclick="filterDest('short', this)">Short Trips</button>
+        <button class="filter-btn" onclick="filterDest('mega', this)">Mega Expeditions</button>
       </div>
       <div class="grid" id="destGrid">
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.2),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'>Amarnath <button class="btn primary" style="margin-top:16px" onclick="openModal('Amarnath', 'Srinagar')">View Itinerary</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1626509647209-41712a2a0750")'>Spiti + Ladakh <button class="btn primary" style="margin-top:16px" onclick="openModal('SpitiLadakhMega', 'Spiti')">View Itinerary</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'>
+          <div class="badge">⭐ Leadership Score: 8.5/10</div>
+          <button class="view-360-btn" onclick="open360('Amarnath')">🌐 View 360°</button> Amarnath 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Amarnath', 'Srinagar')">View Itinerary</button>
         </div>
-    </div>
-  </section>
-
-  <section id="gallery" class="section" style="background:#fff7ed;">
-    <div class="container"><h2>Official Trip Posters</h2></div>
-    <div class="gallery-marquee">
-      <div class="marquee-track">
-        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)">
-        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)">
-        <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="openLightbox(this.src)">
-        <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" onclick="openLightbox(this.src)">
-        <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
-        <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
-        <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)">
-        <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)">
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1615836245337-f8b9b113f240")'>
+          <div class="badge">⭐ Leadership Score: 8.0/10</div>
+          <button class="view-360-btn" onclick="open360('Udaipur')">🌐 View 360°</button> Udaipur 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Udaipur', 'Udaipur')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc")'>
+          <div class="badge">⭐ Leadership Score: 9.0/10</div>
+          <button class="view-360-btn" onclick="open360('Manali')">🌐 View 360°</button> Manali 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Manali', 'Manali')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1525256427389-9a7dc92ec247")'>
+          <div class="badge">⭐ Leadership Score: 8.8/10</div>
+          <button class="view-360-btn" onclick="open360('Shimla')">🌐 View 360°</button> Shimla 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Shimla', 'Shimla')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598440049079-c73ab9357d60")'>
+          <div class="badge">⭐ Leadership Score: 8.5/10</div>
+          <button class="view-360-btn" onclick="open360('Amritsar')">🌐 View 360°</button> Amritsar & Wagah 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('AmritsarWagah', 'Amritsar')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1605640840482-d586d1163459")'>
+          <div class="badge">⭐ Leadership Score: 7.5/10</div>
+          <button class="view-360-btn" onclick="open360('Chandigarh')">🌐 View 360°</button> Chandigarh 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Chandigarh', 'Chandigarh')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'>
+          <div class="badge">⭐ Leadership Score: 9.0/10</div>
+          <button class="view-360-btn" onclick="open360('Kurukshetra')">🌐 View 360°</button> Kurukshetra 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Kurukshetra', 'Kurukshetra')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'>
+          <div class="badge">⭐ Leadership Score: 8.0/10</div>
+          <button class="view-360-btn" onclick="open360('Delhi')">🌐 View 360°</button> Delhi Heritage 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('Delhi', 'Delhi')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1626509647209-41712a2a0750")'>
+          <div class="badge">⭐ Leadership Score: 10/10</div>
+          <button class="view-360-btn" onclick="open360('Spiti')">🌐 View 360°</button> Spiti + Ladakh 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1548013146-72479768bada")'>
+          <div class="badge">⭐ Leadership Score: 9.5/10</div>
+          <button class="view-360-btn" onclick="open360('Dalhousie')">🌐 View 360°</button> Amritsar + Dalhousie 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('AmritsarDalhousie', 'Dalhousie')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'>
+          <div class="badge">⭐ Leadership Score: 9.8/10</div>
+          <button class="view-360-btn" onclick="open360('Rishikesh')">🌐 View 360°</button> Rishikesh + Mussoorie 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('RishikeshMussoorie', 'Mussoorie')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429")'>
+          <div class="badge">⭐ Leadership Score: 9.5/10</div>
+          <button class="view-360-btn" onclick="open360('Corbett')">🌐 View 360°</button> Corbett + Nainital 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('CorbettNainital', 'Nainital')">View Itinerary</button>
+        </div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1477587458883-47145ed94245")'>
+          <div class="badge">⭐ Leadership Score: 9.2/10</div>
+          <button class="view-360-btn" onclick="open360('Jaipur')">🌐 View 360°</button> Jaipur + Ranthambore 
+          <button class="btn primary" style="margin-top:12px" onclick="openModal('JaipurRanthambore', 'Ranthambore')">View Itinerary</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="budget" class="section">
+  <section id="budget" class="section" style="background: var(--light-bg);">
     <div class="container">
       <div class="card" style="max-width: 800px; margin: auto; background: var(--navy); color: white;">
-        <h2 style="color:var(--gold); text-align:center;">Budget Estimator</h2>
-        <div style="display:flex; gap:15px; flex-wrap:wrap;">
-          <select id="calcDest" style="flex:1;"><option value="6500">Manali/Shimla (₹6500)</option><option value="45000">Spiti/Ladakh (₹45000)</option></select>
-          <input type="number" id="calcStud" placeholder="Students" style="flex:1;"/>
-          <button class="btn primary" onclick="calculateBudget()">Calculate</button>
+        <h2 id="calcH2" style="color: var(--gold); text-align: center; margin-top: 0;">Live Trip Budget Estimator</h2>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <div style="flex:1;"><label>Destination Type</label><select id="calcDest" style="margin-top:8px;"><option value="6500">Short Trip (Manali/Shimla)</option><option value="11000">Combo Package</option><option value="45000">Mega Expedition</option></select></div>
+          <div style="flex:1;"><label>Students</label><input type="number" id="calcStud" value="40" style="margin-top:8px;"/></div>
         </div>
-        <div id="calcResult" style="display:none; text-align:center; margin-top:20px;">
-          <h3 id="calcAmount" style="color:var(--gold);">₹0</h3>
+        <button class="btn primary" style="width:100%; margin-top:16px;" onclick="calculateBudget()">Calculate Cost</button>
+        <div id="calcResult" style="display:none; text-align:center; margin-top:24px; color:var(--gold);"><h3>Estimated Total: <span id="calcAmount">₹0</span></h3><button class="btn" style="margin-top:10px;" onclick="window.open('https://wa.me/919729561534')">Get Exact Quote on WhatsApp</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" class="section" style="background: white;">
+    <div class="container">
+      <h2 style="text-align: center;">Parents' Resource Center</h2>
+      <p style="text-align: center; margin-bottom: 32px; color: #64748b;">Important documents and guidelines for a secure trip.</p>
+      <div class="grid">
+        <div class="card" style="text-align: center; background: #f8fafc;">
+          <h3 style="margin-top: 0;">📝 Consent Form (NOC)</h3>
+          <p style="font-size: 14px; color: #64748b;">Mandatory permission document required by school administration.</p>
+          <a class="btn primary" href="#" style="display: inline-block; margin-top: 12px;">Download PDF</a>
         </div>
+        <div class="card" style="text-align: center; background: #f8fafc;">
+          <h3 style="margin-top: 0;">🎒 Packing List</h3>
+          <p style="font-size: 14px; color: #64748b;">Weather-specific guide on what to carry for Hill Station/Desert trips.</p>
+          <a class="btn primary" href="#" style="display: inline-block; margin-top: 12px;">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section" style="background: #eef2ff;">
+    <div class="container">
+      <h2 style="text-align: center;">Frequently Asked Questions</h2>
+      <div style="max-width: 800px; margin: auto;">
+        <details>
+          <summary>Is there dedicated staff for female students?</summary>
+          <p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator from Joyful Tours always accompanies groups with girl students to ensure their comfort and safety 24/7.</p>
+        </details>
+        <details>
+          <summary>What kind of food is provided during the trips?</summary>
+          <p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens. Our focus is on healthy, home-style food that keeps students energetic during the journey.</p>
+        </details>
+        <details>
+          <summary>How do parents get updates during the trip?</summary>
+          <p>We create a private WhatsApp broadcast group for parents and school management. Our team shares live locations and trip photos every 3-4 hours so parents are always updated.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section" style="background:#fff7ed; padding-bottom: 20px;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+      <div><h2 style="margin: 0;">Official Trip Posters</h2><p style="color: #64748b; margin:0;">Click any poster to zoom in!</p></div>
+      <a class="btn primary" href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" style="text-decoration:none;">▶️ Watch Jaisalmer Reel</a>
+    </div>
+    <div class="gallery-marquee"><div class="marquee-track">
+      <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="openLightbox(this.src)">
+    </div></div>
+  </section>
+
+  <section id="reviews" class="section" style="background:white">
+    <div class="container">
+      <h2 style="text-align: center;">Customer Reviews</h2>
+      <div class="card" id="reviewBox" style="max-width: 600px; margin: auto; border: none; background:var(--light-bg)">
+        <input id="revName" placeholder="Your Name / School Name" />
+        <select id="revRating">
+          <option value="5">⭐⭐⭐⭐⭐ - Excellent (Highly Recommended!)</option>
+          <option value="4">⭐⭐⭐⭐ - Very Good</option>
+          <option value="3">⭐⭐⭐ - Good</option>
+        </select>
+        <textarea id="revText" rows="4" placeholder="Write about your trip experience..."></textarea>
+        <button class="btn primary" style="width:100%; padding: 16px; font-size: 16px;" onclick="submitReview()">Submit Review</button>
+      </div>
+      <div id="thankYouMsg" style="display:none; text-align:center; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.05); max-width: 600px; margin: auto;"></div>
+    </div>
+  </section>
+
+  <section id="booking" class="section" style="background:var(--light-bg)">
+    <div class="container">
+      <h2 style="text-align: center;">Book Your Journey</h2>
+      <div class="card" style="max-width: 600px; margin: auto;">
+        <input id="b_name" placeholder="Full Name / School Name" />
+        <input id="b_phone" placeholder="Contact Number" />
+        <input id="b_dest" placeholder="Destination" />
+        <textarea id="b_text" rows="4" placeholder="Requirements / Number of Persons"></textarea>
+        <button class="btn primary" style="width:100%; padding: 16px; font-size: 16px;" onclick="sendFinalBooking()">Send Inquiry to WhatsApp</button>
       </div>
     </div>
   </section>
 
   <footer id="contact" class="section" style="background: var(--navy); color: white; padding-bottom: 30px;">
     <div class="container">
-      <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; text-align:left;">
-        <div>
-          <h2 style="color:var(--gold);">Joyful Tours</h2>
-          <p>Pawan: 97295-61534<br>Raman: 82954-11207</p>
-          <p>joyfultours0408@gmail.com</p>
-          <a class="btn primary" href="https://instagram.com/joyful_tours_adventures" target="_blank">Instagram</a>
+      <h2 style="color: var(--gold); text-align:center;">Joyful Tours And Adventures</h2>
+      <div style="display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-top: 40px;">
+        <div style="flex:1;">
+          <p><strong>Managed by:</strong> Pawan & Raman</p>
+          <a class="btn primary" href="https://wa.me/919729561534" style="margin-bottom:8px; display:block; max-width:250px;">Pawan: 97295-61534</a>
+          <a class="btn primary" href="https://wa.me/918295411207" style="margin-bottom:8px; display:block; max-width:250px;">Raman: 82954-11207</a>
+          <p>Email: joyfultours0408@gmail.com</p>
+          <a href="https://instagram.com/joyful_tours_adventures" target="_blank" style="color:var(--gold); text-decoration:none;">Instagram: @joyful_tours_adventures</a>
         </div>
-        <div style="border-radius: 12px; overflow: hidden; max-width: 400px; width:100%;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110034.46979201974!2d75.021008!3d29.532057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391136b6932a9339%3A0x7d25e076628b0304!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1713333333333" width="100%" height="200" style="border:0;" allowfullscreen=""></iframe>
+        <div style="border-radius: 12px; overflow: hidden; width: 400px; height: 250px; border: 2px solid rgba(255,255,255,0.1);">
+          <iframe src="https://maps.google.com/maps?q=Sirsa,%20Haryana&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen=""></iframe>
         </div>
       </div>
     </div>
@@ -231,120 +442,235 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">×</button>
       <h2 id="modalTitle">Itinerary</h2>
-      <div class="route-map-pro"><div class="bus-pro">🚍</div></div>
-      <div id="modalBody" class="timeline"></div>
-      <button class="btn primary" style="width:100%; margin-top:20px;" onclick="document.getElementById('leadModal').classList.add('active')">📄 Download Proposal</button>
+      <div class="route-map-pro"><div class="route-pin" style="left:0;">Sirsa</div><div class="bus-pro">🚍</div><div class="route-pin" style="right:0; background:var(--gold); color:white;" id="destPin">Dest</div></div>
+      <div id="modalBody" class="timeline" style="margin-top:20px;"></div>
+      <button class="btn primary" onclick="triggerLeadCapture()" style="width:100%; margin-top:20px;">📄 Download PDF</button>
     </div>
   </div>
 
   <div id="leadModal" class="modal-overlay" style="z-index: 2000;">
     <div class="modal-content" style="max-width: 400px; text-align:center;">
-      <button class="close-btn" onclick="document.getElementById('leadModal').classList.remove('active')">×</button>
+      <button class="close-btn" onclick="this.parentElement.parentElement.classList.remove('active')">×</button>
       <h3>Create Custom Brochure</h3>
-      <input id="leadSchool" placeholder="Enter School Name" style="border:2px solid var(--navy);"/>
+      <input id="leadSchool" placeholder="School Name" style="border:2px solid var(--navy);" />
       <div class="pdf-progress" id="pdfProgress"><div class="pdf-fill" id="pdfFill"></div></div>
       <button class="btn primary" id="generateBtn" style="width:100%;" onclick="generateCoBrandedPDF()">Generate & Open Full Page</button>
     </div>
   </div>
 
-  <div id="lightboxModal" class="modal-overlay" onclick="this.classList.remove('active')" style="z-index: 3000;">
+  <div id="lightboxModal" class="modal-overlay" style="z-index: 3000;" onclick="this.classList.remove('active')">
     <div class="modal-content"><img id="lightboxImg" src=""></div>
   </div>
 
+  <div id="360Modal" class="modal-overlay" style="z-index: 2500;">
+    <div class="modal-content" style="max-width: 800px; padding:10px;">
+      <button class="close-btn" onclick="document.getElementById('360Modal').classList.remove('active')">×</button>
+      <h3 style="margin:10px;" id="panoTitle">Location 360° View</h3>
+      <div id="panoFrame"><div class="pano-hint">Hold & Drag to look around (Simulation)</div></div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="modal-overlay" style="z-index: 1005;">
+    <div class="modal-content" style="max-width: 350px; text-align:center;">
+      <button class="close-btn" onclick="document.getElementById('loginModal').classList.remove('active')">×</button>
+      <h3>School Trip Access</h3>
+      <input id="tripCode" type="password" placeholder="Passcode: 1234" style="text-align:center; letter-spacing:4px; font-size:20px; font-weight:bold;" />
+      <div id="loginLoader" class="loader" style="display:none;"></div>
+      <button class="btn primary" id="loginBtn" style="width:100%; margin-top:10px;" onclick="loginDashboard()">Access Dashboard</button>
+    </div>
+  </div>
+
+  <div id="dashboardModal" class="modal-overlay" style="z-index: 1005;">
+    <div class="modal-content" style="background:#f8fafc;">
+      <button class="close-btn" onclick="document.getElementById('dashboardModal').classList.remove('active')">×</button>
+      <div style="background:var(--navy); color:white; padding:16px; border-radius:12px; margin-bottom:16px; text-align:center;">
+        <h2 style="margin:0; color:#4ade80;">🟢 LIVE TRIP ACTIVE</h2>
+        <p style="margin:4px 0 0; font-size:14px;">Group: VIP Educational Tour</p>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">Current Location</p><h4 style="margin:4px 0;">📍 Himalayan Highway</h4></div>
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">Weather</p><h4 style="margin:4px 0;">🌤️ 14°C, Clear</h4></div>
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">Next Stop</p><h4 style="margin:4px 0;">Resort Check-in</h4></div>
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">ETA</p><h4 style="margin:4px 0;">⏱️ 45 Mins</h4></div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    let currentPDF = '';
-    let currentLang = 'en';
+    // 1. Language Toggle (Hindi/English)
+    let isHindi = false;
+    const trans = {
+      en: { b: "Joyful Tours", s: "For Schools", d: "Destinations", hw: "How It Works", bc: "Calculator", pr: "Resources", fq: "FAQs", gl: "Gallery", rv: "Reviews", bn: "Book Now", h1: "Joyful Tours And Adventures", h2: "India's Most Trusted Educational Trip Experts", timer: "REGISTRATION CLOSES IN", t1:"Verified Safety", t2:"Premium Stays", t3:"Luxury Coaches", t4:"Expert Guides" },
+      hi: { b: "जॉयफुल टूर्स", s: "स्कूलों के लिए", d: "यात्राएं", hw: "यह कैसे काम करता है", bc: "कैलकुलेटर", pr: "दस्तावेज़", fq: "सवाल-जवाब", gl: "गैलरी", rv: "समीक्षा", bn: "अभी बुक करें", h1: "जॉयफुल टूर्स एंड एडवेंचर्स", h2: "भारत के सबसे भरोसेमंद शैक्षिक यात्रा विशेषज्ञ", timer: "पंजीकरण समाप्त होने में समय:", t1:"सुरक्षा", t2:"प्रीमियम होटल", t3:"लक्ज़री बस", t4:"विशेषज्ञ गाइड" }
+    };
 
     function toggleLanguage() {
-      currentLang = currentLang === 'en' ? 'hi' : 'en';
-      const translations = {
-        'en': { 'heroH1': 'Joyful Tours And Adventures', 'navDest': 'Destinations', 'navBook': 'Book Now' },
-        'hi': { 'heroH1': 'जॉयफुल टूर्स एंड एडवेंचर्स', 'navDest': 'जगहें', 'navBook': 'अभी बुक करें' }
-      };
-      document.getElementById('heroH1').innerText = translations[currentLang].heroH1;
-      document.getElementById('navDest').innerText = translations[currentLang].navDest;
-      document.getElementById('navBook').innerText = translations[currentLang].navBook;
+      isHindi = !isHindi;
+      const l = isHindi ? 'hi' : 'en';
+      document.getElementById('langBtn').innerText = isHindi ? 'English' : 'हिन्दी';
+      document.getElementById('brandName').innerText = trans[l].b;
+      document.getElementById('navSchools').innerText = trans[l].s;
+      document.getElementById('navDest').innerText = trans[l].d;
+      document.getElementById('navHow').innerText = trans[l].hw;
+      document.getElementById('navCalc').innerText = trans[l].bc;
+      document.getElementById('navRes').innerText = trans[l].pr;
+      document.getElementById('navFaq').innerText = trans[l].fq;
+      document.getElementById('navGal').innerText = trans[l].gl;
+      document.getElementById('navRev').innerText = trans[l].rv;
+      document.getElementById('navBook').innerText = trans[l].bn;
+      document.getElementById('heroH1').innerText = trans[l].h1;
+      document.getElementById('heroH2').innerText = trans[l].h2;
+      document.getElementById('timerTitle').innerText = trans[l].timer;
+      document.getElementById('t1').innerText = trans[l].t1;
+      document.getElementById('t2').innerText = trans[l].t2;
+      document.getElementById('t3').innerText = trans[l].t3;
+      document.getElementById('t4').innerText = trans[l].t4;
     }
 
+    // 2. PIHU CHATBOT BRAIN (Advanced)
     function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
-    
     function sendPihuMsg() {
       const input = document.getElementById('chatInput');
-      const msg = input.value.trim().toLowerCase();
-      if(!msg) return;
       const chatBody = document.getElementById('chatBody');
-      chatBody.innerHTML += `<div class="chat-msg user">${msg}</div>`;
+      const val = input.value.trim().toLowerCase();
+      if(!val) return;
+      
+      chatBody.innerHTML += `<div style="text-align:right; margin:8px 0;"><span style="background:var(--navy); color:white; padding:8px 12px; border-radius:12px; font-size:14px; display:inline-block; max-width:80%;">${input.value}</span></div>`;
       input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
       
-      let reply = "Connect with Raman (8295411207) for full details!";
-      if(msg.includes('safety')) reply = "Safety is our #1 priority. We provide 1:10 staff ratio and female coordinators.";
-      else if(msg.includes('price')) reply = "Prices start from ₹2,999. Use our Budget Estimator for an idea!";
-      else if(msg.includes('spiti')) reply = "Spiti meets Ladakh is a 15-day mega expedition. Registration is open!";
-      
+      // Smart Replies
+      let reply = "I'm Pihu! For customized details, please click the WhatsApp button and chat directly with Pawan or Raman!";
+      if(val.includes('safety') || val.includes('safe')) reply = "Safety is our #1 priority. We maintain a 1:10 staff ratio, provide 24/7 medical support, and have female coordinators for girls.";
+      else if(val.includes('spiti') || val.includes('ladakh')) reply = "Our 15-Day Spiti meets Ladakh expedition is a premium journey with medical oxygen and luxury stays. Check the 'Mega Expeditions' section!";
+      else if(val.includes('price') || val.includes('cost') || val.includes('budget')) reply = "You can use our Live Budget Estimator on the website, or message us on WhatsApp for exact school group quotes!";
+      else if(val.includes('food') || val.includes('meals')) reply = "We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.";
+      else if(val.includes('hotel') || val.includes('stay')) reply = "We only use premium 3-Star and 4-Star hotels, or luxury Swiss Tents for camping trips.";
+
       setTimeout(() => {
-        chatBody.innerHTML += `<div class="chat-msg bot">${reply}</div>`;
+        chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#eef2ff; color:var(--navy); padding:8px 12px; border-radius:12px; border:1px solid #c7d2fe; font-size:14px; display:inline-block; max-width:80%;">${reply}</span></div>`;
         chatBody.scrollTop = chatBody.scrollHeight;
       }, 800);
     }
 
-    function generateCoBrandedPDF() {
-      const school = document.getElementById('leadSchool').value;
-      if(!school) return alert("Enter Name");
-      
-      const bar = document.getElementById('pdfProgress');
-      const fill = document.getElementById('pdfFill');
-      bar.style.display = 'block';
-      fill.style.width = '100%';
-
-      setTimeout(() => {
-        let safePdfLink = currentPDF.replace('/view?usp=drivesdk', '/preview');
-        let newWin = window.open("", "_blank");
-        newWin.document.write(`
-          <html><head><title>Proposal for ${school}</title>
-          <style>body,html{margin:0;padding:0;height:100%;overflow:hidden;} 
-          .h{background:gold;padding:15px;text-align:center;font-family:serif;font-weight:bold;font-size:20px;}
-          iframe{width:100vw;height:calc(100vh - 60px);border:none;}</style>
-          </head><body><div class="h">OFFICIAL PROPOSAL FOR ${school.toUpperCase()}</div>
-          <iframe src="${safePdfLink}"></iframe></body></html>
-        `);
-        document.getElementById('leadModal').classList.remove('active');
-        fill.style.width = '0%';
-      }, 1500);
+    // 3. 360 VIEW
+    function open360(title) {
+      document.getElementById('panoTitle').innerText = title + " 360° Virtual View";
+      document.getElementById('360Modal').classList.add('active');
     }
 
-    function openLightbox(src) {
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightboxModal').classList.add('active');
-    }
-
-    function startTimer() {
-      const target = new Date("June 1, 2026 00:00:00").getTime();
-      setInterval(() => {
-        const diff = target - new Date().getTime();
-        document.getElementById("days").innerText = Math.floor(diff / 86400000).toString().padStart(2,'0');
-        document.getElementById("hours").innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2,'0');
-        document.getElementById("mins").innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2,'0');
-        document.getElementById("secs").innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2,'0');
-      }, 1000);
-    }
-    startTimer();
-
-    const itineraryData = {
-      'Amarnath': { title: 'Amarnath Holy Yatra', text: '<div class="timeline-item"><strong>Holy Journey</strong><p>Divine spiritual trekking with 24/7 safety.</p></div>', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view?usp=drivesdk' },
-      'SpitiLadakhMega': { title: 'Spiti + Ladakh Mega', text: '<div class="timeline-item"><strong>15 Days</strong><p>Grand circuit with cinematic video drone coverage.</p></div>', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view?usp=drivesdk' }
-    };
-
-    function openModal(place) {
-      const d = itineraryData[place]; if(!d) return;
-      currentPDF = d.pdf;
-      document.getElementById('modalTitle').innerText = d.title;
-      document.getElementById('modalBody').innerHTML = d.text;
+    // 4. FULL PAGE PDF GENERATOR HACK
+    let currentPDF = '';
+    function openModal(id, dest) {
+      const data = itineraryData[id];
+      currentPDF = data.pdf;
+      document.getElementById('modalTitle').innerText = data.title;
+      document.getElementById('modalBody').innerHTML = data.text;
+      document.getElementById('destPin').innerText = dest;
       document.getElementById('itineraryModal').classList.add('active');
     }
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
-    function toggleWA() { const m = document.getElementById('waMenu'); m.style.display = m.style.display==='none'?'block':'none'; }
-    function filterDest(c,b){ document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.dest').forEach(d=>{d.classList.remove('show'); if(c==='all'||d.getAttribute('data-cat')===c) d.classList.add('show');}); }
-    function calculateBudget(){ const s = document.getElementById('calcStud').value; document.getElementById('calcAmount').innerText = "₹" + (s * document.getElementById('calcDest').value).toLocaleString(); document.getElementById('calcResult').style.display='block'; }
+    function triggerLeadCapture() { document.getElementById('leadModal').classList.add('active'); }
+
+    function generateCoBrandedPDF() {
+      const school = document.getElementById('leadSchool').value || "Leader";
+      const btn = document.getElementById('generateBtn');
+      const bar = document.getElementById('pdfProgress');
+      const fill = document.getElementById('pdfFill');
+      btn.style.display = 'none'; bar.style.display = 'block';
+      setTimeout(() => fill.style.width = '100%', 1000);
+      setTimeout(() => {
+        document.getElementById('leadModal').classList.remove('active');
+        const newWin = window.open("", "_blank");
+        const pdfLink = currentPDF.replace('/view?usp=drivesdk', '/preview');
+        // Injecting 100% Full Screen Iframe Webpage
+        newWin.document.write(`
+          <html><body style="margin:0; overflow:hidden; background:#0f172a;">
+          <div style="background:linear-gradient(90deg,#d4af37,#fef08a,#d4af37); padding:15px; text-align:center; font-family:sans-serif; border-bottom:4px solid white;">
+            <h1 style="margin:0; font-size:22px; color:#0f172a;">EXCLUSIVE PROPOSAL FOR: ${school.toUpperCase()}</h1>
+          </div>
+          <iframe src="${pdfLink}" style="width:100%; height:calc(100vh - 65px); border:none;"></iframe>
+          </body></html>
+        `);
+        btn.style.display = 'block'; bar.style.display = 'none'; fill.style.width = '0';
+      }, 1500);
+    }
+
+    // 5. GALLERY LIGHTBOX & FILTERS
+    function openLightbox(src) { document.getElementById('lightboxImg').src = src; document.getElementById('lightboxModal').classList.add('active'); }
+    function filterDest(c, b) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      b.classList.add('active');
+      document.querySelectorAll('.dest').forEach(d => { d.classList.remove('show'); if(c==='all' || d.dataset.cat===c) d.classList.add('show'); });
+    }
+
+    const itineraryData = {
+      'Amarnath': { title: 'Amarnath Yatra', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Spiritual start from Srinagar.</p></div>' },
+      'Udaipur': { title: 'Udaipur Heritage', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>City Palace & Lake Pichola.</p></div>' },
+      'Manali': { title: 'Manali Adventure', pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: Snow Adventure</strong><p>Solang Valley activities.</p></div>' },
+      'Shimla': { title: 'Shimla Hill Station', pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: Heritage</strong><p>The Ridge, Mall Road & historic Christ Church.</p></div>' },
+      'AmritsarWagah': { title: 'Amritsar & Wagah Pride', pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: Spiritual Vibes</strong><p>Golden Temple Darshan & historic Jallianwala Bagh.</p></div>' },
+      'Chandigarh': { title: 'Chandigarh City Tour', pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: City Beautiful</strong><p>Rock Garden & Boating at Sukhna Lake.</p></div>' },
+      'Kurukshetra': { title: 'Kurukshetra Educational', pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: Epicenter of History</strong><p>Brahma Sarovar, Jyotisar & Science Panorama.</p></div>' },
+      'Delhi': { title: 'Delhi Heritage Tour', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view?usp=drivesdk', text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Red Fort, Qutub Minar, India Gate & Parliament.</p></div>' },
+      'SpitiLadakhMega': { title: 'Spiti Meets Ladakh Mega', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view?usp=drivesdk', text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley, Chandratal, Leh, Khardung La & Pangong Tso.</p></div>' },
+      'AmritsarDalhousie': { title: 'Amritsar + Dalhousie Combo', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view?usp=drivesdk', text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with the colonial charm of Dalhousie and mini-Switzerland Khajjiar.</p></div>' },
+      'RishikeshMussoorie': { title: 'Rishikesh + Mussoorie', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view?usp=drivesdk', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Mussoorie.</p></div>' },
+      'CorbettNainital': { title: 'Jim Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view?usp=drivesdk', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and a relaxing lake district exploration in Nainital.</p></div>' },
+      'JaipurRanthambore': { title: 'Jaipur + Ranthambore Royal', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view?usp=drivesdk', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
+    };
+
+    // 6. OTHER SCRIPTS (Budget, Login, Reviews, WA)
+    function toggleWA() { document.getElementById('waMenu').classList.toggle('active'); }
+    
+    function calculateBudget() {
+      const base = parseInt(document.getElementById('calcDest').value);
+      const total = base * (parseInt(document.getElementById('calcStud').value) || 0);
+      document.getElementById('calcAmount').innerText = "₹" + total.toLocaleString();
+      document.getElementById('calcResult').style.display = 'block';
+    }
+
+    function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
+    function loginDashboard() {
+      const code = document.getElementById('tripCode').value;
+      if(code !== "1234") { alert("Incorrect Passcode! Try 1234"); return; }
+      document.getElementById('loginBtn').style.display = 'none';
+      document.getElementById('loginLoader').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('loginModal').classList.remove('active');
+        document.getElementById('dashboardModal').classList.add('active');
+        document.getElementById('loginBtn').style.display = 'block';
+        document.getElementById('loginLoader').style.display = 'none';
+        document.getElementById('tripCode').value = '';
+      }, 1500);
+    }
+
+    function submitReview() {
+      const name = document.getElementById('revName').value.trim() || 'Guest';
+      document.getElementById('reviewBox').style.display = 'none';
+      const msg = document.getElementById('thankYouMsg');
+      msg.innerHTML = `<h3 style="color:#d4af37;">Thank You, ${name}! 🎉</h3><p style="color:#0f172a;">Your feedback helps us create better joyful experiences.</p>`;
+      msg.style.display = 'block';
+    }
+
+    function sendFinalBooking() {
+      const name = document.getElementById('b_name').value;
+      const phone = document.getElementById('b_phone').value;
+      const dest = document.getElementById('b_dest').value;
+      const msg = `Inquiry from Website:\nName: ${name}\nPhone: ${phone}\nDestination: ${dest}`;
+      window.open(`https://wa.me/919729561534?text=${encodeURIComponent(msg)}`);
+    }
+
+    const liveNotifs = ["🎉 A school from Delhi just inquired for Manali!", "🔥 5 seats left for Spiti Expedition", "✨ New booking confirmed for Amritsar", "🎒 Kurukshetra trip booked by a Sirsa School!"];
+    let nIndex = 0;
+    setInterval(() => {
+      const notifEl = document.getElementById('liveNotif');
+      document.getElementById('notifMsg').innerText = liveNotifs[nIndex];
+      notifEl.classList.add('show');
+      setTimeout(() => { notifEl.classList.remove('show'); }, 4000);
+      nIndex = (nIndex + 1) % liveNotifs.length;
+    }, 18000);
+
   </script>
 </body>
 </html>
