@@ -26,9 +26,22 @@
     .btn.primary { background: linear-gradient(135deg, #d4af37, #b5952f); color: white; border: none; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
     .lang-btn { background: var(--navy); color: var(--gold); border: 1px solid var(--gold); }
 
-    /* VIDEO HERO SECTION */
-    .hero { height: 90vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; }
-    #heroVideo { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%); object-fit: cover; }
+    /* AUTO IMAGE SLIDER HERO */
+    .hero { height: 90vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
+    .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: fadeSlider 15s infinite; }
+    
+    /* 3 Beautiful Placeholder Images for Slider */
+    .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1626509647209-41712a2a0750'); animation-delay: 0s; }
+    .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1605649487212-4d4b2413e1dc'); animation-delay: 5s; }
+    .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada'); animation-delay: 10s; }
+    
+    @keyframes fadeSlider { 
+      0%, 100% { opacity: 0; transform: scale(1); } 
+      10%, 33% { opacity: 1; transform: scale(1.05); } 
+      43% { opacity: 0; transform: scale(1.1); } 
+    }
+    
     .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.9)); z-index: 1; }
     .hero-content { position: relative; z-index: 2; width: 100%; padding: 0 20px; }
     .gradient-text { font-size: 64px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: -1px; margin-bottom:10px; line-height: 1.2;}
@@ -53,13 +66,17 @@
     .dest:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.3); border-color: var(--gold); }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* CATEGORIES LUXURY */
+    /* CATEGORIES LUXURY WITH EMBEDDED CARD */
     .cat-section { background: #f8fafc; padding: 90px 0; border-top: 2px solid var(--gold); }
-    .cat-card { text-align: center; padding: 40px 24px; border-radius: 25px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition:0.4s; position: relative; overflow: hidden;}
+    .cat-card { text-align: center; padding: 30px 24px; border-radius: 25px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition:0.4s; position: relative; overflow: hidden;}
     .cat-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(212,175,55,0.15); border-color: var(--gold); }
     .cat-card h3 { font-size: 24px; margin: 15px 0; color: var(--navy); }
     .cat-icon { font-size: 50px; margin-bottom: 10px; display: block; text-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     .cat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, #d4af37, #fef08a); }
+
+    /* EMBEDDED DARJEELING CARD IN CATEGORY */
+    .embedded-dest { border-radius: 15px; overflow: hidden; background: linear-gradient(rgba(0,0,0,0.2), rgba(15,23,42,0.9)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800') center/cover; padding: 20px; text-align: left; margin: 20px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 180px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: 0.3s; }
+    .embedded-dest:hover { transform: scale(1.02); }
 
     /* PIHU CHATBOT */
     .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 3000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
@@ -72,6 +89,7 @@
     .chat-input-area { display: flex; padding: 12px; background: white; border-top: 1px solid #e2e8f0; }
     .chat-input-area input { flex: 1; padding: 12px; border: 1px solid #cbd5e1; border-radius: 25px; margin-bottom: 0; outline: none; font-size:14px; }
     .chat-input-area button { background: var(--gold); color: white; border: none; padding: 10px 18px; border-radius: 50%; margin-left: 8px; cursor: pointer; }
+    @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 
     /* AUDIO & 360 */
     .view-360-btn { background: rgba(255,255,255,0.15); color: white; font-size: 13px; padding: 8px 16px; border-radius: 50px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; transition:0.3s; position:relative; z-index:5; backdrop-filter: blur(5px); }
@@ -81,7 +99,7 @@
     .pano-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; }
 
     /* FOOTER & OTHERS */
-    .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 3000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); cursor: pointer; transition: 0.3s; }
+    .floating-wa { position: fixed; bottom: 24px; right: 24px; background: #25d366; border-radius: 50%; width: 65px; height: 65px; display: flex; justify-content: center; align-items: center; z-index: 3000; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); cursor: pointer; transition: 0.3s; }
     .wa-menu { display: none; position: fixed; bottom: 100px; right: 24px; background: white; border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 3000; min-width: 240px; border: 1px solid #e2e8f0; }
     .wa-menu.active { display: block; animation: slideUp 0.3s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -141,7 +159,7 @@
 
   <audio id="bgAudio" loop></audio>
 
-  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Delhi just inquired!</div></div>
+  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Sirsa just inquired!</div></div>
 
   <div class="top-bar">
     <marquee scrollamount="5">🎒 Bookings Open for Summer Expeditions 2026 | Upto 20% Group Discount | 🛡️ Udyam Certified Branded Safety Standards</marquee>
@@ -172,28 +190,25 @@
     </a>
     <div class="nav-links">
       <button class="btn lang-btn" onclick="toggleLanguage()" id="langBtn">हिन्दी</button>
-      <a class="btn" href="#categories" id="navCat">Categories</a>
-      <a class="btn" href="#destinations" id="navDest">Destinations</a>
-      <a class="btn" href="#how-it-works" id="navHow">How It Works</a>
-      <a class="btn" href="#budget" id="navCalc">Calculator</a>
-      <a class="btn" href="#resources" id="navRes">Resources</a>
-      <a class="btn" href="#faq" id="navFaq">FAQs</a>
-      <a class="btn" href="#gallery" id="navGal">Gallery</a>
-      <a class="btn primary" href="#booking" id="navBook">Book Now</a>
+      <a class="btn" href="#categories">Styles</a>
+      <a class="btn" href="#destinations">Trips</a>
+      <a class="btn primary" href="#booking">Book Now</a>
     </div>
   </div>
 
   <section id="home" class="hero">
-    <video autoplay muted loop playsinline id="heroVideo">
-      <source src="https://drive.google.com/uc?export=download&id=1qZbMXNGnA2B-4dO5rY2vwDk_KymT9k_U" type="video/mp4">
-    </video>
+    <div class="hero-slider">
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+    </div>
     <div class="video-overlay"></div>
     <div class="container hero-content">
       <h1 id="heroH1" class="gradient-text">Joyful Tours And Adventures</h1>
       <h2 id="heroH2" style="color:white; font-size:24px; font-weight:400; margin-top:10px;">Redefining Premium Educational & Family Expeditions</h2>
       <div class="timer-box">
         <div id="timerTitle" style="font-size:12px; color:var(--gold); font-weight:bold; letter-spacing:1px; margin-bottom:10px;">SUMMER REGISTRATION CLOSES IN</div>
-        <div class="time-grid">
+        <div class="time-grid" style="display:flex; gap:20px; justify-content:center;">
           <div class="time-unit"><span id="days">00</span><p>Days</p></div>
           <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
           <div class="time-unit"><span id="mins">00</span><p>Mins</p></div>
@@ -216,26 +231,51 @@
     <div class="container">
       <h2 style="text-align:center; font-size:40px; margin-bottom:15px; font-weight:900;">Elite Travel Portfolios</h2>
       <p style="text-align:center; color:#64748b; margin-bottom:50px; font-size:16px;">Handpicked itineraries designed for your specific group needs.</p>
+      
       <div class="grid">
         <div class="cat-card">
           <span class="cat-icon">🏫</span>
           <h3>Educational Excellence</h3>
-          <p style="color:#64748b; font-size:14px; margin-bottom:24px;">Specialized school & college trips with safety focus and learning outcomes.</p>
-          <button class="btn primary" onclick="openModal('CategorySchool', 'School/College')">View Details</button>
+          <p style="color:#64748b; font-size:14px; margin-bottom:20px;">Specialized school trips with safety focus.</p>
+          
+          <div class="embedded-dest">
+            <span class="badge" style="width:fit-content; margin-bottom:8px;">💎 Elite Featured</span>
+            <h4 style="color:white; margin:0 0 10px 0; font-size:20px; font-family:'Playfair Display',serif;">Darjeeling Expedition</h4>
+            <button class="btn primary" style="font-size:12px; padding:8px 16px; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
+          </div>
+          
+          <button class="btn" style="width:100%; border:1px solid var(--gold); background:transparent; color:var(--navy);" onclick="openModal('CategorySchool', 'School/College')">View Full Catalog</button>
         </div>
+
         <div class="cat-card">
           <span class="cat-icon">🔥</span>
           <h3>Squad Adventures</h3>
-          <p style="color:#64748b; font-size:14px; margin-bottom:24px;">High-energy itineraries for friends group, trekkers and solo explorers.</p>
-          <button class="btn primary" onclick="openModal('CategoryFriends', 'Friends Group')">View Details</button>
+          <p style="color:#64748b; font-size:14px; margin-bottom:20px;">High-energy itineraries for friends group.</p>
+          
+          <div class="embedded-dest">
+            <span class="badge" style="width:fit-content; margin-bottom:8px;">💎 Elite Featured</span>
+            <h4 style="color:white; margin:0 0 10px 0; font-size:20px; font-family:'Playfair Display',serif;">Darjeeling Trek</h4>
+            <button class="btn primary" style="font-size:12px; padding:8px 16px; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
+          </div>
+
+          <button class="btn" style="width:100%; border:1px solid var(--gold); background:transparent; color:var(--navy);" onclick="openModal('CategoryFriends', 'Friends Group')">View Full Catalog</button>
         </div>
+
         <div class="cat-card">
           <span class="cat-icon">👨‍👩‍👦</span>
           <h3>Royal Kinship</h3>
-          <p style="color:#64748b; font-size:14px; margin-bottom:24px;">Luxurious family escapes with premium comfort, privacy and curated stays.</p>
-          <button class="btn primary" onclick="openModal('CategoryFamily', 'Family Trip')">View Details</button>
+          <p style="color:#64748b; font-size:14px; margin-bottom:20px;">Luxurious family escapes with premium comfort.</p>
+          
+          <div class="embedded-dest">
+            <span class="badge" style="width:fit-content; margin-bottom:8px;">💎 Elite Featured</span>
+            <h4 style="color:white; margin:0 0 10px 0; font-size:20px; font-family:'Playfair Display',serif;">Darjeeling Luxury</h4>
+            <button class="btn primary" style="font-size:12px; padding:8px 16px; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
+          </div>
+
+          <button class="btn" style="width:100%; border:1px solid var(--gold); background:transparent; color:var(--navy);" onclick="openModal('CategoryFamily', 'Family Trip')">View Full Catalog</button>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -281,7 +321,7 @@
       </div>
       <div class="grid" id="destGrid">
         
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Darjeeling.png")'>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
           <div class="badge">💎 ELITE: NEW</div>
           <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition 
           <button class="btn primary" style="margin-top:15px" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
@@ -501,7 +541,7 @@
   </div>
 
   <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')">
-    <div class="modal-content" style="background:transparent; border:none;"><img id="lightboxImg" src=""></div>
+    <div class="modal-content" style="background:transparent; border:none; box-shadow:none;"><img id="lightboxImg" src=""></div>
   </div>
 
   <div id="360Modal" class="modal-overlay" style="z-index: 5500;">
@@ -512,12 +552,43 @@
     </div>
   </div>
 
+  <div id="loginModal" class="modal-overlay" style="z-index: 1005;">
+    <div class="modal-content" style="max-width: 350px; text-align:center;">
+      <button class="close-btn" onclick="document.getElementById('loginModal').classList.remove('active')">×</button>
+      <h3>School Trip Access</h3>
+      <input id="tripCode" type="password" placeholder="Passcode: 1234" style="text-align:center; letter-spacing:4px; font-size:20px; font-weight:bold;" />
+      <div id="loginLoader" class="loader" style="display:none;"></div>
+      <button class="btn primary" id="loginBtn" style="width:100%; margin-top:10px;" onclick="loginDashboard()">Access Dashboard</button>
+    </div>
+  </div>
+
+  <div id="dashboardModal" class="modal-overlay" style="z-index: 1005;">
+    <div class="modal-content" style="background:#f8fafc;">
+      <button class="close-btn" onclick="document.getElementById('dashboardModal').classList.remove('active')">×</button>
+      <div style="background:var(--navy); color:white; padding:16px; border-radius:12px; margin-bottom:16px; text-align:center;">
+        <h2 style="margin:0; color:#4ade80;">🟢 LIVE TRIP ACTIVE</h2>
+        <p style="margin:4px 0 0; font-size:14px;">Group: VIP Educational Tour</p>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">Current Location</p><h4 style="margin:4px 0;">📍 Himalayan Highway</h4></div>
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">Weather</p><h4 style="margin:4px 0;">🌤️ 14°C, Clear</h4></div>
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">Next Stop</p><h4 style="margin:4px 0;">Resort Check-in</h4></div>
+        <div class="dash-widget"><p style="margin:0; font-size:12px; color:#64748b;">ETA</p><h4 style="margin:4px 0;">⏱️ 45 Mins</h4></div>
+      </div>
+      <h3 style="margin:20px 0 10px; font-size:16px;">Latest Ground Photos</h3>
+      <div class="dash-photos">
+        <img src="https://images.unsplash.com/photo-1525256427389-9a7dc92ec247" alt="Trip">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" alt="Trip">
+      </div>
+    </div>
+  </div>
+
   <script>
     // Language Controller
     let isHindi = false;
     const trans = {
-      en: { b: "Joyful Tours", s: "For Schools", d: "Destinations", hw: "How It Works", bc: "Calculator", pr: "Resources", fq: "FAQs", gl: "Gallery", rv: "Reviews", bn: "Book Now", h1: "Joyful Tours And Adventures", h2: "Redefining Premium Educational & Family Expeditions", timer: "SUMMER REGISTRATION CLOSES IN", t1:"Verified Safety", t2:"Premium Stays", t3:"Luxury Coaches", t4:"Expert Guides" },
-      hi: { b: "जॉयफुल टूर्स", s: "स्कूलों के लिए", d: "यात्राएं", hw: "यह कैसे काम करता है", bc: "कैलकुलेटर", pr: "दस्तावेज़", fq: "सवाल-जवाब", gl: "गैलरी", rv: "समीक्षा", bn: "अभी बुक करें", h1: "जॉयफुल टूर्स एंड एडवेंचर्स", h2: "भारत के सबसे भरोसेमंद शैक्षिक यात्रा विशेषज्ञ", timer: "बुकिंग समाप्त होने में समय:", t1:"सुरक्षा", t2:"प्रीमियम होटल", t3:"लक्ज़री बस", t4:"विशेषज्ञ गाइड" }
+      en: { b: "Joyful Tours", s: "For Schools", d: "Destinations", hw: "How It Works", bc: "Calculator", pr: "Resources", fq: "FAQs", gl: "Gallery", rv: "Reviews", bn: "Book Now", h1: "Joyful Tours And Adventures", h2: "Redefining Premium Educational & Family Expeditions", timer: "SUMMER REGISTRATION CLOSES IN", t1:"Verified Safety", t2:"Premium Stays", t3:"Luxury Coaches", t4:"Expert Guides", c:"Categories" },
+      hi: { b: "जॉयफुल टूर्स", s: "स्कूलों के लिए", d: "यात्राएं", hw: "यह कैसे काम करता है", bc: "कैलकुलेटर", pr: "दस्तावेज़", fq: "सवाल-जवाब", gl: "गैलरी", rv: "समीक्षा", bn: "अभी बुक करें", h1: "जॉयफुल टूर्स एंड एडवेंचर्स", h2: "भारत के सबसे भरोसेमंद शैक्षिक यात्रा विशेषज्ञ", timer: "बुकिंग समाप्त होने में समय:", t1:"सुरक्षा", t2:"प्रीमियम होटल", t3:"लक्ज़री बस", t4:"विशेषज्ञ गाइड", c:"श्रेणियाँ" }
     };
 
     function toggleLanguage() {
@@ -534,6 +605,7 @@
       document.getElementById('navGal').innerText = trans[l].gl;
       document.getElementById('navRev').innerText = trans[l].rv;
       document.getElementById('navBook').innerText = trans[l].bn;
+      document.getElementById('navCat').innerText = trans[l].c;
       document.getElementById('heroH1').innerText = trans[l].h1;
       document.getElementById('heroH2').innerText = trans[l].h2;
       document.getElementById('timerTitle').innerText = trans[l].timer;
@@ -591,7 +663,7 @@
       document.getElementById('bgAudio').pause();
     }
 
-    // ALL 14 ITINERARIES FULLY RESTORED + NEW CATEGORIES (WITH DETAILED TEXT)
+    // ALL 14 ITINERARIES FULLY RESTORED + NEW CATEGORIES WITH DETAILED TEXT
     const itineraryData = {
       'CategorySchool': { 
         title: 'Educational Trip Excellence', 
@@ -685,7 +757,7 @@
     function openModal(id, dest, weatherInfo = '🌤️ Curated') {
       const data = itineraryData[id];
       currentPDF = data.pdf;
-      currentTripName = data.title; // Saving for WhatsApp message
+      currentTripName = data.title; 
       
       document.getElementById('modalTitle').innerText = data.title;
       document.getElementById('modalWeather').innerText = `Destination/Style: ${dest} | ${weatherInfo}`;
@@ -696,7 +768,7 @@
 
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
     
-    // NEW DIRECT ACTIONS (NO FORM IN MODAL)
+    // NEW DIRECT ACTIONS
     function downloadCurrentPDF() {
       window.open(currentPDF, '_blank');
     }
@@ -722,7 +794,22 @@
       document.getElementById('calcResult').style.display = 'block';
     }
 
-    // REVIEWS
+    // DASHBOARD & REVIEWS
+    function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
+    function loginDashboard() {
+      const code = document.getElementById('tripCode').value;
+      if(code !== "1234") { alert("Incorrect Passcode! Try 1234"); return; }
+      document.getElementById('loginBtn').style.display = 'none';
+      document.getElementById('loginLoader').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('loginModal').classList.remove('active');
+        document.getElementById('dashboardModal').classList.add('active');
+        document.getElementById('loginBtn').style.display = 'block';
+        document.getElementById('loginLoader').style.display = 'none';
+        document.getElementById('tripCode').value = '';
+      }, 1500);
+    }
+
     function submitReview() {
       const name = document.getElementById('revName').value.trim() || 'Guest';
       document.getElementById('reviewBox').style.display = 'none';
@@ -731,7 +818,6 @@
       msg.style.display = 'block';
     }
 
-    // GENERAL BOOKING FORM
     function sendFinalBooking() {
       const name = document.getElementById('b_name').value;
       const phone = document.getElementById('b_phone').value;
