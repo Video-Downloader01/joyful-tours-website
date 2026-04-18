@@ -160,7 +160,7 @@
     .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px; }
     .live-notif.show { left: 24px; }
 
-    /* PRO DASHBOARD UI CLASSES */
+    /* PRO DASHBOARD UI CLASSES (3 TABS) */
     .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
     .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
     .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
@@ -189,16 +189,12 @@
   <div class="ai-anchor" onclick="togglePihuChat()">
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
   </div>
-  
   <div id="pihuChatBox" class="pihu-chat-box">
-    <div class="chat-header"><span>🟢 Pihu - VIP Guide (Live AI)</span><span onclick="togglePihuChat()" style="cursor:pointer;">✖</span></div>
+    <div class="chat-header"><span>🟢 Pihu - VIP Guide</span><span onclick="togglePihuChat()" style="cursor:pointer;">✖</span></div>
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. Experience the next level of travel with Joyful Tours. How can I assist you?</span></div>
     </div>
-    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #eee;">
-      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #ddd; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
-      <button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button>
-    </div>
+    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #eee;"><input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #ddd; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;"><button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button></div>
   </div>
 
   <div id="waMenu" class="wa-menu">
@@ -371,6 +367,7 @@
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Udaipur.png")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Udaipur', 'audio_palace.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Udaipur Royal<button class="btn primary" style="margin-top:12px;" onclick="openModal('Udaipur', 'Udaipur', '☀️ 28°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Spiti&ladakh.png")'><div class="badge">💎 10/10</div><button class="view-360-btn" onclick="open360('Spiti', 'audio_wind.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Spiti + Ladakh<button class="btn primary" style="margin-top:12px;" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh', '❄️ -2°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Dalhousie.png")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar + Dalhousie<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarDalhousie', 'Dalhousie', '🌤️ 14°C')">View Details</button></div>
+
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amarnath Yatra<button class="btn primary" style="margin-top:12px;" onclick="openModal('Amarnath', 'Srinagar', '🌤️ 15°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Delhi', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Delhi Heritage<button class="btn primary" style="margin-top:12px;" onclick="openModal('Delhi', 'Delhi', '☀️ 34°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'><div class="badge">⭐ 9.8/10</div><button class="view-360-btn" onclick="open360('RishikeshMussoorie', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Mussoorie Trip<button class="btn primary" style="margin-top:12px;" onclick="openModal('RishikeshMussoorie', 'Mussoorie', '🌤️ 18°C')">View Details</button></div>
@@ -384,9 +381,9 @@
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Frequently Asked Questions</h2>
       <div style="max-width: 700px; margin: 30px auto 0;">
-        <details><summary>Dedicated staff for girls?</summary><p>Yes, 1:10 staff ratio and dedicated female coordinators provided.</p></details>
-        <details><summary>Hygienic food?</summary><p>100% pure veg unlimited buffet meals in hygienic kitchens.</p></details>
-        <details><summary>Live updates?</summary><p>Private WhatsApp group for parents with live location & photos.</p></details>
+        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator from Joyful Tours always accompanies groups with girl students to ensure their comfort and safety 24/7.</p></details>
+        <details><summary>What kind of food is provided during the trips?</summary><p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens. Our focus is on healthy, home-style food that keeps students energetic during the journey.</p></details>
+        <details><summary>How do parents get updates during the trip?</summary><p>We create a private WhatsApp broadcast group for parents and school management. Our team shares live locations and trip photos every 3-4 hours so parents are always updated.</p></details>
       </div>
     </div>
   </section>
@@ -406,6 +403,7 @@
       <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800" onclick="openLightbox(this.src)">
     </div></div>
   </section>
 
@@ -475,7 +473,11 @@
     </div>
   </div>
 
-  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')"><div class="modal-content" id="lightboxContent" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;"><img id="lightboxImg" src=""></div></div>
+  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')">
+    <div class="modal-content" id="lightboxContent" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;">
+        <img id="lightboxImg" src="">
+    </div>
+  </div>
   
   <div id="360Modal" class="modal-overlay" style="z-index: 5500;">
     <div class="modal-content" style="max-width: 800px; background:#000; color:white; padding:10px;">
@@ -505,12 +507,13 @@
       </div>
 
       <div style="display:flex; gap:10px; border-bottom:2px solid #e2e8f0; margin-bottom:20px; overflow-x:auto; padding:0 20px;">
-        <div id="tab-overview" class="dash-tab active" onclick="switchDashTab('dash-overview', this)" style="padding:10px 15px; font-weight:600; color:var(--navy); cursor:pointer; border-bottom:3px solid var(--gold); white-space:nowrap; font-size:14px;">Overview</div>
-        <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)" style="padding:10px 15px; font-weight:600; color:#64748b; cursor:pointer; border-bottom:3px solid transparent; white-space:nowrap; font-size:14px;">Live Timeline</div>
-        <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)" style="padding:10px 15px; font-weight:600; color:#64748b; cursor:pointer; border-bottom:3px solid transparent; white-space:nowrap; font-size:14px;">Insta Gallery</div>
+        <div id="tab-overview" class="dash-tab active" onclick="switchDashTab('dash-overview', this)">Overview</div>
+        <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
+        <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)">Insta Gallery</div>
       </div>
 
       <div style="padding:20px; height:400px; overflow-y:auto;">
+        
         <div id="dash-overview" class="dash-panel active" style="display:block;">
           <div style="background:linear-gradient(135deg, var(--navy), #1e293b); color:white; padding:20px; border-radius:15px; margin-bottom:20px;">
             <h3 style="margin:0 0 15px 0; color:var(--gold);">Current Status</h3>
@@ -547,62 +550,25 @@
   <script>
     // CORE FUNCTIONS
     function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
-    function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
     
-    // 🔥 PIHU LIVE AI (UPGRADED FIX)
-    async function sendPihuMsg() {
+    function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
+    function sendPihuMsg() {
       const input = document.getElementById('chatInput'); 
       const chatBody = document.getElementById('chatBody'); 
-      const userText = input.value.trim(); 
-      if(!userText) return;
-      
-      chatBody.innerHTML += `<div style="text-align:right; margin:8px 0;"><span style="background:var(--navy); color:white; padding:8px 12px; border-radius:15px; font-size:13px; display:inline-block;">${userText}</span></div>`; 
+      const val = input.value.trim().toLowerCase(); 
+      if(!val) return;
+      chatBody.innerHTML += `<div style="text-align:right; margin:8px 0;"><span style="background:var(--navy); color:white; padding:8px 12px; border-radius:15px; font-size:13px; display:inline-block;">${input.value}</span></div>`; 
       input.value = '';
-      chatBody.scrollTop = chatBody.scrollHeight; 
       
-      const typingId = "typing-" + Date.now();
-      chatBody.innerHTML += `<div id="${typingId}" style="text-align:left; margin:8px 0;"><span style="background:#fff; color:var(--navy); padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">Pihu is thinking... ⏳</span></div>`;
-      chatBody.scrollTop = chatBody.scrollHeight;
+      let reply = "Connect with Raman on WhatsApp for VIP packages!";
+      if(val.includes('rishikesh')) reply = "Rishikesh is our adventure capital! We offer Rafting, Bunjee Jumping, and Ganga Aarti tours.";
+      if(val.includes('darjeeling')) reply = "Darjeeling is our elite destination! We offer toy train rides and tea garden stays.";
+      if(val.includes('school')) reply = "We have specialized Educational Itineraries for schools with 24/7 medical assistance.";
       
-      const apiKey = "AIzaSyB955E8dRLKHuY9F-n2LN4EyWiRA_DFvro";
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
-      
-      const systemPrompt = "You are Pihu, a smart VIP Tour Guide and Sales Executive for 'Joyful Tours And Adventures'. Goal: generate profit and sell premium tour packages. Speak in a friendly Hinglish tone. Whatever the user asks, answer briefly but smartly steer the conversation towards booking a trip. Always encourage them to WhatsApp Booking Manager Raman at 8295411207 for VIP quotes. Keep responses short (1-3 sentences). DO NOT use asterisks or bold text formatting.";
-
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [
-              { role: "user", parts: [{ text: systemPrompt + "\n\nUser Question: " + userText }] }
-            ],
-            generationConfig: { temperature: 0.7, maxOutputTokens: 150 }
-          })
-        });
-
-        const data = await response.json();
-        let aiReply = "";
-
-        if (data.candidates && data.candidates.length > 0) {
-          aiReply = data.candidates[0].content.parts[0].text;
-          aiReply = aiReply.replace(/\*/g, ''); // Remove markdown
-        } else if (data.error) {
-          // SHOW EXACT GOOGLE API ERROR TO FIX ISSUE
-          aiReply = "API Error (Fix required): " + data.error.message; 
-        } else {
-          aiReply = "Network slow hai ji! Direct Raman se WhatsApp par baat karein: 8295411207";
-        }
-
-        document.getElementById(typingId).remove();
-        chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#fff; color:var(--navy); padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">${aiReply}</span></div>`; 
+      setTimeout(() => { 
+        chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#fff; color:var(--navy); padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">${reply}</span></div>`; 
         chatBody.scrollTop = chatBody.scrollHeight; 
-
-      } catch (error) {
-        document.getElementById(typingId).remove();
-        chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#fff; color:red; padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">Connection failed. Please WhatsApp Raman: 8295411207</span></div>`;
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
+      }, 700);
     }
 
     const panoImgs = { 
@@ -750,6 +716,17 @@
         document.getElementById("secs").innerText = Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0'); 
       } 
     }, 1000);
+
+    // Live Notification Trigger
+    const liveNotifs = ["🎒 A school from Sirsa just booked Darjeeling!", "🔥 Only 4 slots left for Spiti Squad Tour", "👨‍👩‍👦 5-Star review added for Udaipur Family Trip"];
+    let nIndex = 0;
+    setInterval(() => {
+      const notifEl = document.getElementById('liveNotif');
+      document.getElementById('notifMsg').innerText = liveNotifs[nIndex];
+      notifEl.classList.add('show');
+      setTimeout(() => notifEl.classList.remove('show'), 4000);
+      nIndex = (nIndex + 1) % liveNotifs.length;
+    }, 18000);
   </script>
 </body>
 </html>
