@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
   <style>
     :root { --gold: #d4af37; --gold-hover: #b5952f; --navy: #0f172a; --light-bg: #f8fafc; --text: #1e293b; --emerald: #059669; }
     html { scroll-behavior: smooth; }
@@ -32,7 +35,7 @@
     .btn.primary:hover { transform: translateY(-2px); color: white; }
     .btn.login-btn { background: #eef2ff; color: #4f46e5; border-radius: 999px; text-align: center; margin: 5px 20px; border:1px solid #c7d2fe;}
 
-    /* HERO SECTION */
+    /* ORIGINAL STATIC HERO */
     .hero { height: 80vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
     .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600") center/cover; animation: cinematicZoom 25s infinite alternate linear; }
     @keyframes cinematicZoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
@@ -94,7 +97,7 @@
     .pano-hint { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 5px 12px; border-radius: 20px; font-size: 11px; }
 
     /* WA MENU */
-    .floating-wa { position: fixed; bottom: 24px; right: 24px; background-color: #25d366; border-radius: 50%; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; z-index: 3000; box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4); cursor: pointer; transition: 0.3s; }
+    .floating-wa { position: fixed; bottom: 24px; right: 24px; background: #25d366; border-radius: 50%; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; z-index: 3000; box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4); cursor: pointer; transition: 0.3s; }
     .wa-menu { display: none; position: fixed; bottom: 90px; right: 24px; background: white; border-radius: 15px; padding: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); z-index: 3000; min-width: 220px; border: 1px solid #e2e8f0; }
     .wa-menu.active { display: block; animation: slideUp 0.3s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -117,7 +120,7 @@
     #lightboxModal .modal-content { background:transparent; border:none; box-shadow:none; padding:0; text-align:center;}
     #lightboxImg { max-width: 90vw; max-height: 80vh; object-fit: contain; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-    .badge { font-size:10px; background: var(--gold); color:var(--navy); font-weight:800; padding:4px 10px; border-radius:50px; margin-bottom:10px; display:inline-block; }
+    .badge { font-size:10px; background: var(--gold); color:var(--navy); font-weight:800; padding:4px 10px; border-radius:50px; margin-bottom:10px; display:inline-block; letter-spacing: 0.5px;}
     .route-map-pro { position: relative; height: 40px; border-bottom: 2px dashed #94a3b8; margin: 15px 0 25px; display: flex; align-items: flex-end; justify-content: space-between; }
     .bus-pro { position: absolute; bottom: -5px; font-size: 24px; animation: driveBusPro 4s linear infinite; z-index:3; }
     @keyframes driveBusPro { 0% { left: 0; } 100% { left: 88%; } }
@@ -126,6 +129,8 @@
     .timeline { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; position: relative; }
     .timeline-item { position: relative; margin-bottom: 20px; }
     .timeline-item::before { content: ''; position: absolute; left: -21px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: white; border: 2px solid var(--gold); }
+    .timeline-item strong { color: var(--navy); display: block; font-size: 15px; margin-bottom: 3px; }
+    .timeline-item p { margin: 0; color: #475569; font-size: 13px; line-height: 1.5; }
     
     .weather-badge { background: #f8fafc; color: var(--navy); padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 15px; border: 1px solid #e2e8f0; }
 
@@ -135,6 +140,8 @@
 
     .trust-banner { background: white; padding: 25px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
     .trust-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; text-align: center; }
+    .step-box { text-align: center; padding: 15px; position: relative; }
+    .step-icon { width: 50px; height: 50px; background: var(--navy); color: var(--gold); font-size: 20px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto 12px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
 
     /* FOOTER WITH BACKGROUND */
     footer { background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover; color: white; padding: 70px 0 30px 0; }
@@ -144,6 +151,7 @@
 
     details { background: white; padding: 14px 20px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
     summary { font-weight: 600; font-size: 15px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
     summary::after { content: '+'; font-size: 20px; color: var(--gold); transition: 0.3s; }
     details[open] summary::after { content: '-'; }
     details p { margin-top: 10px; margin-bottom: 0; color: #475569; line-height: 1.5; font-size:14px; border-top: 1px solid #f1f5f9; padding-top: 10px; }
@@ -164,7 +172,7 @@
     
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 15px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
-    .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; }
+    .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
   </style>
 </head>
 <body>
@@ -416,19 +424,6 @@
     </div>
   </section>
 
-  <section id="booking" class="section" style="background:var(--light-bg)">
-    <div class="container">
-      <h2 style="text-align: center; font-size:32px;">Book Your Journey</h2>
-      <div class="card" style="max-width: 600px; margin: 30px auto 0; border:1px solid #e2e8f0; padding:25px;">
-        <input id="b_name" placeholder="Full Name / School" />
-        <input id="b_phone" placeholder="Contact Number" />
-        <input id="b_dest" placeholder="Destination" />
-        <textarea id="b_text" rows="3" placeholder="Requirements..."></textarea>
-        <button class="btn primary" style="width:100%; padding: 14px; margin:0;" onclick="sendFinalBooking()">Send to WhatsApp</button>
-      </div>
-    </div>
-  </section>
-
   <footer id="contact" class="section" style="background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover; color: white; padding-bottom: 30px;">
     <div class="container">
       <div style="display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
@@ -443,7 +438,7 @@
           <a href="https://instagram.com/joyful_tours_adventures" target="_blank" style="color:var(--gold); text-decoration:none; font-size:14px;">Instagram: @joyful_tours_adventures</a>
         </div>
         <div style="border-radius: 15px; overflow: hidden; width: 400px; height: 280px; border: 2px solid rgba(212,175,55,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-          <iframe src="https://maps.google.com/maps?q=Sirsa&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110996.15545229668!2d75.021008!3d29.5332204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114cb1855a82fd%3A0xc3b5e43a99201582!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1713500000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <p style="text-align:center; padding-top:40px; font-size:11px; opacity:0.5;">© 2026 Joyful Tours And Adventures. Registered in Sirsa, Haryana. Udyam Certified.</p>
@@ -464,8 +459,8 @@
     </div>
   </div>
 
-  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')"><div class="modal-content" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;"><img id="lightboxImg" src=""></div></div>
-  <div id="360Modal" class="modal-overlay" style="z-index: 5500;"><div class="modal-content" style="max-width: 800px; background:#000; color:white; padding:10px;"><button class="close-btn" onclick="close360()" style="background:white; color:black;">×</button><h3 style="margin:10px 15px;" id="panoTitle">Location 360°</h3><div id="panoFrame"><div class="pano-hint">Experience the vibe.</div></div></div></div>
+  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')"><div class="modal-content" id="lightboxContent" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;"><img id="lightboxImg" src=""></div></div>
+  <div id="360Modal" class="modal-overlay" style="z-index: 5500;"><div class="modal-content" style="max-width: 800px; background:#000; color:white; padding:10px;"><button class="close-btn" onclick="close360()" style="background:white; color:black;">×</button><h3 style="margin:10px 15px;" id="panoTitle">Location 360°</h3><div id="panoFrame"><div class="pano-hint">Atmospheric audio active... Experience the vibe.</div></div></div></div>
 
   <div id="loginModal" class="modal-overlay" style="z-index: 5500;">
     <div class="modal-content" style="max-width: 350px; text-align:center;">
@@ -473,7 +468,7 @@
       <h3 style="margin-top:0;">VIP Client Portal</h3>
       <p style="font-size:13px; color:#64748b; margin-bottom:20px;">Enter your secure Trip ID</p>
       <input id="tripCode" type="password" placeholder="Passcode..." style="text-align:center; letter-spacing:4px; font-size:18px; font-weight:bold;" />
-      <button class="btn primary" style="width:100%; margin:10px 0 0 0;" onclick="loginDashboard()">Access Dashboard</button>
+      <button id="loginBtnAction" class="btn primary" style="width:100%; margin:10px 0 0 0;" onclick="loginDashboard()">Access Dashboard</button>
       <p style="font-size:10px; color:#94a3b8; margin-top:15px;">Protected by Firebase Authentication</p>
     </div>
   </div>
@@ -483,7 +478,7 @@
       <div style="background:var(--navy); padding:20px; color:white; position:relative;">
         <button class="close-btn" onclick="document.getElementById('dashboardModal').classList.remove('active')" style="background:rgba(255,255,255,0.2); color:white; top:15px; right:15px;">×</button>
         <h2 style="margin:0 0 5px 0; font-size:22px;"><span style="display:inline-block; width:10px; height:10px; background:#22c55e; border-radius:50%; margin-right:8px; box-shadow:0 0 10px #22c55e;"></span>LIVE TRIP TRACKER</h2>
-        <p style="margin:0; font-size:13px; color:var(--gold);">Secured Group Connection</p>
+        <p id="dashGroupName" style="margin:0; font-size:13px; color:var(--gold);">Secured Group Connection</p>
       </div>
 
       <div style="display:flex; gap:10px; border-bottom:2px solid #e2e8f0; margin-bottom:20px; overflow-x:auto; padding:0 20px;">
@@ -498,9 +493,9 @@
           <div style="background:linear-gradient(135deg, var(--navy), #1e293b); color:white; padding:20px; border-radius:15px; margin-bottom:20px;">
             <h3 style="margin:0 0 15px 0; color:var(--gold);">Current Status</h3>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
-              <div><p style="margin:0; font-size:11px; opacity:0.8;">📍 Location</p><strong style="font-size:14px;" id="liveLoc">Waiting for GPS...</strong></div>
+              <div><p style="margin:0; font-size:11px; opacity:0.8;">📍 Location</p><strong style="font-size:14px;" id="liveLoc">Connecting...</strong></div>
               <div><p style="margin:0; font-size:11px; opacity:0.8;">🌤️ Weather</p><strong style="font-size:14px;">14°C, Clear</strong></div>
-              <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Updating...</strong></div>
+              <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Connecting...</strong></div>
               <div><p style="margin:0; font-size:11px; opacity:0.8;">⏱️ ETA</p><strong style="font-size:14px;" id="liveETA">-- Mins</strong></div>
             </div>
           </div>
@@ -513,7 +508,7 @@
              <div style="border-left:2px solid var(--gold); padding-left:15px; margin-left:5px; margin-bottom:15px; position:relative;">
                <div style="position:absolute; left:-6px; top:5px; width:10px; height:10px; border-radius:50%; background:var(--gold);"></div>
                <div style="font-size:11px; color:#64748b; font-weight:bold;">JUST NOW</div>
-               <p style="margin:5px 0 0; font-size:14px;">Awaiting live connection from Captain...</p>
+               <p style="margin:5px 0 0; font-size:14px;">Dashboard securely connected to Firebase.</p>
              </div>
           </div>
         </div>
@@ -531,6 +526,7 @@
   </div>
 
   <script>
+    // CORE FUNCTIONS
     function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
     
     function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
@@ -546,8 +542,6 @@
       if(val.includes('rishikesh')) reply = "Rishikesh is our adventure capital! We offer Rafting, Bunjee Jumping, and Ganga Aarti tours.";
       if(val.includes('darjeeling')) reply = "Darjeeling is our elite destination! We offer toy train rides and tea garden stays.";
       if(val.includes('school')) reply = "We have specialized Educational Itineraries for schools with 24/7 medical assistance.";
-      if(val.includes('safety') || val.includes('safe')) reply = "Safety is our #1 priority. We maintain a 1:10 staff ratio and provide 24/7 medical support.";
-      if(val.includes('amarnath')) reply = "Registrations are open for Amarnath Yatra. Very limited secure slots available!";
       
       setTimeout(() => { 
         chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#fff; color:var(--navy); padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">${reply}</span></div>`; 
@@ -556,21 +550,12 @@
     }
 
     const panoImgs = { 
-      'Amritsar': 'Amritsar&wagah.png', 
-      'Manali': 'Manali.png', 
-      'Shimla': 'Shimla.png', 
-      'Udaipur': 'Udaipur.png', 
-      'Spiti': 'Spiti&ladakh.png', 
-      'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
-      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600',
-      'Chandigarh': 'Chandigarh.png',
-      'Kurukshetra': 'Kurukshetra.png',
-      'Dalhousie': 'Dalhousie.png',
-      'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
-      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600',
-      'RishikeshMussoorie': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
-      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600',
-      'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
+      'Amritsar': 'Amritsar&wagah.png', 'Manali': 'Manali.png', 'Shimla': 'Shimla.png', 'Udaipur': 'Udaipur.png', 
+      'Spiti': 'Spiti&ladakh.png', 'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
+      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600', 'Chandigarh': 'Chandigarh.png',
+      'Kurukshetra': 'Kurukshetra.png', 'Dalhousie': 'Dalhousie.png', 'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
+      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600', 'RishikeshMussoorie': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
+      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600', 'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
     };
     
     function open360(place, audioFile) { 
@@ -580,124 +565,37 @@
       document.getElementById('bgAudio').play().catch(() => {}); 
       document.getElementById('360Modal').classList.add('active'); 
     }
-    function close360() { 
-      document.getElementById('360Modal').classList.remove('active'); 
-      document.getElementById('bgAudio').pause(); 
-    }
+    function close360() { document.getElementById('360Modal').classList.remove('active'); document.getElementById('bgAudio').pause(); }
 
     const itineraryData = {
-      'Rishikesh': { 
-        title: 'Rishikesh Adventure Expedition', 
-        pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Arrival & Aarti</strong><p>Ganga Aarti at Triveni Ghat.</p></div><div class="timeline-item"><strong>Day 2: Thrill Time</strong><p>White Water Rafting & Bunjee Jumping.</p></div>' 
-      },
-      'RishikeshSchool': { 
-        title: 'Rishikesh Institutional Tour', 
-        pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', 
-        text: '<div class="timeline-item"><strong>For Schools</strong><p>Educational rafting and ashram visits with high safety protocols.</p></div>' 
-      },
-      'RishikeshFriends': { 
-        title: 'Rishikesh Squad Trip', 
-        pdf: 'https://drive.google.com/file/d/1e_wrQOv-___yWzo51WLn0E7DZm37jix1/view', 
-        text: '<div class="timeline-item"><strong>For Friends</strong><p>Luxury camping, 16KM rafting and high-energy adventure.</p></div>' 
-      },
-      'RishikeshFamily': { 
-        title: 'Rishikesh Royal Family Tour', 
-        pdf: 'https://drive.google.com/file/d/11aSBL8HdhHtD8asdq9TvegOSt9bw554u/view', 
-        text: '<div class="timeline-item"><strong>For Families</strong><p>Luxury resort stays, peaceful temple visits, and safe river activities.</p></div>' 
-      },
-      'Darjeeling': { 
-        title: 'Darjeeling North Bengal', 
-        pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill</strong><p>Sunrise view and Tea Gardens.</p></div><div class="timeline-item"><strong>Day 3: Toy Train</strong><p>Joyful ride on the Himalayan Railway.</p></div>' 
-      },
-      'CategorySchool': { 
-        title: 'Educational Trip Excellence', 
-        pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', 
-        text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Program Features</strong><p>Strict safety protocols, educational activities, doctor-on-call, and dedicated female staff for girls.</p></div>' 
-      },
-      'CategoryFriends': { 
-        title: 'Squad Adventure Package', 
-        pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', 
-        text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Vibe & Activities</strong><p>Trekking, adventure sports, bonfires, DJ nights, and high-energy exploration designed for friends.</p></div>' 
-      },
-      'CategoryFamily': { 
-        title: 'Royal Family Getaway', 
-        pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', 
-        text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Luxury Features</strong><p>Maximum privacy, 4-Star luxury stays, slow-paced itineraries, and premium comfort vehicles.</p></div>' 
-      },
-      'AmritsarWagah': { 
-        title: 'Amritsar Pride', 
-        pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Golden Temple</strong><p>Spiritual Darshan at Harmandir Sahib.</p></div><div class="timeline-item"><strong>Day 2: Wagah Border</strong><p>High energy patriotic retreat ceremony.</p></div>' 
-      },
-      'Manali': { 
-        title: 'Manali Adventure', 
-        pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Mall road shopping and local sight seeing.</p></div><div class="timeline-item"><strong>Day 2: Snow World</strong><p>Solang Valley adventure activities.</p></div>' 
-      },
-      'Shimla': { 
-        title: 'Shimla Hill Station', 
-        pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Heritage Walk</strong><p>Explore The Ridge and historic Christ Church.</p></div><div class="timeline-item"><strong>Day 2: Kufri</strong><p>Adventure park and Himalayan nature walk.</p></div>' 
-      },
-      'Chandigarh': { 
-        title: 'Chandigarh City Tour', 
-        pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', 
-        text: '<div class="timeline-item"><strong>Day 1: City Beautiful</strong><p>Rock Garden exploration & sunset boating at Sukhna Lake.</p></div>' 
-      },
-      'Kurukshetra': { 
-        title: 'Kurukshetra Educational', 
-        pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Epicenter of History</strong><p>Visit to Brahma Sarovar, Jyotisar, and the Science Panorama.</p></div>' 
-      },
-      'Udaipur': { 
-        title: 'Udaipur Royal Escape', 
-        pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>Tour of City Palace & evening boat ride at Lake Pichola.</p></div>' 
-      },
-      'Amarnath': { 
-        title: 'Amarnath Yatra', 
-        pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', 
-        text: '<div class="timeline-item"><strong>Day 1: The Journey</strong><p>Spiritual trekking start from Srinagar with extreme safety protocols.</p></div>' 
-      },
-      'Delhi': { 
-        title: 'Delhi Heritage Tour', 
-        pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', 
-        text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Visit Red Fort, Qutub Minar, India Gate & Parliament House.</p></div>' 
-      },
-      'SpitiLadakhMega': { 
-        title: 'Spiti Meets Ladakh Mega', 
-        pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', 
-        text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley, Chandratal, Leh, Khardung La & Pangong Tso.</p></div>' 
-      },
-      'AmritsarDalhousie': { 
-        title: 'Amritsar + Dalhousie Combo', 
-        pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', 
-        text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with the colonial charm of Dalhousie and mini-Switzerland Khajjiar.</p></div>' 
-      },
-      'RishikeshMussoorie': { 
-        title: 'Rishikesh + Mussoorie', 
-        pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', 
-        text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Mussoorie.</p></div>' 
-      },
-      'CorbettNainital': { 
-        title: 'Jim Corbett + Nainital', 
-        pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', 
-        text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and a relaxing lake exploration in Nainital.</p></div>' 
-      },
-      'JaipurRanthambore': { 
-        title: 'Jaipur + Ranthambore Royal', 
-        pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', 
-        text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
+      'Rishikesh': { title: 'Rishikesh Adventure Expedition', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>Day 1: Arrival & Aarti</strong><p>Ganga Aarti at Triveni Ghat.</p></div><div class="timeline-item"><strong>Day 2: Thrill Time</strong><p>White Water Rafting & Bunjee Jumping.</p></div>' },
+      'RishikeshSchool': { title: 'Rishikesh Institutional Tour', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>For Schools</strong><p>Educational rafting and ashram visits with high safety protocols.</p></div>' },
+      'RishikeshFriends': { title: 'Rishikesh Squad Trip', pdf: 'https://drive.google.com/file/d/1e_wrQOv-___yWzo51WLn0E7DZm37jix1/view', text: '<div class="timeline-item"><strong>For Friends</strong><p>Luxury camping, 16KM rafting and high-energy adventure.</p></div>' },
+      'RishikeshFamily': { title: 'Rishikesh Royal Family Tour', pdf: 'https://drive.google.com/file/d/11aSBL8HdhHtD8asdq9TvegOSt9bw554u/view', text: '<div class="timeline-item"><strong>For Families</strong><p>Luxury resort stays, peaceful temple visits, and safe river activities.</p></div>' },
+      'Darjeeling': { title: 'Darjeeling North Bengal', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill</strong><p>Sunrise view and Tea Gardens.</p></div>' },
+      'CategorySchool': { title: 'Educational Trip Excellence', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Program Features</strong><p>Strict safety protocols, educational activities, doctor-on-call, and dedicated female staff for girls.</p></div>' },
+      'CategoryFriends': { title: 'Squad Adventure Package', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Vibe & Activities</strong><p>Trekking, adventure sports, bonfires, DJ nights, and high-energy exploration designed for friends.</p></div>' },
+      'CategoryFamily': { title: 'Royal Family Getaway', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Luxury Features</strong><p>Maximum privacy, 4-Star luxury stays, slow-paced itineraries, and premium comfort vehicles.</p></div>' },
+      'AmritsarWagah': { title: 'Amritsar Pride', pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', text: '<div class="timeline-item"><strong>Day 1: Golden Temple</strong><p>Spiritual Darshan at Harmandir Sahib.</p></div><div class="timeline-item"><strong>Day 2: Wagah Border</strong><p>High energy patriotic retreat ceremony.</p></div>' },
+      'Manali': { title: 'Manali Adventure', pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Mall road shopping and local sight seeing.</p></div><div class="timeline-item"><strong>Day 2: Snow World</strong><p>Solang Valley adventure activities.</p></div>' },
+      'Shimla': { title: 'Shimla Hill Station', pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', text: '<div class="timeline-item"><strong>Day 1: Heritage Walk</strong><p>Explore The Ridge and historic Christ Church.</p></div><div class="timeline-item"><strong>Day 2: Kufri</strong><p>Adventure park and Himalayan nature walk.</p></div>' },
+      'Chandigarh': { title: 'Chandigarh City Tour', pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', text: '<div class="timeline-item"><strong>Day 1: City Beautiful</strong><p>Rock Garden exploration & sunset boating at Sukhna Lake.</p></div>' },
+      'Kurukshetra': { title: 'Kurukshetra Educational', pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', text: '<div class="timeline-item"><strong>Day 1: Epicenter of History</strong><p>Visit to Brahma Sarovar, Jyotisar, and the Science Panorama.</p></div>' },
+      'Udaipur': { title: 'Udaipur Royal Escape', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>Tour of City Palace & evening boat ride at Lake Pichola.</p></div>' },
+      'Amarnath': { title: 'Amarnath Yatra', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', text: '<div class="timeline-item"><strong>Day 1: The Journey</strong><p>Spiritual trekking start from Srinagar with extreme safety protocols.</p></div>' },
+      'Delhi': { title: 'Delhi Heritage Tour', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Visit Red Fort, Qutub Minar, India Gate & Parliament House.</p></div>' },
+      'SpitiLadakhMega': { title: 'Spiti Meets Ladakh Mega', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley & Leh.</p></div>' },
+      'AmritsarDalhousie': { title: 'Amritsar + Dalhousie Combo', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with Dalhousie and Khajjiar.</p></div>' },
+      'RishikeshMussoorie': { title: 'Rishikesh + Mussoorie', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh and exploring Mussoorie.</p></div>' },
+      'CorbettNainital': { title: 'Jim Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and lake exploration in Nainital.</p></div>' },
+      'JaipurRanthambore': { title: 'Jaipur + Ranthambore Royal', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking.</p></div>' }
     };
 
     let currentPDF = ''; let currentTripName = '';
     
     function openModal(id, dest, weatherInfo = '🌤️ Curated') { 
       const data = itineraryData[id] || {title: id, pdf: '#', text: 'Details incoming...'}; 
-      currentPDF = data.pdf; 
-      currentTripName = data.title; 
+      currentPDF = data.pdf; currentTripName = data.title; 
       document.getElementById('modalTitle').innerText = data.title; 
       document.getElementById('modalWeather').innerText = `Destination: ${dest} | ${weatherInfo}`; 
       document.getElementById('modalBody').innerHTML = data.text; 
@@ -709,47 +607,62 @@
     function downloadCurrentPDF() { window.open(currentPDF, '_blank'); }
     function bookCurrentTrip() { const msg = `Hello Raman! I'm interested in booking: "${currentTripName}".`; window.open(`https://wa.me/918295411207?text=${encodeURIComponent(msg)}`, '_blank'); }
 
-    function filterDest(c, b) { 
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active')); 
-      b.classList.add('active'); 
-      document.querySelectorAll('.dest').forEach(d => { d.classList.remove('show'); if(c==='all' || d.dataset.cat===c) d.classList.add('show'); }); 
-    }
-    
+    function filterDest(c, b) { document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.dest').forEach(d => { d.classList.remove('show'); if(c==='all' || d.dataset.cat===c) d.classList.add('show'); }); }
     function openLightbox(src) { document.getElementById('lightboxImg').src = src; document.getElementById('lightboxModal').classList.add('active'); }
     
     function submitReview() { 
-      const n = document.getElementById('revName').value; 
-      const t = document.getElementById('revText').value; 
-      const r = document.getElementById('revRating').value;
+      const n = document.getElementById('revName').value; const t = document.getElementById('revText').value; const r = document.getElementById('revRating').value;
       let stars = ''; for(let i=0; i<r; i++) stars += '⭐';
-      
-      if(n && t) {
-        document.getElementById('reviewList').innerHTML = `<div class="card" style="background:#f8fafc; padding:20px; border-left:4px solid var(--gold); text-align:left; box-shadow:none;"><p style="font-size:14px; font-style:italic;">"${t}"</p><strong style="font-size:14px;">- ${n}</strong><div style="font-size:12px; margin-top:5px;">${stars}</div></div>` + document.getElementById('reviewList').innerHTML; 
-        document.getElementById('revName').value=''; document.getElementById('revText').value=''; 
-        alert("Review Published!"); 
-      } else {
-        alert("Please enter both Name and Review Text.");
-      }
+      if(n && t) { document.getElementById('reviewList').innerHTML = `<div class="card" style="background:#f8fafc; padding:20px; border-left:4px solid var(--gold); text-align:left; box-shadow:none;"><p style="font-size:14px; font-style:italic;">"${t}"</p><strong style="font-size:14px;">- ${n}</strong><div style="font-size:12px; margin-top:5px;">${stars}</div></div>` + document.getElementById('reviewList').innerHTML; document.getElementById('revName').value=''; document.getElementById('revText').value=''; alert("Review Published!"); } else { alert("Please enter both Name and Review Text."); }
     }
     
-    function sendFinalBooking() { 
-      const n = document.getElementById('b_name').value; 
-      const d = document.getElementById('b_dest').value; 
-      if(n) {
-        window.open(`https://wa.me/919729561534?text=Inquiry from ${n} for ${d}`, '_blank'); 
-      }
+    // FIREBASE INITIALIZATION & LOGIN SYSTEM
+    const firebaseConfig = {
+      apiKey: "AIzaSyB7rithwb5Dc5UI8pYMFiCG2b_lAHx1W-0",
+      authDomain: "joyful-tours-live.firebaseapp.com",
+      projectId: "joyful-tours-live",
+      storageBucket: "joyfultours-live.appspot.com",
+      messagingSenderId: "894967433632",
+      appId: "1:894967433632:web:75f69a054f05361bff7cc5"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    function openLoginModal() { 
+      document.getElementById('loginModal').classList.add('active'); 
     }
 
-    // DASHBOARD & FIREBASE LOGIC PLACEHOLDER
     function loginDashboard() {
-      // NOTE: This is where we will add Firebase Auth Code.
-      // Currently using generic demo access to show UI.
-      const code = document.getElementById('tripCode').value;
-      if(code !== "1234") { alert("Invalid Trip ID. (Use 1234 for demo)"); return; }
-      
-      document.getElementById('loginModal').classList.remove('active');
-      document.getElementById('dashboardModal').classList.add('active');
-      document.getElementById('tripCode').value = '';
+      const code = document.getElementById('tripCode').value.trim();
+      if(!code) { alert("Please enter a Passcode."); return; }
+
+      document.getElementById('loginBtnAction').innerText = "Verifying Secure ID...";
+
+      // Contacting Firebase Database
+      database.ref('trips/' + code).once('value').then((snapshot) => {
+        if(snapshot.exists()) {
+          const tripData = snapshot.val();
+          
+          document.getElementById('loginModal').classList.remove('active');
+          document.getElementById('dashboardModal').classList.add('active');
+          document.getElementById('tripCode').value = '';
+          document.getElementById('loginBtnAction').innerText = "Access Dashboard";
+
+          // Inject Real Data from Firebase
+          document.getElementById('dashGroupName').innerText = tripData.groupName || "VIP Group Connection";
+          document.getElementById('liveLoc').innerText = tripData.location || "Updating...";
+          document.getElementById('liveETA').innerText = tripData.eta || "Updating...";
+          document.getElementById('liveStop').innerText = tripData.nextStop || "Updating...";
+          
+        } else {
+          alert("Incorrect Trip ID! Access Denied.");
+          document.getElementById('loginBtnAction').innerText = "Access Dashboard";
+        }
+      }).catch((error) => {
+        console.error(error);
+        alert("Connection Error. Please check your internet.");
+        document.getElementById('loginBtnAction').innerText = "Access Dashboard";
+      });
     }
 
     function switchDashTab(tabId, btn) {
@@ -760,19 +673,7 @@
     }
 
     const target = new Date("June 1, 2026").getTime();
-    setInterval(() => { 
-      const diff = target - new Date().getTime(); 
-      if(diff > 0) { 
-        document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0'); 
-        document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0'); 
-        document.getElementById("mins").innerText = Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0'); 
-        document.getElementById("secs").innerText = Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0'); 
-      } 
-    }, 1000);
-    function openLoginModal() { 
-        document.getElementById('loginModal').classList.add('active'); 
-    }
-
+    setInterval(() => { const diff = target - new Date().getTime(); if(diff > 0) { document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0'); document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0'); document.getElementById("mins").innerText = Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0'); document.getElementById("secs").innerText = Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0'); } }, 1000);
   </script>
 </body>
 </html>
