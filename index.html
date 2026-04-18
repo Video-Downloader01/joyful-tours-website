@@ -160,7 +160,7 @@
     .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px; }
     .live-notif.show { left: 24px; }
 
-    /* PRO DASHBOARD UI CLASSES (3 TABS) */
+    /* PRO DASHBOARD UI CLASSES */
     .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
     .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
     .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
@@ -371,7 +371,6 @@
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Udaipur.png")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Udaipur', 'audio_palace.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Udaipur Royal<button class="btn primary" style="margin-top:12px;" onclick="openModal('Udaipur', 'Udaipur', '☀️ 28°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Spiti&ladakh.png")'><div class="badge">💎 10/10</div><button class="view-360-btn" onclick="open360('Spiti', 'audio_wind.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Spiti + Ladakh<button class="btn primary" style="margin-top:12px;" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh', '❄️ -2°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Dalhousie.png")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar + Dalhousie<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarDalhousie', 'Dalhousie', '🌤️ 14°C')">View Details</button></div>
-
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amarnath Yatra<button class="btn primary" style="margin-top:12px;" onclick="openModal('Amarnath', 'Srinagar', '🌤️ 15°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Delhi', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Delhi Heritage<button class="btn primary" style="margin-top:12px;" onclick="openModal('Delhi', 'Delhi', '☀️ 34°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'><div class="badge">⭐ 9.8/10</div><button class="view-360-btn" onclick="open360('RishikeshMussoorie', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Mussoorie Trip<button class="btn primary" style="margin-top:12px;" onclick="openModal('RishikeshMussoorie', 'Mussoorie', '🌤️ 18°C')">View Details</button></div>
@@ -407,7 +406,6 @@
       <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="openLightbox(this.src)">
-      <img src="https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800" onclick="openLightbox(this.src)">
     </div></div>
   </section>
 
@@ -513,7 +511,6 @@
       </div>
 
       <div style="padding:20px; height:400px; overflow-y:auto;">
-        
         <div id="dash-overview" class="dash-panel active" style="display:block;">
           <div style="background:linear-gradient(135deg, var(--navy), #1e293b); color:white; padding:20px; border-radius:15px; margin-bottom:20px;">
             <h3 style="margin:0 0 15px 0; color:var(--gold);">Current Status</h3>
@@ -550,46 +547,51 @@
   <script>
     // CORE FUNCTIONS
     function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
-    
     function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
     
-    // THE NEW LIVE AI PIHU BRAIN (GEMINI API)
+    // 🔥 PIHU LIVE AI (UPGRADED FIX)
     async function sendPihuMsg() {
       const input = document.getElementById('chatInput'); 
       const chatBody = document.getElementById('chatBody'); 
       const userText = input.value.trim(); 
       if(!userText) return;
       
-      // User message
       chatBody.innerHTML += `<div style="text-align:right; margin:8px 0;"><span style="background:var(--navy); color:white; padding:8px 12px; border-radius:15px; font-size:13px; display:inline-block;">${userText}</span></div>`; 
       input.value = '';
       chatBody.scrollTop = chatBody.scrollHeight; 
       
-      // Typing indicator
       const typingId = "typing-" + Date.now();
       chatBody.innerHTML += `<div id="${typingId}" style="text-align:left; margin:8px 0;"><span style="background:#fff; color:var(--navy); padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">Pihu is thinking... ⏳</span></div>`;
       chatBody.scrollTop = chatBody.scrollHeight;
       
       const apiKey = "AIzaSyB955E8dRLKHuY9F-n2LN4EyWiRA_DFvro";
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
       
-      // The Secret Sales Prompt
-      const systemPrompt = "You are Pihu, a smart, polite VIP Tour Guide and Sales Executive for 'Joyful Tours And Adventures'. Your absolute goal is to generate profit and sell tour packages (Educational, Friends, Family). Speak in a friendly Hinglish tone (Hindi + English mix). Whatever the user asks, answer briefly but smartly steer the conversation towards booking a premium trip with us. Always encourage them to contact the Booking Manager, Raman, on WhatsApp at +91-8295411207 for VIP quotes. Keep responses short (1-3 sentences maximum). DO NOT use markdown like asterisks or bold text.";
+      const systemPrompt = "You are Pihu, a smart VIP Tour Guide and Sales Executive for 'Joyful Tours And Adventures'. Goal: generate profit and sell premium tour packages. Speak in a friendly Hinglish tone. Whatever the user asks, answer briefly but smartly steer the conversation towards booking a trip. Always encourage them to WhatsApp Booking Manager Raman at 8295411207 for VIP quotes. Keep responses short (1-3 sentences). DO NOT use asterisks or bold text formatting.";
 
       try {
         const response = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: systemPrompt + "\n\nUser Question: " + userText }] }]
+            contents: [
+              { role: "user", parts: [{ text: systemPrompt + "\n\nUser Question: " + userText }] }
+            ],
+            generationConfig: { temperature: 0.7, maxOutputTokens: 150 }
           })
         });
 
         const data = await response.json();
-        let aiReply = "Network slow hai ji! Direct Raman se WhatsApp par baat karein: 8295411207";
+        let aiReply = "";
 
-        if(data.candidates && data.candidates[0].content.parts[0].text) {
+        if (data.candidates && data.candidates.length > 0) {
           aiReply = data.candidates[0].content.parts[0].text;
+          aiReply = aiReply.replace(/\*/g, ''); // Remove markdown
+        } else if (data.error) {
+          // SHOW EXACT GOOGLE API ERROR TO FIX ISSUE
+          aiReply = "API Error (Fix required): " + data.error.message; 
+        } else {
+          aiReply = "Network slow hai ji! Direct Raman se WhatsApp par baat karein: 8295411207";
         }
 
         document.getElementById(typingId).remove();
@@ -598,7 +600,7 @@
 
       } catch (error) {
         document.getElementById(typingId).remove();
-        chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#fff; color:red; padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">Connection error. Please WhatsApp Raman: 8295411207</span></div>`;
+        chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#fff; color:red; padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">Connection failed. Please WhatsApp Raman: 8295411207</span></div>`;
         chatBody.scrollTop = chatBody.scrollHeight;
       }
     }
