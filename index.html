@@ -70,9 +70,9 @@
     .cat-icon { font-size: 40px; margin-bottom: 5px; display: block; text-shadow: 0 5px 10px rgba(0,0,0,0.1); }
     .cat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #d4af37, #fef08a); }
 
-    /* EMBEDDED DESTINATION CARDS IN CATEGORY */
+    /* EMBEDDED DESTINATION CARDS IN CATEGORY (RESTORED BACKGROUNDS) */
     .embedded-dest { border-radius: 12px; overflow: hidden; background-size: cover; background-position: center; padding: 15px; text-align: left; margin: 10px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 140px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; border:1px solid rgba(255,255,255,0.2); position: relative;}
-    .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
+    .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); z-index: 1;}
     .embedded-dest > * { position: relative; z-index: 2; color: white; }
     .embedded-dest:hover { transform: scale(1.02); border-color:var(--gold); }
 
@@ -120,7 +120,7 @@
     #lightboxModal .modal-content { background:transparent; border:none; box-shadow:none; padding:0; text-align:center;}
     #lightboxImg { max-width: 90vw; max-height: 80vh; object-fit: contain; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-    .badge { font-size:10px; background: var(--gold); color:var(--navy); font-weight:800; padding:4px 10px; border-radius:50px; margin-bottom:10px; display:inline-block; }
+    .badge { font-size:10px; background: var(--gold); color:var(--navy); font-weight:800; padding:4px 10px; border-radius:50px; margin-bottom:10px; display:inline-block; letter-spacing: 0.5px;}
     .route-map-pro { position: relative; height: 40px; border-bottom: 2px dashed #94a3b8; margin: 15px 0 25px; display: flex; align-items: flex-end; justify-content: space-between; }
     .bus-pro { position: absolute; bottom: -5px; font-size: 24px; animation: driveBusPro 4s linear infinite; z-index:3; }
     @keyframes driveBusPro { 0% { left: 0; } 100% { left: 88%; } }
@@ -129,6 +129,8 @@
     .timeline { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; position: relative; }
     .timeline-item { position: relative; margin-bottom: 20px; }
     .timeline-item::before { content: ''; position: absolute; left: -21px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: white; border: 2px solid var(--gold); }
+    .timeline-item strong { color: var(--navy); display: block; font-size: 15px; margin-bottom: 3px; }
+    .timeline-item p { margin: 0; color: #475569; font-size: 13px; line-height: 1.5; }
     
     .weather-badge { background: #f8fafc; color: var(--navy); padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 15px; border: 1px solid #e2e8f0; }
 
@@ -138,6 +140,8 @@
 
     .trust-banner { background: white; padding: 25px 0; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
     .trust-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; text-align: center; }
+    .step-box { text-align: center; padding: 15px; position: relative; }
+    .step-icon { width: 50px; height: 50px; background: var(--navy); color: var(--gold); font-size: 20px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto 12px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
 
     /* FOOTER WITH BACKGROUND */
     footer { background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover; color: white; padding: 70px 0 30px 0; }
@@ -255,12 +259,12 @@
           <p style="color:#64748b; font-size:13px; margin-bottom:15px;">Safety-first specialized school trips.</p>
           
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=400');">
-            <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Darjeeling Expedition</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View</button>
+            <h4 style="font-size:15px; margin:0 0 8px 0;">Darjeeling Expedition</h4>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=400');">
-            <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Rishikesh Adventure</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshSchool', 'Rishikesh', '🌤️ 22°C')">View</button>
+            <h4 style="font-size:15px; margin:0 0 8px 0;">Rishikesh Adventure</h4>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshSchool', 'Rishikesh', '🌤️ 22°C')">View Details</button>
           </div>
           
           <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy); font-size:13px; padding:10px;" onclick="openModal('CategorySchool', 'Institutions')">View Full Catalog</button>
@@ -271,12 +275,12 @@
           <h3>Squad Adventures</h3>
           <p style="color:#64748b; font-size:13px; margin-bottom:15px;">High-energy itineraries for groups.</p>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=400');">
-            <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Darjeeling Trek</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View</button>
+            <h4 style="font-size:15px; margin:0 0 8px 0;">Darjeeling Trek</h4>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=400');">
-            <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Rishikesh Squad Trip</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFriends', 'Rishikesh', '🌤️ 22°C')">View</button>
+            <h4 style="font-size:15px; margin:0 0 8px 0;">Rishikesh Squad Trip</h4>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFriends', 'Rishikesh', '🌤️ 22°C')">View Details</button>
           </div>
           <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy); font-size:13px; padding:10px;" onclick="openModal('CategoryFriends', 'Friends Group')">View Full Catalog</button>
         </div>
@@ -286,12 +290,12 @@
           <h3>Royal Kinship</h3>
           <p style="color:#64748b; font-size:13px; margin-bottom:15px;">Luxurious escapes for families.</p>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=400');">
-            <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Darjeeling Luxury</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View</button>
+            <h4 style="font-size:15px; margin:0 0 8px 0;">Darjeeling Luxury</h4>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=400');">
-            <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Rishikesh Family Tour</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFamily', 'Rishikesh', '🌤️ 22°C')">View</button>
+            <h4 style="font-size:15px; margin:0 0 8px 0;">Rishikesh Family Tour</h4>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFamily', 'Rishikesh', '🌤️ 22°C')">View Details</button>
           </div>
           <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy); font-size:13px; padding:10px;" onclick="openModal('CategoryFamily', 'Family Trip')">View Full Catalog</button>
         </div>
@@ -586,7 +590,7 @@
       'RishikeshSchool': { title: 'Rishikesh Institutional Tour', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>For Schools</strong><p>Educational rafting and ashram visits with high safety protocols.</p></div>' },
       'RishikeshFriends': { title: 'Rishikesh Squad Trip', pdf: 'https://drive.google.com/file/d/1e_wrQOv-___yWzo51WLn0E7DZm37jix1/view', text: '<div class="timeline-item"><strong>For Friends</strong><p>Luxury camping, 16KM rafting and high-energy adventure.</p></div>' },
       'RishikeshFamily': { title: 'Rishikesh Royal Family Tour', pdf: 'https://drive.google.com/file/d/11aSBL8HdhHtD8asdq9TvegOSt9bw554u/view', text: '<div class="timeline-item"><strong>For Families</strong><p>Luxury resort stays, peaceful temple visits, and safe river activities.</p></div>' },
-      'Darjeeling': { title: 'Darjeeling North Bengal', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill</strong><p>Sunrise view and Tea Gardens.</p></div>' },
+      'Darjeeling': { title: 'Darjeeling North Bengal', pdf: 'https://drive.google.com/file/d/1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt/view', text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill</strong><p>Sunrise view and Tea Gardens.</p></div>' },
       'CategorySchool': { title: 'Educational Trip Excellence', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Program Features</strong><p>Strict safety protocols, educational activities, doctor-on-call, and dedicated female staff for girls.</p></div>' },
       'CategoryFriends': { title: 'Squad Adventure Package', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Vibe & Activities</strong><p>Trekking, adventure sports, bonfires, DJ nights, and high-energy exploration designed for friends.</p></div>' },
       'CategoryFamily': { title: 'Royal Family Getaway', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Luxury Features</strong><p>Maximum privacy, 4-Star luxury stays, slow-paced itineraries, and premium comfort vehicles.</p></div>' },
@@ -601,7 +605,7 @@
       'SpitiLadakhMega': { title: 'Spiti Meets Ladakh Mega', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley & Leh.</p></div>' },
       'AmritsarDalhousie': { title: 'Amritsar + Dalhousie Combo', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with Dalhousie and Khajjiar.</p></div>' },
       'RishikeshMussoorie': { title: 'Rishikesh + Mussoorie', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Mussoorie.</p></div>' },
-      'CorbettNainital': { title: 'Jim Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and a relaxing lake exploration in Nainital.</p></div>' },
+      'CorbettNainital': { title: 'Jim Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and lake exploration in Nainital.</p></div>' },
       'JaipurRanthambore': { title: 'Jaipur + Ranthambore Royal', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
     };
 
@@ -687,7 +691,4 @@
     }
 
     const target = new Date("June 1, 2026").getTime();
-    setInterval(() => { const diff = target - new Date().getTime(); if(diff > 0) { document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0'); document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0'); document.getElementById("mins").innerText = Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0'); document.getElementById("secs").innerText = Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0'); } }, 1000);
-  </script>
-</body>
-</html>
+    setInterval(() => { const diff = target - new Date().getTime(); if(diff > 0) { document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0'); document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0'); document.getElementById("mins").innerText = Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0'); document.getElementById("secs").innerText = Math.floor((diff%(1000*60))/1
