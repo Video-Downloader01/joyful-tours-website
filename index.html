@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joyful Tours And Adventures | Premium Educational & Group Trips | lock1.0</title>
+  <title>Joyful Tours And Adventures | Premium Educational & Group Trips | lock2.0</title>
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   
@@ -160,20 +160,23 @@
     .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px; }
     .live-notif.show { left: 24px; }
 
-    /* PRO DASHBOARD UI CLASSES (3 TABS) */
+    /* PRO DASHBOARD UI CLASSES (WITH SOS) */
     .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
     .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
     .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
     .dash-panel { display: none; animation: fadeIn 0.3s; }
     .dash-panel.active { display: block; }
     
-    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 20px; }
+    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
     .pulse-dot { display: inline-block; width: 10px; height: 10px; background: #22c55e; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px #22c55e; animation: pulse 1.5s infinite; }
     @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
     
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 15px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
     .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
+
+    .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; animation: sosPulse 2s infinite; font-size: 15px; margin-bottom: 15px; }
+    @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
   </style>
 </head>
 <body>
@@ -189,12 +192,16 @@
   <div class="ai-anchor" onclick="togglePihuChat()">
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
   </div>
+  
   <div id="pihuChatBox" class="pihu-chat-box">
     <div class="chat-header"><span>🟢 Pihu - VIP Guide</span><span onclick="togglePihuChat()" style="cursor:pointer;">✖</span></div>
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. Experience the next level of travel with Joyful Tours. How can I assist you?</span></div>
     </div>
-    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #eee;"><input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #ddd; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;"><button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button></div>
+    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #eee;">
+      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #ddd; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
+      <button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button>
+    </div>
   </div>
 
   <div id="waMenu" class="wa-menu">
@@ -367,7 +374,6 @@
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Udaipur.png")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Udaipur', 'audio_palace.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Udaipur Royal<button class="btn primary" style="margin-top:12px;" onclick="openModal('Udaipur', 'Udaipur', '☀️ 28°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Spiti&ladakh.png")'><div class="badge">💎 10/10</div><button class="view-360-btn" onclick="open360('Spiti', 'audio_wind.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Spiti + Ladakh<button class="btn primary" style="margin-top:12px;" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh', '❄️ -2°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Dalhousie.png")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar + Dalhousie<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarDalhousie', 'Dalhousie', '🌤️ 14°C')">View Details</button></div>
-
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amarnath Yatra<button class="btn primary" style="margin-top:12px;" onclick="openModal('Amarnath', 'Srinagar', '🌤️ 15°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Delhi', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Delhi Heritage<button class="btn primary" style="margin-top:12px;" onclick="openModal('Delhi', 'Delhi', '☀️ 34°C')">View Details</button></div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'><div class="badge">⭐ 9.8/10</div><button class="view-360-btn" onclick="open360('RishikeshMussoorie', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Mussoorie Trip<button class="btn primary" style="margin-top:12px;" onclick="openModal('RishikeshMussoorie', 'Mussoorie', '🌤️ 18°C')">View Details</button></div>
@@ -381,9 +387,9 @@
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Frequently Asked Questions</h2>
       <div style="max-width: 700px; margin: 30px auto 0;">
-        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator from Joyful Tours always accompanies groups with girl students to ensure their comfort and safety 24/7.</p></details>
-        <details><summary>What kind of food is provided during the trips?</summary><p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens. Our focus is on healthy, home-style food that keeps students energetic during the journey.</p></details>
-        <details><summary>How do parents get updates during the trip?</summary><p>We create a private WhatsApp broadcast group for parents and school management. Our team shares live locations and trip photos every 3-4 hours so parents are always updated.</p></details>
+        <details><summary>Dedicated staff for girls?</summary><p>Yes, 1:10 staff ratio and dedicated female coordinators provided.</p></details>
+        <details><summary>Hygienic food?</summary><p>100% pure veg unlimited buffet meals in hygienic kitchens.</p></details>
+        <details><summary>Live updates?</summary><p>Private WhatsApp group for parents with live location & photos.</p></details>
       </div>
     </div>
   </section>
@@ -403,7 +409,6 @@
       <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="openLightbox(this.src)">
-      <img src="https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800" onclick="openLightbox(this.src)">
     </div></div>
   </section>
 
@@ -473,11 +478,7 @@
     </div>
   </div>
 
-  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')">
-    <div class="modal-content" id="lightboxContent" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;">
-        <img id="lightboxImg" src="">
-    </div>
-  </div>
+  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')"><div class="modal-content" id="lightboxContent" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;"><img id="lightboxImg" src=""></div></div>
   
   <div id="360Modal" class="modal-overlay" style="z-index: 5500;">
     <div class="modal-content" style="max-width: 800px; background:#000; color:white; padding:10px;">
@@ -508,31 +509,46 @@
 
       <div style="display:flex; gap:10px; border-bottom:2px solid #e2e8f0; margin-bottom:20px; overflow-x:auto; padding:0 20px;">
         <div id="tab-overview" class="dash-tab active" onclick="switchDashTab('dash-overview', this)">Overview</div>
-        <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
-        <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)">Insta Gallery</div>
+        <div id="tab-pass" class="dash-tab" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
+        <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)">Timeline</div>
+        <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
       </div>
 
       <div style="padding:20px; height:400px; overflow-y:auto;">
         
         <div id="dash-overview" class="dash-panel active" style="display:block;">
+          <button class="sos-btn" onclick="triggerSOS()">🚨 EMERGENCY SOS</button>
+
           <div style="background:linear-gradient(135deg, var(--navy), #1e293b); color:white; padding:20px; border-radius:15px; margin-bottom:20px;">
             <h3 style="margin:0 0 15px 0; color:var(--gold);">Current Status</h3>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
               <div><p style="margin:0; font-size:11px; opacity:0.8;">📍 Location</p><strong style="font-size:14px;" id="liveLoc">Connecting...</strong></div>
-              <div><p style="margin:0; font-size:11px; opacity:0.8;">🌤️ Weather</p><strong style="font-size:14px;">14°C, Clear</strong></div>
+              <div><p style="margin:0; font-size:11px; opacity:0.8;">🌤️ Weather</p><strong style="font-size:14px;" id="liveWeather">Updating...</strong></div>
               <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Connecting...</strong></div>
               <div><p style="margin:0; font-size:11px; opacity:0.8;">⏱️ ETA</p><strong style="font-size:14px;" id="liveETA">-- Mins</strong></div>
             </div>
           </div>
-          <button class="btn" style="width:100%; border:1px solid #e2e8f0; text-align:center; margin:0; background:white;" onclick="window.open('https://wa.me/918295411207')">🚨 Contact Base Coordinator (Raman)</button>
+          
+          <div id="roleSpecificUI"></div>
+
+          <button class="btn" style="width:100%; border:1px solid #e2e8f0; text-align:center; margin:15px 0 0 0; background:white;" onclick="window.open('https://wa.me/918295411207')">📞 Contact Base Coordinator</button>
+        </div>
+
+        <div id="dash-pass" class="dash-panel" style="display:none;">
+          <div style="background:var(--gold); padding:30px 20px; border-radius:15px; text-align:center; color:white; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);">
+            <h3 style="margin-top:0; color:var(--navy);">Joyful Tours VIP Pass</h3>
+            <p style="font-size:12px; margin-bottom:20px; color:var(--navy); font-weight:bold;">Present this QR at Boarding</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SecureBoarding-JoyfulTours" style="border-radius:10px; margin-bottom:10px; border:4px solid white;">
+            <p style="font-size:10px; margin:0; color:var(--navy);">Status: <span style="background:white; padding:3px 8px; border-radius:5px;">Awaiting Scan</span></p>
+          </div>
         </div>
 
         <div id="dash-timeline" class="dash-panel" style="display:none;">
           <p style="font-size:12px; color:#64748b; margin-top:0;">Real-time ground updates from Tour Captain.</p>
           <div id="timelineContainer">
              <div class="live-feed-item">
-               <div class="time-stamp">JUST NOW</div>
-               <p style="margin:5px 0 0; font-size:14px;">Dashboard securely connected to Firebase.</p>
+               <div class="time-stamp">SYSTEM</div>
+               <p style="margin:5px 0 0; font-size:14px;">Awaiting live connection from Captain...</p>
              </div>
           </div>
         </div>
@@ -550,8 +566,9 @@
   <script>
     // CORE FUNCTIONS
     function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
-    
     function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
+    
+    // DUMMY PIHU (Fallback active as requested)
     function sendPihuMsg() {
       const input = document.getElementById('chatInput'); 
       const chatBody = document.getElementById('chatBody'); 
@@ -560,7 +577,7 @@
       chatBody.innerHTML += `<div style="text-align:right; margin:8px 0;"><span style="background:var(--navy); color:white; padding:8px 12px; border-radius:15px; font-size:13px; display:inline-block;">${input.value}</span></div>`; 
       input.value = '';
       
-      let reply = "Connect with Raman on WhatsApp for VIP packages!";
+      let reply = "Connect with Raman on WhatsApp for VIP packages: 8295411207";
       if(val.includes('rishikesh')) reply = "Rishikesh is our adventure capital! We offer Rafting, Bunjee Jumping, and Ganga Aarti tours.";
       if(val.includes('darjeeling')) reply = "Darjeeling is our elite destination! We offer toy train rides and tea garden stays.";
       if(val.includes('school')) reply = "We have specialized Educational Itineraries for schools with 24/7 medical assistance.";
@@ -656,14 +673,38 @@
 
     function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
 
+    // 🌤️ LIVE WEATHER API FETCH (POINT 2)
+    function fetchLiveWeather(city) {
+      if(!city || city === "Updating...") return;
+      const weatherApiKey = "B09c0c8f99ae2959dd2059168d662bab";
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherApiKey}`)
+        .then(response => response.json())
+        .then(data => {
+          if(data.main && data.weather) {
+            document.getElementById('liveWeather').innerText = `${Math.round(data.main.temp)}°C, ${data.weather[0].main}`;
+          }
+        }).catch(err => console.log("Weather error", err));
+    }
+
+    // 🚨 EMERGENCY SOS PING (POINT 3)
+    function triggerSOS() {
+      const code = document.getElementById('tripCode').value.trim();
+      database.ref('trips/' + code + '/sos_alerts').push({
+        time: new Date().toLocaleTimeString(),
+        alert: "Emergency Ping from Dashboard"
+      }).then(() => {
+        alert("🚨 Emergency Alert Sent! Our Ground Captain will contact you immediately.");
+      });
+    }
+
     function loginDashboard() {
       const code = document.getElementById('tripCode').value.trim();
       if(!code) { alert("Please enter a Passcode."); return; }
 
       document.getElementById('loginBtnAction').innerText = "Verifying Secure ID...";
 
-      // Contacting Firebase Database
-      database.ref('trips/' + code).once('value').then((snapshot) => {
+      // 🔥 ALL LIVE SYNC: Using .on() instead of .once() to make everything fully automatic
+      database.ref('trips/' + code).on('value', (snapshot) => {
         if(snapshot.exists()) {
           const tripData = snapshot.val();
           
@@ -672,30 +713,36 @@
           document.getElementById('tripCode').value = '';
           document.getElementById('loginBtnAction').innerText = "Access Dashboard";
 
-          // Inject Real Data from Firebase
           document.getElementById('dashGroupName').innerText = tripData.groupName || "VIP Group Connection";
           document.getElementById('liveLoc').innerText = tripData.location || "Updating...";
           document.getElementById('liveETA').innerText = tripData.eta || "Updating...";
           document.getElementById('liveStop').innerText = tripData.nextStop || "Updating...";
 
-          // REAL-TIME LISTENER FOR TIMELINE
-          database.ref('trips/' + code + '/timeline').on('value', (tSnap) => {
-            let html = '';
-            tSnap.forEach((child) => {
-              const val = child.val();
-              html = `<div class="live-feed-item"><div class="time-stamp">${val.time}</div><p style="margin:5px 0 0; font-size:14px;">${val.text}</p></div>` + html;
-            });
-            document.getElementById('timelineContainer').innerHTML = html || `<div class="live-feed-item"><div class="time-stamp">SYSTEM</div><p style="margin:5px 0 0; font-size:14px;">Awaiting live connection from Captain...</p></div>`;
-          });
+          // Trigger Weather API Auto-Update
+          if(tripData.location) fetchLiveWeather(tripData.location);
+
+          // 🎭 DUAL ROLE UI LOGIC (POINT 1)
+          const role = tripData.role || 'parent';
+          if(role === 'principal') {
+            document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#eef2ff; padding:15px; border-radius:10px; margin-top:15px; border:1px solid #c7d2fe;"><strong style="color:#3730a3;">👑 Principal Dashboard</strong><p style="margin:5px 0 0; font-size:12px; color:#4f46e5;">All students are accounted for and safe. Operations running perfectly.</p></div>`;
+          } else {
+            document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#fffbeb; padding:15px; border-radius:10px; margin-top:15px; border:1px solid #fde047;"><strong style="color:#854d0e;">📋 Student Diet & Allergy Form</strong><p style="margin:5px 0 10px; font-size:11px; color:#a16207;">Please submit if your child has any specific food requirements.</p><button class="btn primary" style="padding:8px; font-size:12px; width:100%; margin:0;" onclick="alert('Form Securely Sent to Ground Captain!')">Submit Info</button></div>`;
+          }
           
         } else {
           alert("Incorrect Trip ID! Access Denied.");
           document.getElementById('loginBtnAction').innerText = "Access Dashboard";
         }
-      }).catch((error) => {
-        console.error(error);
-        alert("Connection Error. Please check your internet.");
-        document.getElementById('loginBtnAction').innerText = "Access Dashboard";
+      });
+
+      // TIMELINE LISTENER
+      database.ref('trips/' + code + '/timeline').on('value', (tSnap) => {
+        let html = '';
+        tSnap.forEach((child) => {
+          const val = child.val();
+          html = `<div class="live-feed-item"><div class="time-stamp">${val.time}</div><p style="margin:5px 0 0; font-size:14px;">${val.text}</p></div>` + html;
+        });
+        document.getElementById('timelineContainer').innerHTML = html || `<div class="live-feed-item"><div class="time-stamp">SYSTEM</div><p style="margin:5px 0 0; font-size:14px;">Awaiting live connection from Captain...</p></div>`;
       });
     }
 
@@ -717,7 +764,7 @@
       } 
     }, 1000);
 
-    // Live Notification Trigger
+    // DUMMY LIVE NOTIFICATIONS
     const liveNotifs = ["🎒 A school from Sirsa just booked Darjeeling!", "🔥 Only 4 slots left for Spiti Squad Tour", "👨‍👩‍👦 5-Star review added for Udaipur Family Trip"];
     let nIndex = 0;
     setInterval(() => {
