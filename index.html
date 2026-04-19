@@ -44,7 +44,6 @@
     .time-unit span { font-size: 26px; font-weight: 900; color: white; display:block; }
     .time-unit p { margin: 0; font-size: 10px; color: var(--gold); font-weight: bold; text-transform: uppercase;}
 
-    /* GRIDS & CARDS */
     .container { max-width: 1200px; margin: auto; padding: 20px; }
     .section { padding: 60px 0; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
@@ -57,8 +56,8 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     .cat-section { background: #f8fafc; padding: 60px 0; border-top: 2px solid var(--gold); }
-    .cat-card { text-align: center; padding: 25px 20px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition:0.3s; position: relative; overflow: hidden;}
-    .cat-icon { font-size: 40px; margin-bottom: 5px; display: block; text-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+    .cat-card { text-align: center; padding: 25px 20px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); position: relative; overflow: hidden;}
+    .cat-icon { font-size: 40px; margin-bottom: 5px; display: block; }
     .embedded-dest { border-radius: 12px; overflow: hidden; background-size: cover; background-position: center; padding: 15px; text-align: left; margin: 10px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 140px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border:1px solid rgba(255,255,255,0.2); position: relative;}
     .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); z-index: 1;}
     .embedded-dest > * { position: relative; z-index: 2; color: white; }
@@ -71,6 +70,7 @@
     .dash-panel.active { display: block; }
     .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
     
+    /* NEW LIVE RADAR UI */
     .radar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
     .radar-item { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); }
     .radar-item p { margin:0; font-size:10px; color:var(--gold); text-transform:uppercase; font-weight:bold; letter-spacing:1px; }
@@ -105,24 +105,29 @@
     .boarding-pass { background: #fff; border: 2px dashed var(--gold); border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2); }
     .boarding-pass::before, .boarding-pass::after { content: ''; position: absolute; top: 50%; width: 20px; height: 20px; background: #f8fafc; border-radius: 50%; border: 2px solid var(--gold); }
     .boarding-pass::before { left: -12px; } .boarding-pass::after { right: -12px; }
+    .boarding-pass h3 { margin: 0; color: var(--navy); font-size: 18px; letter-spacing: 2px; }
     .verified-stamp { font-size: 10px; background: var(--emerald); color: white; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-weight: bold; }
+    .diet-passport { background: #fffbeb; border: 1px solid #fde047; padding: 15px; border-radius: 12px; margin-top: 15px; }
 
     /* TIMELINE POLAROID */
     .timeline-polaroid { background: white; padding: 10px; padding-bottom: 30px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-top: 10px; border: 1px solid #eee; transform: rotate(-2deg); max-width: 250px; }
     .timeline-polaroid img { width: 100%; border-radius: 3px; }
+    
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 25px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
     .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
 
     /* TRIP COMPLETED SCREEN */
     #tripCompleteScreen { display: none; text-align: center; padding: 30px 15px; background: linear-gradient(135deg, #f8fafc, #eef2ff); border-radius: 15px; border: 2px solid var(--gold); margin-top: 20px; }
-    
+    .cert-btn { background: var(--gold); color: white; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; margin: 10px; }
+
     /* VARIOUS UTILS */
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 15px 0; background: #fff7ed; }
     .marquee-track { display: inline-block; animation: scrollMarquee 30s linear infinite; }
     .marquee-track img { height: 250px; border-radius: 10px; margin-right: 15px; object-fit: cover; cursor: pointer; }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     #lightboxModal .modal-content { background:transparent; border:none; box-shadow:none; padding:0; text-align:center; overflow: hidden;}
+    #lightboxImg { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; animation: sosPulse 2s infinite; font-size: 15px; margin-bottom: 15px; }
     @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
     .filter-bar { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
@@ -153,9 +158,9 @@
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. Experience the next level of travel with Joyful Tours. How can I assist you?</span></div>
     </div>
-    <div class="chat-input-area">
-      <input type="text" id="chatInput" placeholder="Ask Pihu..." onkeypress="if(event.key === 'Enter') sendPihuMsg()">
-      <button onclick="sendPihuMsg()">➤</button>
+    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #e2e8f0;">
+      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #cbd5e1; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
+      <button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button>
     </div>
   </div>
 
@@ -167,7 +172,10 @@
   <div style="position:fixed; bottom:24px; right:24px; background-color:#25d366; border-radius:50%; width:55px; height:55px; display:flex; justify-content:center; align-items:center; z-index:3000; box-shadow:0 6px 15px rgba(37,211,102,0.4); cursor:pointer;" onclick="document.getElementById('waMenu').style.display = document.getElementById('waMenu').style.display === 'none' ? 'block' : 'none'"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="30"></div>
 
   <div class="nav">
-    <a href="#home" class="brand-logo"><img src="https://drive.google.com/thumbnail?id=1aroI-T2tZ2ocLq-7CoWOmgKsOxdL39VE&sz=w200" alt="Logo"><span>Joyful Tours</span></a>
+    <a href="#home" class="brand-logo">
+      <img src="https://drive.google.com/thumbnail?id=1aroI-T2tZ2ocLq-7CoWOmgKsOxdL39VE&sz=w200" alt="Logo">
+      <span id="brandName">Joyful Tours</span>
+    </a>
     <button class="hamburger" onclick="toggleMenu()">☰</button>
     <div class="nav-links" id="navLinks">
       <a class="btn" href="#categories" onclick="toggleMenu()">Categories</a>
@@ -176,18 +184,18 @@
       <a class="btn" href="#faq" onclick="toggleMenu()">FAQs</a>
       <a class="btn" href="#gallery" onclick="toggleMenu()">Gallery</a>
       <a class="btn" href="#reviews" onclick="toggleMenu()">Reviews</a>
-      <a class="btn primary" href="#booking" onclick="toggleMenu()">Book Now</a>
-      <a class="btn login-btn" href="#" onclick="openLoginModal(); toggleMenu();">Login 🔒</a>
+      <a class="btn primary" href="#booking" onclick="toggleMenu()" style="display:inline-block; max-width:200px;">Book Now</a>
+      <a class="btn login-btn" href="#" onclick="openLoginModal(); toggleMenu();" style="display:inline-block; max-width:150px;">Login 🔒</a>
     </div>
   </div>
 
   <section id="home" class="hero">
     <div class="hero-bg"></div>
     <div class="container hero-content">
-      <h1 class="gradient-text">Joyful Tours And Adventures</h1>
-      <h2 style="color:white; font-size:20px; font-weight:400; margin-top:10px;">Redefining Premium Educational & Group Expeditions</h2>
+      <h1 id="heroH1" class="gradient-text">Joyful Tours And Adventures</h1>
+      <h2 id="heroH2" style="color:white; font-size:20px; font-weight:400; margin-top:10px;">Redefining Premium Educational & Group Expeditions</h2>
       <div class="timer-box">
-        <div style="font-size:11px; color:var(--gold); font-weight:bold; letter-spacing:1px; margin-bottom:10px;">AMARNATH YATRA REGISTRATION CLOSES IN</div>
+        <div id="timerTitle" style="font-size:11px; color:var(--gold); font-weight:bold; letter-spacing:1px; margin-bottom:10px;">AMARNATH YATRA REGISTRATION CLOSES IN</div>
         <div class="time-grid">
           <div class="time-unit"><span id="days">00</span><p>Days</p></div>
           <div class="time-unit"><span id="hours">00</span><p>Hours</p></div>
@@ -198,12 +206,12 @@
     </div>
   </section>
 
-  <div style="background:white; padding:25px 0; border-bottom:1px solid #e2e8f0; box-shadow:0 4px 15px rgba(0,0,0,0.03);">
-    <div class="container" style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; text-align:center;">
-      <div><span style="font-size:28px;">🛡️</span><p style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Verified Safety</p></div>
-      <div><span style="font-size:28px;">🏨</span><p style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Premium Stays</p></div>
-      <div><span style="font-size:28px;">🚌</span><p style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Luxury Coaches</p></div>
-      <div><span style="font-size:28px;">👨‍🏫</span><p style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Expert Guides</p></div>
+  <div class="trust-banner">
+    <div class="container trust-grid">
+      <div><span style="font-size:28px;">🛡️</span><p id="t1" style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Verified Safety</p></div>
+      <div><span style="font-size:28px;">🏨</span><p id="t2" style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Premium Stays</p></div>
+      <div><span style="font-size:28px;">🚌</span><p id="t3" style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Luxury Coaches</p></div>
+      <div><span style="font-size:28px;">👨‍🏫</span><p id="t4" style="margin:8px 0 0; font-weight:700; font-size:14px; color:var(--navy);">Expert Guides</p></div>
     </div>
   </div>
 
@@ -211,45 +219,51 @@
     <div class="container">
       <h2 style="text-align:center; font-size:32px; margin-bottom:10px; font-weight:900;">Elite Travel Portfolios</h2>
       <p style="text-align:center; color:#64748b; margin-bottom:40px; font-size:14px;">Handpicked itineraries designed for your specific group needs.</p>
+      
       <div class="grid">
         <div class="cat-card">
           <span class="cat-icon">🏫</span>
           <h3>Educational Excellence</h3>
+          <p style="color:#64748b; font-size:13px; margin-bottom:15px;">Safety-first specialized school trips.</p>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800');">
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Darjeeling Expedition</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling')">View Details</button>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800');">
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Rishikesh Adventure</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshSchool', 'Rishikesh')">View Details</button>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshSchool', 'Rishikesh', '🌤️ 22°C')">View Details</button>
           </div>
-          <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy);" onclick="openModal('CategorySchool', 'Institutions')">View Full Catalog</button>
+          <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy); font-size:13px; padding:10px;" onclick="openModal('CategorySchool', 'Institutions')">View Full Catalog</button>
         </div>
+
         <div class="cat-card">
           <span class="cat-icon">🔥</span>
           <h3>Squad Adventures</h3>
+          <p style="color:#64748b; font-size:13px; margin-bottom:15px;">High-energy itineraries for groups.</p>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800');">
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Darjeeling Trek</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('DarjeelingFriends', 'Darjeeling')">View Details</button>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('DarjeelingFriends', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800');">
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Rishikesh Squad Trip</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFriends', 'Rishikesh')">View Details</button>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFriends', 'Rishikesh', '🌤️ 22°C')">View Details</button>
           </div>
-          <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy);" onclick="openModal('CategoryFriends', 'Friends Group')">View Full Catalog</button>
+          <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy); font-size:13px; padding:10px;" onclick="openModal('CategoryFriends', 'Friends Group')">View Full Catalog</button>
         </div>
+
         <div class="cat-card">
           <span class="cat-icon">👨‍👩‍👦</span>
           <h3>Royal Kinship</h3>
+          <p style="color:#64748b; font-size:13px; margin-bottom:15px;">Luxurious escapes for families.</p>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800');">
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Darjeeling Luxury</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('DarjeelingFamily', 'Darjeeling')">View Details</button>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('DarjeelingFamily', 'Darjeeling', '🌤️ 14°C')">View Details</button>
           </div>
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800');">
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Rishikesh Family Tour</h4>
-            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFamily', 'Rishikesh')">View Details</button>
+            <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshFamily', 'Rishikesh', '🌤️ 22°C')">View Details</button>
           </div>
-          <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy);" onclick="openModal('CategoryFamily', 'Family Trip')">View Full Catalog</button>
+          <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy); font-size:13px; padding:10px;" onclick="openModal('CategoryFamily', 'Family Trip')">View Full Catalog</button>
         </div>
       </div>
     </div>
@@ -257,7 +271,7 @@
 
   <section id="destinations" class="section" style="background: white;">
     <div class="container">
-      <h2 style="text-align:center; font-size:32px;">Our Premium Destinations</h2>
+      <h2 id="destH2" style="text-align:center; font-size:32px;">Our Premium Destinations</h2>
       <div class="filter-bar">
         <button class="filter-btn active" onclick="filterDest('all', this)">All</button>
         <button class="filter-btn" onclick="filterDest('short', this)">Short Escapes</button>
@@ -266,27 +280,27 @@
       <div class="grid" id="destGrid">
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'>
           <div class="badge">🔥 ADVENTURE: NEW</div>
-          <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 360°</button> 
-          Rishikesh Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Rishikesh', 'Rishikesh')">View Details</button>
+          <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
+          Rishikesh Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button>
         </div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
           <div class="badge">💎 ELITE: NEW</div>
-          <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 360°</button> 
-          Darjeeling Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Darjeeling', 'Darjeeling')">View Details</button>
+          <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
+          Darjeeling Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
         </div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amritsar', 'audio_wagah.mp3'); event.stopPropagation();">🌐 360°</button>Amritsar & Wagah<button class="btn primary" style="margin-top:10px;" onclick="openModal('AmritsarWagah', 'Amritsar')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Manali.png")'><div class="badge">👑 9.0/10</div><button class="view-360-btn" onclick="open360('Manali', 'audio_river.mp3'); event.stopPropagation();">🌐 360°</button>Manali Adventure<button class="btn primary" style="margin-top:10px;" onclick="openModal('Manali', 'Manali')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Shimla.png")'><div class="badge">⭐ 8.8/10</div><button class="view-360-btn" onclick="open360('Shimla', 'audio_hills.mp3'); event.stopPropagation();">🌐 360°</button>Shimla Hills<button class="btn primary" style="margin-top:10px;" onclick="openModal('Shimla', 'Shimla')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Chandigarh.png")'><div class="badge">⭐ 7.5/10</div><button class="view-360-btn" onclick="open360('Chandigarh', 'audio_city.mp3'); event.stopPropagation();">🌐 360°</button>Chandigarh City<button class="btn primary" style="margin-top:10px;" onclick="openModal('Chandigarh', 'Chandigarh')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Kurukshetra.png")'><div class="badge">⭐ 9.0/10</div><button class="view-360-btn" onclick="open360('Kurukshetra', 'audio_history.mp3'); event.stopPropagation();">🌐 360°</button>Kurukshetra<button class="btn primary" style="margin-top:10px;" onclick="openModal('Kurukshetra', 'Kurukshetra')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Udaipur.png")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Udaipur', 'audio_palace.mp3'); event.stopPropagation();">🌐 360°</button>Udaipur Royal<button class="btn primary" style="margin-top:10px;" onclick="openModal('Udaipur', 'Udaipur')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Spiti&ladakh.png")'><div class="badge">💎 10/10</div><button class="view-360-btn" onclick="open360('Spiti', 'audio_wind.mp3'); event.stopPropagation();">🌐 360°</button>Spiti + Ladakh<button class="btn primary" style="margin-top:10px;" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Dalhousie.png")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 360°</button>Amritsar + Dalhousie<button class="btn primary" style="margin-top:10px;" onclick="openModal('AmritsarDalhousie', 'Dalhousie')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 360°</button>Amarnath Yatra<button class="btn primary" style="margin-top:10px;" onclick="openModal('Amarnath', 'Srinagar')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Delhi', 'audio_city.mp3'); event.stopPropagation();">🌐 360°</button>Delhi Heritage<button class="btn primary" style="margin-top:10px;" onclick="openModal('Delhi', 'Delhi')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'><div class="badge">⭐ 9.8/10</div><button class="view-360-btn" onclick="open360('RishikeshMasubra', 'audio_river.mp3'); event.stopPropagation();">🌐 360°</button>Masubra Trip<button class="btn primary" style="margin-top:10px;" onclick="openModal('RishikeshMasubra', 'Masubra')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Corbett', 'audio_jungle.mp3'); event.stopPropagation();">🌐 360°</button>Jim Corbett<button class="btn primary" style="margin-top:10px;" onclick="openModal('CorbettNainital', 'Corbett')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1477587458883-47145ed94245")'><div class="badge">⭐ 9.2/10</div><button class="view-360-btn" onclick="open360('Jaipur', 'audio_desert.mp3'); event.stopPropagation();">🌐 360°</button>Jaipur Royal<button class="btn primary" style="margin-top:10px;" onclick="openModal('JaipurRanthambore', 'Jaipur')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amritsar', 'audio_wagah.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar & Wagah<button class="btn primary" style="margin-top:10px;" onclick="openModal('AmritsarWagah', 'Amritsar', '☀️ 30°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Manali.png")'><div class="badge">👑 9.0/10</div><button class="view-360-btn" onclick="open360('Manali', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Manali Adventure<button class="btn primary" style="margin-top:10px;" onclick="openModal('Manali', 'Manali', '❄️ 8°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Shimla.png")'><div class="badge">⭐ 8.8/10</div><button class="view-360-btn" onclick="open360('Shimla', 'audio_hills.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Shimla Hills<button class="btn primary" style="margin-top:10px;" onclick="openModal('Shimla', 'Shimla', '🌤️ 12°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Chandigarh.png")'><div class="badge">⭐ 7.5/10</div><button class="view-360-btn" onclick="open360('Chandigarh', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Chandigarh City<button class="btn primary" style="margin-top:10px;" onclick="openModal('Chandigarh', 'Chandigarh', '🌤️ 26°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Kurukshetra.png")'><div class="badge">⭐ 9.0/10</div><button class="view-360-btn" onclick="open360('Kurukshetra', 'audio_history.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Kurukshetra<button class="btn primary" style="margin-top:10px;" onclick="openModal('Kurukshetra', 'Kurukshetra', '☀️ 32°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Udaipur.png")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Udaipur', 'audio_palace.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Udaipur Royal<button class="btn primary" style="margin-top:10px;" onclick="openModal('Udaipur', 'Udaipur', '☀️ 28°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Spiti&ladakh.png")'><div class="badge">💎 10/10</div><button class="view-360-btn" onclick="open360('Spiti', 'audio_wind.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Spiti + Ladakh<button class="btn primary" style="margin-top:10px;" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh', '❄️ -2°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Dalhousie.png")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar + Dalhousie<button class="btn primary" style="margin-top:10px;" onclick="openModal('AmritsarDalhousie', 'Dalhousie', '🌤️ 14°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amarnath Yatra<button class="btn primary" style="margin-top:10px;" onclick="openModal('Amarnath', 'Srinagar', '🌤️ 15°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Delhi', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Delhi Heritage<button class="btn primary" style="margin-top:10px;" onclick="openModal('Delhi', 'Delhi', '☀️ 34°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'><div class="badge">⭐ 9.8/10</div><button class="view-360-btn" onclick="open360('RishikeshMasubra', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Masubra Trip<button class="btn primary" style="margin-top:10px;" onclick="openModal('RishikeshMasubra', 'Masubra', '🌤️ 18°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Corbett', 'audio_jungle.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Jim Corbett<button class="btn primary" style="margin-top:10px;" onclick="openModal('CorbettNainital', 'Corbett', '🌳 22°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1477587458883-47145ed94245")'><div class="badge">⭐ 9.2/10</div><button class="view-360-btn" onclick="open360('Jaipur', 'audio_desert.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Jaipur Royal<button class="btn primary" style="margin-top:10px;" onclick="openModal('JaipurRanthambore', 'Jaipur', '☀️ 35°C')">View Details</button></div>
       </div>
     </div>
   </section>
@@ -295,8 +309,8 @@
     <div class="container">
       <div class="grid" style="align-items: center;">
         <div>
-          <h2 style="font-size: 30px; margin-top:0;">Partner With Us For Your Next School Trip</h2>
-          <p style="font-size: 14px; line-height: 1.7; color: #475569;">At Joyful Tours, we handle 100% of the logistics so your teaching staff can focus entirely on the students.</p>
+          <h2 id="schoolH2" style="font-size: 30px; margin-top:0;">Partner With Us For Your Next School Trip</h2>
+          <p id="schoolP" style="font-size: 14px; line-height: 1.7; color: #475569;">At Joyful Tours, we handle 100% of the logistics so your teaching staff can focus entirely on the students.</p>
           <ul style="line-height: 1.8; color: var(--navy); font-weight: 600; margin-bottom: 25px; font-size:14px; list-style:none; padding:0;">
             <li>✓ Strict 1:10 Coordinator to Student Ratio</li>
             <li>✓ Dedicated Female Staff for Girls</li>
@@ -322,13 +336,13 @@
     </div>
   </section>
 
-  <section id="faq" class="section" style="background: #eef2ff;">
+  <section id="faq" class="section">
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Frequently Asked Questions</h2>
       <div style="max-width: 700px; margin: 30px auto 0;">
-        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students.</p></details>
-        <details><summary>What kind of food is provided during the trips?</summary><p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.</p></details>
-        <details><summary>How do parents get updates during the trip?</summary><p>Parents can use our Secure VIP Login Portal to track live GPS, weather, and real-time trip timelines.</p></details>
+        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">Is there dedicated staff for female students?</summary><p style="margin-top:10px; color:#475569;">Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students.</p></details>
+        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">What kind of food is provided during the trips?</summary><p style="margin-top:10px; color:#475569;">We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.</p></details>
+        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">How do parents get updates during the trip?</summary><p style="margin-top:10px; color:#475569;">Parents can use our Secure VIP Login Portal to track live GPS, weather, and real-time trip timelines.</p></details>
       </div>
     </div>
   </section>
@@ -397,9 +411,9 @@
     <div class="modal-content" style="padding:25px;">
       <button class="close-btn" onclick="document.getElementById('itineraryModal').classList.remove('active')">×</button>
       <h2 id="modalTitle" style="font-size:24px; margin-top:0;">Itinerary Details</h2>
-      <div id="modalWeather" class="weather-badge">🌤️ Live Weather</div>
-      <div class="route-map-pro"><div class="bus-pro">🚍</div><div class="route-pin" style="left:0;">Sirsa</div><div class="route-pin" style="right:0; background:var(--gold); color:white;" id="destPin">Dest</div></div>
-      <div id="modalBody" class="timeline" style="margin-bottom: 25px;"></div>
+      <div id="modalWeather" class="weather-badge" style="background:#f8fafc; color:var(--navy); padding:6px 12px; border-radius:6px; font-size:13px; font-weight:bold; display:inline-block; margin-bottom:15px; border:1px solid #e2e8f0;">🌤️ Live Weather</div>
+      <div class="route-map-pro" style="position:relative; height:40px; border-bottom:2px dashed #94a3b8; margin:15px 0 25px; display:flex; align-items:flex-end; justify-content:space-between;"><div style="position:absolute; bottom:-5px; font-size:24px; animation:driveBusPro 4s linear infinite; z-index:3;">🚍</div><div style="background:var(--navy); color:var(--gold); padding:3px 10px; border-radius:6px; font-size:11px; font-weight:bold; position:relative; bottom:-10px; z-index:2;">Sirsa</div><div id="destPin" style="background:var(--gold); color:white; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:bold; position:relative; bottom:-10px; z-index:2;">Dest</div></div>
+      <div id="modalBody" style="margin-bottom: 25px; border-left:2px solid var(--gold); padding-left:15px; margin-left:5px;"></div>
       <div style="display:flex; gap:10px;">
         <button class="btn primary" style="flex:1; padding:12px; font-size:13px; margin:0;" onclick="window.open(currentPDF)">📄 Download PDF</button>
       </div>
@@ -469,30 +483,30 @@
       </div>
 
       <div id="liveTrackingUI">
-        <div class="dash-nav">
-          <div id="tab-overview" class="dash-tab active" onclick="switchDashTab('dash-overview', this)">Overview</div>
-          <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
-          <div id="tab-pass" class="dash-tab" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
-          <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
+        <div class="dash-nav" style="display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px;">
+          <div id="tab-overview" class="dash-tab active" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-overview', this)">Overview</div>
+          <div id="tab-timeline" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
+          <div id="tab-pass" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
+          <div id="tab-gallery" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
         </div>
 
         <div style="padding:20px; height:400px; overflow-y:auto;">
           
           <div id="dash-overview" class="dash-panel active" style="display:block;">
-            <button class="sos-btn" onclick="alert('🚨 Emergency Ping Sent to Captain!')">🚨 EMERGENCY SOS</button>
+            <button style="background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 15px; margin-bottom: 15px;" onclick="alert('🚨 Emergency Ping Sent to Captain!')">🚨 EMERGENCY SOS</button>
 
-            <div class="radar-grid" style="margin-bottom:15px;">
-              <div class="radar-item">
-                <p>🏔️ Live Altitude</p>
-                <strong id="liveAlt" style="color:white;">Syncing...</strong>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom:15px;">
+              <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;">
+                <p style="margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">🏔️ Live Altitude</p>
+                <strong id="liveAlt" style="font-size:14px; display:block; margin-top:3px; color: white;">Syncing...</strong>
               </div>
-              <div class="radar-item">
-                <p>🏥 Medical Radar</p>
-                <strong id="medicalRadar" style="color:white;">Scanning...</strong>
+              <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;">
+                <p style="margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">🏥 Medical Radar</p>
+                <strong id="medicalRadar" style="font-size:14px; display:block; margin-top:3px; color: white;">Scanning...</strong>
               </div>
             </div>
 
-            <div class="status-card">
+            <div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px;">
               <h3 style="margin:0 0 15px 0; color:var(--gold);">Current Status</h3>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">📍 Location</p><strong style="font-size:14px;" id="liveLoc">Updating...</strong></div>
@@ -500,7 +514,7 @@
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Connecting...</strong></div>
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">⏱️ ETA</p><strong style="font-size:14px;" id="liveETA">Calculating...</strong></div>
               </div>
-              <div class="gps-debug" id="gpsDebug">Awaiting secure connection...</div>
+              <div id="gpsDebug" style="font-size: 10px; opacity: 0.7; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a; text-align:center;">Awaiting secure connection...</div>
             </div>
             
             <div id="roleSpecificUI"></div>
@@ -512,10 +526,10 @@
           </div>
 
           <div id="dash-pass" class="dash-panel" style="display:none;">
-            <div class="boarding-pass">
-              <div class="verified-stamp">SECURE VERIFIED PASS</div>
-              <h3>JOYFUL VIP PASS</h3>
-              <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=JoyfulTours" style="border-radius:10px; margin:15px 0; border:4px solid white;">
+            <div style="background: #fff; border: 2px dashed #d4af37; border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2);">
+              <div style="font-size: 10px; background: #059669; color: white; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-weight: bold;">SECURE VERIFIED PASS</div>
+              <h3 style="margin: 0; color: #0f172a; font-size: 18px; letter-spacing: 2px;">JOYFUL VIP PASS</h3>
+              <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=JoyfulTours" style="border-radius:10px; margin:15px 0; border:4px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
               <div style="border-top:1px dashed #ccc; padding-top:10px; font-size:11px; font-weight:bold; color:var(--navy);">AUTHORIZED ENTRY ONLY</div>
             </div>
           </div>
@@ -534,67 +548,100 @@
   <canvas id="certCanvas" style="display:none;" width="1000" height="700"></canvas>
 
   <script>
+    // UI FUNCTIONS
     function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
     function toggleWaMenu() { 
       const waMenu = document.getElementById('waMenu');
       waMenu.style.display = waMenu.style.display === 'block' ? 'none' : 'block';
     }
-    function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
+    function togglePihuChat() { 
+      const box = document.getElementById('pihuChatBox');
+      box.style.display = box.style.display === 'flex' ? 'none' : 'flex'; 
+    }
     
+    function sendPihuMsg() {
+      const input = document.getElementById('chatInput'); 
+      const chatBody = document.getElementById('chatBody'); 
+      const val = input.value.trim().toLowerCase(); 
+      if(!val) return;
+      chatBody.innerHTML += `<div style="text-align:right; margin:8px 0;"><span style="background:var(--navy); color:white; padding:8px 12px; border-radius:15px; font-size:13px; display:inline-block;">${input.value}</span></div>`; 
+      input.value = '';
+      
+      let reply = "Connect with Raman on WhatsApp for VIP bookings: +91-8295411207";
+      if(val.includes('rishikesh')) reply = "Rishikesh is our adventure capital! We offer Rafting, Bunjee Jumping, and Ganga Aarti tours.";
+      if(val.includes('darjeeling')) reply = "Darjeeling is our elite destination! We offer toy train rides and tea garden stays.";
+      
+      setTimeout(() => { 
+        chatBody.innerHTML += `<div style="text-align:left; margin:8px 0;"><span style="background:#fff; color:var(--navy); padding:8px 12px; border-radius:15px; border:1px solid #ddd; font-size:12px; display:inline-block;">${reply}</span></div>`; 
+        chatBody.scrollTop = chatBody.scrollHeight; 
+      }, 700);
+    }
+
     // ALL 15 PANO IMAGES EXPLICITLY WRITTEN
     const panoImgs = { 
-      'Amritsar': 'Amritsar&wagah.png', 'Manali': 'Manali.png', 'Shimla': 'Shimla.png', 'Udaipur': 'Udaipur.png', 
-      'Spiti': 'Spiti&ladakh.png', 'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
-      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600', 'Chandigarh': 'Chandigarh.png',
-      'Kurukshetra': 'Kurukshetra.png', 'Dalhousie': 'Dalhousie.png', 'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
-      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600', 'RishikeshMasubra': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
-      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600', 'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
+      'Amritsar': 'Amritsar&wagah.png', 
+      'Manali': 'Manali.png', 
+      'Shimla': 'Shimla.png', 
+      'Udaipur': 'Udaipur.png', 
+      'Spiti': 'Spiti&ladakh.png', 
+      'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
+      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600', 
+      'Chandigarh': 'Chandigarh.png',
+      'Kurukshetra': 'Kurukshetra.png', 
+      'Dalhousie': 'Dalhousie.png', 
+      'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
+      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600', 
+      'RishikeshMasubra': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
+      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600', 
+      'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
     };
     
+    function open360(place, audioFile) { 
+      document.getElementById('panoTitle').innerText = place + " - Virtual 360°"; 
+      document.getElementById('panoFrame').style.backgroundImage = `url('${panoImgs[place] || "https://images.unsplash.com/photo-1501785888041-af3ef285b470"}')`; 
+      document.getElementById('bgAudio').src = audioFile; 
+      document.getElementById('bgAudio').play().catch(() => {}); 
+      document.getElementById('360Modal').classList.add('active'); 
+    }
+
     // ALL 23 ITINERARIES EXPLICITLY WRITTEN
     const itineraryData = {
-      'Rishikesh': { title: 'Rishikesh Adventure', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>Day 1: Arrival & Aarti</strong><p>Ganga Aarti at Triveni Ghat.</p></div><div class="timeline-item"><strong>Day 2: Thrill Time</strong><p>White Water Rafting & Bunjee Jumping.</p></div>' },
-      'RishikeshSchool': { title: 'Rishikesh Institutional', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>For Schools</strong><p>Educational rafting and ashram visits with high safety protocols.</p></div>' },
-      'RishikeshFriends': { title: 'Rishikesh Squad', pdf: 'https://drive.google.com/file/d/1e_wrQOv-___yWzo51WLn0E7DZm37jix1/view', text: '<div class="timeline-item"><strong>For Friends</strong><p>Luxury camping, 16KM rafting and high-energy adventure.</p></div>' },
-      'RishikeshFamily': { title: 'Rishikesh Family', pdf: 'https://drive.google.com/file/d/11aSBL8HdhHtD8asdq9TvegOSt9bw554u/view', text: '<div class="timeline-item"><strong>For Families</strong><p>Luxury resort stays, peaceful temple visits, and safe river activities.</p></div>' },
-      'Darjeeling': { title: 'Darjeeling Elite', pdf: 'https://drive.google.com/file/d/1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt/view', text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill</strong><p>Sunrise view and Tea Gardens.</p></div>' },
-      'DarjeelingFriends': { title: 'Darjeeling Squad', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill & Trekking</strong><p>Sunrise view and high-energy exploration.</p></div>' },
-      'DarjeelingFamily': { title: 'Darjeeling Royal', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<div class="timeline-item"><strong>Day 1: Premium Check-in</strong><p>Luxury stay and Mall road walk.</p></div><div class="timeline-item"><strong>Day 2: Tea Estates</strong><p>Peaceful tour of Tea Gardens and Toy Train ride.</p></div>' },
-      'CategorySchool': { title: 'Educational Trips', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Program Features</strong><p>Strict safety protocols, educational activities, doctor-on-call, and dedicated female staff for girls.</p></div>' },
-      'CategoryFriends': { title: 'Squad Adventures', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Vibe & Activities</strong><p>Trekking, adventure sports, bonfires, DJ nights, and high-energy exploration designed for friends.</p></div>' },
-      'CategoryFamily': { title: 'Family Escapes', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Luxury Features</strong><p>Maximum privacy, 4-Star luxury stays, slow-paced itineraries, and premium comfort vehicles.</p></div>' },
-      'AmritsarWagah': { title: 'Amritsar Pride', pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', text: '<div class="timeline-item"><strong>Day 1: Golden Temple</strong><p>Spiritual Darshan at Harmandir Sahib.</p></div><div class="timeline-item"><strong>Day 2: Wagah Border</strong><p>High energy patriotic retreat ceremony.</p></div>' },
-      'Manali': { title: 'Manali Adventure', pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Mall road shopping and local sight seeing.</p></div><div class="timeline-item"><strong>Day 2: Snow World</strong><p>Solang Valley adventure activities.</p></div>' },
-      'Shimla': { title: 'Shimla Hills', pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', text: '<div class="timeline-item"><strong>Day 1: Heritage Walk</strong><p>Explore The Ridge and historic Christ Church.</p></div><div class="timeline-item"><strong>Day 2: Kufri</strong><p>Adventure park and Himalayan nature walk.</p></div>' },
-      'Chandigarh': { title: 'Chandigarh City', pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', text: '<div class="timeline-item"><strong>Day 1: City Beautiful</strong><p>Rock Garden exploration & sunset boating at Sukhna Lake.</p></div>' },
-      'Kurukshetra': { title: 'Kurukshetra Educational', pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', text: '<div class="timeline-item"><strong>Day 1: Epicenter of History</strong><p>Visit to Brahma Sarovar, Jyotisar, and the Science Panorama.</p></div>' },
-      'Udaipur': { title: 'Udaipur Royal', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>Tour of City Palace & evening boat ride at Lake Pichola.</p></div>' },
-      'SpitiLadakhMega': { title: 'Spiti + Ladakh', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley & Leh.</p></div>' },
-      'AmritsarDalhousie': { title: 'Amritsar + Dalhousie', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with Dalhousie and Khajjiar.</p></div>' },
-      'Amarnath': { title: 'Amarnath Yatra', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', text: '<div class="timeline-item"><strong>Day 1: The Journey</strong><p>Spiritual trekking start from Srinagar with extreme safety protocols.</p></div>' },
-      'Delhi': { title: 'Delhi Heritage', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Visit Red Fort, Qutub Minar, India Gate & Parliament House.</p></div>' },
-      'RishikeshMasubra': { title: 'Rishikesh + Masubra', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Masubra.</p></div>' },
-      'CorbettNainital': { title: 'Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and lake exploration in Nainital.</p></div>' },
-      'JaipurRanthambore': { title: 'Jaipur + Ranthambore', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
+      'Rishikesh': { title: 'Rishikesh Adventure', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<p style="margin:5px 0;"><strong>Day 1:</strong> Arrival & Aarti.</p><p style="margin:5px 0;"><strong>Day 2:</strong> Rafting & Bunjee.</p>' },
+      'RishikeshSchool': { title: 'Rishikesh Institutional', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<p style="margin:5px 0;">Educational rafting with extreme safety protocols.</p>' },
+      'RishikeshFriends': { title: 'Rishikesh Squad', pdf: 'https://drive.google.com/file/d/1e_wrQOv-___yWzo51WLn0E7DZm37jix1/view', text: '<p style="margin:5px 0;">Luxury camping and high-energy adventure.</p>' },
+      'RishikeshFamily': { title: 'Rishikesh Royal Family', pdf: 'https://drive.google.com/file/d/11aSBL8HdhHtD8asdq9TvegOSt9bw554u/view', text: '<p style="margin:5px 0;">Luxury resort stays and safe river activities.</p>' },
+      'Darjeeling': { title: 'Darjeeling Elite', pdf: 'https://drive.google.com/file/d/1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt/view', text: '<p style="margin:5px 0;"><strong>Day 1:</strong> Mall Road.</p><p style="margin:5px 0;"><strong>Day 2:</strong> Tiger Hill & Tea Gardens.</p>' },
+      'DarjeelingFriends': { title: 'Darjeeling Squad', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<p style="margin:5px 0;">Tiger Hill & High-altitude Trekking.</p>' },
+      'DarjeelingFamily': { title: 'Darjeeling Royal', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<p style="margin:5px 0;">Tea Estates & Toy Train Ride.</p>' },
+      'CategorySchool': { title: 'Educational Trips', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<p style="margin:5px 0;">Strict safety, doctor-on-call, female staff.</p>' },
+      'CategoryFriends': { title: 'Squad Adventures', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<p style="margin:5px 0;">Trekking, bonfires, and DJ nights.</p>' },
+      'CategoryFamily': { title: 'Family Escapes', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<p style="margin:5px 0;">Maximum privacy & 4-Star luxury.</p>' },
+      'AmritsarWagah': { title: 'Amritsar Pride', pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', text: '<p style="margin:5px 0;">Golden Temple & Wagah Border.</p>' },
+      'Manali': { title: 'Manali Adventure', pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', text: '<p style="margin:5px 0;">Snow World & Solang Valley.</p>' },
+      'Shimla': { title: 'Shimla Hills', pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', text: '<p style="margin:5px 0;">Heritage Walk & Kufri.</p>' },
+      'Chandigarh': { title: 'Chandigarh City', pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', text: '<p style="margin:5px 0;">Rock Garden & Sukhna Lake.</p>' },
+      'Kurukshetra': { title: 'Kurukshetra', pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', text: '<p style="margin:5px 0;">Brahma Sarovar & Science Panorama.</p>' },
+      'Udaipur': { title: 'Udaipur Royal', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', text: '<p style="margin:5px 0;">City Palace & Lake Pichola.</p>' },
+      'SpitiLadakhMega': { title: 'Spiti + Ladakh', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<p style="margin:5px 0;">15 Days Trans-Himalayan circuit.</p>' },
+      'AmritsarDalhousie': { title: 'Amritsar + Dalhousie', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<p style="margin:5px 0;">Heritage & Hills combo.</p>' },
+      'Amarnath': { title: 'Amarnath Yatra', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', text: '<p style="margin:5px 0;">Spiritual trekking with safety.</p>' },
+      'Delhi': { title: 'Delhi Heritage', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', text: '<p style="margin:5px 0;">Red Fort & India Gate.</p>' },
+      'RishikeshMasubra': { title: 'Rishikesh + Masubra', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<p style="margin:5px 0;">Thrill in Rishikesh, Chill in Masubra.</p>' },
+      'CorbettNainital': { title: 'Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<p style="margin:5px 0;">Wild Safari & Lakes.</p>' },
+      'JaipurRanthambore': { title: 'Jaipur + Ranthambore', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<p style="margin:5px 0;">Royal Forts & Tiger Tracking.</p>' }
     };
 
-    let currentPDF = ''; 
-    let currentTripName = '';
-    
+    let currentPDF = ''; let currentTripName = '';
     function openModal(id, dest, weatherInfo = '🌤️ Curated') { 
-      const data = itineraryData[id] || {title: id, pdf: '#', text: 'Details incoming...'}; 
+      const data = itineraryData[id] || {title: id, pdf: '#', text: 'Details loading...'}; 
       currentPDF = data.pdf; currentTripName = data.title; 
       document.getElementById('modalTitle').innerText = data.title; 
-      document.getElementById('modalWeather').innerText = `Destination: ${dest} | ${weatherInfo}`; 
+      document.getElementById('modalWeather').innerText = `Dest: ${dest} | ${weatherInfo}`; 
       document.getElementById('modalBody').innerHTML = data.text; 
       document.getElementById('destPin').innerText = dest; 
       document.getElementById('itineraryModal').classList.add('active'); 
     }
     
-    function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
-    function downloadCurrentPDF() { window.open(currentPDF, '_blank'); }
-    function bookCurrentTrip() { const msg = `Hello Raman! I'm interested in booking: "${currentTripName}".`; window.open(`https://wa.me/918295411207?text=${encodeURIComponent(msg)}`, '_blank'); }
-
     function filterDest(c, b) { 
       document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active')); 
       b.classList.add('active'); 
@@ -603,14 +650,6 @@
         if(c==='all' || d.dataset.cat===c) d.classList.add('show'); 
       }); 
     }
-
-    function submitReview() { 
-      const n = document.getElementById('revName').value; const t = document.getElementById('revText').value; const r = document.getElementById('revRating').value;
-      let stars = ''; for(let i=0; i<r; i++) stars += '⭐';
-      if(n && t) { document.getElementById('reviewList').innerHTML = `<div class="card" style="background:#f8fafc; padding:20px; border-left:4px solid var(--gold); text-align:left; box-shadow:none;"><p style="margin:0 0 10px; font-size:14px; color:#475569; font-style:italic;">"${t}"</p><strong style="font-size:14px;">- ${n}</strong><div style="font-size:12px; margin-top:5px;">${stars}</div></div>` + document.getElementById('reviewList').innerHTML; document.getElementById('revName').value=''; document.getElementById('revText').value=''; alert("Review Published!"); } else { alert("Please enter both Name and Review Text."); }
-    }
-    
-    function sendFinalBooking() { const n = document.getElementById('b_name').value; const d = document.getElementById('b_dest').value; if(n) { window.open(`https://wa.me/919729561534?text=Inquiry from ${n} for ${d}`, '_blank'); } }
 
     // FIREBASE INITIALIZATION
     const firebaseConfig = {
@@ -623,8 +662,9 @@
 
     function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
 
-    // REAL TIME APIs
+    // REAL-TIME APIS: AQI & MEDICAL RADAR (ROBUST FIX)
     function fetchRealTimeMetrics(lat, lon) {
+      // 1. Weather API
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=B09c0c8f99ae2959dd2059168d662bab`)
         .then(res => res.json())
         .then(data => {
@@ -634,18 +674,21 @@
           }
         }).catch(err => console.log(err));
 
-      const overpassQuery = `[out:json];node(around:15000,${lat},${lon})[amenity=hospital];out 1;`;
+      // 2. Medical Radar (Overpass API - Increased radius to 30km for hilly areas)
+      const overpassQuery = `[out:json][timeout:10];(node["amenity"="hospital"](around:30000,${lat},${lon});way["amenity"="hospital"](around:30000,${lat},${lon}););out center 1;`;
       fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(overpassQuery)}`)
         .then(res => res.json())
         .then(data => {
           if(data.elements && data.elements.length > 0) {
             const h = data.elements[0];
-            const dist = getDistanceFromLatLonInKm(lat, lon, h.lat, h.lon);
-            document.getElementById('medicalRadar').innerText = `Nearest Hospital: ${dist.toFixed(1)} KM`;
+            const hLat = h.lat || h.center.lat;
+            const hLon = h.lon || h.center.lon;
+            const dist = getDistanceFromLatLonInKm(lat, lon, hLat, hLon);
+            document.getElementById('medicalRadar').innerText = `Nearest: ${dist.toFixed(1)} KM`;
           } else {
-            document.getElementById('medicalRadar').innerText = "Medical Unit Verified 🟢";
+            document.getElementById('medicalRadar').innerText = "Verified 🟢";
           }
-        }).catch(() => document.getElementById('medicalRadar').innerText = "Radar Active 🟢");
+        }).catch(() => document.getElementById('medicalRadar').innerText = "Active 🟢");
     }
 
     function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
@@ -654,7 +697,7 @@
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); return R * c; 
     }
 
-    // REAL CERTIFICATE GENERATOR LOGIC
+    // REAL CERTIFICATE GENERATOR (CANVAS)
     function generateCertificate() {
       const name = document.getElementById('certNameInput').value.trim();
       if(!name) return alert("Please enter the student's name first!");
@@ -662,36 +705,28 @@
       const canvas = document.getElementById('certCanvas');
       const ctx = canvas.getContext('2d');
       
-      // Draw Navy Background
+      // Background & Borders
       ctx.fillStyle = '#0f172a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw Gold Border
       ctx.strokeStyle = '#d4af37';
       ctx.lineWidth = 15;
       ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
-      
       ctx.lineWidth = 3;
       ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
 
       // Text Alignment
       ctx.textAlign = 'center';
-      
-      // Header
       ctx.fillStyle = '#d4af37';
       ctx.font = 'bold 45px "Playfair Display", serif';
       ctx.fillText('JOYFUL TOURS AND ADVENTURES', canvas.width/2, 120);
-      
       ctx.fillStyle = '#ffffff';
       ctx.font = '20px Montserrat, sans-serif';
       ctx.fillText('UDYAM CERTIFIED | PREMIUM EDUCATIONAL EXPEDITIONS', canvas.width/2, 160);
 
-      // Certificate Title
+      // Main Text
       ctx.fillStyle = '#d4af37';
       ctx.font = 'bold 55px "Playfair Display", serif';
       ctx.fillText('CERTIFICATE OF EXCELLENCE', canvas.width/2, 280);
-
-      // Body Text
       ctx.fillStyle = '#cbd5e1';
       ctx.font = '22px Montserrat, sans-serif';
       ctx.fillText('This is proudly presented to', canvas.width/2, 350);
@@ -708,7 +743,7 @@
       ctx.fillText(`For successfully completing the adventure expedition to ${dest}`, canvas.width/2, 490);
       ctx.fillText('demonstrating great teamwork, discipline, and joyful spirit.', canvas.width/2, 530);
 
-      // Footer Signature & Insta
+      // Signatures
       ctx.fillStyle = '#d4af37';
       ctx.font = 'bold 20px Montserrat, sans-serif';
       ctx.fillText('Authorized by Joyful Tours Management', canvas.width/2, 600);
@@ -727,7 +762,8 @@
       const userRole = document.getElementById('loginRole').value;
       if(!code) return;
 
-      document.getElementById('loginBtnAction').innerText = "Verifying...";
+      document.getElementById('loginBtnAction').innerText = "Decrypting Passcode...";
+      
       database.ref('trips/' + code).on('value', (snapshot) => {
         if(snapshot.exists()) {
           const tripData = snapshot.val();
@@ -737,14 +773,14 @@
 
           document.getElementById('dashGroupName').innerText = tripData.groupName || "Premium Expedition";
 
-          // TRIP COMPLETE LOGIC
+          // TRIP COMPLETION CHECK
           if(tripData.status === 'completed') {
             document.getElementById('liveTrackingUI').style.display = 'none';
             document.getElementById('tripCompleteScreen').style.display = 'block';
             if(tripData.galleryLink) {
               document.getElementById('driveLinkHref').href = tripData.galleryLink;
             }
-            return;
+            return; 
           } else {
             document.getElementById('liveTrackingUI').style.display = 'block';
             document.getElementById('tripCompleteScreen').style.display = 'none';
@@ -755,9 +791,14 @@
 
           if(tripData.liveGPS && tripData.liveGPS.lat) {
             document.getElementById('gpsDebug').innerText = "Encrypted Ping: " + tripData.liveGPS.time;
-            if(tripData.liveGPS.altitude) {
+            
+            // REAL ALTITUDE FIX
+            if(tripData.liveGPS.altitude && tripData.liveGPS.altitude > 0) {
               document.getElementById('liveAlt').innerText = `${Math.round(tripData.liveGPS.altitude)} Meters`;
+            } else {
+              document.getElementById('liveAlt').innerText = `Calibrating GPS...`;
             }
+            
             fetchRealTimeMetrics(tripData.liveGPS.lat, tripData.liveGPS.lon);
           }
 
@@ -772,13 +813,14 @@
         }
       });
 
+      // TIMELINE WITH POLAROID PHOTOS
       database.ref('trips/' + code + '/timeline').on('value', (tSnap) => {
         let html = '';
         tSnap.forEach((child) => {
           const val = child.val();
           let content = `<p style="margin:5px 0 0; font-size:14px;">${val.text}</p>`;
           if(val.photoUrl) {
-            content += `<div class="timeline-polaroid" style="background:white; padding:10px; padding-bottom:30px; border-radius:5px; box-shadow:0 4px 10px rgba(0,0,0,0.15); margin-top:10px; border:1px solid #eee; transform:rotate(-2deg); max-width:250px;"><img src="${val.photoUrl}" style="width:100%; border-radius:3px;"><div style="font-size:10px; font-weight:bold; color:var(--navy); margin-top:5px; text-align:center;">LIVE CAPTURE</div></div>`;
+            content += `<div style="background:white; padding:10px; padding-bottom:30px; border-radius:5px; box-shadow:0 4px 10px rgba(0,0,0,0.15); margin-top:10px; border:1px solid #eee; transform:rotate(-2deg); max-width:250px;"><img src="${val.photoUrl}" style="width:100%; border-radius:3px;"><div style="font-size:10px; font-weight:bold; color:var(--navy); margin-top:5px; text-align:center;">LIVE CAPTURE</div></div>`;
           }
           html = `<div style="border-left:2px solid var(--gold); padding-left:15px; margin-left:5px; margin-bottom:25px; position:relative;"><div style="position:absolute; left:-21px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--gold);"></div><div style="font-size:11px; color:#64748b; font-weight:bold;">${val.time}</div>${content}</div>` + html;
         });
@@ -789,7 +831,8 @@
     function switchDashTab(tabId, btn) {
       document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.dash-panel').forEach(p => p.style.display = 'none');
-      btn.classList.add('active'); document.getElementById(tabId).style.display = 'block';
+      btn.classList.add('active');
+      document.getElementById(tabId).style.display = 'block';
     }
 
     const targetDate = new Date("June 1, 2026 00:00:00").getTime();
