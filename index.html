@@ -11,14 +11,14 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
   <style>
-    :root { --gold: #d4af37; --gold-hover: #b5952f; --navy: #0f172a; --light-bg: #f8fafc; --text: #1e293b; --emerald: #059669; }
+    :root { --gold: #d4af37; --navy: #0f172a; --light-bg: #f8fafc; --text: #1e293b; --emerald: #059669; }
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--light-bg); color: var(--text); overflow-x: hidden; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
     
     .top-bar { background: var(--navy); color: var(--gold); padding: 8px 16px; font-size: 13px; font-weight: 600; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); letter-spacing: 0.5px;}
 
-    /* NAVBAR LUXURY */
+    /* NAVBAR */
     .nav { position: sticky; top: 0; z-index: 1000; display: flex; padding: 12px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 5px 20px rgba(0,0,0,0.05); align-items: center; justify-content: space-between; }
     .brand-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--navy); text-decoration: none; z-index: 1001;}
     .brand-logo img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(212,175,55,0.3); }
@@ -28,22 +28,22 @@
     .nav-links.active { top: 0; }
     
     .btn { padding: 12px 24px; border-radius: 12px; text-decoration: none; background: transparent; color: var(--navy); font-weight: 600; font-size: 14px; transition: 0.3s; border: none; cursor: pointer; text-align: left; display: block; margin: 5px 20px; border-left: 3px solid transparent;}
-    .btn:hover { background: #f1f5f9; border-left-color: var(--gold); color: var(--gold); }
     .btn.primary { background: linear-gradient(135deg, #d4af37, #b5952f); color: white; border: none; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); border-radius: 999px; text-align: center; margin: 15px 20px; }
     .btn.login-btn { background: #eef2ff; color: #4f46e5; border-radius: 999px; text-align: center; margin: 5px 20px; border:1px solid #c7d2fe;}
 
     /* HERO */
     .hero { height: 80vh; display: flex; align-items: center; position: relative; text-align: center; color: white; overflow: hidden; background-color: var(--navy); }
-    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600") center/cover; animation: cinematicZoom 25s infinite alternate linear; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600") center/cover; animation: cinematicZoom 25s infinite alternate linear; }
     @keyframes cinematicZoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
     .hero-content { position: relative; z-index: 2; width: 100%; padding: 0 20px; }
-    .gradient-text { font-size: 42px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: -1px; margin-bottom:10px; line-height: 1.2;}
+    .gradient-text { font-size: 42px; background: linear-gradient(90deg, #d4af37, #fef08a, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; line-height: 1.2;}
 
     .timer-box { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px); padding: 15px 25px; border-radius: 15px; display: inline-block; margin-top: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
     .time-grid { display: flex; gap: 15px; justify-content: center; margin-top: 10px;}
     .time-unit span { font-size: 26px; font-weight: 900; color: white; display:block; }
     .time-unit p { margin: 0; font-size: 10px; color: var(--gold); font-weight: bold; text-transform: uppercase;}
 
+    /* GRIDS & CARDS */
     .container { max-width: 1200px; margin: auto; padding: 20px; }
     .section { padding: 60px 0; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
@@ -55,6 +55,7 @@
     .dest.show { display: flex; animation: fadeIn 0.4s; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* CATEGORIES LUXURY */
     .cat-section { background: #f8fafc; padding: 60px 0; border-top: 2px solid var(--gold); }
     .cat-card { text-align: center; padding: 25px 20px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); position: relative; overflow: hidden;}
     .cat-icon { font-size: 40px; margin-bottom: 5px; display: block; }
@@ -62,7 +63,7 @@
     .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); z-index: 1;}
     .embedded-dest > * { position: relative; z-index: 2; color: white; }
 
-    /* DASHBOARD */
+    /* DASHBOARD & UI */
     .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
     .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
     .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
@@ -70,56 +71,49 @@
     .dash-panel.active { display: block; }
     .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
     
-    /* NEW LIVE RADAR UI */
-    .radar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .radar-item { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); }
-    .radar-item p { margin:0; font-size:10px; color:var(--gold); text-transform:uppercase; font-weight:bold; letter-spacing:1px; }
-    .radar-item strong { font-size:14px; display:block; margin-top:3px; }
+    /* RADAR METRICS */
+    .radar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom:15px; }
+    .radar-item { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;}
+    .radar-item p { margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px; }
+    .radar-item strong { font-size:16px; display:block; margin-top:5px; color:white; }
     .gps-debug { font-size: 10px; opacity: 0.7; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a; text-align:center;}
 
     /* PIHU CHATBOT */
     .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 3000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
-    .ai-avatar { width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); animation: floatPulse 3s ease-in-out infinite; background: white; }
-    @keyframes floatPulse { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    .pihu-chat-box { position: fixed; bottom: 100px; left: 24px; width: 300px; background: white; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 3000; display: none; overflow: hidden; border: 1px solid #e2e8f0; flex-direction: column; animation: popIn 0.3s ease; }
+    .ai-avatar { width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); background: white; }
+    .pihu-chat-box { position: fixed; bottom: 100px; left: 24px; width: 300px; background: white; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 3000; display: none; overflow: hidden; border: 1px solid #e2e8f0; flex-direction: column; }
     .pihu-chat-box.active { display: flex; }
     .chat-header { background: var(--navy); color: var(--gold); padding: 12px 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); font-size:14px;}
     .chat-body { height: 260px; overflow-y: auto; padding: 15px; background: #f1f5f9; }
     .chat-input-area { display: flex; padding: 10px; background: white; border-top: 1px solid #e2e8f0; }
     .chat-input-area input { flex: 1; padding: 10px 15px; border: 1px solid #cbd5e1; border-radius: 20px; margin-bottom: 0; outline: none; font-size:13px; }
     .chat-input-area button { background: var(--gold); color: white; border: none; padding: 8px 15px; border-radius: 50%; margin-left: 8px; cursor: pointer; }
-    @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 
-    /* MODALS */
+    /* MODALS & POPUPS */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 4000; justify-content: center; align-items: center; padding: 15px; }
     .modal-overlay.active { display: flex; }
     .modal-content { background: white; padding: 25px; border-radius: 20px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border:2px solid var(--gold);}
     .close-btn { position: absolute; top: 15px; right: 15px; background: #f1f5f9; border: none; width: 30px; height: 30px; border-radius: 50%; font-size: 18px; cursor: pointer; z-index: 10; color: #0f172a;}
 
-    /* FULL SCREEN LOGIN */
+    /* FULL SCREEN LOGIN BACKGROUND */
     #loginModal .modal-content { max-width: 100vw; width: 100vw; height: 100vh; border-radius: 0; background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; border: none; padding: 20px; }
-    #loginModal h3 { color: var(--gold); font-size: 32px; margin-bottom: 20px; }
-    .login-box { background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); padding: 30px; border-radius: 20px; width: 100%; max-width: 350px; border: 1px solid rgba(212,175,55,0.3); box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
-
+    
     /* ELITE BOARDING PASS & FORM */
     .boarding-pass { background: #fff; border: 2px dashed var(--gold); border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2); }
     .boarding-pass::before, .boarding-pass::after { content: ''; position: absolute; top: 50%; width: 20px; height: 20px; background: #f8fafc; border-radius: 50%; border: 2px solid var(--gold); }
     .boarding-pass::before { left: -12px; } .boarding-pass::after { right: -12px; }
-    .boarding-pass h3 { margin: 0; color: var(--navy); font-size: 18px; letter-spacing: 2px; }
     .verified-stamp { font-size: 10px; background: var(--emerald); color: white; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-weight: bold; }
     .diet-passport { background: #fffbeb; border: 1px solid #fde047; padding: 15px; border-radius: 12px; margin-top: 15px; }
 
     /* TIMELINE POLAROID */
     .timeline-polaroid { background: white; padding: 10px; padding-bottom: 30px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-top: 10px; border: 1px solid #eee; transform: rotate(-2deg); max-width: 250px; }
     .timeline-polaroid img { width: 100%; border-radius: 3px; }
-    
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 25px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
     .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
 
     /* TRIP COMPLETED SCREEN */
     #tripCompleteScreen { display: none; text-align: center; padding: 30px 15px; background: linear-gradient(135deg, #f8fafc, #eef2ff); border-radius: 15px; border: 2px solid var(--gold); margin-top: 20px; }
-    .cert-btn { background: var(--gold); color: white; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; margin: 10px; }
 
     /* VARIOUS UTILS */
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 15px 0; background: #fff7ed; }
@@ -127,24 +121,34 @@
     .marquee-track img { height: 250px; border-radius: 10px; margin-right: 15px; object-fit: cover; cursor: pointer; }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     #lightboxModal .modal-content { background:transparent; border:none; box-shadow:none; padding:0; text-align:center; overflow: hidden;}
-    #lightboxImg { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; animation: sosPulse 2s infinite; font-size: 15px; margin-bottom: 15px; }
-    @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+    .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 15px; margin-bottom: 15px; }
     .filter-bar { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
     .filter-btn { background: #e2e8f0; color: var(--navy); border: none; padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size:13px; cursor: pointer; }
     .filter-btn.active { background: var(--navy); color: var(--gold); }
     .badge { font-size:10px; background: var(--gold); color:var(--navy); font-weight:800; padding:4px 10px; border-radius:50px; margin-bottom:10px; display:inline-block; letter-spacing: 0.5px;}
+    
+    /* ITINERARY STYLES */
     .route-map-pro { position: relative; height: 40px; border-bottom: 2px dashed #94a3b8; margin: 15px 0 25px; display: flex; align-items: flex-end; justify-content: space-between; }
     .bus-pro { position: absolute; bottom: -5px; font-size: 24px; animation: driveBusPro 4s linear infinite; z-index:3; }
     @keyframes driveBusPro { 0% { left: 0; } 100% { left: 88%; } }
     .route-pin { background: var(--navy); color: var(--gold); padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; position: relative; bottom: -10px; z-index: 2; border: 2px solid white; }
+    .weather-badge { background: #f8fafc; color: var(--navy); padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 15px; border: 1px solid #e2e8f0; }
+
+    input, textarea, select { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; margin-bottom: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; font-size:14px;}
+    input:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 8px rgba(212,175,55,0.2); }
+    details { background: white; padding: 14px 20px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+    summary { font-weight: 600; font-size: 15px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 20px; color: var(--gold); transition: 0.3s; }
+    details[open] summary::after { content: '-'; }
+    details p { margin-top: 10px; margin-bottom: 0; color: #475569; line-height: 1.5; font-size:14px; border-top: 1px solid #f1f5f9; padding-top: 10px; }
   </style>
 </head>
 <body>
 
   <audio id="bgAudio" loop></audio>
 
-  <div id="liveNotif" style="position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px;">🔔 <span id="notifMsg">A school from Sirsa just inquired!</span></div>
+  <div id="liveNotif" style="position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px;">🔔 <span id="notifMsg"></span></div>
 
   <div class="top-bar">
     <marquee scrollamount="5">🎒 Bookings Open for Amarnath Yatra 2026 | Special 20% Group Discount | 🛡️ Udyam Certified Safety Standards</marquee>
@@ -312,10 +316,10 @@
           <h2 id="schoolH2" style="font-size: 30px; margin-top:0;">Partner With Us For Your Next School Trip</h2>
           <p id="schoolP" style="font-size: 14px; line-height: 1.7; color: #475569;">At Joyful Tours, we handle 100% of the logistics so your teaching staff can focus entirely on the students.</p>
           <ul style="line-height: 1.8; color: var(--navy); font-weight: 600; margin-bottom: 25px; font-size:14px; list-style:none; padding:0;">
-            <li>✓ Strict 1:10 Coordinator to Student Ratio</li>
-            <li>✓ Dedicated Female Staff for Girls</li>
-            <li>✓ 24/7 Medical & Doctor-on-call Support</li>
-            <li>✓ Secure Live GPS Tracking for Parents</li>
+            <li id="s1" style="margin-bottom:8px;">✓ Strict 1:10 Coordinator to Student Ratio</li>
+            <li id="s2" style="margin-bottom:8px;">✓ Dedicated Female Staff for Girls</li>
+            <li id="s3" style="margin-bottom:8px;">✓ 24/7 Medical & Doctor-on-call Support</li>
+            <li id="s4" style="margin-bottom:8px;">✓ Private WhatsApp Broadcast for Parents</li>
           </ul>
           <button class="btn primary" style="padding:12px 20px; font-size:14px; margin:0;" onclick="window.open('https://wa.me/919729561534?text=Requesting%20School%20Presentation')">Request a Presentation</button>
         </div>
@@ -327,11 +331,12 @@
   <section id="how-it-works" class="section" style="background: var(--light-bg);">
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">How It Works: 4 Easy Steps</h2>
-      <div class="grid" style="text-align:center;">
-        <div class="card"><h3>1</h3><p>Submit Inquiry via WhatsApp</p></div>
-        <div class="card"><h3>2</h3><p>Get Custom Proposal</p></div>
-        <div class="card"><h3>3</h3><p>Logistics Secured</p></div>
-        <div class="card"><h3>4</h3><p>Joyful Execution!</p></div>
+      <p style="text-align: center; color: #64748b; margin-bottom: 40px; font-size:14px;">From inquiry to execution, we handle 100% of the logistics.</p>
+      <div class="grid">
+        <div class="step-box"><div class="step-icon">1</div><h3 style="font-size:18px;">Submit Inquiry</h3><p style="color:#475569; font-size:13px;">Tell us your destination, dates, and student count via WhatsApp.</p></div>
+        <div class="step-box"><div class="step-icon">2</div><h3 style="font-size:18px;">Custom Quote</h3><p style="color:#475569; font-size:13px;">We share a detailed proposal and a transparent pricing plan.</p></div>
+        <div class="step-box"><div class="step-icon">3</div><h3 style="font-size:18px;">Logistics Planning</h3><p style="color:#475569; font-size:13px;">We secure premium AC coaches, 4-star hotels, and verified staff.</p></div>
+        <div class="step-box"><div class="step-icon">4</div><h3 style="font-size:18px;">Joyful Trip</h3><p style="color:#475569; font-size:13px;">Teachers relax while our expert Captains manage the expedition.</p></div>
       </div>
     </div>
   </section>
@@ -340,7 +345,7 @@
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Frequently Asked Questions</h2>
       <div style="max-width: 700px; margin: 30px auto 0;">
-        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">Is there dedicated staff for female students?</summary><p style="margin-top:10px; color:#475569;">Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students.</p></details>
+        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">Is there dedicated staff for female students?</summary><p style="margin-top:10px; color:#475569;">Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students to ensure their comfort and safety.</p></details>
         <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">What kind of food is provided during the trips?</summary><p style="margin-top:10px; color:#475569;">We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.</p></details>
         <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">How do parents get updates during the trip?</summary><p style="margin-top:10px; color:#475569;">Parents can use our Secure VIP Login Portal to track live GPS, weather, and real-time trip timelines.</p></details>
       </div>
@@ -353,22 +358,22 @@
       <a class="btn primary" href="https://www.instagram.com/reel/DTQWwVlDVWR/?igsh=NThweDVqYWVocHZ5" target="_blank" style="text-decoration:none; margin:10px 0; padding:10px 20px; font-size:13px;">▶️ Watch Jaisalmer Reel</a>
     </div>
     <div class="gallery-marquee"><div class="marquee-track">
-      <img src="https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=1XKEX8nkq-5MlbwJp55Sk3zhawwQ_6NRI&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
-      <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="document.getElementById('lightboxImg').src=this.src; document.getElementById('lightboxModal').classList.add('active');">
+      <img src="https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1XKEX8nkq-5MlbwJp55Sk3zhawwQ_6NRI&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1-ETF95ipK3gFt6LzbMjh5bx4-k44miqo&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=103zkXHHNqEVhksqe311sF0HPQR1RIDnH&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1gTKaUbezNN6NIqNoFXvvW4PPx-OAYEXH&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1i5o5BnQKGkcdIuy1FDpcfeNECr1G12nr&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="openLightbox(this.src)">
     </div></div>
   </section>
 
   <section id="reviews" class="section" style="background:white">
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Customer Reviews</h2>
-      <div class="card" style="max-width: 600px; margin: 30px auto 0; background:var(--light-bg); border:1px solid #e2e8f0; padding:25px;">
+      <div class="card" id="reviewBox" style="max-width: 600px; margin: 30px auto 0; background:var(--light-bg); border:1px solid #e2e8f0; padding:25px;">
         <h3 style="margin-top:0; font-size:18px;">Write a Review</h3>
         <input type="text" id="revName" placeholder="Name / School" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; box-sizing:border-box;">
         <select id="revRating" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; box-sizing:border-box;"><option value="5">⭐⭐⭐⭐⭐ - Excellent</option><option value="4">⭐⭐⭐⭐ - Good</option></select>
@@ -399,23 +404,35 @@
 
   <footer id="contact" class="section" style="background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover; color: white; padding-bottom: 30px;">
     <div class="container">
-      <div style="text-align:center;">
-        <h2 style="color: var(--gold); margin-top:0; font-size:28px;">Joyful Tours And Adventures</h2>
-        <p style="font-size:14px;">📧 joyfultours0408@gmail.com | WhatsApp: +91-8295411207</p>
-        <p style="font-size:11px; opacity:0.5; margin-top:40px;">© 2026 Joyful Tours And Adventures. Registered in Sirsa, Haryana. Udyam Certified.</p>
+      <div style="display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
+        <div style="flex:1; min-width:280px;">
+          <h2 style="color: var(--gold); margin-top:0; font-size:28px;">Joyful Tours And Adventures</h2>
+          <p style="opacity:0.8; margin-bottom:20px; font-size:14px;">Premium Educational Expeditions & Group Tours.</p>
+          <p style="font-size:14px;"><strong>Core Management:</strong> Pawan, Raman & Chirag</p>
+          <a class="btn primary" href="https://wa.me/919729561534" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px;">Pawan: 97295-61534</a>
+          <a class="btn primary" href="https://wa.me/918295411207" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px;">Raman: 82954-11207</a>
+          <a class="btn primary" href="https://wa.me/918569866042" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px; background:var(--emerald); border-color:var(--emerald);">Chirag: 85698-66042</a>
+          <p style="margin-top:20px; font-size:14px;">📧 joyfultours0408@gmail.com</p>
+          <a href="https://instagram.com/joyful_tours_adventures" target="_blank" style="color:var(--gold); text-decoration:none; font-size:14px;">Instagram: @joyful_tours_adventures</a>
+        </div>
+        <div style="border-radius: 15px; overflow: hidden; width: 400px; height: 280px; border: 2px solid rgba(212,175,55,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110996.15545229668!2d75.021008!3d29.5332204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114cb1855a82fd%3A0xc3b5e43a99201582!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1713500000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
+      <p style="text-align:center; padding-top:40px; font-size:11px; opacity:0.5;">© 2026 Joyful Tours And Adventures. Registered in Sirsa, Haryana. Udyam Certified.</p>
     </div>
   </footer>
 
   <div id="itineraryModal" class="modal-overlay">
     <div class="modal-content" style="padding:25px;">
-      <button class="close-btn" onclick="document.getElementById('itineraryModal').classList.remove('active')">×</button>
+      <button class="close-btn" onclick="closeModal()">×</button>
       <h2 id="modalTitle" style="font-size:24px; margin-top:0;">Itinerary Details</h2>
-      <div id="modalWeather" class="weather-badge" style="background:#f8fafc; color:var(--navy); padding:6px 12px; border-radius:6px; font-size:13px; font-weight:bold; display:inline-block; margin-bottom:15px; border:1px solid #e2e8f0;">🌤️ Live Weather</div>
-      <div class="route-map-pro" style="position:relative; height:40px; border-bottom:2px dashed #94a3b8; margin:15px 0 25px; display:flex; align-items:flex-end; justify-content:space-between;"><div style="position:absolute; bottom:-5px; font-size:24px; animation:driveBusPro 4s linear infinite; z-index:3;">🚍</div><div style="background:var(--navy); color:var(--gold); padding:3px 10px; border-radius:6px; font-size:11px; font-weight:bold; position:relative; bottom:-10px; z-index:2;">Sirsa</div><div id="destPin" style="background:var(--gold); color:white; padding:3px 10px; border-radius:6px; font-size:11px; font-weight:bold; position:relative; bottom:-10px; z-index:2;">Dest</div></div>
-      <div id="modalBody" style="margin-bottom: 25px; border-left:2px solid var(--gold); padding-left:15px; margin-left:5px;"></div>
+      <div id="modalWeather" class="weather-badge">🌤️ Live Weather</div>
+      <div class="route-map-pro"><div class="bus-pro">🚍</div><div class="route-pin" style="left:0;">Sirsa</div><div class="route-pin" style="right:0; background:var(--gold); color:white;" id="destPin">Dest</div></div>
+      <div id="modalBody" class="timeline" style="margin-bottom: 25px;"></div>
       <div style="display:flex; gap:10px;">
-        <button class="btn primary" style="flex:1; padding:12px; font-size:13px; margin:0;" onclick="window.open(currentPDF)">📄 Download PDF</button>
+        <button class="btn primary" style="flex:1; padding:12px; font-size:13px; margin:0;" onclick="downloadCurrentPDF()">📄 Download PDF</button>
+        <button class="btn" style="flex:1; padding:12px; font-size:13px; background:#25d366; color:white; border:none; margin:0; border-radius:999px; font-weight:600;" onclick="bookCurrentTrip()">🟢 Book Trip</button>
       </div>
     </div>
   </div>
@@ -428,9 +445,9 @@
 
   <div id="360Modal" class="modal-overlay" style="z-index: 5500;">
     <div class="modal-content" style="max-width: 800px; background:#000; color:white; padding:10px;">
-      <button class="close-btn" onclick="document.getElementById('360Modal').classList.remove('active'); document.getElementById('bgAudio').pause();" style="background:white; color:black;">×</button>
+      <button class="close-btn" onclick="close360()" style="background:white; color:black;">×</button>
       <h3 style="margin:10px 15px;" id="panoTitle">Location 360°</h3>
-      <div id="panoFrame" style="width:100%; height:350px; border-radius:12px; background-position:center; background-size:cover; animation:pan360 25s linear infinite alternate;"></div>
+      <div id="panoFrame"></div>
     </div>
   </div>
 
@@ -483,30 +500,30 @@
       </div>
 
       <div id="liveTrackingUI">
-        <div class="dash-nav" style="display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px;">
-          <div id="tab-overview" class="dash-tab active" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-overview', this)">Overview</div>
-          <div id="tab-timeline" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
-          <div id="tab-pass" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
-          <div id="tab-gallery" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
+        <div class="dash-nav">
+          <div id="tab-overview" class="dash-tab active" onclick="switchDashTab('dash-overview', this)">Overview</div>
+          <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
+          <div id="tab-pass" class="dash-tab" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
+          <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
         </div>
 
         <div style="padding:20px; height:400px; overflow-y:auto;">
           
           <div id="dash-overview" class="dash-panel active" style="display:block;">
-            <button style="background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 15px; margin-bottom: 15px;" onclick="alert('🚨 Emergency Ping Sent to Captain!')">🚨 EMERGENCY SOS</button>
+            <button class="sos-btn" onclick="alert('🚨 Emergency Ping Sent to Captain!')">🚨 EMERGENCY SOS</button>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom:15px;">
-              <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;">
-                <p style="margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">🏔️ Live Altitude</p>
-                <strong id="liveAlt" style="font-size:14px; display:block; margin-top:3px; color: white;">Syncing...</strong>
+            <div class="radar-grid">
+              <div class="radar-item">
+                <p>🏔️ Live Altitude</p>
+                <strong id="liveAlt">Syncing...</strong>
               </div>
-              <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;">
-                <p style="margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">🏥 Medical Radar</p>
-                <strong id="medicalRadar" style="font-size:14px; display:block; margin-top:3px; color: white;">Scanning...</strong>
+              <div class="radar-item">
+                <p>🏥 Medical Radar</p>
+                <strong id="medicalRadar">Scanning...</strong>
               </div>
             </div>
 
-            <div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px;">
+            <div class="status-card">
               <h3 style="margin:0 0 15px 0; color:var(--gold);">Current Status</h3>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">📍 Location</p><strong style="font-size:14px;" id="liveLoc">Updating...</strong></div>
@@ -514,21 +531,21 @@
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Connecting...</strong></div>
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">⏱️ ETA</p><strong style="font-size:14px;" id="liveETA">Calculating...</strong></div>
               </div>
-              <div id="gpsDebug" style="font-size: 10px; opacity: 0.7; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a; text-align:center;">Awaiting secure connection...</div>
+              <div class="gps-debug" id="gpsDebug">Awaiting secure connection...</div>
             </div>
             
             <div id="roleSpecificUI"></div>
           </div>
 
           <div id="dash-timeline" class="dash-panel" style="display:none;">
-            <p style="font-size:12px; color:#64748b; margin-top:0;">Live updates from Tour Captain.</p>
+            <p style="font-size:12px; color:#64748b; margin-top:0;">Live Polaroid updates from Tour Captain.</p>
             <div id="timelineContainer"></div>
           </div>
 
           <div id="dash-pass" class="dash-panel" style="display:none;">
-            <div style="background: #fff; border: 2px dashed #d4af37; border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2);">
-              <div style="font-size: 10px; background: #059669; color: white; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-weight: bold;">SECURE VERIFIED PASS</div>
-              <h3 style="margin: 0; color: #0f172a; font-size: 18px; letter-spacing: 2px;">JOYFUL VIP PASS</h3>
+            <div class="boarding-pass">
+              <div class="verified-stamp">SECURE VERIFIED PASS</div>
+              <h3>JOYFUL VIP PASS</h3>
               <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=JoyfulTours" style="border-radius:10px; margin:15px 0; border:4px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
               <div style="border-top:1px dashed #ccc; padding-top:10px; font-size:11px; font-weight:bold; color:var(--navy);">AUTHORIZED ENTRY ONLY</div>
             </div>
@@ -548,7 +565,7 @@
   <canvas id="certCanvas" style="display:none;" width="1000" height="700"></canvas>
 
   <script>
-    // UI FUNCTIONS
+    // JS CORE
     function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
     function toggleWaMenu() { 
       const waMenu = document.getElementById('waMenu');
@@ -603,38 +620,45 @@
       document.getElementById('bgAudio').play().catch(() => {}); 
       document.getElementById('360Modal').classList.add('active'); 
     }
+    function close360() { 
+      document.getElementById('360Modal').classList.remove('active'); 
+      document.getElementById('bgAudio').pause(); 
+    }
 
-    // ALL 23 ITINERARIES EXPLICITLY WRITTEN
+    // ALL 23 ITINERARIES EXPLICITLY WRITTEN WITH FULL LINKS
     const itineraryData = {
-      'Rishikesh': { title: 'Rishikesh Adventure', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<p style="margin:5px 0;"><strong>Day 1:</strong> Arrival & Aarti.</p><p style="margin:5px 0;"><strong>Day 2:</strong> Rafting & Bunjee.</p>' },
-      'RishikeshSchool': { title: 'Rishikesh Institutional', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<p style="margin:5px 0;">Educational rafting with extreme safety protocols.</p>' },
-      'RishikeshFriends': { title: 'Rishikesh Squad', pdf: 'https://drive.google.com/file/d/1e_wrQOv-___yWzo51WLn0E7DZm37jix1/view', text: '<p style="margin:5px 0;">Luxury camping and high-energy adventure.</p>' },
-      'RishikeshFamily': { title: 'Rishikesh Royal Family', pdf: 'https://drive.google.com/file/d/11aSBL8HdhHtD8asdq9TvegOSt9bw554u/view', text: '<p style="margin:5px 0;">Luxury resort stays and safe river activities.</p>' },
-      'Darjeeling': { title: 'Darjeeling Elite', pdf: 'https://drive.google.com/file/d/1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt/view', text: '<p style="margin:5px 0;"><strong>Day 1:</strong> Mall Road.</p><p style="margin:5px 0;"><strong>Day 2:</strong> Tiger Hill & Tea Gardens.</p>' },
-      'DarjeelingFriends': { title: 'Darjeeling Squad', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<p style="margin:5px 0;">Tiger Hill & High-altitude Trekking.</p>' },
-      'DarjeelingFamily': { title: 'Darjeeling Royal', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<p style="margin:5px 0;">Tea Estates & Toy Train Ride.</p>' },
-      'CategorySchool': { title: 'Educational Trips', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<p style="margin:5px 0;">Strict safety, doctor-on-call, female staff.</p>' },
-      'CategoryFriends': { title: 'Squad Adventures', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<p style="margin:5px 0;">Trekking, bonfires, and DJ nights.</p>' },
-      'CategoryFamily': { title: 'Family Escapes', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<p style="margin:5px 0;">Maximum privacy & 4-Star luxury.</p>' },
-      'AmritsarWagah': { title: 'Amritsar Pride', pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', text: '<p style="margin:5px 0;">Golden Temple & Wagah Border.</p>' },
-      'Manali': { title: 'Manali Adventure', pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', text: '<p style="margin:5px 0;">Snow World & Solang Valley.</p>' },
-      'Shimla': { title: 'Shimla Hills', pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', text: '<p style="margin:5px 0;">Heritage Walk & Kufri.</p>' },
-      'Chandigarh': { title: 'Chandigarh City', pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', text: '<p style="margin:5px 0;">Rock Garden & Sukhna Lake.</p>' },
-      'Kurukshetra': { title: 'Kurukshetra', pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', text: '<p style="margin:5px 0;">Brahma Sarovar & Science Panorama.</p>' },
-      'Udaipur': { title: 'Udaipur Royal', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', text: '<p style="margin:5px 0;">City Palace & Lake Pichola.</p>' },
-      'SpitiLadakhMega': { title: 'Spiti + Ladakh', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<p style="margin:5px 0;">15 Days Trans-Himalayan circuit.</p>' },
-      'AmritsarDalhousie': { title: 'Amritsar + Dalhousie', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<p style="margin:5px 0;">Heritage & Hills combo.</p>' },
-      'Amarnath': { title: 'Amarnath Yatra', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', text: '<p style="margin:5px 0;">Spiritual trekking with safety.</p>' },
-      'Delhi': { title: 'Delhi Heritage', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', text: '<p style="margin:5px 0;">Red Fort & India Gate.</p>' },
-      'RishikeshMasubra': { title: 'Rishikesh + Masubra', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<p style="margin:5px 0;">Thrill in Rishikesh, Chill in Masubra.</p>' },
-      'CorbettNainital': { title: 'Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<p style="margin:5px 0;">Wild Safari & Lakes.</p>' },
-      'JaipurRanthambore': { title: 'Jaipur + Ranthambore', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<p style="margin:5px 0;">Royal Forts & Tiger Tracking.</p>' }
+      'Rishikesh': { title: 'Rishikesh Adventure', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>Day 1: Arrival & Aarti</strong><p>Ganga Aarti at Triveni Ghat.</p></div><div class="timeline-item"><strong>Day 2: Thrill Time</strong><p>White Water Rafting & Bunjee Jumping.</p></div>' },
+      'RishikeshSchool': { title: 'Rishikesh Institutional', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>For Schools</strong><p>Educational rafting and ashram visits with high safety protocols.</p></div>' },
+      'RishikeshFriends': { title: 'Rishikesh Squad', pdf: 'https://drive.google.com/file/d/1e_wrQOv-___yWzo51WLn0E7DZm37jix1/view', text: '<div class="timeline-item"><strong>For Friends</strong><p>Luxury camping, 16KM rafting and high-energy adventure.</p></div>' },
+      'RishikeshFamily': { title: 'Rishikesh Royal Family', pdf: 'https://drive.google.com/file/d/11aSBL8HdhHtD8asdq9TvegOSt9bw554u/view', text: '<div class="timeline-item"><strong>For Families</strong><p>Luxury resort stays, peaceful temple visits, and safe river activities.</p></div>' },
+      'Darjeeling': { title: 'Darjeeling Elite', pdf: 'https://drive.google.com/file/d/1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt/view', text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill</strong><p>Sunrise view and Tea Gardens.</p></div>' },
+      'DarjeelingFriends': { title: 'Darjeeling Squad', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<div class="timeline-item"><strong>Day 1: Mall Road</strong><p>Arrival & Shopping.</p></div><div class="timeline-item"><strong>Day 2: Tiger Hill & Trekking</strong><p>Sunrise view and high-energy exploration.</p></div>' },
+      'DarjeelingFamily': { title: 'Darjeeling Royal', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<div class="timeline-item"><strong>Day 1: Premium Check-in</strong><p>Luxury stay and Mall road walk.</p></div><div class="timeline-item"><strong>Day 2: Tea Estates</strong><p>Peaceful tour of Tea Gardens and Toy Train ride.</p></div>' },
+      'CategorySchool': { title: 'Educational Trips', pdf: 'https://drive.google.com/file/d/18qSbOo94kX_i_A9KBGiMpUkA9QW-WCmR/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Program Features</strong><p>Strict safety protocols, educational activities, doctor-on-call, and dedicated female staff for girls.</p></div>' },
+      'CategoryFriends': { title: 'Squad Adventures', pdf: 'https://drive.google.com/file/d/12k-scK9NCln15KkAgnObdadG2xkJeU5W/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Vibe & Activities</strong><p>Trekking, adventure sports, bonfires, DJ nights, and high-energy exploration designed for friends.</p></div>' },
+      'CategoryFamily': { title: 'Family Escapes', pdf: 'https://drive.google.com/file/d/1sYMxoEDS_B7l_9KtkbJIr-GylcVL0-nC/view', text: '<div class="timeline-item"><strong>Available For Destinations</strong><p>Darjeeling, Rishikesh, Spiti, Manali, Shimla, Amritsar, Chandigarh, Kurukshetra, Udaipur, Dalhousie.</p></div><div class="timeline-item"><strong>Luxury Features</strong><p>Maximum privacy, 4-Star luxury stays, slow-paced itineraries, and premium comfort vehicles.</p></div>' },
+      'AmritsarWagah': { title: 'Amritsar Pride', pdf: 'https://drive.google.com/file/d/1fAy5qzMD9KS_tqTLu7_Nvw29Ul2KZxWg/view', text: '<div class="timeline-item"><strong>Day 1: Golden Temple</strong><p>Spiritual Darshan at Harmandir Sahib.</p></div><div class="timeline-item"><strong>Day 2: Wagah Border</strong><p>High energy patriotic retreat ceremony.</p></div>' },
+      'Manali': { title: 'Manali Adventure', pdf: 'https://drive.google.com/file/d/1F03-1mKfJoiwYf8mHrD0V7nFX6EyVFIs/view', text: '<div class="timeline-item"><strong>Day 1: Arrival</strong><p>Mall road shopping and local sight seeing.</p></div><div class="timeline-item"><strong>Day 2: Snow World</strong><p>Solang Valley adventure activities.</p></div>' },
+      'Shimla': { title: 'Shimla Hills', pdf: 'https://drive.google.com/file/d/1n-wnXMFqYht21eM0FBX1PBx9kTZmrCxI/view', text: '<div class="timeline-item"><strong>Day 1: Heritage Walk</strong><p>Explore The Ridge and historic Christ Church.</p></div><div class="timeline-item"><strong>Day 2: Kufri</strong><p>Adventure park and Himalayan nature walk.</p></div>' },
+      'Chandigarh': { title: 'Chandigarh City', pdf: 'https://drive.google.com/file/d/1_sjxgdtQI59Malz_Bwd3S-0XD8b3BR7R/view', text: '<div class="timeline-item"><strong>Day 1: City Beautiful</strong><p>Rock Garden exploration & sunset boating at Sukhna Lake.</p></div>' },
+      'Kurukshetra': { title: 'Kurukshetra', pdf: 'https://drive.google.com/file/d/1_3QiMufD1cEzZqSY9YjWzOX-02v1DLsI/view', text: '<div class="timeline-item"><strong>Day 1: Epicenter of History</strong><p>Visit to Brahma Sarovar, Jyotisar, and the Science Panorama.</p></div>' },
+      'Udaipur': { title: 'Udaipur Royal', pdf: 'https://drive.google.com/file/d/1qRa55XLQoh3k35ck2mX4IIV2f5pLvnaQ/view', text: '<div class="timeline-item"><strong>Day 1: Royal Arrival</strong><p>Tour of City Palace & evening boat ride at Lake Pichola.</p></div>' },
+      'SpitiLadakhMega': { title: 'Spiti + Ladakh', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley & Leh.</p></div>' },
+      'AmritsarDalhousie': { title: 'Amritsar + Dalhousie', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with Dalhousie and Khajjiar.</p></div>' },
+      'Amarnath': { title: 'Amarnath Yatra', pdf: 'https://drive.google.com/file/d/1f8FyvBOxOa66uf1eKt1It12p1z0g7Dbq/view', text: '<div class="timeline-item"><strong>Day 1: The Journey</strong><p>Spiritual trekking start from Srinagar with extreme safety protocols.</p></div>' },
+      'Delhi': { title: 'Delhi Heritage', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Visit Red Fort, Qutub Minar, India Gate & Parliament House.</p></div>' },
+      'RishikeshMasubra': { title: 'Rishikesh + Masubra', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Masubra.</p></div>' },
+      'CorbettNainital': { title: 'Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and lake exploration in Nainital.</p></div>' },
+      'JaipurRanthambore': { title: 'Jaipur + Ranthambore', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
     };
 
-    let currentPDF = ''; let currentTripName = '';
+    let currentPDF = ''; 
+    let currentTripName = '';
+    
     function openModal(id, dest, weatherInfo = '🌤️ Curated') { 
       const data = itineraryData[id] || {title: id, pdf: '#', text: 'Details loading...'}; 
-      currentPDF = data.pdf; currentTripName = data.title; 
+      currentPDF = data.pdf; 
+      currentTripName = data.title; 
       document.getElementById('modalTitle').innerText = data.title; 
       document.getElementById('modalWeather').innerText = `Dest: ${dest} | ${weatherInfo}`; 
       document.getElementById('modalBody').innerHTML = data.text; 
@@ -651,6 +675,19 @@
       }); 
     }
 
+    function openLightbox(src) { 
+      document.getElementById('lightboxImg').src = src; 
+      document.getElementById('lightboxModal').classList.add('active'); 
+    }
+    
+    function submitReview() { 
+      const n = document.getElementById('revName').value; const t = document.getElementById('revText').value; const r = document.getElementById('revRating').value;
+      let stars = ''; for(let i=0; i<r; i++) stars += '⭐';
+      if(n && t) { document.getElementById('reviewList').innerHTML = `<div class="card" style="background:#f8fafc; padding:20px; border-left:4px solid var(--gold); text-align:left; box-shadow:none;"><p style="margin:0 0 10px; font-size:14px; color:#475569; font-style:italic;">"${t}"</p><strong style="font-size:14px;">- ${n}</strong><div style="font-size:12px; margin-top:5px;">${stars}</div></div>` + document.getElementById('reviewList').innerHTML; document.getElementById('revName').value=''; document.getElementById('revText').value=''; alert("Review Published!"); } else { alert("Please enter both Name and Review Text."); }
+    }
+    
+    function sendFinalBooking() { const n = document.getElementById('b_name').value; const d = document.getElementById('b_dest').value; if(n) { window.open(`https://wa.me/919729561534?text=Inquiry from ${n} for ${d}`, '_blank'); } }
+
     // FIREBASE INITIALIZATION
     const firebaseConfig = {
       apiKey: "AIzaSyB7rithwb5Dc5UI8pYMFiCG2b_lAHx1W-0", authDomain: "joyful-tours-live.firebaseapp.com",
@@ -662,9 +699,8 @@
 
     function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
 
-    // REAL-TIME APIS: AQI & MEDICAL RADAR (ROBUST FIX)
+    // REAL-TIME APIS: AQI & MEDICAL RADAR
     function fetchRealTimeMetrics(lat, lon) {
-      // 1. Weather API
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=B09c0c8f99ae2959dd2059168d662bab`)
         .then(res => res.json())
         .then(data => {
@@ -674,7 +710,16 @@
           }
         }).catch(err => console.log(err));
 
-      // 2. Medical Radar (Overpass API - Increased radius to 30km for hilly areas)
+      fetch(`https://api.open-meteo.com/v1/elevation?latitude=${lat}&longitude=${lon}`)
+        .then(res => res.json())
+        .then(data => {
+          if(data.elevation && data.elevation.length > 0) {
+            document.getElementById('liveAlt').innerText = `${Math.round(data.elevation[0])} Meters`;
+          } else {
+            document.getElementById('liveAlt').innerText = `Syncing...`;
+          }
+        }).catch(err => console.log("Altitude API error"));
+
       const overpassQuery = `[out:json][timeout:10];(node["amenity"="hospital"](around:30000,${lat},${lon});way["amenity"="hospital"](around:30000,${lat},${lon}););out center 1;`;
       fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(overpassQuery)}`)
         .then(res => res.json())
@@ -697,7 +742,7 @@
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); return R * c; 
     }
 
-    // REAL CERTIFICATE GENERATOR (CANVAS)
+    // PRO CERTIFICATE GENERATOR WITH AUTO-DOWNLOAD FIX
     function generateCertificate() {
       const name = document.getElementById('certNameInput').value.trim();
       if(!name) return alert("Please enter the student's name first!");
@@ -705,56 +750,67 @@
       const canvas = document.getElementById('certCanvas');
       const ctx = canvas.getContext('2d');
       
-      // Background & Borders
+      // Canvas Background
       ctx.fillStyle = '#0f172a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Gold Borders
       ctx.strokeStyle = '#d4af37';
       ctx.lineWidth = 15;
       ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
       ctx.lineWidth = 3;
       ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
 
-      // Text Alignment
       ctx.textAlign = 'center';
+      
+      // Header
       ctx.fillStyle = '#d4af37';
-      ctx.font = 'bold 45px "Playfair Display", serif';
+      ctx.font = 'bold 45px "Times New Roman", serif';
       ctx.fillText('JOYFUL TOURS AND ADVENTURES', canvas.width/2, 120);
       ctx.fillStyle = '#ffffff';
-      ctx.font = '20px Montserrat, sans-serif';
+      ctx.font = '20px Arial, sans-serif';
       ctx.fillText('UDYAM CERTIFIED | PREMIUM EDUCATIONAL EXPEDITIONS', canvas.width/2, 160);
 
-      // Main Text
+      // Title
       ctx.fillStyle = '#d4af37';
-      ctx.font = 'bold 55px "Playfair Display", serif';
+      ctx.font = 'bold 55px "Times New Roman", serif';
       ctx.fillText('CERTIFICATE OF EXCELLENCE', canvas.width/2, 280);
+
+      // Body Text
       ctx.fillStyle = '#cbd5e1';
-      ctx.font = '22px Montserrat, sans-serif';
+      ctx.font = '22px Arial, sans-serif';
       ctx.fillText('This is proudly presented to', canvas.width/2, 350);
 
-      // Student Name
+      // Name
       ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 50px Montserrat, sans-serif';
+      ctx.font = 'bold 50px Arial, sans-serif';
       ctx.fillText(name.toUpperCase(), canvas.width/2, 420);
 
       // Description
       ctx.fillStyle = '#cbd5e1';
-      ctx.font = '20px Montserrat, sans-serif';
+      ctx.font = '20px Arial, sans-serif';
       const dest = document.getElementById('dashGroupName').innerText || "Himalayan Region";
       ctx.fillText(`For successfully completing the adventure expedition to ${dest}`, canvas.width/2, 490);
       ctx.fillText('demonstrating great teamwork, discipline, and joyful spirit.', canvas.width/2, 530);
 
-      // Signatures
+      // Signature
       ctx.fillStyle = '#d4af37';
-      ctx.font = 'bold 20px Montserrat, sans-serif';
+      ctx.font = 'bold 20px Arial, sans-serif';
       ctx.fillText('Authorized by Joyful Tours Management', canvas.width/2, 600);
-      ctx.font = 'italic 16px Montserrat, sans-serif';
+      ctx.font = 'italic 16px Arial, sans-serif';
       ctx.fillText('Instagram: @joyful_tours_adventures', canvas.width/2, 630);
 
-      // Trigger Download
-      const link = document.createElement('a');
-      link.download = `${name}_Joyful_Certificate.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      try {
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = `${name.replace(/\s+/g, '_')}_Joyful_Certificate.png`;
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch(e) {
+        alert("Download blocked by browser. Please use desktop for certificates.");
+      }
     }
 
     function loginDashboard() {
@@ -773,7 +829,7 @@
 
           document.getElementById('dashGroupName').innerText = tripData.groupName || "Premium Expedition";
 
-          // TRIP COMPLETION CHECK
+          // TRIP COMPLETE LOGIC
           if(tripData.status === 'completed') {
             document.getElementById('liveTrackingUI').style.display = 'none';
             document.getElementById('tripCompleteScreen').style.display = 'block';
@@ -791,21 +847,13 @@
 
           if(tripData.liveGPS && tripData.liveGPS.lat) {
             document.getElementById('gpsDebug').innerText = "Encrypted Ping: " + tripData.liveGPS.time;
-            
-            // REAL ALTITUDE FIX
-            if(tripData.liveGPS.altitude && tripData.liveGPS.altitude > 0) {
-              document.getElementById('liveAlt').innerText = `${Math.round(tripData.liveGPS.altitude)} Meters`;
-            } else {
-              document.getElementById('liveAlt').innerText = `Calibrating GPS...`;
-            }
-            
             fetchRealTimeMetrics(tripData.liveGPS.lat, tripData.liveGPS.lon);
           }
 
           if(userRole === 'teacher') {
             document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#eef2ff; padding:15px; border-radius:10px; margin-top:15px; border:1px solid #c7d2fe;"><strong style="color:#3730a3;">👑 Principal Dashboard</strong><p style="margin:5px 0 0; font-size:12px; color:#4f46e5;">All students safe. Ground operations running perfectly.</p></div>`;
           } else {
-            document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#fffbeb; border:1px solid #fde047; padding:15px; border-radius:12px; margin-top:15px;"><h4 style="margin:0 0 10px 0; font-size:14px; color:#854d0e;">🍱 Health & Meal Passport</h4><input id="f_name" placeholder="Student's Name" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><select id="f_diet" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><option>Pure Veg</option><option>Jain Food</option><option>No Garlic/Onion</option></select><button style="width:100%; padding:10px; background:var(--navy); color:var(--gold); border:none; border-radius:8px; font-weight:bold; cursor:pointer;" onclick="alert('Digital Passport Updated! ✅')">SUBMIT TO KITCHEN</button></div>`;
+            document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#fffbeb; border:1px solid #fde047; padding:15px; border-radius:12px; margin-top:15px;"><h4 style="margin:0 0 10px 0; font-size:14px; color:#854d0e;">🍱 Health & Meal Passport</h4><input id="f_name" placeholder="Student's Name" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><select id="f_diet" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><option>Pure Veg</option><option>Jain Food</option><option>No Garlic/Onion</option></select><input id="f_allergy" placeholder="Any Allergies? (Type None)" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><button style="width:100%; padding:10px; background:var(--navy); color:var(--gold); border:none; border-radius:8px; font-weight:bold; cursor:pointer;" onclick="submitEliteForm('${code}')">SUBMIT TO KITCHEN</button></div>`;
           }
         } else {
           alert("Invalid Passcode!");
@@ -820,12 +868,25 @@
           const val = child.val();
           let content = `<p style="margin:5px 0 0; font-size:14px;">${val.text}</p>`;
           if(val.photoUrl) {
-            content += `<div style="background:white; padding:10px; padding-bottom:30px; border-radius:5px; box-shadow:0 4px 10px rgba(0,0,0,0.15); margin-top:10px; border:1px solid #eee; transform:rotate(-2deg); max-width:250px;"><img src="${val.photoUrl}" style="width:100%; border-radius:3px;"><div style="font-size:10px; font-weight:bold; color:var(--navy); margin-top:5px; text-align:center;">LIVE CAPTURE</div></div>`;
+            content += `<div class="timeline-polaroid" style="background:white; padding:10px; padding-bottom:30px; border-radius:5px; box-shadow:0 4px 10px rgba(0,0,0,0.15); margin-top:10px; border:1px solid #eee; transform:rotate(-2deg); max-width:250px;"><img src="${val.photoUrl}" style="width:100%; border-radius:3px;"><div style="font-size:10px; font-weight:bold; color:var(--navy); margin-top:5px; text-align:center;">LIVE CAPTURE</div></div>`;
           }
-          html = `<div style="border-left:2px solid var(--gold); padding-left:15px; margin-left:5px; margin-bottom:25px; position:relative;"><div style="position:absolute; left:-21px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--gold);"></div><div style="font-size:11px; color:#64748b; font-weight:bold;">${val.time}</div>${content}</div>` + html;
+          html = `<div class="live-feed-item"><div class="time-stamp">${val.time}</div>${content}</div>` + html;
         });
         document.getElementById('timelineContainer').innerHTML = html || `<p style="font-size:13px;">Awaiting live connection...</p>`;
       });
+    }
+
+    function submitEliteForm(code) {
+      const n = document.getElementById('f_name').value;
+      const d = document.getElementById('f_diet').value;
+      const a = document.getElementById('f_allergy').value;
+      if(!n) { alert("Student Name Required!"); return; }
+      
+      database.ref('trips/' + code + '/forms').push({ name: n, food: d, allergy: a || "None" })
+        .then(() => {
+          alert("Elite Passport Updated! Information sent securely. ✅");
+          document.getElementById('f_name').value = ''; document.getElementById('f_allergy').value = '';
+        });
     }
 
     function switchDashTab(tabId, btn) {
