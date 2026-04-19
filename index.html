@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joyful Tours And Adventures | Premium Educational & Group Trips | lock4.0</title>
+  <title>Joyful Tours And Adventures | Premium Educational & Group Trips | lock5.0</title>
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   
@@ -143,7 +143,6 @@
     .step-box { text-align: center; padding: 15px; position: relative; }
     .step-icon { width: 50px; height: 50px; background: var(--navy); color: var(--gold); font-size: 20px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto 12px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
 
-    /* FOOTER WITH BACKGROUND IMAGE */
     footer { background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover; color: white; padding: 60px 0 30px 0; }
 
     input, textarea, select { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; margin-bottom: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; font-size:14px;}
@@ -157,10 +156,6 @@
     details[open] summary::after { content: '-'; }
     details p { margin-top: 10px; margin-bottom: 0; color: #475569; line-height: 1.5; font-size:14px; border-top: 1px solid #f1f5f9; padding-top: 10px; }
 
-    .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px; }
-    .live-notif.show { left: 24px; }
-
-    /* PRO DASHBOARD UI CLASSES */
     .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
     .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
     .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
@@ -168,8 +163,8 @@
     .dash-panel.active { display: block; }
     
     .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
-    .pulse-dot { display: inline-block; width: 10px; height: 10px; background: #22c55e; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px #22c55e; animation: pulse 1.5s infinite; }
-    
+    .gps-debug { font-size: 10px; opacity: 0.7; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a;}
+
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 15px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
     .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
@@ -181,8 +176,6 @@
 <body>
 
   <audio id="bgAudio" loop></audio>
-
-  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Sirsa just inquired!</div></div>
 
   <div class="top-bar">
     <marquee scrollamount="5">🎒 Bookings Open for Amarnath Yatra 2026 | Special 20% Group Discount | 🛡️ Udyam Certified Safety Standards</marquee>
@@ -197,8 +190,8 @@
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. Experience the next level of travel with Joyful Tours. How can I assist you?</span></div>
     </div>
-    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #eee;">
-      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #ddd; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
+    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #e2e8f0;">
+      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #cbd5e1; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
       <button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button>
     </div>
   </div>
@@ -349,8 +342,20 @@
         <button class="filter-btn" onclick="filterDest('mega', this)">Grand Expeditions</button>
       </div>
       <div class="grid" id="destGrid">
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'><div class="badge">🔥 ADVENTURE: NEW</div><button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Rishikesh Expedition <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'><div class="badge">💎 ELITE: NEW</div><button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button></div>
+        
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'>
+          <div class="badge">🔥 ADVENTURE: NEW</div>
+          <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
+          Rishikesh Expedition 
+          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button>
+        </div>
+
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
+          <div class="badge">💎 ELITE: NEW</div>
+          <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition 
+          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
+        </div>
+
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amritsar', 'audio_wagah.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar & Wagah<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarWagah', 'Amritsar', '☀️ 30°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Manali.png")'><div class="badge">👑 9.0/10</div><button class="view-360-btn" onclick="open360('Manali', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Manali Adventure<button class="btn primary" style="margin-top:12px;" onclick="openModal('Manali', 'Manali', '❄️ 8°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Shimla.png")'><div class="badge">⭐ 8.8/10</div><button class="view-360-btn" onclick="open360('Shimla', 'audio_hills.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Shimla Hills<button class="btn primary" style="margin-top:12px;" onclick="openModal('Shimla', 'Shimla', '🌤️ 12°C')">View Details</button></div>
@@ -372,9 +377,9 @@
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Frequently Asked Questions</h2>
       <div style="max-width: 700px; margin: 30px auto 0;">
-        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students to ensure their comfort and safety.</p></details>
-        <details><summary>What kind of food is provided during the trips?</summary><p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.</p></details>
-        <details><summary>How do parents get updates during the trip?</summary><p>We create a private WhatsApp broadcast group for parents and provide a Secure Live Dashboard for real-time location and timeline updates.</p></details>
+        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator from Joyful Tours always accompanies groups with girl students to ensure their comfort and safety 24/7.</p></details>
+        <details><summary>What kind of food is provided during the trips?</summary><p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens. Our focus is on healthy, home-style food that keeps students energetic during the journey.</p></details>
+        <details><summary>How do parents get updates during the trip?</summary><p>We create a private WhatsApp broadcast group for parents and school management. Additionally, parents can use our Secure VIP Login Portal to track live GPS, weather, and view real-time trip timelines.</p></details>
       </div>
     </div>
   </section>
@@ -394,6 +399,7 @@
       <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="openLightbox(this.src)">
+      <img src="https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800" onclick="openLightbox(this.src)">
     </div></div>
   </section>
 
@@ -437,7 +443,9 @@
           <p style="font-size:14px;"><strong>Core Management:</strong> Pawan, Raman & Chirag</p>
           <a class="btn primary" href="https://wa.me/919729561534" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px;">Pawan: 97295-61534</a>
           <a class="btn primary" href="https://wa.me/918295411207" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px;">Raman: 82954-11207</a>
+          <a class="btn primary" href="https://wa.me/918569866042" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px; background:var(--emerald); border-color:var(--emerald);">Chirag: 85698-66042</a>
           <p style="margin-top:20px; font-size:14px;">📧 joyfultours0408@gmail.com</p>
+          <a href="https://instagram.com/joyful_tours_adventures" target="_blank" style="color:var(--gold); text-decoration:none; font-size:14px;">Instagram: @joyful_tours_adventures</a>
         </div>
         <div style="border-radius: 15px; overflow: hidden; width: 400px; height: 280px; border: 2px solid rgba(212,175,55,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110996.15545229668!2d75.021008!3d29.5332204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39114cb1855a82fd%3A0xc3b5e43a99201582!2sSirsa%2C%20Haryana!5e0!3m2!1sen!2sin!4v1713500000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -517,6 +525,7 @@
               <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Connecting...</strong></div>
               <div><p style="margin:0; font-size:11px; opacity:0.8;">⏱️ ETA</p><strong style="font-size:14px;" id="liveETA">Calculating...</strong></div>
             </div>
+            <div class="gps-debug" id="gpsDebug" style="font-size: 10px; opacity: 0.7; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a;">Awaiting GPS from App...</div>
           </div>
           
           <div id="roleSpecificUI"></div>
@@ -573,7 +582,6 @@
       }, 700);
     }
 
-    // FULL 15 PANO IMAGES
     const panoImgs = { 
       'Amritsar': 'Amritsar&wagah.png', 'Manali': 'Manali.png', 'Shimla': 'Shimla.png', 'Udaipur': 'Udaipur.png', 
       'Spiti': 'Spiti&ladakh.png', 'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
@@ -592,7 +600,6 @@
     }
     function close360() { document.getElementById('360Modal').classList.remove('active'); document.getElementById('bgAudio').pause(); }
 
-    // FULL 15 ITINERARIES
     const itineraryData = {
       'Rishikesh': { title: 'Rishikesh Adventure Expedition', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>Day 1: Arrival & Aarti</strong><p>Ganga Aarti at Triveni Ghat.</p></div><div class="timeline-item"><strong>Day 2: Thrill Time</strong><p>White Water Rafting & Bunjee Jumping.</p></div>' },
       'RishikeshSchool': { title: 'Rishikesh Institutional Tour', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>For Schools</strong><p>Educational rafting and ashram visits with high safety protocols.</p></div>' },
@@ -677,8 +684,8 @@
         });
     }
 
-    // WEATHER (WITH SAFE FALLBACK)
-    function fetchWeatherByCoords(lat, lon) {
+    // WEATHER
+    function fetchWeather(lat, lon) {
       const weatherApiKey = "B09c0c8f99ae2959dd2059168d662bab";
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${weatherApiKey}`)
         .then(response => response.json())
@@ -686,14 +693,8 @@
           if(data.main && data.name) {
             document.getElementById('liveLoc').innerText = data.name; 
             document.getElementById('liveWeather').innerText = `${Math.round(data.main.temp)}°C, ${data.weather[0].main}`;
-          } else {
-            document.getElementById('liveLoc').innerText = "GPS Live 🟢"; 
-            document.getElementById('liveWeather').innerText = "Syncing...";
           }
-        }).catch(err => {
-            document.getElementById('liveLoc').innerText = "GPS Live 🟢"; 
-            document.getElementById('liveWeather').innerText = "Clear";
-        });
+        }).catch(err => console.log(err));
     }
 
     function loginDashboard() {
@@ -714,7 +715,8 @@
           document.getElementById('liveETA').innerText = tripData.eta || "-- Mins";
 
           if(tripData.liveGPS && tripData.liveGPS.lat) {
-            fetchWeatherByCoords(tripData.liveGPS.lat, tripData.liveGPS.lon);
+            document.getElementById('gpsDebug').innerText = "Last Signal: " + tripData.liveGPS.time + " | Lat: " + tripData.liveGPS.lat.toFixed(4);
+            fetchWeather(tripData.liveGPS.lat, tripData.liveGPS.lon);
           } else {
             document.getElementById('liveLoc').innerText = tripData.location || "Waiting for GPS...";
           }
@@ -772,16 +774,5 @@
       } 
     }, 1000);
 
-    // DUMMY LIVE NOTIFICATIONS
-    const liveNotifs = ["🎒 A school from Sirsa just booked Darjeeling!", "🔥 Only 4 slots left for Spiti Squad Tour", "👨‍👩‍👦 5-Star review added for Udaipur Family Trip"];
-    let nIndex = 0;
-    setInterval(() => {
-      const notifEl = document.getElementById('liveNotif');
-      document.getElementById('notifMsg').innerText = liveNotifs[nIndex];
-      notifEl.classList.add('show');
-      setTimeout(() => notifEl.classList.remove('show'), 4000);
-      nIndex = (nIndex + 1) % liveNotifs.length;
-    }, 18000);
-  </script>
-</body>
-</html>
+    // LIVE NOTIFICATIONS
+    const liveNotifs = ["🎒 A school from Sirsa just booked Darjeeling!", "🔥 Only 4 slots left for Spiti Squad Tour", "👨‍👩‍👦
