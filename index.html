@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joyful Tours And Adventures | Premium Educational & Group Trips</title>
+  <title>Joyful Tours And Adventures | Premium Educational & Group Trips | lock7.0</title>
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   
@@ -18,7 +18,7 @@
     
     .top-bar { background: var(--navy); color: var(--gold); padding: 8px 16px; font-size: 13px; font-weight: 600; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); letter-spacing: 0.5px;}
 
-    /* NAVBAR LUXURY WITH HAMBURGER MENU */
+    /* NAVBAR LUXURY */
     .nav { position: sticky; top: 0; z-index: 1000; display: flex; padding: 12px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 5px 20px rgba(0,0,0,0.05); align-items: center; justify-content: space-between; }
     .brand-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--navy); text-decoration: none; z-index: 1001;}
     .brand-logo img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(212,175,55,0.3); }
@@ -26,7 +26,7 @@
     .hamburger { display: block; font-size: 28px; background: none; border: none; color: var(--navy); cursor: pointer; z-index: 1001; transition: 0.3s; }
     .hamburger:hover { color: var(--gold); }
     
-    /* VERTICAL NAV MENU */
+    /* NAV MENU */
     .nav-links { display: flex; flex-direction: column; position: fixed; top: -1000px; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-bottom: 3px solid var(--gold); transition: top 0.4s ease-in-out; padding: 80px 0 20px 0; z-index: 1000; }
     .nav-links.active { top: 0; }
     
@@ -48,7 +48,7 @@
     .time-unit span { font-size: 26px; font-weight: 900; color: white; display:block; }
     .time-unit p { margin: 0; font-size: 10px; color: var(--gold); font-weight: bold; text-transform: uppercase;}
 
-    /* COMPACT GRIDS & CARDS */
+    /* GRIDS & CARDS */
     .container { max-width: 1200px; margin: auto; padding: 20px; }
     .section { padding: 60px 0; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
@@ -63,7 +63,7 @@
     .dest:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); border-color: var(--gold); }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     
-    /* CATEGORIES LUXURY */
+    /* CATEGORIES */
     .cat-section { background: #f8fafc; padding: 60px 0; border-top: 2px solid var(--gold); }
     .cat-card { text-align: center; padding: 25px 20px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition:0.3s; position: relative; overflow: hidden;}
     .cat-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(212,175,55,0.1); border-color: var(--gold); }
@@ -75,6 +75,16 @@
     .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); z-index: 1;}
     .embedded-dest > * { position: relative; z-index: 2; color: white; }
     .embedded-dest:hover { transform: scale(1.02); border-color:var(--gold); }
+
+    /* DASHBOARD UNIQUE ELEMENTS */
+    .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
+    .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
+    .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+    .dash-panel { display: none; animation: fadeIn 0.3s; }
+    .dash-panel.active { display: block; }
+    
+    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
+    .gps-debug { font-size: 10px; opacity: 0.7; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a;}
 
     /* PIHU CHATBOT */
     .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 3000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
@@ -110,7 +120,7 @@
     .marquee-track img:hover { transform: scale(1.03); box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* MODAL OVERLAYS */
+    /* MODALS */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 4000; justify-content: center; align-items: center; padding: 15px; }
     .modal-overlay.active { display: flex; }
     .modal-content { background: white; padding: 25px; border-radius: 20px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border:2px solid var(--gold);}
@@ -146,6 +156,7 @@
 
     input, textarea, select { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; margin-bottom: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; font-size:14px;}
     input:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 8px rgba(212,175,55,0.2); }
+    select { appearance: none; background: #f8fafc url('data:image/svg+xml;utf8,<svg fill="%230f172a" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat right 10px center; }
 
     details { background: white; padding: 14px 20px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
     summary { font-weight: 600; font-size: 15px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
@@ -157,18 +168,25 @@
     .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px; }
     .live-notif.show { left: 24px; }
 
-    /* DASHBOARD STYLES */
-    .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
-    .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
-    .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
-    .dash-panel { display: none; animation: fadeIn 0.3s; }
-    .dash-panel.active { display: block; }
-    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 20px; }
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 15px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
     .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
+
     .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; animation: sosPulse 2s infinite; font-size: 15px; margin-bottom: 15px; }
     @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+
+    /* UNIQUE BOARDING PASS */
+    .boarding-pass { background: #fff; border: 2px dashed var(--gold); border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2); }
+    .boarding-pass::before, .boarding-pass::after { content: ''; position: absolute; top: 50%; width: 20px; height: 20px; background: #f8fafc; border-radius: 50%; border: 2px solid var(--gold); }
+    .boarding-pass::before { left: -12px; } .boarding-pass::after { right: -12px; }
+    .boarding-pass h3 { margin: 0; color: var(--navy); font-size: 18px; letter-spacing: 2px; }
+    .verified-stamp { font-size: 10px; background: var(--emerald); color: white; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-weight: bold; }
+
+    /* PREMIUM DIET FORM */
+    .diet-passport { background: #fffbeb; border: 1px solid #fde047; padding: 15px; border-radius: 12px; margin-top: 15px; }
+    .diet-passport h4 { margin: 0 0 10px 0; font-size: 14px; color: #854d0e; display: flex; align-items: center; gap: 8px; }
+    .diet-input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 8px; font-size: 12px; font-family: inherit; box-sizing: border-box; }
+    .diet-btn { width: 100%; padding: 10px; background: var(--navy); color: var(--gold); border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -184,14 +202,15 @@
   <div class="ai-anchor" onclick="togglePihuChat()">
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
   </div>
+  
   <div id="pihuChatBox" class="pihu-chat-box">
     <div class="chat-header"><span>🟢 Pihu - VIP Guide</span><span onclick="togglePihuChat()" style="cursor:pointer;">✖</span></div>
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. Experience the next level of travel with Joyful Tours. How can I assist you?</span></div>
     </div>
-    <div class="chat-input-area">
-      <input type="text" id="chatInput" placeholder="Ask Pihu..." onkeypress="if(event.key === 'Enter') sendPihuMsg()">
-      <button onclick="sendPihuMsg()">➤</button>
+    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #e2e8f0;">
+      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #cbd5e1; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
+      <button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button>
     </div>
   </div>
 
@@ -341,8 +360,20 @@
         <button class="filter-btn" onclick="filterDest('mega', this)">Grand Expeditions</button>
       </div>
       <div class="grid" id="destGrid">
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'><div class="badge">🔥 ADVENTURE: NEW</div><button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Rishikesh Expedition <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'><div class="badge">💎 ELITE: NEW</div><button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button></div>
+        
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'>
+          <div class="badge">🔥 ADVENTURE: NEW</div>
+          <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
+          Rishikesh Expedition 
+          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button>
+        </div>
+
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
+          <div class="badge">💎 ELITE: NEW</div>
+          <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition 
+          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
+        </div>
+
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amritsar', 'audio_wagah.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar & Wagah<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarWagah', 'Amritsar', '☀️ 30°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Manali.png")'><div class="badge">👑 9.0/10</div><button class="view-360-btn" onclick="open360('Manali', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Manali Adventure<button class="btn primary" style="margin-top:12px;" onclick="openModal('Manali', 'Manali', '❄️ 8°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Shimla.png")'><div class="badge">⭐ 8.8/10</div><button class="view-360-btn" onclick="open360('Shimla', 'audio_hills.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Shimla Hills<button class="btn primary" style="margin-top:12px;" onclick="openModal('Shimla', 'Shimla', '🌤️ 12°C')">View Details</button></div>
@@ -386,7 +417,6 @@
       <img src="https://drive.google.com/thumbnail?id=1NPclzH844uhcmd9Zpe2585eioCPzWSUM&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1B-L7rDEpbXK-UJG-WHP1wC-8cOOOpSH-&sz=w800" onclick="openLightbox(this.src)">
       <img src="https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800" onclick="openLightbox(this.src)">
-      <img src="https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800" onclick="openLightbox(this.src)">
     </div></div>
   </section>
 
@@ -478,7 +508,7 @@
       </select>
 
       <label style="font-size:12px; font-weight:bold; color:var(--navy); text-align:left; display:block; margin-bottom:5px;">Trip Passcode:</label>
-      <input id="tripCode" type="password" placeholder="Passcode..." style="width:100%; padding:12px; border-radius:10px; border:1px solid #cbd5e1; text-align:center; letter-spacing:4px; font-size:18px; font-weight:bold; box-sizing:border-box; margin-bottom:15px;" />
+      <input id="tripCode" type="password" placeholder="Passcode (e.g. GRAMIN2026)" style="width:100%; padding:12px; border-radius:10px; border:1px solid #cbd5e1; text-align:center; letter-spacing:4px; font-size:18px; font-weight:bold; box-sizing:border-box; margin-bottom:15px;" />
       
       <button id="loginBtnAction" class="btn primary" style="width:100%; margin:10px 0 0 0;" onclick="loginDashboard()">Access Dashboard</button>
       <p style="font-size:10px; color:#94a3b8; margin-top:15px;">Protected by Firebase Authentication</p>
@@ -513,7 +543,7 @@
               <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Connecting...</strong></div>
               <div><p style="margin:0; font-size:11px; opacity:0.8;">⏱️ ETA</p><strong style="font-size:14px;" id="liveETA">Calculating...</strong></div>
             </div>
-            <div class="gps-debug" id="gpsDebug" style="font-size: 10px; opacity: 0.7; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a;">Awaiting GPS from App...</div>
+            <div class="gps-debug" id="gpsDebug">Awaiting GPS from App...</div>
           </div>
           
           <div id="roleSpecificUI"></div>
@@ -522,11 +552,12 @@
         </div>
 
         <div id="dash-pass" class="dash-panel" style="display:none;">
-          <div style="background:var(--gold); padding:30px 20px; border-radius:15px; text-align:center; color:white; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);">
-            <h3 style="margin-top:0; color:var(--navy);">Joyful Tours VIP Pass</h3>
-            <p style="font-size:12px; margin-bottom:20px; color:var(--navy); font-weight:bold;">Present this QR at Boarding</p>
-            <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=JoyfulTours" style="border-radius:10px; margin-bottom:10px; border:4px solid white;">
-            <p style="font-size:10px; margin:0; color:var(--navy);">Status: <span style="background:white; padding:3px 8px; border-radius:5px;">Awaiting Scan</span></p>
+          <div class="boarding-pass">
+            <div class="verified-stamp">SECURE VERIFIED PASS</div>
+            <h3>JOYFUL VIP PASS</h3>
+            <p style="font-size:10px; margin:5px 0; font-weight:bold; color:var(--navy);">TRANS-HIMALAYAN EXPEDITION 2026</p>
+            <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=JoyfulTours" style="border-radius:10px; margin:15px 0; border:4px solid white; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+            <div style="border-top: 1px dashed #ccc; padding-top:10px; font-size:11px; font-weight:bold; color:var(--navy);">AUTHORIZED ENTRY ONLY</div>
           </div>
         </div>
 
@@ -571,12 +602,21 @@
     }
 
     const panoImgs = { 
-      'Amritsar': 'Amritsar&wagah.png', 'Manali': 'Manali.png', 'Shimla': 'Shimla.png', 'Udaipur': 'Udaipur.png', 
-      'Spiti': 'Spiti&ladakh.png', 'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
-      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600', 'Chandigarh': 'Chandigarh.png',
-      'Kurukshetra': 'Kurukshetra.png', 'Dalhousie': 'Dalhousie.png', 'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
-      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600', 'RishikeshMussoorie': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
-      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600', 'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
+      'Amritsar': 'Amritsar&wagah.png', 
+      'Manali': 'Manali.png', 
+      'Shimla': 'Shimla.png', 
+      'Udaipur': 'Udaipur.png', 
+      'Spiti': 'Spiti&ladakh.png', 
+      'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
+      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600', 
+      'Chandigarh': 'Chandigarh.png',
+      'Kurukshetra': 'Kurukshetra.png', 
+      'Dalhousie': 'Dalhousie.png', 
+      'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
+      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600', 
+      'RishikeshMussoorie': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
+      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600', 
+      'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
     };
     
     function open360(place, audioFile) { 
@@ -659,16 +699,16 @@
       }).then(() => alert("🚨 Emergency Alert Sent! Ground Captain will contact you immediately."));
     }
 
-    function submitDietForm(code) {
-      const name = document.getElementById('formName').value;
-      const diet = document.getElementById('formDiet').value;
-      const allergy = document.getElementById('formAllergy').value;
-      if(!name || !diet) { alert("Name and Diet required!"); return; }
+    function submitEliteForm(code) {
+      const n = document.getElementById('f_name').value;
+      const d = document.getElementById('f_diet').value;
+      const a = document.getElementById('f_allergy').value;
+      if(!n) { alert("Student Name Required!"); return; }
       
-      database.ref('trips/' + code + '/forms').push({ name: name, food: diet, allergy: allergy || "None" })
+      database.ref('trips/' + code + '/forms').push({ name: n, food: d, allergy: a || "None" })
         .then(() => {
-          alert("Thank you! Information sent securely to Ground Captain. ✅");
-          document.getElementById('formName').value = ''; document.getElementById('formDiet').value = ''; document.getElementById('formAllergy').value = '';
+          alert("Elite Passport Updated! Information sent securely to Ground Captain. ✅");
+          document.getElementById('f_name').value = ''; document.getElementById('f_allergy').value = '';
         });
     }
 
@@ -719,12 +759,13 @@
               </div>`;
           } else {
             document.getElementById('roleSpecificUI').innerHTML = `
-              <div style="background:#fffbeb; padding:15px; border-radius:10px; margin-top:15px; border:1px solid #fde047;">
-                <strong style="color:#854d0e;">📋 Student Diet Form</strong>
-                <input type="text" id="formName" placeholder="Student's Name" style="width:100%; padding:10px; margin-top:10px; border-radius:5px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;">
-                <input type="text" id="formDiet" placeholder="Diet: Veg / Non-Veg / Jain" style="width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;">
-                <input type="text" id="formAllergy" placeholder="Any Allergies? (Type None)" style="width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;">
-                <button class="btn primary" style="padding:10px; font-size:12px; width:100%; margin:10px 0 0 0; border-radius:5px;" onclick="submitDietForm('${code}')">Submit to Ground Team</button>
+              <div class="diet-passport">
+                <h4>🍱 Student Meal & Health Passport</h4>
+                <p style="font-size:10px; color:#64748b; margin-bottom:10px;">Authorized update for ground kitchen team.</p>
+                <input id="f_name" class="diet-input" placeholder="Student Full Name">
+                <select id="f_diet" class="diet-input"><option>Pure Veg</option><option>Jain Food</option><option>No Garlic/Onion</option></select>
+                <input id="f_allergy" class="diet-input" placeholder="Any Allergies (Peanuts/Milk?)">
+                <button class="diet-btn" onclick="submitEliteForm('${code}')">VERIFY & SUBMIT</button>
               </div>`;
           }
         } else {
@@ -750,7 +791,7 @@
       document.getElementById(tabId).style.display = 'block';
     }
 
-    // AMARNATH TIMER
+    // TIMER
     const target = new Date("June 1, 2026").getTime();
     setInterval(() => { 
       const diff = target - new Date().getTime(); 
