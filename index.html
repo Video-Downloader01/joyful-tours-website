@@ -18,7 +18,7 @@
     
     .top-bar { background: var(--navy); color: var(--gold); padding: 8px 16px; font-size: 13px; font-weight: 600; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); letter-spacing: 0.5px;}
 
-    /* NAVBAR LUXURY WITH HAMBURGER MENU */
+    /* NAVBAR */
     .nav { position: sticky; top: 0; z-index: 1000; display: flex; padding: 12px 24px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 5px 20px rgba(0,0,0,0.05); align-items: center; justify-content: space-between; }
     .brand-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--navy); text-decoration: none; z-index: 1001;}
     .brand-logo img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(212,175,55,0.3); }
@@ -26,7 +26,7 @@
     .hamburger { display: block; font-size: 28px; background: none; border: none; color: var(--navy); cursor: pointer; z-index: 1001; transition: 0.3s; }
     .hamburger:hover { color: var(--gold); }
     
-    /* VERTICAL NAV MENU */
+    /* NAV MENU */
     .nav-links { display: flex; flex-direction: column; position: fixed; top: -1000px; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-bottom: 3px solid var(--gold); transition: top 0.4s ease-in-out; padding: 80px 0 20px 0; z-index: 1000; }
     .nav-links.active { top: 0; }
     
@@ -48,11 +48,10 @@
     .time-unit span { font-size: 26px; font-weight: 900; color: white; display:block; }
     .time-unit p { margin: 0; font-size: 10px; color: var(--gold); font-weight: bold; text-transform: uppercase;}
 
-    /* COMPACT GRIDS & CARDS */
+    /* GRIDS & CARDS */
     .container { max-width: 1200px; margin: auto; padding: 20px; }
     .section { padding: 60px 0; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    
     .card { border-radius: 20px; padding: 20px; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid rgba(212,175,55,0.1); }
     .card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--gold); }
     
@@ -62,8 +61,8 @@
     .dest.show { display: flex; animation: fadeIn 0.4s; }
     .dest:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); border-color: var(--gold); }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    
-    /* CATEGORIES LUXURY */
+
+    /* CATEGORIES */
     .cat-section { background: #f8fafc; padding: 60px 0; border-top: 2px solid var(--gold); }
     .cat-card { text-align: center; padding: 25px 20px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition:0.3s; position: relative; overflow: hidden;}
     .cat-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(212,175,55,0.1); border-color: var(--gold); }
@@ -71,11 +70,19 @@
     .cat-icon { font-size: 40px; margin-bottom: 5px; display: block; text-shadow: 0 5px 10px rgba(0,0,0,0.1); }
     .cat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #d4af37, #fef08a); }
 
-    /* EMBEDDED DESTINATION CARDS IN CATEGORY */
     .embedded-dest { border-radius: 12px; overflow: hidden; background-size: cover; background-position: center; padding: 15px; text-align: left; margin: 10px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 140px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; border:1px solid rgba(255,255,255,0.2); position: relative;}
     .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); z-index: 1;}
     .embedded-dest > * { position: relative; z-index: 2; color: white; }
     .embedded-dest:hover { transform: scale(1.02); border-color:var(--gold); }
+
+    /* DASHBOARD & UI */
+    .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
+    .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
+    .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+    .dash-panel { display: none; animation: fadeIn 0.3s; }
+    .dash-panel.active { display: block; }
+    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
+    .gps-debug { font-size: 10px; opacity: 0.7; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a;}
 
     /* PIHU CHATBOT */
     .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 3000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
@@ -111,28 +118,27 @@
     .marquee-track img:hover { transform: scale(1.03); box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* MODAL OVERLAYS */
+    /* MODALS */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 4000; justify-content: center; align-items: center; padding: 15px; }
     .modal-overlay.active { display: flex; }
     .modal-content { background: white; padding: 25px; border-radius: 20px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border:2px solid var(--gold);}
     .close-btn { position: absolute; top: 15px; right: 15px; background: #f1f5f9; border: none; width: 30px; height: 30px; border-radius: 50%; font-size: 18px; cursor: pointer; z-index: 10; color: #0f172a;}
 
-    /* LIGHTBOX ZOOM FIX FOR MOBILE */
+    /* LIGHTBOX ZOOM FIX */
     #lightboxModal .modal-content { background:transparent; border:none; box-shadow:none; padding:0; text-align:center; overflow: hidden;}
     #lightboxImg { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
+    /* ITINERARY DESIGN */
     .badge { font-size:10px; background: var(--gold); color:var(--navy); font-weight:800; padding:4px 10px; border-radius:50px; margin-bottom:10px; display:inline-block; letter-spacing: 0.5px;}
     .route-map-pro { position: relative; height: 40px; border-bottom: 2px dashed #94a3b8; margin: 15px 0 25px; display: flex; align-items: flex-end; justify-content: space-between; }
     .bus-pro { position: absolute; bottom: -5px; font-size: 24px; animation: driveBusPro 4s linear infinite; z-index:3; }
     @keyframes driveBusPro { 0% { left: 0; } 100% { left: 88%; } }
     .route-pin { background: var(--navy); color: var(--gold); padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; position: relative; bottom: -10px; z-index: 2; border: 2px solid white; }
-    
     .timeline { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; position: relative; }
-    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item { position: relative; margin-bottom: 20px; text-align: left; }
     .timeline-item::before { content: ''; position: absolute; left: -21px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: white; border: 2px solid var(--gold); }
     .timeline-item strong { color: var(--navy); display: block; font-size: 15px; margin-bottom: 3px; }
     .timeline-item p { margin: 0; color: #475569; font-size: 13px; line-height: 1.5; }
-    
     .weather-badge { background: #f8fafc; color: var(--navy); padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 15px; border: 1px solid #e2e8f0; }
 
     .filter-bar { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
@@ -144,7 +150,6 @@
     .step-box { text-align: center; padding: 15px; position: relative; }
     .step-icon { width: 50px; height: 50px; background: var(--navy); color: var(--gold); font-size: 20px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin: 0 auto 12px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
 
-    /* FOOTER WITH BACKGROUND IMAGE */
     footer { background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600') center/cover; color: white; padding: 60px 0 30px 0; }
 
     input, textarea, select { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; margin-bottom: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; font-size:14px;}
@@ -160,33 +165,19 @@
     .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px; }
     .live-notif.show { left: 24px; }
 
-    /* PRO DASHBOARD UI CLASSES */
-    .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
-    .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
-    .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
-    .dash-panel { display: none; animation: fadeIn 0.3s; }
-    .dash-panel.active { display: block; }
-    
-    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
-    .pulse-dot { display: inline-block; width: 10px; height: 10px; background: #22c55e; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px #22c55e; animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
-    
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 15px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
     .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
 
     .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; animation: sosPulse 2s infinite; font-size: 15px; margin-bottom: 15px; }
-    @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+    @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
 
-    /* UNIQUE BOARDING PASS */
+    /* ELITE BOARDING PASS & FORM */
     .boarding-pass { background: #fff; border: 2px dashed var(--gold); border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2); }
     .boarding-pass::before, .boarding-pass::after { content: ''; position: absolute; top: 50%; width: 20px; height: 20px; background: #f8fafc; border-radius: 50%; border: 2px solid var(--gold); }
     .boarding-pass::before { left: -12px; } .boarding-pass::after { right: -12px; }
     .verified-stamp { font-size: 10px; background: var(--emerald); color: white; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-weight: bold; }
-
-    /* PREMIUM DIET FORM */
     .diet-passport { background: #fffbeb; border: 1px solid #fde047; padding: 15px; border-radius: 12px; margin-top: 15px; }
-    .diet-passport h4 { margin: 0 0 10px 0; font-size: 14px; color: #854d0e; display: flex; align-items: center; gap: 8px; }
     .diet-input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 8px; font-size: 12px; font-family: inherit; box-sizing: border-box; }
     .diet-btn { width: 100%; padding: 10px; background: var(--navy); color: var(--gold); border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
   </style>
@@ -204,14 +195,13 @@
   <div class="ai-anchor" onclick="togglePihuChat()">
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
   </div>
-  
   <div id="pihuChatBox" class="pihu-chat-box">
     <div class="chat-header"><span>🟢 Pihu - VIP Guide</span><span onclick="togglePihuChat()" style="cursor:pointer;">✖</span></div>
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. Experience the next level of travel with Joyful Tours. How can I assist you?</span></div>
     </div>
-    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #eee;">
-      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #ddd; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
+    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #e2e8f0;">
+      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #cbd5e1; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;">
       <button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button>
     </div>
   </div>
@@ -221,7 +211,7 @@
     <a href="https://wa.me/918295411207" target="_blank" class="wa-item" style="color: var(--gold);">👑 Bookings (Raman)</a>
     <a href="https://wa.me/918569866042" target="_blank" class="wa-item" style="color: var(--emerald);">🛡️ Safety & Custom (Chirag)</a>
   </div>
-  <div class="floating-wa" onclick="document.getElementById('waMenu').classList.toggle('active')"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="30"></div>
+  <div class="floating-wa" onclick="toggleWaMenu()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="30"></div>
 
   <div class="nav">
     <a href="#home" class="brand-logo">
@@ -277,7 +267,6 @@
           <span class="cat-icon">🏫</span>
           <h3>Educational Excellence</h3>
           <p style="color:#64748b; font-size:13px; margin-bottom:15px;">Safety-first specialized school trips.</p>
-          
           <div class="embedded-dest" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800');">
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Darjeeling Expedition</h4>
             <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
@@ -286,7 +275,6 @@
             <h4 style="font-size:15px; color:white; margin:0 0 8px 0;">Rishikesh Adventure</h4>
             <button class="btn primary" style="font-size:10px; padding:6px 12px; margin:0; width:fit-content;" onclick="openModal('RishikeshSchool', 'Rishikesh', '🌤️ 22°C')">View Details</button>
           </div>
-          
           <button class="btn" style="width:100%; border:1px solid var(--gold); margin-top:10px; background:transparent; color:var(--navy); font-size:13px; padding:10px;" onclick="openModal('CategorySchool', 'Institutions')">View Full Catalog</button>
         </div>
 
@@ -323,6 +311,42 @@
     </div>
   </section>
 
+  <section id="destinations" class="section" style="background: white;">
+    <div class="container">
+      <h2 id="destH2" style="text-align:center; font-size:32px;">Our Premium Destinations</h2>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterDest('all', this)">All</button>
+        <button class="filter-btn" onclick="filterDest('short', this)">Short Escapes</button>
+        <button class="filter-btn" onclick="filterDest('mega', this)">Grand Expeditions</button>
+      </div>
+      <div class="grid" id="destGrid">
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'>
+          <div class="badge">🔥 ADVENTURE: NEW</div>
+          <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
+          Rishikesh Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button>
+        </div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
+          <div class="badge">💎 ELITE: NEW</div>
+          <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
+          Darjeeling Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
+        </div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amritsar', 'audio_wagah.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar & Wagah<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarWagah', 'Amritsar', '☀️ 30°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Manali.png")'><div class="badge">👑 9.0/10</div><button class="view-360-btn" onclick="open360('Manali', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Manali Adventure<button class="btn primary" style="margin-top:12px;" onclick="openModal('Manali', 'Manali', '❄️ 8°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Shimla.png")'><div class="badge">⭐ 8.8/10</div><button class="view-360-btn" onclick="open360('Shimla', 'audio_hills.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Shimla Hills<button class="btn primary" style="margin-top:12px;" onclick="openModal('Shimla', 'Shimla', '🌤️ 12°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Chandigarh.png")'><div class="badge">⭐ 7.5/10</div><button class="view-360-btn" onclick="open360('Chandigarh', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Chandigarh City<button class="btn primary" style="margin-top:12px;" onclick="openModal('Chandigarh', 'Chandigarh', '🌤️ 26°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Kurukshetra.png")'><div class="badge">⭐ 9.0/10</div><button class="view-360-btn" onclick="open360('Kurukshetra', 'audio_history.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Kurukshetra<button class="btn primary" style="margin-top:12px;" onclick="openModal('Kurukshetra', 'Kurukshetra', '☀️ 32°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Udaipur.png")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Udaipur', 'audio_palace.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Udaipur Royal<button class="btn primary" style="margin-top:12px;" onclick="openModal('Udaipur', 'Udaipur', '☀️ 28°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Spiti&ladakh.png")'><div class="badge">💎 10/10</div><button class="view-360-btn" onclick="open360('Spiti', 'audio_wind.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Spiti + Ladakh<button class="btn primary" style="margin-top:12px;" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh', '❄️ -2°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Dalhousie.png")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar + Dalhousie<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarDalhousie', 'Dalhousie', '🌤️ 14°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amarnath Yatra<button class="btn primary" style="margin-top:12px;" onclick="openModal('Amarnath', 'Srinagar', '🌤️ 15°C')">View Details</button></div>
+        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Delhi', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Delhi Heritage<button class="btn primary" style="margin-top:12px;" onclick="openModal('Delhi', 'Delhi', '☀️ 34°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'><div class="badge">⭐ 9.8/10</div><button class="view-360-btn" onclick="open360('RishikeshMasubra', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Masubra Trip<button class="btn primary" style="margin-top:12px;" onclick="openModal('RishikeshMasubra', 'Masubra', '🌤️ 18°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Corbett', 'audio_jungle.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Corbett + Nainital<button class="btn primary" style="margin-top:12px;" onclick="openModal('CorbettNainital', 'Nainital', '🌳 22°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1477587458883-47145ed94245")'><div class="badge">⭐ 9.2/10</div><button class="view-360-btn" onclick="open360('Jaipur', 'audio_desert.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Jaipur Royal<button class="btn primary" style="margin-top:12px;" onclick="openModal('JaipurRanthambore', 'Ranthambore', '☀️ 35°C')">View Details</button></div>
+      </div>
+    </div>
+  </section>
+
   <section id="schools" class="section" style="background: white;">
     <div class="container">
       <div class="grid" style="align-items: center;">
@@ -355,53 +379,13 @@
     </div>
   </section>
 
-  <section id="destinations" class="section" style="background: white;">
-    <div class="container">
-      <h2 id="destH2" style="text-align:center; font-size:32px;">Our Premium Destinations</h2>
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterDest('all', this)">All</button>
-        <button class="filter-btn" onclick="filterDest('short', this)">Short Escapes</button>
-        <button class="filter-btn" onclick="filterDest('mega', this)">Grand Expeditions</button>
-      </div>
-      <div class="grid" id="destGrid">
-        
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'>
-          <div class="badge">🔥 ADVENTURE: NEW</div>
-          <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
-          Rishikesh Expedition 
-          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button>
-        </div>
-
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
-          <div class="badge">💎 ELITE: NEW</div>
-          <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition 
-          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
-        </div>
-
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amritsar', 'audio_wagah.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar & Wagah<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarWagah', 'Amritsar', '☀️ 30°C')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Manali.png")'><div class="badge">👑 9.0/10</div><button class="view-360-btn" onclick="open360('Manali', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Manali Adventure<button class="btn primary" style="margin-top:12px;" onclick="openModal('Manali', 'Manali', '❄️ 8°C')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Shimla.png")'><div class="badge">⭐ 8.8/10</div><button class="view-360-btn" onclick="open360('Shimla', 'audio_hills.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Shimla Hills<button class="btn primary" style="margin-top:12px;" onclick="openModal('Shimla', 'Shimla', '🌤️ 12°C')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Chandigarh.png")'><div class="badge">⭐ 7.5/10</div><button class="view-360-btn" onclick="open360('Chandigarh', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Chandigarh City<button class="btn primary" style="margin-top:12px;" onclick="openModal('Chandigarh', 'Chandigarh', '🌤️ 26°C')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Kurukshetra.png")'><div class="badge">⭐ 9.0/10</div><button class="view-360-btn" onclick="open360('Kurukshetra', 'audio_history.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Kurukshetra<button class="btn primary" style="margin-top:12px;" onclick="openModal('Kurukshetra', 'Kurukshetra', '☀️ 32°C')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Udaipur.png")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Udaipur', 'audio_palace.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Udaipur Royal<button class="btn primary" style="margin-top:12px;" onclick="openModal('Udaipur', 'Udaipur', '☀️ 28°C')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Spiti&ladakh.png")'><div class="badge">💎 10/10</div><button class="view-360-btn" onclick="open360('Spiti', 'audio_wind.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Spiti + Ladakh<button class="btn primary" style="margin-top:12px;" onclick="openModal('SpitiLadakhMega', 'Spiti/Leh', '❄️ -2°C')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("Dalhousie.png")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Dalhousie', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar + Dalhousie<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarDalhousie', 'Dalhousie', '🌤️ 14°C')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1598091383021-15ddea10925d")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amarnath', 'audio_spiritual.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amarnath Yatra<button class="btn primary" style="margin-top:12px;" onclick="openModal('Amarnath', 'Srinagar', '🌤️ 15°C')">View Details</button></div>
-        <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1587474260584-136574528ed5")'><div class="badge">⭐ 8.0/10</div><button class="view-360-btn" onclick="open360('Delhi', 'audio_city.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Delhi Heritage<button class="btn primary" style="margin-top:12px;" onclick="openModal('Delhi', 'Delhi', '☀️ 34°C')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4")'><div class="badge">⭐ 9.8/10</div><button class="view-360-btn" onclick="open360('RishikeshMussoorie', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Mussoorie Trip<button class="btn primary" style="margin-top:12px;" onclick="openModal('RishikeshMussoorie', 'Mussoorie', '🌤️ 18°C')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429")'><div class="badge">⭐ 9.5/10</div><button class="view-360-btn" onclick="open360('Corbett', 'audio_jungle.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Corbett + Nainital<button class="btn primary" style="margin-top:12px;" onclick="openModal('CorbettNainital', 'Nainital', '🌳 22°C')">View Details</button></div>
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.4),rgba(15,23,42,0.8)),url("https://images.unsplash.com/photo-1477587458883-47145ed94245")'><div class="badge">⭐ 9.2/10</div><button class="view-360-btn" onclick="open360('Jaipur', 'audio_desert.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Jaipur Royal<button class="btn primary" style="margin-top:12px;" onclick="openModal('JaipurRanthambore', 'Ranthambore', '☀️ 35°C')">View Details</button></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" class="section" style="background: #eef2ff;">
+  <section id="faq" class="section">
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Frequently Asked Questions</h2>
       <div style="max-width: 700px; margin: 30px auto 0;">
-        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator provided.</p></details>
-        <details><summary>What kind of food is provided during the trips?</summary><p>100% pure veg unlimited buffet meals in hygienic kitchens.</p></details>
-        <details><summary>How do parents get updates during the trip?</summary><p>Private WhatsApp group for parents with live location & photos.</p></details>
+        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students to ensure their comfort and safety.</p></details>
+        <details><summary>What kind of food is provided during the trips?</summary><p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.</p></details>
+        <details><summary>How do parents get updates during the trip?</summary><p>Parents can use our Secure VIP Login Portal to track live GPS, weather, and real-time trip timelines.</p></details>
       </div>
     </div>
   </section>
@@ -429,8 +413,9 @@
       <h2 style="text-align: center; font-size:32px;">Customer Reviews</h2>
       <div class="card" id="reviewBox" style="max-width: 600px; margin: 30px auto 0; background:var(--light-bg); border:1px solid #e2e8f0; padding:25px;">
         <h3 style="margin-top:0; font-size:18px;">Write a Review</h3>
-        <input id="revName" placeholder="Name / School" /><select id="revRating"><option value="5">⭐⭐⭐⭐⭐ - Excellent</option><option value="4">⭐⭐⭐⭐ - Good</option></select>
-        <textarea id="revText" rows="3" placeholder="Trip experience..."></textarea>
+        <input type="text" id="revName" placeholder="Name / School" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; box-sizing:border-box;">
+        <select id="revRating" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; box-sizing:border-box;"><option value="5">⭐⭐⭐⭐⭐ - Excellent</option><option value="4">⭐⭐⭐⭐ - Good</option></select>
+        <textarea id="revText" rows="3" placeholder="Trip experience..." style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; box-sizing:border-box;"></textarea>
         <button class="btn primary" style="width:100%; padding: 14px; margin:0;" onclick="submitReview()">Publish Review</button>
       </div>
       <div id="reviewList" style="max-width: 600px; margin: 30px auto 0; display:flex; flex-direction:column; gap:15px;">
@@ -446,10 +431,10 @@
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Book Your Journey</h2>
       <div class="card" style="max-width: 600px; margin: 30px auto 0; border:1px solid #e2e8f0; padding:25px;">
-        <input id="b_name" placeholder="Full Name / School" />
-        <input id="b_phone" placeholder="Contact Number" />
-        <input id="b_dest" placeholder="Destination" />
-        <textarea id="b_text" rows="3" placeholder="Requirements..."></textarea>
+        <input type="text" id="b_name" placeholder="Full Name / School" style="width:100%; padding:14px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; box-sizing:border-box;">
+        <input type="text" id="b_phone" placeholder="Contact Number" style="width:100%; padding:14px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; box-sizing:border-box;">
+        <input type="text" id="b_dest" placeholder="Destination" style="width:100%; padding:14px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; box-sizing:border-box;">
+        <textarea id="b_text" rows="3" placeholder="Requirements..." style="width:100%; padding:14px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc; box-sizing:border-box;"></textarea>
         <button class="btn primary" style="width:100%; padding: 14px; margin:0;" onclick="sendFinalBooking()">Send to WhatsApp</button>
       </div>
     </div>
@@ -465,7 +450,7 @@
           <a class="btn primary" href="https://wa.me/919729561534" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px;">Pawan: 97295-61534</a>
           <a class="btn primary" href="https://wa.me/918295411207" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px;">Raman: 82954-11207</a>
           <a class="btn primary" href="https://wa.me/918569866042" style="margin:10px 0; display:block; max-width:250px; padding:10px; font-size:13px; background:var(--emerald); border-color:var(--emerald);">Chirag: 85698-66042</a>
-          <p style="margin-top:20px; font-size:14px;">📧 joyfultours0408@gmail.com</p>
+          <p style="margin-top:20px; font-size:14px;">📧 contact@joyfultours.in</p>
           <a href="https://instagram.com/joyful_tours_adventures" target="_blank" style="color:var(--gold); text-decoration:none; font-size:14px;">Instagram: @joyful_tours_adventures</a>
         </div>
         <div style="border-radius: 15px; overflow: hidden; width: 400px; height: 280px; border: 2px solid rgba(212,175,55,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
@@ -490,8 +475,12 @@
     </div>
   </div>
 
-  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')"><div class="modal-content" id="lightboxContent" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;"><img id="lightboxImg" src=""></div></div>
-  
+  <div id="lightboxModal" class="modal-overlay" style="z-index: 6000;" onclick="this.classList.remove('active')">
+    <div class="modal-content" style="background:transparent; border:none; box-shadow:none; padding:0; text-align:center;">
+      <img id="lightboxImg" src="" style="max-width: 100%; max-height: 80vh; object-fit: contain; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    </div>
+  </div>
+
   <div id="360Modal" class="modal-overlay" style="z-index: 5500;">
     <div class="modal-content" style="max-width: 800px; background:#000; color:white; padding:10px;">
       <button class="close-btn" onclick="close360()" style="background:white; color:black;">×</button>
@@ -524,11 +513,10 @@
         <p id="dashGroupName" style="margin:0; font-size:13px; color:var(--gold);">Secured Group Connection</p>
       </div>
 
-      <div style="display:flex; gap:10px; border-bottom:2px solid #e2e8f0; margin-bottom:20px; overflow-x:auto; padding:0 20px;">
+      <div class="dash-nav">
         <div id="tab-overview" class="dash-tab active" onclick="switchDashTab('dash-overview', this)">Overview</div>
         <div id="tab-pass" class="dash-tab" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
         <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)">Timeline</div>
-        <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
       </div>
 
       <div style="padding:20px; height:400px; overflow-y:auto;">
@@ -548,8 +536,6 @@
           </div>
           
           <div id="roleSpecificUI"></div>
-
-          <button class="btn" style="width:100%; border:1px solid #e2e8f0; text-align:center; margin:15px 0 0 0; background:white;" onclick="window.open('https://wa.me/918295411207')">📞 Contact Base Coordinator</button>
         </div>
 
         <div id="dash-pass" class="dash-panel" style="display:none;">
@@ -567,22 +553,27 @@
           <div id="timelineContainer"></div>
         </div>
 
-        <div id="dash-gallery" class="dash-panel" style="display:none;">
-          <p style="font-size:12px; color:#64748b; margin-top:0; margin-bottom:15px;">Live Feed from @joyful_tours_adventures</p>
-          <script src="https://elfsightcdn.com/platform.js" async></script>
-          <div class="elfsight-app-093f545b-6cd5-4ebe-bfda-7c728e6207cc" data-elfsight-app-lazy></div>
-        </div>
-
       </div>
     </div>
   </div>
 
   <script>
-    // CORE FUNCTIONS
-    function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
-    function togglePihuChat() { document.getElementById('pihuChatBox').classList.toggle('active'); }
+    // CORE UI FUNCTIONS
+    function toggleMenu() { 
+        const nav = document.getElementById("navLinks");
+        if(nav) nav.classList.toggle("active"); 
+    }
     
-    // SAFE DUMMY PIHU
+    function toggleWaMenu() {
+        const wa = document.getElementById('waMenu');
+        if(wa) wa.style.display = wa.style.display === 'none' || wa.style.display === '' ? 'block' : 'none';
+    }
+
+    function togglePihuChat() { 
+        const box = document.getElementById('pihuChatBox');
+        if(box) box.style.display = box.style.display === 'flex' ? 'none' : 'flex'; 
+    }
+    
     function sendPihuMsg() {
       const input = document.getElementById('chatInput'); 
       const chatBody = document.getElementById('chatBody'); 
@@ -602,24 +593,38 @@
       }, 700);
     }
 
+    // 360 PANORAMA IMAGES
     const panoImgs = { 
-      'Amritsar': 'Amritsar&wagah.png', 'Manali': 'Manali.png', 'Shimla': 'Shimla.png', 'Udaipur': 'Udaipur.png', 
-      'Spiti': 'Spiti&ladakh.png', 'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
-      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600', 'Chandigarh': 'Chandigarh.png',
-      'Kurukshetra': 'Kurukshetra.png', 'Dalhousie': 'Dalhousie.png', 'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
-      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600', 'RishikeshMussoorie': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
-      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600', 'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
+      'Amritsar': 'Amritsar&wagah.png', 
+      'Manali': 'Manali.png', 
+      'Shimla': 'Shimla.png', 
+      'Udaipur': 'Udaipur.png', 
+      'Spiti': 'Spiti&ladakh.png', 
+      'Darjeeling': 'https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w1600', 
+      'Rishikesh': 'https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w1600', 
+      'Chandigarh': 'Chandigarh.png',
+      'Kurukshetra': 'Kurukshetra.png', 
+      'Dalhousie': 'Dalhousie.png', 
+      'Amarnath': 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?w=1600',
+      'Delhi': 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600', 
+      'RishikeshMasubra': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600',
+      'Corbett': 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600', 
+      'Jaipur': 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'
     };
     
     function open360(place, audioFile) { 
       document.getElementById('panoTitle').innerText = place + " - Virtual 360°"; 
-      document.getElementById('panoFrame').style.backgroundImage = `url('${panoImgs[place] || "https://images.unsplash.com/photo-1501785888041-af3ef285b470"}')`; 
+      document.getElementById('panoFrame').style.backgroundImage = "url('" + (panoImgs[place] || "https://images.unsplash.com/photo-1501785888041-af3ef285b470") + "')"; 
       document.getElementById('bgAudio').src = audioFile; 
       document.getElementById('bgAudio').play().catch(() => {}); 
       document.getElementById('360Modal').classList.add('active'); 
     }
-    function close360() { document.getElementById('360Modal').classList.remove('active'); document.getElementById('bgAudio').pause(); }
+    function close360() { 
+      document.getElementById('360Modal').classList.remove('active'); 
+      document.getElementById('bgAudio').pause(); 
+    }
 
+    // ALL 23 ITINERARY DATA
     const itineraryData = {
       'Rishikesh': { title: 'Rishikesh Adventure Expedition', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>Day 1: Arrival & Aarti</strong><p>Ganga Aarti at Triveni Ghat.</p></div><div class="timeline-item"><strong>Day 2: Thrill Time</strong><p>White Water Rafting & Bunjee Jumping.</p></div>' },
       'RishikeshSchool': { title: 'Rishikesh Institutional Tour', pdf: 'https://drive.google.com/file/d/1edpU0TFUMu0Ws62nZqImbqME-tkKuWy_/view', text: '<div class="timeline-item"><strong>For Schools</strong><p>Educational rafting and ashram visits with high safety protocols.</p></div>' },
@@ -641,16 +646,18 @@
       'Delhi': { title: 'Delhi Heritage Tour', pdf: 'https://drive.google.com/file/d/1wdtPUIeg6UUOjtc1awYEwtvtX5YHqHMS/view', text: '<div class="timeline-item"><strong>Day 1: Capital Glory</strong><p>Visit Red Fort, Qutub Minar, India Gate & Parliament House.</p></div>' },
       'SpitiLadakhMega': { title: 'Spiti Meets Ladakh Mega', pdf: 'https://drive.google.com/file/d/10AtapOwo_hP5Ba8rbchJC7FOI9evcYPZ/view', text: '<div class="timeline-item"><strong>15 Days of Pure Adventure</strong><p>The ultimate trans-Himalayan circuit covering Spiti Valley & Leh.</p></div>' },
       'AmritsarDalhousie': { title: 'Amritsar + Dalhousie Combo', pdf: 'https://drive.google.com/file/d/1g_lCWDYycsYaSisd5rEq-5yaODRD1gln/view', text: '<div class="timeline-item"><strong>4 Days Heritage & Hills</strong><p>Golden Temple vibes mixed with Dalhousie and Khajjiar.</p></div>' },
-      'RishikeshMussoorie': { title: 'Rishikesh + Mussoorie', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Mussoorie.</p></div>' },
+      'RishikeshMasubra': { title: 'Rishikesh + Masubra', pdf: 'https://drive.google.com/file/d/1ALw6L_AuNSifRjwomshXyvtvRgzfj7SN/view', text: '<div class="timeline-item"><strong>4 Days Thrill & Chill</strong><p>River Rafting in Rishikesh, Ganga Aarti, and exploring the Queen of Hills, Masubra.</p></div>' },
       'CorbettNainital': { title: 'Jim Corbett + Nainital', pdf: 'https://drive.google.com/file/d/17sUU-FFp7KmOFH57hVMfb3AcFrjCrtpQ/view', text: '<div class="timeline-item"><strong>4 Days Wild Safari</strong><p>Open Jeep Tiger Safari at Corbett and lake exploration in Nainital.</p></div>' },
       'JaipurRanthambore': { title: 'Jaipur + Ranthambore Royal', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
     };
 
-    let currentPDF = ''; let currentTripName = '';
+    let currentPDF = ''; 
+    let currentTripName = '';
     
     function openModal(id, dest, weatherInfo = '🌤️ Curated') { 
       const data = itineraryData[id] || {title: id, pdf: '#', text: 'Details incoming...'}; 
-      currentPDF = data.pdf; currentTripName = data.title; 
+      currentPDF = data.pdf; 
+      currentTripName = data.title; 
       document.getElementById('modalTitle').innerText = data.title; 
       document.getElementById('modalWeather').innerText = `Destination: ${dest} | ${weatherInfo}`; 
       document.getElementById('modalBody').innerHTML = data.text; 
@@ -660,26 +667,65 @@
     
     function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
     function downloadCurrentPDF() { window.open(currentPDF, '_blank'); }
-    function bookCurrentTrip() { const msg = `Hello Raman! I'm interested in booking: "${currentTripName}".`; window.open(`https://wa.me/918295411207?text=${encodeURIComponent(msg)}`, '_blank'); }
+    function bookCurrentTrip() { 
+      const msg = `Hello Raman! I'm interested in booking: "${currentTripName}".`; 
+      window.open(`https://wa.me/918295411207?text=${encodeURIComponent(msg)}`, '_blank'); 
+    }
 
-    function filterDest(c, b) { document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.dest').forEach(d => { d.classList.remove('show'); if(c==='all' || d.dataset.cat===c) d.classList.add('show'); }); }
-    function openLightbox(src) { document.getElementById('lightboxImg').src = src; document.getElementById('lightboxModal').classList.add('active'); }
-    
-    function submitReview() { 
-      const n = document.getElementById('revName').value; const t = document.getElementById('revText').value; const r = document.getElementById('revRating').value;
-      let stars = ''; for(let i=0; i<r; i++) stars += '⭐';
-      if(n && t) { document.getElementById('reviewList').innerHTML = `<div class="card" style="background:#f8fafc; padding:20px; border-left:4px solid var(--gold); text-align:left; box-shadow:none;"><p style="margin:0 0 10px; font-size:14px; color:#475569; font-style:italic;">"${t}"</p><strong style="font-size:14px;">- ${n}</strong><div style="font-size:12px; margin-top:5px;">${stars}</div></div>` + document.getElementById('reviewList').innerHTML; document.getElementById('revName').value=''; document.getElementById('revText').value=''; alert("Review Published!"); } else { alert("Please enter both Name and Review Text."); }
+    function filterDest(c, b) { 
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active')); 
+      b.classList.add('active'); 
+      document.querySelectorAll('.dest').forEach(d => { 
+        d.classList.remove('show'); 
+        if(c === 'all' || d.dataset.cat === c) d.classList.add('show'); 
+      }); 
+    }
+
+    function openLightbox(src) { 
+      document.getElementById('lightboxImg').src = src; 
+      document.getElementById('lightboxModal').classList.add('active'); 
     }
     
-    function sendFinalBooking() { const n = document.getElementById('b_name').value; const d = document.getElementById('b_dest').value; if(n) { window.open(`https://wa.me/919729561534?text=Inquiry from ${n} for ${d}`, '_blank'); } }
+    function submitReview() { 
+      const n = document.getElementById('revName').value; 
+      const t = document.getElementById('revText').value; 
+      const r = document.getElementById('revRating').value;
+      let stars = ''; 
+      for(let i=0; i<r; i++) stars += '⭐';
+      
+      if(n && t) { 
+        const htmlToAdd = `<div class="card" style="background:#f8fafc; padding:20px; border-left:4px solid var(--gold); text-align:left; box-shadow:none;"><p style="margin:0 0 10px; font-size:14px; color:#475569; font-style:italic;">"${t}"</p><strong style="font-size:14px;">- ${n}</strong><div style="font-size:12px; margin-top:5px;">${stars}</div></div>`;
+        document.getElementById('reviewList').innerHTML = htmlToAdd + document.getElementById('reviewList').innerHTML; 
+        document.getElementById('revName').value = ''; 
+        document.getElementById('revText').value = ''; 
+        alert("Review Published!"); 
+      } else { 
+        alert("Please enter both Name and Review Text."); 
+      }
+    }
+    
+    function sendFinalBooking() { 
+      const n = document.getElementById('b_name').value; 
+      const d = document.getElementById('b_dest').value; 
+      if(n) { 
+        window.open(`https://wa.me/919729561534?text=Inquiry from ${n} for ${d}`, '_blank'); 
+      } 
+    }
 
     // FIREBASE INITIALIZATION & DASHBOARD LOGIC
     const firebaseConfig = {
-      apiKey: "AIzaSyB7rithwb5Dc5UI8pYMFiCG2b_lAHx1W-0", authDomain: "joyful-tours-live.firebaseapp.com",
-      projectId: "joyful-tours-live", storageBucket: "joyfultours-live.appspot.com",
-      messagingSenderId: "894967433632", appId: "1:894967433632:web:75f69a054f05361bff7cc5"
+      apiKey: "AIzaSyB7rithwb5Dc5UI8pYMFiCG2b_lAHx1W-0", 
+      authDomain: "joyful-tours-live.firebaseapp.com",
+      projectId: "joyful-tours-live", 
+      storageBucket: "joyfultours-live.appspot.com",
+      messagingSenderId: "894967433632", 
+      appId: "1:894967433632:web:75f69a054f05361bff7cc5"
     };
-    firebase.initializeApp(firebaseConfig);
+    
+    // Prevent double initialization errors
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
     const database = firebase.database();
 
     function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
@@ -700,7 +746,8 @@
       database.ref('trips/' + code + '/forms').push({ name: n, food: d, allergy: a || "None" })
         .then(() => {
           alert("Elite Passport Updated! Information sent securely to Ground Captain. ✅");
-          document.getElementById('f_name').value = ''; document.getElementById('f_allergy').value = '';
+          document.getElementById('f_name').value = ''; 
+          document.getElementById('f_allergy').value = '';
         });
     }
 
@@ -781,10 +828,33 @@
       document.getElementById(tabId).style.display = 'block';
     }
 
-    // TIMER
-    const target = new Date("June 1, 2026").getTime();
-    setInterval(() => { 
-      const diff = target - new Date().getTime(); 
-      if(diff > 0) { 
-        document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0'); 
-        document.getElementById("hours").innerText = Math.floor((diff%(1000*60*6
+    // CLEAN TIMER FUNCTION
+    const targetDate = new Date("June 1, 2026 00:00:00").getTime();
+    const timerInterval = setInterval(function() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff > 0) {
+        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+        document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+        document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+      } else {
+        clearInterval(timerInterval);
+      }
+    }, 1000);
+
+    // LIVE NOTIFICATIONS
+    const liveNotifs = ["🎒 A school from Sirsa just booked Darjeeling!", "🔥 Only 4 slots left for Spiti Squad Tour", "👨‍👩‍👦 5-Star review added for Udaipur Family Trip"];
+    let nIndex = 0;
+    setInterval(() => {
+      const notifEl = document.getElementById('liveNotif');
+      if (notifEl) {
+        document.getElementById('notifMsg').innerText = liveNotifs[nIndex];
+        notifEl.classList.add('show');
+        setTimeout(() => notifEl.classList.remove('show'), 4000);
+        nIndex = (nIndex + 1) % liveNotifs.length;
+      }
+    }, 18000);
+  </script>
+</body>
+</html>
