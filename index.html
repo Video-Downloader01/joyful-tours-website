@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joyful Tours And Adventures | Premium Educational & Group Trips | lock5.0</title>
+  <title>Joyful Tours And Adventures | Premium Educational & Group Trips</title>
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   
@@ -71,7 +71,6 @@
     .cat-icon { font-size: 40px; margin-bottom: 5px; display: block; text-shadow: 0 5px 10px rgba(0,0,0,0.1); }
     .cat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #d4af37, #fef08a); }
 
-    /* EMBEDDED DESTINATION CARDS IN CATEGORY */
     .embedded-dest { border-radius: 12px; overflow: hidden; background-size: cover; background-position: center; padding: 15px; text-align: left; margin: 10px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 140px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; border:1px solid rgba(255,255,255,0.2); position: relative;}
     .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); z-index: 1;}
     .embedded-dest > * { position: relative; z-index: 2; color: white; }
@@ -147,7 +146,6 @@
 
     input, textarea, select { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; margin-bottom: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; font-size:14px;}
     input:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 8px rgba(212,175,55,0.2); }
-    select { appearance: none; background: #f8fafc url('data:image/svg+xml;utf8,<svg fill="%230f172a" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat right 10px center; }
 
     details { background: white; padding: 14px 20px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
     summary { font-weight: 600; font-size: 15px; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
@@ -156,19 +154,19 @@
     details[open] summary::after { content: '-'; }
     details p { margin-top: 10px; margin-bottom: 0; color: #475569; line-height: 1.5; font-size:14px; border-top: 1px solid #f1f5f9; padding-top: 10px; }
 
+    .live-notif { position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px; }
+    .live-notif.show { left: 24px; }
+
+    /* DASHBOARD STYLES */
     .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
     .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
     .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
     .dash-panel { display: none; animation: fadeIn 0.3s; }
     .dash-panel.active { display: block; }
-    
-    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
-    .gps-debug { font-size: 10px; opacity: 0.7; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a;}
-
+    .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 20px; }
     .live-feed-item { border-left: 2px solid var(--gold); padding-left: 15px; margin-left: 5px; margin-bottom: 15px; position: relative; }
     .live-feed-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
     .time-stamp { font-size: 11px; color: #64748b; font-weight: bold; text-transform:uppercase; }
-
     .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; animation: sosPulse 2s infinite; font-size: 15px; margin-bottom: 15px; }
     @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
   </style>
@@ -177,6 +175,8 @@
 
   <audio id="bgAudio" loop></audio>
 
+  <div id="liveNotif" class="live-notif"><div style="background:#e0f2fe; padding:6px; border-radius:50%;">🔔</div><div id="notifMsg">A school from Sirsa just inquired!</div></div>
+
   <div class="top-bar">
     <marquee scrollamount="5">🎒 Bookings Open for Amarnath Yatra 2026 | Special 20% Group Discount | 🛡️ Udyam Certified Safety Standards</marquee>
   </div>
@@ -184,15 +184,14 @@
   <div class="ai-anchor" onclick="togglePihuChat()">
     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Pihu" class="ai-avatar">
   </div>
-  
   <div id="pihuChatBox" class="pihu-chat-box">
     <div class="chat-header"><span>🟢 Pihu - VIP Guide</span><span onclick="togglePihuChat()" style="cursor:pointer;">✖</span></div>
     <div class="chat-body" id="chatBody">
       <div style="text-align:left; margin-bottom:12px;"><span style="background:#fff; padding:10px 14px; border-radius:15px; border:1px solid #ddd; display:inline-block; font-size:13px;">Namaste! I am Pihu. Experience the next level of travel with Joyful Tours. How can I assist you?</span></div>
     </div>
-    <div class="chat-input-area" style="display:flex; padding:10px; background:white; border-top:1px solid #e2e8f0;">
-      <input type="text" id="chatInput" placeholder="Ask Pihu..." style="flex:1; border:1px solid #cbd5e1; border-radius:20px; padding:8px 15px; outline:none; font-size:13px;" onkeypress="if(event.key === 'Enter') sendPihuMsg()">
-      <button onclick="sendPihuMsg()" style="background:var(--gold); border:none; color:white; padding:8px 15px; border-radius:50%; margin-left:8px; cursor:pointer;">➤</button>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Ask Pihu..." onkeypress="if(event.key === 'Enter') sendPihuMsg()">
+      <button onclick="sendPihuMsg()">➤</button>
     </div>
   </div>
 
@@ -342,20 +341,8 @@
         <button class="filter-btn" onclick="filterDest('mega', this)">Grand Expeditions</button>
       </div>
       <div class="grid" id="destGrid">
-        
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'>
-          <div class="badge">🔥 ADVENTURE: NEW</div>
-          <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
-          Rishikesh Expedition 
-          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button>
-        </div>
-
-        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
-          <div class="badge">💎 ELITE: NEW</div>
-          <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition 
-          <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
-        </div>
-
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'><div class="badge">🔥 ADVENTURE: NEW</div><button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Rishikesh Expedition <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button></div>
+        <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'><div class="badge">💎 ELITE: NEW</div><button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> Darjeeling Expedition <button class="btn primary" style="margin:12px 0 0 0; padding:10px 15px; font-size:13px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Amritsar&wagah.png")'><div class="badge">⭐ 8.5/10</div><button class="view-360-btn" onclick="open360('Amritsar', 'audio_wagah.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Amritsar & Wagah<button class="btn primary" style="margin-top:12px;" onclick="openModal('AmritsarWagah', 'Amritsar', '☀️ 30°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Manali.png")'><div class="badge">👑 9.0/10</div><button class="view-360-btn" onclick="open360('Manali', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Manali Adventure<button class="btn primary" style="margin-top:12px;" onclick="openModal('Manali', 'Manali', '❄️ 8°C')">View Details</button></div>
         <div class="card dest show" data-cat="short" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("Shimla.png")'><div class="badge">⭐ 8.8/10</div><button class="view-360-btn" onclick="open360('Shimla', 'audio_hills.mp3'); event.stopPropagation();">🌐 Explore 360°</button>Shimla Hills<button class="btn primary" style="margin-top:12px;" onclick="openModal('Shimla', 'Shimla', '🌤️ 12°C')">View Details</button></div>
@@ -491,9 +478,10 @@
       </select>
 
       <label style="font-size:12px; font-weight:bold; color:var(--navy); text-align:left; display:block; margin-bottom:5px;">Trip Passcode:</label>
-      <input id="tripCode" type="password" placeholder="Passcode..." style="text-align:center; letter-spacing:4px; font-size:18px; font-weight:bold;" />
+      <input id="tripCode" type="password" placeholder="Passcode..." style="width:100%; padding:12px; border-radius:10px; border:1px solid #cbd5e1; text-align:center; letter-spacing:4px; font-size:18px; font-weight:bold; box-sizing:border-box; margin-bottom:15px;" />
       
       <button id="loginBtnAction" class="btn primary" style="width:100%; margin:10px 0 0 0;" onclick="loginDashboard()">Access Dashboard</button>
+      <p style="font-size:10px; color:#94a3b8; margin-top:15px;">Protected by Firebase Authentication</p>
     </div>
   </div>
 
@@ -762,7 +750,7 @@
       document.getElementById(tabId).style.display = 'block';
     }
 
-    // TIMER
+    // AMARNATH TIMER
     const target = new Date("June 1, 2026").getTime();
     setInterval(() => { 
       const diff = target - new Date().getTime(); 
@@ -775,4 +763,15 @@
     }, 1000);
 
     // LIVE NOTIFICATIONS
-    const liveNotifs = ["🎒 A school from Sirsa just booked Darjeeling!", "🔥 Only 4 slots left for Spiti Squad Tour", "👨‍👩‍👦
+    const liveNotifs = ["🎒 A school from Sirsa just booked Darjeeling!", "🔥 Only 4 slots left for Spiti Squad Tour", "👨‍👩‍👦 5-Star review added for Udaipur Family Trip"];
+    let nIndex = 0;
+    setInterval(() => {
+      const notifEl = document.getElementById('liveNotif');
+      document.getElementById('notifMsg').innerText = liveNotifs[nIndex];
+      notifEl.classList.add('show');
+      setTimeout(() => notifEl.classList.remove('show'), 4000);
+      nIndex = (nIndex + 1) % liveNotifs.length;
+    }, 18000);
+  </script>
+</body>
+</html>
