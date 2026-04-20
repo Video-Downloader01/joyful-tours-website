@@ -11,7 +11,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
   <style>
-    :root { --gold: #d4af37; --navy: #0f172a; --light-bg: #f8fafc; --text: #1e293b; --emerald: #059669; }
+    :root { --gold: #d4af37; --gold-hover: #b5952f; --navy: #0f172a; --light-bg: #f8fafc; --text: #1e293b; --emerald: #059669; }
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--light-bg); color: var(--text); overflow-x: hidden; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
@@ -55,15 +55,14 @@
     .dest.show { display: flex; animation: fadeIn 0.4s; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* CATEGORIES LUXURY */
     .cat-section { background: #f8fafc; padding: 60px 0; border-top: 2px solid var(--gold); }
-    .cat-card { text-align: center; padding: 25px 20px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); position: relative; overflow: hidden;}
+    .cat-card { text-align: center; padding: 25px 20px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition:0.3s; position: relative; overflow: hidden;}
     .cat-icon { font-size: 40px; margin-bottom: 5px; display: block; }
     .embedded-dest { border-radius: 12px; overflow: hidden; background-size: cover; background-position: center; padding: 15px; text-align: left; margin: 10px 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 140px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border:1px solid rgba(255,255,255,0.2); position: relative;}
     .embedded-dest::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); z-index: 1;}
     .embedded-dest > * { position: relative; z-index: 2; color: white; }
 
-    /* DASHBOARD & UI */
+    /* DASHBOARD */
     .dash-nav { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px; }
     .dash-tab { padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px; }
     .dash-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
@@ -71,7 +70,7 @@
     .dash-panel.active { display: block; }
     .status-card { background: linear-gradient(135deg, var(--navy), #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px; }
     
-    /* RADAR METRICS */
+    /* RADAR UI */
     .radar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom:15px; }
     .radar-item { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;}
     .radar-item p { margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px; }
@@ -80,14 +79,16 @@
 
     /* PIHU CHATBOT */
     .ai-anchor { position: fixed; bottom: 24px; left: 24px; z-index: 3000; cursor: pointer; display: flex; align-items: flex-end; gap: 10px; }
-    .ai-avatar { width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); background: white; }
-    .pihu-chat-box { position: fixed; bottom: 100px; left: 24px; width: 300px; background: white; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 3000; display: none; overflow: hidden; border: 1px solid #e2e8f0; flex-direction: column; }
+    .ai-avatar { width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); animation: floatPulse 3s ease-in-out infinite; background: white; }
+    @keyframes floatPulse { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .pihu-chat-box { position: fixed; bottom: 100px; left: 24px; width: 300px; background: white; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 3000; display: none; overflow: hidden; border: 1px solid #e2e8f0; flex-direction: column; animation: popIn 0.3s ease; }
     .pihu-chat-box.active { display: flex; }
     .chat-header { background: var(--navy); color: var(--gold); padding: 12px 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); font-size:14px;}
     .chat-body { height: 260px; overflow-y: auto; padding: 15px; background: #f1f5f9; }
     .chat-input-area { display: flex; padding: 10px; background: white; border-top: 1px solid #e2e8f0; }
     .chat-input-area input { flex: 1; padding: 10px 15px; border: 1px solid #cbd5e1; border-radius: 20px; margin-bottom: 0; outline: none; font-size:13px; }
     .chat-input-area button { background: var(--gold); color: white; border: none; padding: 8px 15px; border-radius: 50%; margin-left: 8px; cursor: pointer; }
+    @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 
     /* MODALS & POPUPS */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 4000; justify-content: center; align-items: center; padding: 15px; }
@@ -95,10 +96,12 @@
     .modal-content { background: white; padding: 25px; border-radius: 20px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; border:2px solid var(--gold);}
     .close-btn { position: absolute; top: 15px; right: 15px; background: #f1f5f9; border: none; width: 30px; height: 30px; border-radius: 50%; font-size: 18px; cursor: pointer; z-index: 10; color: #0f172a;}
 
-    /* FULL SCREEN LOGIN BACKGROUND */
+    /* FULL SCREEN LOGIN */
     #loginModal .modal-content { max-width: 100vw; width: 100vw; height: 100vh; border-radius: 0; background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; border: none; padding: 20px; }
-    
-    /* ELITE BOARDING PASS & FORM */
+    #loginModal h3 { color: var(--gold); font-size: 32px; margin-bottom: 20px; font-family:'Playfair Display', serif;}
+    .login-box { background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); padding: 30px; border-radius: 20px; width: 100%; max-width: 350px; border: 1px solid rgba(212,175,55,0.3); box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+
+    /* ELITE BOARDING PASS */
     .boarding-pass { background: #fff; border: 2px dashed var(--gold); border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2); }
     .boarding-pass::before, .boarding-pass::after { content: ''; position: absolute; top: 50%; width: 20px; height: 20px; background: #f8fafc; border-radius: 50%; border: 2px solid var(--gold); }
     .boarding-pass::before { left: -12px; } .boarding-pass::after { right: -12px; }
@@ -114,14 +117,16 @@
 
     /* TRIP COMPLETED SCREEN */
     #tripCompleteScreen { display: none; text-align: center; padding: 30px 15px; background: linear-gradient(135deg, #f8fafc, #eef2ff); border-radius: 15px; border: 2px solid var(--gold); margin-top: 20px; }
-
+    
     /* VARIOUS UTILS */
     .gallery-marquee { width: 100%; overflow: hidden; white-space: nowrap; padding: 15px 0; background: #fff7ed; }
     .marquee-track { display: inline-block; animation: scrollMarquee 30s linear infinite; }
     .marquee-track img { height: 250px; border-radius: 10px; margin-right: 15px; object-fit: cover; cursor: pointer; }
     @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     #lightboxModal .modal-content { background:transparent; border:none; box-shadow:none; padding:0; text-align:center; overflow: hidden;}
-    .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 15px; margin-bottom: 15px; }
+    #lightboxImg { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .sos-btn { background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; animation: sosPulse 2s infinite; font-size: 15px; margin-bottom: 15px; }
+    @keyframes sosPulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
     .filter-bar { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
     .filter-btn { background: #e2e8f0; color: var(--navy); border: none; padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size:13px; cursor: pointer; }
     .filter-btn.active { background: var(--navy); color: var(--gold); }
@@ -148,7 +153,7 @@
 
   <audio id="bgAudio" loop></audio>
 
-  <div id="liveNotif" style="position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px;">🔔 <span id="notifMsg"></span></div>
+  <div id="liveNotif" style="position: fixed; bottom: 100px; left: -350px; background: white; padding: 10px 15px; border-left: 4px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 2500; transition: left 0.5s; font-size: 12px; color: var(--navy); display: flex; align-items: center; gap: 8px; font-weight: 600; max-width: 250px;">🔔 <span id="notifMsg">A school from Sirsa just inquired!</span></div>
 
   <div class="top-bar">
     <marquee scrollamount="5">🎒 Bookings Open for Amarnath Yatra 2026 | Special 20% Group Discount | 🛡️ Udyam Certified Safety Standards</marquee>
@@ -188,8 +193,8 @@
       <a class="btn" href="#faq" onclick="toggleMenu()">FAQs</a>
       <a class="btn" href="#gallery" onclick="toggleMenu()">Gallery</a>
       <a class="btn" href="#reviews" onclick="toggleMenu()">Reviews</a>
-      <a class="btn primary" href="#booking" onclick="toggleMenu()" style="display:inline-block; max-width:200px;">Book Now</a>
-      <a class="btn login-btn" href="#" onclick="openLoginModal(); toggleMenu();" style="display:inline-block; max-width:150px;">Login 🔒</a>
+      <a class="btn primary" href="#booking" onclick="toggleMenu()">Book Now</a>
+      <a class="btn login-btn" href="#" onclick="openLoginModal(); toggleMenu();">Login 🔒</a>
     </div>
   </div>
 
@@ -283,12 +288,12 @@
       </div>
       <div class="grid" id="destGrid">
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1ZRxJfYV-r7-O9XSPc-0ROdmeJw_iix1Z&sz=w800")'>
-          <div class="badge">🔥 ADVENTURE: NEW</div>
+          <div class="badge">🔥 ADVENTURE</div>
           <button class="view-360-btn" onclick="open360('Rishikesh', 'audio_river.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
           Rishikesh Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Rishikesh', 'Rishikesh', '🌤️ 22°C')">View Details</button>
         </div>
         <div class="card dest show" data-cat="mega" style='background-image:linear-gradient(rgba(0,0,0,0.3),rgba(15,23,42,0.8)),url("https://drive.google.com/thumbnail?id=1PlAI66c4hfqQ4Sw8MLwGT-ecWlSyvhXt&sz=w800")'>
-          <div class="badge">💎 ELITE: NEW</div>
+          <div class="badge">💎 ELITE</div>
           <button class="view-360-btn" onclick="open360('Darjeeling', 'audio_nature.mp3'); event.stopPropagation();">🌐 Explore 360°</button> 
           Darjeeling Expedition <button class="btn primary" style="margin-top:10px;" onclick="openModal('Darjeeling', 'Darjeeling', '🌤️ 14°C')">View Details</button>
         </div>
@@ -316,10 +321,10 @@
           <h2 id="schoolH2" style="font-size: 30px; margin-top:0;">Partner With Us For Your Next School Trip</h2>
           <p id="schoolP" style="font-size: 14px; line-height: 1.7; color: #475569;">At Joyful Tours, we handle 100% of the logistics so your teaching staff can focus entirely on the students.</p>
           <ul style="line-height: 1.8; color: var(--navy); font-weight: 600; margin-bottom: 25px; font-size:14px; list-style:none; padding:0;">
-            <li id="s1" style="margin-bottom:8px;">✓ Strict 1:10 Coordinator to Student Ratio</li>
-            <li id="s2" style="margin-bottom:8px;">✓ Dedicated Female Staff for Girls</li>
-            <li id="s3" style="margin-bottom:8px;">✓ 24/7 Medical & Doctor-on-call Support</li>
-            <li id="s4" style="margin-bottom:8px;">✓ Private WhatsApp Broadcast for Parents</li>
+            <li>✓ Strict 1:10 Coordinator to Student Ratio</li>
+            <li>✓ Dedicated Female Staff for Girls</li>
+            <li>✓ 24/7 Medical & Doctor-on-call Support</li>
+            <li>✓ Secure Live GPS Tracking for Parents</li>
           </ul>
           <button class="btn primary" style="padding:12px 20px; font-size:14px; margin:0;" onclick="window.open('https://wa.me/919729561534?text=Requesting%20School%20Presentation')">Request a Presentation</button>
         </div>
@@ -331,23 +336,22 @@
   <section id="how-it-works" class="section" style="background: var(--light-bg);">
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">How It Works: 4 Easy Steps</h2>
-      <p style="text-align: center; color: #64748b; margin-bottom: 40px; font-size:14px;">From inquiry to execution, we handle 100% of the logistics.</p>
-      <div class="grid">
-        <div class="step-box"><div class="step-icon">1</div><h3 style="font-size:18px;">Submit Inquiry</h3><p style="color:#475569; font-size:13px;">Tell us your destination, dates, and student count via WhatsApp.</p></div>
-        <div class="step-box"><div class="step-icon">2</div><h3 style="font-size:18px;">Custom Quote</h3><p style="color:#475569; font-size:13px;">We share a detailed proposal and a transparent pricing plan.</p></div>
-        <div class="step-box"><div class="step-icon">3</div><h3 style="font-size:18px;">Logistics Planning</h3><p style="color:#475569; font-size:13px;">We secure premium AC coaches, 4-star hotels, and verified staff.</p></div>
-        <div class="step-box"><div class="step-icon">4</div><h3 style="font-size:18px;">Joyful Trip</h3><p style="color:#475569; font-size:13px;">Teachers relax while our expert Captains manage the expedition.</p></div>
+      <div class="grid" style="text-align:center;">
+        <div class="card"><h3>1</h3><p>Submit Inquiry via WhatsApp</p></div>
+        <div class="card"><h3>2</h3><p>Get Custom Proposal</p></div>
+        <div class="card"><h3>3</h3><p>Logistics Secured</p></div>
+        <div class="card"><h3>4</h3><p>Joyful Execution!</p></div>
       </div>
     </div>
   </section>
 
-  <section id="faq" class="section">
+  <section id="faq" class="section" style="background: #eef2ff;">
     <div class="container">
       <h2 style="text-align: center; font-size:32px;">Frequently Asked Questions</h2>
       <div style="max-width: 700px; margin: 30px auto 0;">
-        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">Is there dedicated staff for female students?</summary><p style="margin-top:10px; color:#475569;">Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students to ensure their comfort and safety.</p></details>
-        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">What kind of food is provided during the trips?</summary><p style="margin-top:10px; color:#475569;">We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.</p></details>
-        <details style="background:white; padding:15px; border-radius:10px; margin-bottom:10px; border:1px solid #ccc;"><summary style="font-weight:bold; cursor:pointer; outline:none;">How do parents get updates during the trip?</summary><p style="margin-top:10px; color:#475569;">Parents can use our Secure VIP Login Portal to track live GPS, weather, and real-time trip timelines.</p></details>
+        <details><summary>Is there dedicated staff for female students?</summary><p>Yes, absolutely! We follow a strict 1:10 staff ratio. A dedicated female coordinator always accompanies groups with girl students.</p></details>
+        <details><summary>What kind of food is provided during the trips?</summary><p>We provide 100% pure vegetarian, unlimited buffet meals prepared in highly hygienic kitchens.</p></details>
+        <details><summary>How do parents get updates during the trip?</summary><p>Parents can use our Secure VIP Login Portal to track live GPS, weather, and real-time trip timelines.</p></details>
       </div>
     </div>
   </section>
@@ -447,7 +451,7 @@
     <div class="modal-content" style="max-width: 800px; background:#000; color:white; padding:10px;">
       <button class="close-btn" onclick="close360()" style="background:white; color:black;">×</button>
       <h3 style="margin:10px 15px;" id="panoTitle">Location 360°</h3>
-      <div id="panoFrame"></div>
+      <div id="panoFrame" style="width:100%; height:350px; border-radius:12px; background-position:center; background-size:cover; animation:pan360 25s linear infinite alternate;"></div>
     </div>
   </div>
 
@@ -500,30 +504,30 @@
       </div>
 
       <div id="liveTrackingUI">
-        <div class="dash-nav">
-          <div id="tab-overview" class="dash-tab active" onclick="switchDashTab('dash-overview', this)">Overview</div>
-          <div id="tab-timeline" class="dash-tab" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
-          <div id="tab-pass" class="dash-tab" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
-          <div id="tab-gallery" class="dash-tab" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
+        <div class="dash-nav" style="display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; overflow-x: auto; padding:0 20px;">
+          <div id="tab-overview" class="dash-tab active" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-overview', this)">Overview</div>
+          <div id="tab-timeline" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-timeline', this)">Live Timeline</div>
+          <div id="tab-pass" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-pass', this)">VIP Pass</div>
+          <div id="tab-gallery" class="dash-tab" style="padding: 10px 15px; font-weight: 600; color: #64748b; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; font-size:14px;" onclick="switchDashTab('dash-gallery', this)">Insta Feed</div>
         </div>
 
         <div style="padding:20px; height:400px; overflow-y:auto;">
           
           <div id="dash-overview" class="dash-panel active" style="display:block;">
-            <button class="sos-btn" onclick="alert('🚨 Emergency Ping Sent to Captain!')">🚨 EMERGENCY SOS</button>
+            <button style="background: #ef4444; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 15px; margin-bottom: 15px;" onclick="alert('🚨 Emergency Ping Sent to Captain!')">🚨 EMERGENCY SOS</button>
 
-            <div class="radar-grid">
-              <div class="radar-item">
-                <p>🏔️ Live Altitude</p>
-                <strong id="liveAlt">Syncing...</strong>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom:15px;">
+              <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;">
+                <p style="margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">🏔️ Live Altitude</p>
+                <strong id="liveAlt" style="font-size:14px; display:block; margin-top:3px; color: white;">Syncing...</strong>
               </div>
-              <div class="radar-item">
-                <p>🏥 Medical Radar</p>
-                <strong id="medicalRadar">Scanning...</strong>
+              <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); background-color: #0f172a;">
+                <p style="margin:0; font-size:10px; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">🏥 Medical Radar</p>
+                <strong id="medicalRadar" style="font-size:14px; display:block; margin-top:3px; color: white;">Scanning...</strong>
               </div>
             </div>
 
-            <div class="status-card">
+            <div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 20px; border-radius: 15px; text-align: left; position: relative; overflow: hidden; margin-bottom: 15px;">
               <h3 style="margin:0 0 15px 0; color:var(--gold);">Current Status</h3>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">📍 Location</p><strong style="font-size:14px;" id="liveLoc">Updating...</strong></div>
@@ -531,21 +535,21 @@
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">🚌 Next Stop</p><strong style="font-size:14px;" id="liveStop">Connecting...</strong></div>
                 <div><p style="margin:0; font-size:11px; opacity:0.8;">⏱️ ETA</p><strong style="font-size:14px;" id="liveETA">Calculating...</strong></div>
               </div>
-              <div class="gps-debug" id="gpsDebug">Awaiting secure connection...</div>
+              <div id="gpsDebug" style="font-size: 10px; opacity: 0.7; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; color: #fef08a; text-align:center;">Awaiting secure connection...</div>
             </div>
             
             <div id="roleSpecificUI"></div>
           </div>
 
           <div id="dash-timeline" class="dash-panel" style="display:none;">
-            <p style="font-size:12px; color:#64748b; margin-top:0;">Live Polaroid updates from Tour Captain.</p>
+            <p style="font-size:12px; color:#64748b; margin-top:0;">Live updates from Tour Captain.</p>
             <div id="timelineContainer"></div>
           </div>
 
           <div id="dash-pass" class="dash-panel" style="display:none;">
-            <div class="boarding-pass">
-              <div class="verified-stamp">SECURE VERIFIED PASS</div>
-              <h3>JOYFUL VIP PASS</h3>
+            <div style="background: #fff; border: 2px dashed #d4af37; border-radius: 15px; padding: 20px; text-align: center; position: relative; box-shadow: 0 0 20px rgba(212,175,55,0.2);">
+              <div style="font-size: 10px; background: #059669; color: white; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-weight: bold;">SECURE VERIFIED PASS</div>
+              <h3 style="margin: 0; color: #0f172a; font-size: 18px; letter-spacing: 2px;">JOYFUL VIP PASS</h3>
               <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=JoyfulTours" style="border-radius:10px; margin:15px 0; border:4px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
               <div style="border-top:1px dashed #ccc; padding-top:10px; font-size:11px; font-weight:bold; color:var(--navy);">AUTHORIZED ENTRY ONLY</div>
             </div>
@@ -565,7 +569,7 @@
   <canvas id="certCanvas" style="display:none;" width="1000" height="700"></canvas>
 
   <script>
-    // JS CORE
+    // UI FUNCTIONS
     function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
     function toggleWaMenu() { 
       const waMenu = document.getElementById('waMenu');
@@ -620,6 +624,7 @@
       document.getElementById('bgAudio').play().catch(() => {}); 
       document.getElementById('360Modal').classList.add('active'); 
     }
+
     function close360() { 
       document.getElementById('360Modal').classList.remove('active'); 
       document.getElementById('bgAudio').pause(); 
@@ -652,13 +657,11 @@
       'JaipurRanthambore': { title: 'Jaipur + Ranthambore', pdf: 'https://drive.google.com/file/d/1r4Ot9zcm6Lq_MUOx9-qas8Vtgnv4cvy7/view', text: '<div class="timeline-item"><strong>4 Days Rajasthan Royal</strong><p>Royal architecture of Amer Fort combined with Tiger tracking at Ranthambore.</p></div>' }
     };
 
-    let currentPDF = ''; 
-    let currentTripName = '';
+    let currentPDF = ''; let currentTripName = '';
     
     function openModal(id, dest, weatherInfo = '🌤️ Curated') { 
       const data = itineraryData[id] || {title: id, pdf: '#', text: 'Details loading...'}; 
-      currentPDF = data.pdf; 
-      currentTripName = data.title; 
+      currentPDF = data.pdf; currentTripName = data.title; 
       document.getElementById('modalTitle').innerText = data.title; 
       document.getElementById('modalWeather').innerText = `Dest: ${dest} | ${weatherInfo}`; 
       document.getElementById('modalBody').innerHTML = data.text; 
@@ -666,6 +669,15 @@
       document.getElementById('itineraryModal').classList.add('active'); 
     }
     
+    function closeModal() { document.getElementById('itineraryModal').classList.remove('active'); }
+    function downloadCurrentPDF() { window.open(currentPDF, '_blank'); }
+    
+    // BOOK TRIP FUNCTION RE-ADDED
+    function bookCurrentTrip() { 
+      const msg = `Hello Raman! I'm interested in booking: "${currentTripName}".`; 
+      window.open(`https://wa.me/918295411207?text=${encodeURIComponent(msg)}`, '_blank'); 
+    }
+
     function filterDest(c, b) { 
       document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active')); 
       b.classList.add('active'); 
@@ -699,7 +711,24 @@
 
     function openLoginModal() { document.getElementById('loginModal').classList.add('active'); }
 
-    // REAL-TIME APIS: AQI & MEDICAL RADAR
+    function triggerSOS() {
+      alert("🚨 Emergency Alert Sent! Ground Captain will contact you immediately.");
+    }
+
+    function submitEliteForm(code) {
+      const n = document.getElementById('f_name').value;
+      const d = document.getElementById('f_diet').value;
+      const a = document.getElementById('f_allergy').value;
+      if(!n) { alert("Student Name Required!"); return; }
+      
+      database.ref('trips/' + code + '/forms').push({ name: n, food: d, allergy: a || "None" })
+        .then(() => {
+          alert("Elite Passport Updated! Information sent securely. ✅");
+          document.getElementById('f_name').value = ''; document.getElementById('f_allergy').value = '';
+        });
+    }
+
+    // REAL TIME APIs: WEATHER, AQI & MEDICAL RADAR
     function fetchRealTimeMetrics(lat, lon) {
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=B09c0c8f99ae2959dd2059168d662bab`)
         .then(res => res.json())
@@ -742,7 +771,7 @@
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); return R * c; 
     }
 
-    // PRO CERTIFICATE GENERATOR WITH AUTO-DOWNLOAD FIX
+    // REAL CERTIFICATE GENERATOR WITH AUTO-DOWNLOAD FIX
     function generateCertificate() {
       const name = document.getElementById('certNameInput').value.trim();
       if(!name) return alert("Please enter the student's name first!");
@@ -847,13 +876,21 @@
 
           if(tripData.liveGPS && tripData.liveGPS.lat) {
             document.getElementById('gpsDebug').innerText = "Encrypted Ping: " + tripData.liveGPS.time;
+            
+            // REAL ALTITUDE FIX
+            if(tripData.liveGPS.altitude && tripData.liveGPS.altitude > 0) {
+              document.getElementById('liveAlt').innerText = `${Math.round(tripData.liveGPS.altitude)} Meters`;
+            } else {
+              document.getElementById('liveAlt').innerText = `Calibrating GPS...`;
+            }
+            
             fetchRealTimeMetrics(tripData.liveGPS.lat, tripData.liveGPS.lon);
           }
 
           if(userRole === 'teacher') {
             document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#eef2ff; padding:15px; border-radius:10px; margin-top:15px; border:1px solid #c7d2fe;"><strong style="color:#3730a3;">👑 Principal Dashboard</strong><p style="margin:5px 0 0; font-size:12px; color:#4f46e5;">All students safe. Ground operations running perfectly.</p></div>`;
           } else {
-            document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#fffbeb; border:1px solid #fde047; padding:15px; border-radius:12px; margin-top:15px;"><h4 style="margin:0 0 10px 0; font-size:14px; color:#854d0e;">🍱 Health & Meal Passport</h4><input id="f_name" placeholder="Student's Name" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><select id="f_diet" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><option>Pure Veg</option><option>Jain Food</option><option>No Garlic/Onion</option></select><input id="f_allergy" placeholder="Any Allergies? (Type None)" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><button style="width:100%; padding:10px; background:var(--navy); color:var(--gold); border:none; border-radius:8px; font-weight:bold; cursor:pointer;" onclick="submitEliteForm('${code}')">SUBMIT TO KITCHEN</button></div>`;
+            document.getElementById('roleSpecificUI').innerHTML = `<div style="background:#fffbeb; border:1px solid #fde047; padding:15px; border-radius:12px; margin-top:15px;"><h4 style="margin:0 0 10px 0; font-size:14px; color:#854d0e;">🍱 Health & Meal Passport</h4><input id="f_name" placeholder="Student's Name" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><select id="f_diet" style="width:100%; padding:10px; margin-bottom:8px; border-radius:8px; border:1px solid #ccc; font-size:12px; box-sizing:border-box;"><option>Pure Veg</option><option>Jain Food</option><option>No Garlic/Onion</option></select><button style="width:100%; padding:10px; background:var(--navy); color:var(--gold); border:none; border-radius:8px; font-weight:bold; cursor:pointer;" onclick="submitEliteForm('${code}')">SUBMIT TO KITCHEN</button></div>`;
           }
         } else {
           alert("Invalid Passcode!");
@@ -876,19 +913,6 @@
       });
     }
 
-    function submitEliteForm(code) {
-      const n = document.getElementById('f_name').value;
-      const d = document.getElementById('f_diet').value;
-      const a = document.getElementById('f_allergy').value;
-      if(!n) { alert("Student Name Required!"); return; }
-      
-      database.ref('trips/' + code + '/forms').push({ name: n, food: d, allergy: a || "None" })
-        .then(() => {
-          alert("Elite Passport Updated! Information sent securely. ✅");
-          document.getElementById('f_name').value = ''; document.getElementById('f_allergy').value = '';
-        });
-    }
-
     function switchDashTab(tabId, btn) {
       document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.dash-panel').forEach(p => p.style.display = 'none');
@@ -898,7 +922,8 @@
 
     const targetDate = new Date("June 1, 2026 00:00:00").getTime();
     setInterval(function() {
-      const diff = targetDate - new Date().getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
       if (diff > 0) {
         document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
         document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
